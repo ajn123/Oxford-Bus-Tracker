@@ -49,6 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        
         return locations.count
     }
     
@@ -56,7 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     {
         var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
         
-        cell.textLabel?.text = "\(locations.count)"
+        cell.textLabel?.text = "\(locations[indexPath.row])"
         
         return cell
     }
@@ -79,7 +80,7 @@ class ViewController: UIViewController, UITableViewDelegate {
             var arr = dicts["Weekday"] as! [String]
             
             ttvc.days = dicts
-            ttvc.times = arr
+            ttvc.times = arr.reverse()
         }
     }
     

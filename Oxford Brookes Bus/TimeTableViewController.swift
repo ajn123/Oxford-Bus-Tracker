@@ -45,6 +45,8 @@ class TimeTableViewController: UITableViewController {
     {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "timeCell")
         
+        cell.backgroundColor = UIColor(red: 0.90, green: 0.02, blue: 0.02, alpha: 0.99)
+        
         cell.textLabel?.text = "\(times[indexPath.row])"
         
         return cell

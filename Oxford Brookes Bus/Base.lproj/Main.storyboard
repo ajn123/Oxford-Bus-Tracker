@@ -26,7 +26,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zgI-Kq-8cy" kind="show" identifier="routeToTime" id="Lrj-qd-sRl"/>
+                                            <segue destination="zgI-Kq-8cy" kind="show" identifier="routeToTime" id="pr4-63-6gz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="1234.5" y="320.5"/>
         </scene>
-        <!--Time Table View Controller-->
+        <!--Times-->
         <scene sceneID="uEE-Bs-5P9">
             <objects>
                 <tableViewController id="zgI-Kq-8cy" customClass="TimeTableViewController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,11 +69,12 @@
                             <outlet property="delegate" destination="zgI-Kq-8cy" id="4lM-4i-URM"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Times" id="Zqy-yQ-AfT"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ool-xk-WRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1691.5" y="320.5"/>
+            <point key="canvasLocation" x="2108.5" y="312.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XEf-I3-qat">
@@ -94,5 +95,27 @@
             </objects>
             <point key="canvasLocation" x="771.5" y="325.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hdY-dM-H79">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TWn-J1-XHr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6qb-Ul-953">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zgI-Kq-8cy" kind="relationship" relationship="rootViewController" id="LB4-zm-F0L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ekm-yi-dtc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657.5" y="320.5"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LB4-zm-F0L"/>
+    </inferredMetricsTieBreakers>
 </document>
