@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
+		7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */; };
+		7FBE36161AE541640055D8CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36151AE541640055D8CD /* ViewController.swift */; };
+		7FBE36191AE541640055D8CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE36171AE541640055D8CD /* Main.storyboard */; };
+		7FBE361B1AE541640055D8CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE361A1AE541640055D8CD /* Images.xcassets */; };
+		7FBE361E1AE541640055D8CD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE361C1AE541640055D8CD /* LaunchScreen.xib */; };
+		7FBE362A1AE541640055D8CD /* Oxford_Brookes_BusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36291AE541640055D8CD /* Oxford_Brookes_BusTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FBE36241AE541640055D8CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FBE36031AE541640055D8CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FBE360A1AE541640055D8CD;
+			remoteInfo = "Oxford Brookes Bus";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FBE360F1AE541640055D8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FBE36101AE541640055D8CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7FBE36131AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Oxford_Brookes_Bus.xcdatamodel; sourceTree = "<group>"; };
+		7FBE36151AE541640055D8CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7FBE36181AE541640055D8CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7FBE361A1AE541640055D8CD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7FBE361D1AE541640055D8CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7FBE36231AE541640055D8CD /* Oxford Brookes BusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Oxford Brookes BusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FBE36281AE541640055D8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FBE36291AE541640055D8CD /* Oxford_Brookes_BusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oxford_Brookes_BusTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7FBE36081AE541640055D8CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FBE36201AE541640055D8CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7FBE36021AE541640055D8CD = {
+			isa = PBXGroup;
+			children = (
+				7FBE360D1AE541640055D8CD /* Oxford Brookes Bus */,
+				7FBE36261AE541640055D8CD /* Oxford Brookes BusTests */,
+				7FBE360C1AE541640055D8CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7FBE360C1AE541640055D8CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */,
+				7FBE36231AE541640055D8CD /* Oxford Brookes BusTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7FBE360D1AE541640055D8CD /* Oxford Brookes Bus */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE36101AE541640055D8CD /* AppDelegate.swift */,
+				7FBE36151AE541640055D8CD /* ViewController.swift */,
+				7FBE36171AE541640055D8CD /* Main.storyboard */,
+				7FBE361A1AE541640055D8CD /* Images.xcassets */,
+				7FBE361C1AE541640055D8CD /* LaunchScreen.xib */,
+				7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */,
+				7FBE360E1AE541640055D8CD /* Supporting Files */,
+			);
+			path = "Oxford Brookes Bus";
+			sourceTree = "<group>";
+		};
+		7FBE360E1AE541640055D8CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE360F1AE541640055D8CD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FBE36261AE541640055D8CD /* Oxford Brookes BusTests */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE36291AE541640055D8CD /* Oxford_Brookes_BusTests.swift */,
+				7FBE36271AE541640055D8CD /* Supporting Files */,
+			);
+			path = "Oxford Brookes BusTests";
+			sourceTree = "<group>";
+		};
+		7FBE36271AE541640055D8CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE36281AE541640055D8CD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7FBE360A1AE541640055D8CD /* Oxford Brookes Bus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FBE362D1AE541640055D8CD /* Build configuration list for PBXNativeTarget "Oxford Brookes Bus" */;
+			buildPhases = (
+				7FBE36071AE541640055D8CD /* Sources */,
+				7FBE36081AE541640055D8CD /* Frameworks */,
+				7FBE36091AE541640055D8CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Oxford Brookes Bus";
+			productName = "Oxford Brookes Bus";
+			productReference = 7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7FBE36221AE541640055D8CD /* Oxford Brookes BusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FBE36301AE541640055D8CD /* Build configuration list for PBXNativeTarget "Oxford Brookes BusTests" */;
+			buildPhases = (
+				7FBE361F1AE541640055D8CD /* Sources */,
+				7FBE36201AE541640055D8CD /* Frameworks */,
+				7FBE36211AE541640055D8CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FBE36251AE541640055D8CD /* PBXTargetDependency */,
+			);
+			name = "Oxford Brookes BusTests";
+			productName = "Oxford Brookes BusTests";
+			productReference = 7FBE36231AE541640055D8CD /* Oxford Brookes BusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7FBE36031AE541640055D8CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "AJ Norton";
+				TargetAttributes = {
+					7FBE360A1AE541640055D8CD = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					7FBE36221AE541640055D8CD = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 7FBE360A1AE541640055D8CD;
+					};
+				};
+			};
+			buildConfigurationList = 7FBE36061AE541640055D8CD /* Build configuration list for PBXProject "Oxford Brookes Bus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7FBE36021AE541640055D8CD;
+			productRefGroup = 7FBE360C1AE541640055D8CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7FBE360A1AE541640055D8CD /* Oxford Brookes Bus */,
+				7FBE36221AE541640055D8CD /* Oxford Brookes BusTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7FBE36091AE541640055D8CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FBE36191AE541640055D8CD /* Main.storyboard in Resources */,
+				7FBE361E1AE541640055D8CD /* LaunchScreen.xib in Resources */,
+				7FBE361B1AE541640055D8CD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FBE36211AE541640055D8CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7FBE36071AE541640055D8CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FBE36161AE541640055D8CD /* ViewController.swift in Sources */,
+				7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */,
+				7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FBE361F1AE541640055D8CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FBE362A1AE541640055D8CD /* Oxford_Brookes_BusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7FBE36251AE541640055D8CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FBE360A1AE541640055D8CD /* Oxford Brookes Bus */;
+			targetProxy = 7FBE36241AE541640055D8CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7FBE36171AE541640055D8CD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FBE36181AE541640055D8CD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7FBE361C1AE541640055D8CD /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FBE361D1AE541640055D8CD /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7FBE362B1AE541640055D8CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7FBE362C1AE541640055D8CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7FBE362E1AE541640055D8CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Oxford Brookes Bus/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7FBE362F1AE541640055D8CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Oxford Brookes Bus/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7FBE36311AE541640055D8CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Oxford Brookes BusTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Oxford Brookes Bus.app/Oxford Brookes Bus";
+			};
+			name = Debug;
+		};
+		7FBE36321AE541640055D8CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Oxford Brookes BusTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Oxford Brookes Bus.app/Oxford Brookes Bus";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7FBE36061AE541640055D8CD /* Build configuration list for PBXProject "Oxford Brookes Bus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FBE362B1AE541640055D8CD /* Debug */,
+				7FBE362C1AE541640055D8CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FBE362D1AE541640055D8CD /* Build configuration list for PBXNativeTarget "Oxford Brookes Bus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FBE362E1AE541640055D8CD /* Debug */,
+				7FBE362F1AE541640055D8CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7FBE36301AE541640055D8CD /* Build configuration list for PBXNativeTarget "Oxford Brookes BusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FBE36311AE541640055D8CD /* Debug */,
+				7FBE36321AE541640055D8CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7FBE36131AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodel */,
+			);
+			currentVersion = 7FBE36131AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodel */;
+			path = Oxford_Brookes_Bus.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7FBE36031AE541640055D8CD /* Project object */;
+}
