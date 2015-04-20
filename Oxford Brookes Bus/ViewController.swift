@@ -57,6 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     {
         var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
         
+     
         cell.textLabel?.text = "\(locations[indexPath.row])"
         
         return cell
@@ -77,7 +78,7 @@ class ViewController: UIViewController, UITableViewDelegate {
             var ttvc =  segue.destinationViewController as! TimeTableViewController
             var place = sender as! Int
             var dicts = overall[locations[place]] as! Dictionary<String,AnyObject>
-            var arr = dicts["Weekday"] as! [String]
+            var arr = dicts["Weekday"] as! [Int]
             
             ttvc.days = dicts
             ttvc.times = arr.reverse()

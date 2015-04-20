@@ -10,15 +10,13 @@ import UIKit
 
 class TimeTableViewController: UITableViewController {
     
-    var times = [String]()
+    var times = [Int]()
     
     var days = [String : AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        println(times)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,7 +43,29 @@ class TimeTableViewController: UITableViewController {
     {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "timeCell")
         
-        cell.backgroundColor = UIColor(red: 0.90, green: 0.02, blue: 0.02, alpha: 0.99)
+       
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        var hour = components.hour * 100
+        var minutes = components.minute
+        var militaryTime = hour + minutes
+        
+        if( militaryTime < times[indexPath.row])
+        {
+            // green
+            cell.backgroundColor = UIColor(red: 0.00, green: 1.00, blue: 0.00, alpha: 1.00)
+            cell.detailTextLabel?.text = "Incoming in \(times[indexPath.row] - militaryTime)"
+            
+        }
+        else
+        {
+            // red
+            cell.backgroundColor = UIColor(red: 0.80, green: 0.00, blue: 0.00, alpha: 1.00)
+            cell.detailTextLabel?.text = "Missed"
+            
+        }
+        
         
         cell.textLabel?.text = "\(times[indexPath.row])"
         
