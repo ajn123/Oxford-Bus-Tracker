@@ -16,6 +16,8 @@
 		7FBE362A1AE541640055D8CD /* Oxford_Brookes_BusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36291AE541640055D8CD /* Oxford_Brookes_BusTests.swift */; };
 		7FBE36341AE541A60055D8CD /* busSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE36331AE541A60055D8CD /* busSchedule.plist */; };
 		7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */; };
+		7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36371AE6799C0055D8CD /* TimeViewController.swift */; };
+		7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		7FBE36291AE541640055D8CD /* Oxford_Brookes_BusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oxford_Brookes_BusTests.swift; sourceTree = "<group>"; };
 		7FBE36331AE541A60055D8CD /* busSchedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = busSchedule.plist; path = "../../OBU Bus Tracker/OBU Bus Tracker/busSchedule.plist"; sourceTree = "<group>"; };
 		7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		7FBE36371AE6799C0055D8CD /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 				7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */,
 				7FBE360E1AE541640055D8CD /* Supporting Files */,
 				7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */,
+				7FBE36371AE6799C0055D8CD /* TimeViewController.swift */,
+				7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */,
 			);
 			path = "Oxford Brookes Bus";
 			sourceTree = "<group>";
@@ -222,7 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */,
 				7FBE36161AE541640055D8CD /* ViewController.swift in Sources */,
+				7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */,
 				7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */,
 				7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */,
 				7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */,
@@ -421,6 +429,7 @@
 				7FBE362F1AE541640055D8CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7FBE36301AE541640055D8CD /* Build configuration list for PBXNativeTarget "Oxford Brookes BusTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +438,7 @@
 				7FBE36321AE541640055D8CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

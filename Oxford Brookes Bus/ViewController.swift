@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         // check if the user is running the app for the first time
         //        if let firstTime = NSUserDefaults.standardUserDefaults().objectForKey("firstTime")
         //        {
@@ -60,6 +62,8 @@ class ViewController: UIViewController, UITableViewDelegate {
      
         cell.textLabel?.text = "\(locations[indexPath.row])"
         
+        
+        
         return cell
     }
     
@@ -75,7 +79,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         //TODO
         if segue.identifier == "routeToTime"
         {
-            var ttvc =  segue.destinationViewController as! TimeTableViewController
+            var ttvc =  segue.destinationViewController as! TimeViewController
             var place = sender as! Int
             var dicts = overall[locations[place]] as! Dictionary<String,AnyObject>
             var arr = dicts["Weekday"] as! [Int]
