@@ -77,7 +77,6 @@ class TimeViewController: UIViewController, UITableViewDelegate {
             // red
             cell.backgroundColor = UIColor(red: 0.80, green: 0.00, blue: 0.00, alpha: 1.00)
             cell.detailTextLabel?.text = "Missed"
-            
         }
         
         cell.textLabel?.text = "\(times[indexPath.row])"
@@ -85,7 +84,6 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         return cell
     }
     
-
 
     /*
     // MARK: - Navigation

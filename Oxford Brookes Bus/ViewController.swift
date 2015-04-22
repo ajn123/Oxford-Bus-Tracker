@@ -57,12 +57,12 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomRouteViewCell
         
      
-        cell.textLabel?.text = "\(locations[indexPath.row])"
-        
-        
+        cell.locationTitle.text = "\(locations[indexPath.row])"
+        cell.indexRow = indexPath.row
+        cell.upImage.image =  UIImage(CGImage: cell.upImage.image!.CGImage, scale: CGFloat(1.0), orientation: .DownMirrored)
         
         return cell
     }
@@ -71,8 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        performSegueWithIdentifier("routeToTime", sender: indexPath.row)
-        
+      //  performSegueWithIdentifier("routeToTime", sender: indexPath.row)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -80,7 +79,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         if segue.identifier == "routeToTime"
         {
             var ttvc =  segue.destinationViewController as! TimeViewController
-            var place = sender as! Int
+            var cell = sender as! CustomRouteViewCell
+            var place = cell.indexRow
             var dicts = overall[locations[place]] as! Dictionary<String,AnyObject>
             var arr = dicts["Weekday"] as! [Int]
             
