@@ -22,6 +22,9 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
     
     
     
+    @IBOutlet var pageControl: UIPageControl!
+    
+    
     
 
     override func viewDidLoad() {
@@ -53,11 +56,11 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    private func setupPageControl() {
-        let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor = UIColor.grayColor()
-        appearance.currentPageIndicatorTintColor = UIColor.whiteColor()
-        appearance.backgroundColor = UIColor.darkGrayColor()
+     func setupPageControl() {
+        var pageControl = UIPageControl()
+        pageControl.frame = CGRectMake(20,20,100,100)
+        self.view.addSubview(pageControl)
+    
         
     }
     
@@ -108,8 +111,6 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
     }
-    
-
     
 
     /*

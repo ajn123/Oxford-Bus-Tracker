@@ -13,9 +13,6 @@ class CustomRouteViewCell: UITableViewCell {
     @IBOutlet var downImage: UIImageView!
     @IBOutlet var downTime: UILabel!
     
-    @IBOutlet var upImage: UIImageView!
-    @IBOutlet var upTime: UILabel!
-    
     @IBOutlet var locationTitle: UILabel!
     
     var indexRow: Int = 0

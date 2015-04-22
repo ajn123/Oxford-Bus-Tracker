@@ -51,14 +51,14 @@ class ViewController: UIViewController, UITableViewDelegate {
         //            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
         //        }
         
-        if let path = NSBundle.mainBundle().pathForResource("busSchedule", ofType: "plist")
-        {
-            if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject>
-            {
-                locations = dict.keys.array
-                overall = dict
-            }
-        }
+//        if let path = NSBundle.mainBundle().pathForResource("busSchedule", ofType: "plist")
+//        {
+//            if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject>
+//            {
+//                locations = dict.keys.array
+//                overall = dict
+//            }
+//        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -97,7 +97,6 @@ class ViewController: UIViewController, UITableViewDelegate {
      
         cell.locationTitle.text = "\(locations[indexPath.row])"
         cell.indexRow = indexPath.row
-        cell.upImage.image =  UIImage(CGImage: cell.upImage.image!.CGImage, scale: CGFloat(1.0), orientation: .DownMirrored)
         
         return cell
     }
