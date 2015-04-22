@@ -12,11 +12,9 @@ extension NSDate{
 
     
     /**
-    
     Returns 0 if Weekday
             1 if Saturday
             2 if Sunday
-
     */
     class func getWeekday() -> Int
     {

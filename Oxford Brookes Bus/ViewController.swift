@@ -17,14 +17,27 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     var refresh = UIRefreshControl()
     
+    // Initialize it right away here
+    private let contentImages =
+    ["nature_pic_1.png",
+     "nature_pic_2.png",
+     "nature_pic_3.png",
+     "nature_pic_4.png"];
+
+    
+    
+    // MARK: - Variables
+    private var pageViewController: UIPageViewController?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
+      
         
-        table.addSubview(refresh)
+        //refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
+        
+       // table.addSubview(refresh)
         
         // check if the user is running the app for the first time
         //        if let firstTime = NSUserDefaults.standardUserDefaults().objectForKey("firstTime")
@@ -48,6 +61,10 @@ class ViewController: UIViewController, UITableViewDelegate {
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+
+    
+    
     
     // TODO implement time check!!
     func refreshing()

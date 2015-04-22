@@ -27,7 +27,7 @@ class CustomRouteViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-                println("I was clicked set select")
+       
 
         
         // Configure the view for the selected state
@@ -35,7 +35,6 @@ class CustomRouteViewCell: UITableViewCell {
     
     
     override func select(sender: AnyObject?) {
-        println("I was clicked select")
     }
     
 

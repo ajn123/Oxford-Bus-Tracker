@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="s0R-ee-F6h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yfk-ys-Qsc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -79,12 +79,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1234.5" y="320.5"/>
+            <point key="canvasLocation" x="2046.5" y="320.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sf0-Av-dTh">
+            <objects>
+                <viewController id="UXK-va-VAa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8XR-Gq-Qjo"/>
+                        <viewControllerLayoutGuide type="bottom" id="T44-nx-dyo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1VX-r7-ppI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="0bA-lg-zL0"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RlJ-5I-J9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.5" y="955.5"/>
+        </scene>
+        <!--Routes-->
+        <scene sceneID="nHK-Kh-yZK">
+            <objects>
+                <viewController id="blO-pd-ZZC" customClass="SchedulePageViewController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lYL-Cf-cDM"/>
+                        <viewControllerLayoutGuide type="bottom" id="ljQ-zU-uib"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="adM-Cr-toO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Routes" image="DownRound-50.png" id="0FO-PU-ulK"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NaQ-Xp-WFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981.5" y="1833.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XEf-I3-qat">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s0R-ee-F6h" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="topRated" id="0CC-Ho-D8o"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="INR-HU-eZ8">
@@ -98,7 +139,48 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meP-Ct-bbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="771.5" y="325.5"/>
+            <point key="canvasLocation" x="1583.5" y="325.5"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="rCn-Qi-hYt">
+            <objects>
+                <pageViewController storyboardIdentifier="PageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="4KE-mD-ydx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="wTI-mG-PjK"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8e-PI-FGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485.5" y="1847.5"/>
+        </scene>
+        <!--Schedule View Controller-->
+        <scene sceneID="dJg-Cv-Vne">
+            <objects>
+                <viewController storyboardIdentifier="PageContentController" id="454-R7-6vy" customClass="ScheduleViewController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d2o-9t-HYB"/>
+                        <viewControllerLayoutGuide type="bottom" id="56K-fL-H5C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SEH-8j-C42">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyY-hB-7Cb">
+                                <rect key="frame" x="94" y="55" width="133" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="label" destination="yyY-hB-7Cb" id="ApS-QP-RDN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q01-X7-QqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1947.5" y="1885.5"/>
         </scene>
         <!--Times-->
         <scene sceneID="dUZ-Ls-zfp">
@@ -165,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRU-7C-eIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2114.5" y="313.5"/>
+            <point key="canvasLocation" x="2926.5" y="313.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2QJ-VZ-aNs">
@@ -184,7 +266,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wu2-VE-Mcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1670.5" y="313.5"/>
+            <point key="canvasLocation" x="2482.5" y="313.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="9xU-ZA-lc2">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Yfk-ys-Qsc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="MQH-0F-g1Q">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="blO-pd-ZZC" kind="relationship" relationship="viewControllers" id="lWR-kM-Uf5"/>
+                        <segue destination="s0R-ee-F6h" kind="relationship" relationship="viewControllers" id="qD3-fT-Axh"/>
+                        <segue destination="UXK-va-VAa" kind="relationship" relationship="viewControllers" id="4JH-gi-VgW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dme-Ib-auP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401.5" y="540.5"/>
         </scene>
     </scenes>
     <resources>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
+		7F9AC30E1AE82F99005D0495 /* SchedulePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30D1AE82F99005D0495 /* SchedulePageViewController.swift */; };
 		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
 		7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */; };
 		7FBE36161AE541640055D8CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36151AE541640055D8CD /* ViewController.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		7F9AC30D1AE82F99005D0495 /* SchedulePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePageViewController.swift; sourceTree = "<group>"; };
 		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBE360F1AE541640055D8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FBE36101AE541640055D8CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */,
 				7FBE36371AE6799C0055D8CD /* TimeViewController.swift */,
 				7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */,
+				7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */,
+				7F9AC30D1AE82F99005D0495 /* SchedulePageViewController.swift */,
 			);
 			path = "Oxford Brookes Bus";
 			sourceTree = "<group>";
@@ -240,8 +246,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FEE5BC71AE794A0006118DB /* CustomRouteViewCell.swift in Sources */,
+				7F9AC30E1AE82F99005D0495 /* SchedulePageViewController.swift in Sources */,
 				7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */,
 				7FBE36161AE541640055D8CD /* ViewController.swift in Sources */,
+				7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */,
 				7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */,
 				7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */,
 				7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */,
