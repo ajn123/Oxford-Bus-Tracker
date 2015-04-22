@@ -15,10 +15,16 @@ class ViewController: UIViewController, UITableViewDelegate {
     var locations = [String]()
     var overall = Dictionary<String, AnyObject>()
     
+    var refresh = UIRefreshControl()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         
+        table.addSubview(refresh)
         
         // check if the user is running the app for the first time
         //        if let firstTime = NSUserDefaults.standardUserDefaults().objectForKey("firstTime")
@@ -42,6 +48,18 @@ class ViewController: UIViewController, UITableViewDelegate {
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    // TODO implement time check!!
+    func refreshing()
+    {
+      //  locations = locations.reverse()
+        
+        table.reloadData()
+        refresh.endRefreshing()
+    }
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
