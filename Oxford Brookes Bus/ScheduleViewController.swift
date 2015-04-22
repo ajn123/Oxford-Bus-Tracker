@@ -13,6 +13,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     var locations = [String]()
     var overall = Dictionary<String, AnyObject>()
     
+    @IBOutlet var pageControl: UIPageControl!
     var refresh = UIRefreshControl()
     
 
@@ -29,6 +30,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     var imageName: String = ""     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         if let path = NSBundle.mainBundle().pathForResource("busSchedule", ofType: "plist")
         {
