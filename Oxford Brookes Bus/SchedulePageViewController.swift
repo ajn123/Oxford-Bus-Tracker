@@ -13,9 +13,7 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
     // Initialize it right away here
     private let contentImages =
     ["nature_pic_1.png",
-        "nature_pic_2.png",
-        "nature_pic_3.png",
-        "nature_pic_4.png"];
+     "nature_pic_2.png"];
     
     // MARK: - Variables
     private var pageViewController: UIPageViewController?

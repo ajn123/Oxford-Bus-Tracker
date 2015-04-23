@@ -27,9 +27,13 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     var itemIndex: Int = 0 // ***
     // MARK: - Variables
     
-    var imageName: String = ""     
+    var imageName: String = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pageControl.currentPage = itemIndex
         
         
         
@@ -72,6 +76,14 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.locationTitle.text = "\(locations[indexPath.row])"
         cell.indexRow = indexPath.row
+        
+        if(itemIndex == 1)
+        {
+            // flip image
+            cell.downImage.transform = CGAffineTransformMakeRotation((180.0 * CGFloat(M_PI)) / 180.0)
+        }
+        
+        
         
         
         return cell
