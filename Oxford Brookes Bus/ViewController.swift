@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var table: UITableView!
     
     var locations = [String]()
-    var overall = Dictionary<String, AnyObject>()
+    var overall = [String: AnyObject]()
     
     var refresh = UIRefreshControl()
     
@@ -32,12 +32,10 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
-        
+ 
         //refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         
-       // table.addSubview(refresh)
+        // table.addSubview(refresh)
         
         // check if the user is running the app for the first time
         //        if let firstTime = NSUserDefaults.standardUserDefaults().objectForKey("firstTime")
@@ -62,10 +60,6 @@ class ViewController: UIViewController, UITableViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-
-    
-    
-    
     // TODO implement time check!!
     func refreshing()
     {
@@ -75,9 +69,6 @@ class ViewController: UIViewController, UITableViewDelegate {
         refresh.endRefreshing()
     }
     
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,7 +77,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        
         return locations.count
     }
     
@@ -94,14 +84,11 @@ class ViewController: UIViewController, UITableViewDelegate {
     {
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomRouteViewCell
         
-     
         cell.locationTitle.text = "\(locations[indexPath.row])"
         cell.indexRow = indexPath.row
         
         return cell
     }
-    
-    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {

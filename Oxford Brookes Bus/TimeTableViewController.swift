@@ -12,7 +12,7 @@ class TimeTableViewController: UITableViewController {
     
     var times = [Int]()
     
-    var days = [String : AnyObject]()
+    var days = [String: AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,6 @@ class TimeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "timeCell")
-        
        
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()

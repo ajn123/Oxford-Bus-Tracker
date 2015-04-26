@@ -20,7 +20,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dayOfWeek.selectedSegmentIndex =  NSDate.getWeekday()
+        dayOfWeek.selectedSegmentIndex =  NSDate.getWeekday()!
         
         
     }

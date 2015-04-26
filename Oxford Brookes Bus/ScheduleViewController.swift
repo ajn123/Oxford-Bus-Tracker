@@ -15,27 +15,19 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var pageControl: UIPageControl!
     var refresh = UIRefreshControl()
-    
 
     @IBOutlet var table: UITableView!
     
     var times = [Int]()
     
-    var days = [String : AnyObject]()
-    
-    
-    var itemIndex: Int = 0 // ***
-    // MARK: - Variables
-    
+    var days = [String: AnyObject]()
+    var itemIndex: Int = 0
     var imageName: String = ""
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pageControl.currentPage = itemIndex
-        
-        
         
         if let path = NSBundle.mainBundle().pathForResource("busSchedule", ofType: "plist")
         {
@@ -79,16 +71,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         if(itemIndex == 1)
         {
-            // flip image
+            // flip image if the second index is happening
             cell.downImage.transform = CGAffineTransformMakeRotation((180.0 * CGFloat(M_PI)) / 180.0)
         }
         
-        
-        
-        
         return cell
     }
-    
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
@@ -111,18 +99,4 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

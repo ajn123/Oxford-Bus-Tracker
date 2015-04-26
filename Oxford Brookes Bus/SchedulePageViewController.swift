@@ -18,13 +18,8 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
     // MARK: - Variables
     private var pageViewController: UIPageViewController?
     
-    
-    
     @IBOutlet var pageControl: UIPageControl!
     
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +28,7 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
         let pageController = self.storyboard!.instantiateViewControllerWithIdentifier("PageController") as! UIPageViewController
         pageController.dataSource = self
         
-        if contentImages.count > 0 {
+        if contentImages.count > 0{
             let firstController = getItemController(0)!
             let startingViewControllers: NSArray = [firstController]
             pageController.setViewControllers(startingViewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
@@ -45,7 +40,6 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
         self.view.addSubview(pageViewController!.view)
         pageViewController!.didMoveToParentViewController(self)
         
-
         // Do any additional setup after loading the view.
     }
 
@@ -58,8 +52,6 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
         var pageControl = UIPageControl()
         pageControl.frame = CGRectMake(20,20,100,100)
         self.view.addSubview(pageControl)
-    
-        
     }
     
     
@@ -70,7 +62,7 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
         let itemController = viewController as! ScheduleViewController
         
         if itemController.itemIndex > 0 {
-            return getItemController(itemController.itemIndex-1)
+            return getItemController(itemController.itemIndex - 1)
         }
         
         return nil
@@ -80,8 +72,8 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
         
         let itemController = viewController as! ScheduleViewController
         
-        if itemController.itemIndex+1 < contentImages.count {
-            return getItemController(itemController.itemIndex+1)
+        if itemController.itemIndex + 1 < contentImages.count {
+            return getItemController(itemController.itemIndex + 1)
         }
         
         return nil
@@ -99,8 +91,6 @@ class SchedulePageViewController: UIViewController, UIPageViewControllerDataSour
         
         return nil
     }
-    
-    // MARK: - Page Indicator
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return contentImages.count
