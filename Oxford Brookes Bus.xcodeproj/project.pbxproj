@@ -22,6 +22,8 @@
 		7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */; };
 		7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36371AE6799C0055D8CD /* TimeViewController.swift */; };
 		7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */; };
+		7FDD47B61AEE40AD00FE2235 /* try21.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD47B51AEE40AD00FE2235 /* try21.png */; };
+		7FDD47B81AEE476D00FE2235 /* tryDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD47B71AEE476D00FE2235 /* tryDown.png */; };
 		7FEE5BC71AE794A0006118DB /* CustomRouteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */; };
 		7FEE5BC91AE7D715006118DB /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEE5BC81AE7D715006118DB /* arrow.png */; };
 		7FEE5BCB1AE7DA3C006118DB /* DownRound-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEE5BCA1AE7DA3C006118DB /* DownRound-50.png */; };
@@ -57,6 +59,8 @@
 		7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		7FBE36371AE6799C0055D8CD /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		7FDD47B51AEE40AD00FE2235 /* try21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = try21.png; sourceTree = "<group>"; };
+		7FDD47B71AEE476D00FE2235 /* tryDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tryDown.png; sourceTree = "<group>"; };
 		7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRouteViewCell.swift; sourceTree = "<group>"; };
 		7FEE5BC81AE7D715006118DB /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		7FEE5BCA1AE7DA3C006118DB /* DownRound-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DownRound-50.png"; sourceTree = "<group>"; };
@@ -103,8 +107,10 @@
 			children = (
 				7F9AC3111AE84A5C005D0495 /* Leaving Geo Fence Filled-50.png */,
 				7F9AC30F1AE8482E005D0495 /* Down-50.png */,
+				7FDD47B51AEE40AD00FE2235 /* try21.png */,
 				7FEE5BCA1AE7DA3C006118DB /* DownRound-50.png */,
 				7FEE5BC81AE7D715006118DB /* arrow.png */,
+				7FDD47B71AEE476D00FE2235 /* tryDown.png */,
 				7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */,
 				7FBE36101AE541640055D8CD /* AppDelegate.swift */,
 				7FBE36151AE541640055D8CD /* ViewController.swift */,
@@ -233,9 +239,11 @@
 				7FBE361E1AE541640055D8CD /* LaunchScreen.xib in Resources */,
 				7FBE36341AE541A60055D8CD /* busSchedule.plist in Resources */,
 				7FEE5BC91AE7D715006118DB /* arrow.png in Resources */,
+				7FDD47B81AEE476D00FE2235 /* tryDown.png in Resources */,
 				7FBE361B1AE541640055D8CD /* Images.xcassets in Resources */,
 				7F9AC3121AE84A5C005D0495 /* Leaving Geo Fence Filled-50.png in Resources */,
 				7FEE5BCB1AE7DA3C006118DB /* DownRound-50.png in Resources */,
+				7FDD47B61AEE40AD00FE2235 /* try21.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

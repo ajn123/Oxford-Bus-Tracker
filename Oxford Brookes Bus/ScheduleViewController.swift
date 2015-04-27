@@ -27,6 +27,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        table.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         pageControl.currentPage = itemIndex
         
         if let path = NSBundle.mainBundle().pathForResource("busSchedule", ofType: "plist")
