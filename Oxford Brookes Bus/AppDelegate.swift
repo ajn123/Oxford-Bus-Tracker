@@ -17,6 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+
+        var names = ["Wheatly Campus", "Wheatley Church"]
+        
+        newItem.name = "Wheatley Campus"
+        
+        // Create a new fetch request using the LogItem entity
+        let fetchRequest = NSFetchRequest(entityName: "Stop")
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
+            
+            for f in fetchResults
+            {
+                println(f.name)
+            }
+            println(fetchResults.count)
+        }
+        
         return true
     }
 

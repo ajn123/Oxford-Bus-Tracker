@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreData
+
+
 
 class ViewController: UIViewController, UITableViewDelegate {
     
@@ -32,6 +35,10 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+       
+        
  
         //refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         

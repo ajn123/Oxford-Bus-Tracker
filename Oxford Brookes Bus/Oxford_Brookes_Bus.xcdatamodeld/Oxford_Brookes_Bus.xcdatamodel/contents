@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Stop" syncable="YES">
+    <entity name="Stop" representedClassName="Oxford_Brookes_Bus.Stop" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stop_number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="times" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Time" inverseName="parent" inverseEntity="Time" syncable="YES"/>
+        <relationship name="times" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Time" inverseName="parent" inverseEntity="Time" syncable="YES"/>
     </entity>
-    <entity name="Time" syncable="YES">
+    <entity name="Time" representedClassName="Oxford_Brookes_Bus.Time" syncable="YES">
         <attribute name="bus_type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="direction" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -14,6 +14,6 @@
     </entity>
     <elements>
         <element name="Stop" positionX="-180" positionY="-63" width="128" height="88"/>
-        <element name="Time" positionX="61" positionY="81" width="128" height="103"/>
+        <element name="Time" positionX="88" positionY="-13" width="128" height="118"/>
     </elements>
 </model>
