@@ -9,7 +9,6 @@
 import Foundation
 
 extension NSDate{
-
     
     /**
     Returns 0 if Weekday
@@ -33,5 +32,16 @@ extension NSDate{
             NSException(name: "Date Incorrect", reason: "Returned a value outside of 1 - 7", userInfo: nil).raise()
             return nil
         }
+    }
+    
+    // return current time in 24 style
+    class func getTime() -> Int
+    {
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let hour = components.hour
+        let minutes = components.minute
+        return hour * 100 + minutes
     }
 }

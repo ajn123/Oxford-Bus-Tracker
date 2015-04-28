@@ -13,16 +13,12 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var timeTable: UITableView!
     @IBOutlet var dayOfWeek: UISegmentedControl!
     
-    var times = [Int]()
-    
-    var days = [String : AnyObject]()
+    var times = [Time]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dayOfWeek.selectedSegmentIndex =  NSDate.getWeekday()!
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,8 +26,11 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBAction func segmentChange(sender: AnyObject) {
-        var arr = [Int]()
+     /**   var arr = [Time]()
         switch dayOfWeek.selectedSegmentIndex
         {
             case 0:
@@ -43,7 +42,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
             default:
                 break;
         }
-        times = arr.reverse()
+        times = arr.reverse() */
         
         timeTable.reloadData()
     }
@@ -57,20 +56,18 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "timeCell")
+
+        var militaryTime = NSDate.getTime()
         
+        var ti = times[indexPath.row]
         
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-        var hour = components.hour * 100
-        var minutes = components.minute
-        var militaryTime = hour + minutes
+        var compare = ti.time as Int
         
-        if( militaryTime < times[indexPath.row])
+        if( militaryTime < compare)
         {
             // green
             cell.backgroundColor = UIColor(red: 0.00, green: 1.00, blue: 0.00, alpha: 1.00)
-            cell.detailTextLabel?.text = "Incoming in \(times[indexPath.row] - militaryTime)"
+            cell.detailTextLabel?.text = "Incoming in \( militaryTime)"
         }
         else
         {
@@ -79,7 +76,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
             cell.detailTextLabel?.text = "Missed"
         }
         
-        cell.textLabel?.text = "\(times[indexPath.row])"
+        cell.textLabel?.text = "\(times[indexPath.row].time)"
         
         return cell
     }

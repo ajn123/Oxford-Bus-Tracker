@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class ScheduleViewController: UIViewController, UITableViewDelegate {
     
-    var locations = [String]()
+    var locations = [Stop]()
     var overall = Dictionary<String, AnyObject>()
     
     @IBOutlet var pageControl: UIPageControl!
@@ -27,6 +28,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locations = Stop.getAllBusStops()!
         
         table.separatorStyle = UITableViewCellSeparatorStyle.None
         
@@ -36,7 +38,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         {
             if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject>
             {
-                locations = dict.keys.array
+            //    locations = dict.keys.array
                 overall = dict
             }
         }
@@ -67,10 +69,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
+        var stop = locations[indexPath.row]
+        
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomRouteViewCell
         
-        cell.locationTitle.text = "\(locations[indexPath.row])"
+        cell.locationTitle.text = "\(stop.name)"
+        
         cell.indexRow = indexPath.row
+        
+        cell.downTime.text = "\(stop.displayAllTimes())"
         
         if(itemIndex == 1)
         {
@@ -94,11 +101,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
             var ttvc =  segue.destinationViewController as! TimeViewController
             var cell = sender as! CustomRouteViewCell
             var place = cell.indexRow
-            var dicts = overall[locations[place]] as! Dictionary<String,AnyObject>
-            var arr = dicts["Weekday"] as! [Int]
+            var arr = locations[place].times.allObjects as! [Time]
             
-            ttvc.days = dicts
-            ttvc.times = arr.reverse()
+           ttvc.times = arr
         }
     }
     

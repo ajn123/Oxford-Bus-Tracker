@@ -109,11 +109,7 @@ class ViewController: UIViewController, UITableViewDelegate {
             var ttvc =  segue.destinationViewController as! TimeViewController
             var cell = sender as! CustomRouteViewCell
             var place = cell.indexRow
-            var dicts = overall[locations[place]] as! Dictionary<String,AnyObject>
-            var arr = dicts["Weekday"] as! [Int]
-            
-            ttvc.days = dicts
-            ttvc.times = arr.reverse()
+     
         }
     }
     

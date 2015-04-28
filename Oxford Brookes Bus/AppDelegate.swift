@@ -15,23 +15,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
         // Override point for customization after application launch.
         
-
-        var names = ["Wheatly Campus", "Wheatley Church"]
+        var names = ["Wheatly Campus", "Wheatley Church", "Sandhills", "Headington Shops", "Brookes University",
+                     "High Street", "Speedwell Street", "Castle Street", "Frideswide Square", "Harcourt Hill"]
         
-        newItem.name = "Wheatley Campus"
-        
-        // Create a new fetch request using the LogItem entity
-        let fetchRequest = NSFetchRequest(entityName: "Stop")
-        
+        for n in names
+        {
+            CoreDataModel.addData(n)
+        }
+       
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
-            
+        if let fetchResults = Stop.getAllBusStops()
+        {
             for f in fetchResults
             {
                 println(f.name)
+                for ass in f.times
+                {
+                    var bitch = ass as! Time
+                    println(bitch.time)
+                }
+                
             }
             println(fetchResults.count)
         }
