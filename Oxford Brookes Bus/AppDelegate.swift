@@ -22,25 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var names = ["Wheatly Campus", "Wheatley Church", "Sandhills", "Headington Shops", "Brookes University",
                      "High Street", "Speedwell Street", "Castle Street", "Frideswide Square", "Harcourt Hill"]
         
-        for n in names
+        for (index, n) in enumerate(names)
         {
-            CoreDataModel.addData(n)
-        }
-       
-        // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = Stop.getAllBusStops()
-        {
-            for f in fetchResults
-            {
-                println(f.name)
-                for ass in f.times
-                {
-                    var bitch = ass as! Time
-                    println(bitch.time)
-                }
-                
-            }
-            println(fetchResults.count)
+            CoreDataModel.addData(n, stop_num: index)
         }
         
         return true

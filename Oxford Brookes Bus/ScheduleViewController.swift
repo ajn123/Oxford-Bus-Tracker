@@ -34,25 +34,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         pageControl.currentPage = itemIndex
         
-        if let path = NSBundle.mainBundle().pathForResource("busSchedule", ofType: "plist")
-        {
-            if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject>
-            {
-            //    locations = dict.keys.array
-                overall = dict
-            }
-        }
         
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
-        
         table.addSubview(refresh)
-
         // Do any additional setup after loading the view.
     }
     
     func refreshing()
     {
-        locations = locations.reverse()
+        // TODO: refresh times
         table.reloadData()
         refresh.endRefreshing()
     }
@@ -105,6 +95,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
             
            ttvc.times = arr
         }
+    }
+    @IBAction func changeDirectionPressed(sender: AnyObject) {
+        locations = locations.reverse()
+        table.reloadData()
     }
     
 }

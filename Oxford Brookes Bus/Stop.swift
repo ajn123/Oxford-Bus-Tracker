@@ -16,13 +16,13 @@ class Stop: NSManagedObject {
     @NSManaged var times: NSSet
     
   
-    class func createInManagedObjectContext(name: String) -> Stop {
+    class func createInManagedObjectContext(name: String, stop_number: Int = 0) -> Stop {
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var moc: NSManagedObjectContext = appDel.managedObjectContext!
 
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Stop", inManagedObjectContext: moc) as! Stop
         newItem.name = name
-        newItem.stop_number = 0
+        newItem.stop_number = stop_number
         
         return newItem
     }
@@ -34,10 +34,15 @@ class Stop: NSManagedObject {
         
         let fetchRequest = NSFetchRequest(entityName: "Stop")
         
+        var sort = NSSortDescriptor(key: "stop_number", ascending: true) // sort by bus stop
+        
+        fetchRequest.sortDescriptors = [sort]
+        
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
             return fetchResults
         }
+        
         return nil
     }
     

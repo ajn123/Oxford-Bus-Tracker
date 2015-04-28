@@ -13,12 +13,11 @@ class CoreDataModel
 {
     
     // TODO: add paramenters
-    class func addData(name: String){
+    class func addData(name: String, stop_num: Int = 0){
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var context: NSManagedObjectContext = appDel.managedObjectContext!
         
-        let stop = NSEntityDescription.insertNewObjectForEntityForName("Stop", inManagedObjectContext: context) as! Stop
-        stop.name = name
+        let stop = Stop.createInManagedObjectContext(name, stop_number: stop_num)
         
         let time = NSEntityDescription.insertNewObjectForEntityForName("Time", inManagedObjectContext: context) as! Time
         time.time = 2300 % 2000

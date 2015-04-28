@@ -170,6 +170,15 @@
                                     <outlet property="delegate" destination="454-R7-6vy" id="QO7-T2-DcH"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
+                                <rect key="frame" x="111" y="606" width="30" height="30"/>
+                                <state key="normal" title="🔃">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -181,8 +190,10 @@
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="SEH-8j-C42" secondAttribute="topMargin" constant="20" id="KjN-bu-snh"/>
                             <constraint firstItem="20i-1G-cCM" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="152" id="PQA-vt-teE"/>
                             <constraint firstAttribute="centerX" secondItem="20i-1G-cCM" secondAttribute="centerX" id="R0B-da-Vpc"/>
+                            <constraint firstItem="JG7-Io-Sw3" firstAttribute="top" secondItem="HoU-9v-eoX" secondAttribute="bottom" constant="12" id="UQO-pC-aYe"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="Wjc-Io-59O"/>
                             <constraint firstItem="20i-1G-cCM" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="152" id="Wo6-2E-UUl"/>
+                            <constraint firstItem="20i-1G-cCM" firstAttribute="leading" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="27" id="Y8i-3Q-xeu"/>
                             <constraint firstItem="20i-1G-cCM" firstAttribute="top" secondItem="HoU-9v-eoX" secondAttribute="bottom" constant="8" id="bGe-vi-Qex"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="bV5-LO-qAR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="20i-1G-cCM" secondAttribute="trailing" constant="152" id="cVd-1Y-9r3"/>
@@ -313,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRU-7C-eIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2312.5" y="1245.5"/>
+            <point key="canvasLocation" x="2438.5" y="989.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2QJ-VZ-aNs">
@@ -332,7 +343,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wu2-VE-Mcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814.5" y="1037.5"/>
+            <point key="canvasLocation" x="1812.5" y="1183.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9xU-ZA-lc2">
@@ -360,6 +371,6 @@
         <image name="pointingDown2.png" width="60" height="93"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fNM-aq-CLs"/>
+        <segue reference="1R7-0W-dh9"/>
     </inferredMetricsTieBreakers>
 </document>
