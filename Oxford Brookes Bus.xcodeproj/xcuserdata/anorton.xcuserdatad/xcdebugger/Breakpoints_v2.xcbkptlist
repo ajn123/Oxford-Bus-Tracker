@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Oxford Brookes Bus/CoreDataModel.swift"
-            timestampString = "451844791.174032"
+            timestampString = "452040632.438257"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "addData(_:stop_num:)"
             landmarkType = "5">
          </BreakpointContent>

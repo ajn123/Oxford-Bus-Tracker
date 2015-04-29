@@ -17,7 +17,6 @@ class TimeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -43,12 +42,7 @@ class TimeTableViewController: UITableViewController {
     {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "timeCell")
        
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-        var hour = components.hour * 100
-        var minutes = components.minute
-        var militaryTime = hour + minutes
+        var militaryTime = NSDate.getTime()
         
         if( militaryTime < times[indexPath.row])
         {
@@ -62,9 +56,7 @@ class TimeTableViewController: UITableViewController {
             // red
             cell.backgroundColor = UIColor(red: 0.80, green: 0.00, blue: 0.00, alpha: 1.00)
             cell.detailTextLabel?.text = "Missed"
-            
         }
-        
         
         cell.textLabel?.text = "\(times[indexPath.row])"
         

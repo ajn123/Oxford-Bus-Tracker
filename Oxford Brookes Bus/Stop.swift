@@ -18,10 +18,8 @@ class Stop: NSManagedObject {
     
   
     class func createInManagedObjectContext(name: String, stop_number: Int = 0, bus_route: String = "Nono") -> Stop {
-        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var moc: NSManagedObjectContext = appDel.managedObjectContext!
-
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Stop", inManagedObjectContext: moc) as! Stop
+        
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Stop", inManagedObjectContext: CoreDataModel.context) as! Stop
         newItem.stop_name = name
         newItem.stop_number = stop_number
         newItem.bus_route = bus_route
@@ -65,13 +63,14 @@ class Stop: NSManagedObject {
             {
                 return $0.bus_route
             }
-            return Array(Set(strRoutes))
+            return Array(Set(strRoutes)) // remove duplicates by converting to a set
         }
         
         return nil
     }
     
     
+   
     func getTimesAsArray() -> [Time]
     {
         var ti = self.times.sortedArrayUsingDescriptors([NSSortDescriptor(key: "time", ascending: true)])
@@ -82,13 +81,12 @@ class Stop: NSManagedObject {
     
     func displayAllTimes() -> String
     {
-        var ti = times.sortedArrayUsingDescriptors([NSSortDescriptor(key: "time", ascending: true)])
+        var times = getTimesAsArray()
         
         var str = ""
-        for t in ti
+        for t in times
         {
-            let ti = t as! Time
-            str += "\(ti.time), "
+            str += "\(t.time), "
         }
         
         return str
@@ -98,25 +96,23 @@ class Stop: NSManagedObject {
     {
         var currentTime = NSDate.getTime()
         
-        var ti = times.sortedArrayUsingDescriptors([NSSortDescriptor(key: "time", ascending: true)])
+        var ti = getTimesAsArray()
         
         var tim = ti.filter()
         {
-            if let type = $0 as? Time
-            {
-                return type.time.integerValue > currentTime
-            }
-            else
-            {
-                return false
-            }
+            return $0.time.integerValue > currentTime
         }
         
         var str = ""
-        for t in tim[0..<1]
+        
+        if(tim.count > 0)
         {
-            let ti = t as! Time
-            str += "\(ti.time), "
+        
+            for t in tim[0...1]
+            {
+                let ti = t
+                str += "\(ti.time), "
+            }
         }
         
         return str

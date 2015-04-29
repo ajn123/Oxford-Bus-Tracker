@@ -11,12 +11,12 @@ import CoreData
 
 class CoreDataModel
 {
-    
+    static var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    static var context: NSManagedObjectContext = appDel.managedObjectContext!
+
     // TODO: add paramenters
     class func addData(name: String, stop_num: Int = 0){
-        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var context: NSManagedObjectContext = appDel.managedObjectContext!
-        
+      
         let stop = Stop.createInManagedObjectContext(name, stop_number: stop_num)
         
         let time = NSEntityDescription.insertNewObjectForEntityForName("Time", inManagedObjectContext: context) as! Time
@@ -32,8 +32,6 @@ class CoreDataModel
     }
     
     class func addTimesData(name: String, stop_num: Int = 0, times: [Time]){
-        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var context: NSManagedObjectContext = appDel.managedObjectContext!
         
         let stop = Stop.createInManagedObjectContext(name, stop_number: stop_num)
         
@@ -66,9 +64,6 @@ class CoreDataModel
 
     class func massAssignBusStops(tup: [(name: String, stop_times: [Int], day: Int, bus_type: String, direction: Int)])
     {
-        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var context: NSManagedObjectContext = appDel.managedObjectContext!
-        
         for (index, t) in enumerate(tup)
         {
             let stop = Stop.createInManagedObjectContext(t.name, stop_number: index, bus_route: t.bus_type)
@@ -86,6 +81,8 @@ class CoreDataModel
             }
             
         }
+        
+        
         
         
         /**for t in times
