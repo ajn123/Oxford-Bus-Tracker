@@ -13,16 +13,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     var locations = [Stop]()
 
-    
     var refresh = UIRefreshControl()
 
     @IBOutlet var table: UITableView!
-    
-    var times = [Int]()
-    
-    var days = [String: AnyObject]()
-    var itemIndex: Int = 0
-    var imageName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +24,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         // no separator between the tables
         table.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-     //   pageControl.currentPage = itemIndex
         
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         table.addSubview(refresh)
@@ -70,7 +61,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         if(stop.stop_number == 0)
         {
-            println("HELLLLOOO")
             cell.downImage.image = UIImage(named: "beginningRoute.png")
         }
         
@@ -90,15 +80,16 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //TODO
-        if segue.identifier == "routeToTime"
-        {
-            var ttvc =  segue.destinationViewController as! TimeViewController
-            var cell = sender as! CustomRouteViewCell
-            var place = cell.indexRow
-            ttvc.times = locations[place].getTimesAsArray()
-            
-        }
+        let navVC = segue.destinationViewController as! UINavigationController
+        
+        let tableVC = navVC.topViewController as! TimeViewController
+        
+        var cell = sender as! CustomRouteViewCell
+        
+        tableVC.times = locations[cell.indexRow].getTimesAsArray()
+    
     }
+    
     @IBAction func changeDirectionPressed(sender: AnyObject) {
         locations = locations.reverse()
         table.reloadData()
