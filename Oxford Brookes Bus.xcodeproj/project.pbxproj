@@ -10,6 +10,7 @@
 		7F3C11F61AEFEE01001EC7E5 /* beginningRoute.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C11F51AEFEE01001EC7E5 /* beginningRoute.png */; };
 		7F3C11F81AEFEE0C001EC7E5 /* endRoute.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C11F71AEFEE0C001EC7E5 /* endRoute.png */; };
 		7F3C11FA1AF16623001EC7E5 /* changeDirection.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C11F91AF16623001EC7E5 /* changeDirection.png */; };
+		7F3C122D1AF1771B001EC7E5 /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C122C1AF1771B001EC7E5 /* RoutesTableViewController.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
 		7F9AC30E1AE82F99005D0495 /* SchedulePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30D1AE82F99005D0495 /* SchedulePageViewController.swift */; };
 		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		7F3C11F51AEFEE01001EC7E5 /* beginningRoute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beginningRoute.png; sourceTree = "<group>"; };
 		7F3C11F71AEFEE0C001EC7E5 /* endRoute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endRoute.png; sourceTree = "<group>"; };
 		7F3C11F91AF16623001EC7E5 /* changeDirection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changeDirection.png; sourceTree = "<group>"; };
+		7F3C122C1AF1771B001EC7E5 /* RoutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewController.swift; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		7F9AC30D1AE82F99005D0495 /* SchedulePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePageViewController.swift; sourceTree = "<group>"; };
 		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 				7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */,
 				7F9AC30D1AE82F99005D0495 /* SchedulePageViewController.swift */,
 				7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */,
+				7F3C122C1AF1771B001EC7E5 /* RoutesTableViewController.swift */,
 			);
 			path = "Oxford Brookes Bus";
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FEE5BC71AE794A0006118DB /* CustomRouteViewCell.swift in Sources */,
+				7F3C122D1AF1771B001EC7E5 /* RoutesTableViewController.swift in Sources */,
 				7F9AC30E1AE82F99005D0495 /* SchedulePageViewController.swift in Sources */,
 				7FDD47BE1AEE7CDE00FE2235 /* Time.swift in Sources */,
 				7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */,

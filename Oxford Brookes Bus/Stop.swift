@@ -48,6 +48,29 @@ class Stop: NSManagedObject {
         return nil
     }
     
+    class func getBusRoutes() -> [String]?
+    {
+        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var moc: NSManagedObjectContext = appDel.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "Stop")
+        
+        var sort = NSSortDescriptor(key: "bus_route", ascending: true) // sort by bus stop
+        
+        fetchRequest.sortDescriptors = [sort]
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
+            var strRoutes = fetchResults.map()
+            {
+                return $0.bus_route
+            }
+            return Array(Set(strRoutes))
+        }
+        
+        return nil
+    }
+    
     
     func getTimesAsArray() -> [Time]
     {
@@ -90,7 +113,7 @@ class Stop: NSManagedObject {
         }
         
         var str = ""
-        for t in tim[0...2]
+        for t in tim[0..<1]
         {
             let ti = t as! Time
             str += "\(ti.time), "
