@@ -13,7 +13,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     var locations = [Stop]()
 
-    @IBOutlet var pageControl: UIPageControl!
+    
     var refresh = UIRefreshControl()
 
     @IBOutlet var table: UITableView!
@@ -32,7 +32,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         // no separator between the tables
         table.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        pageControl.currentPage = itemIndex
+     //   pageControl.currentPage = itemIndex
         
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         table.addSubview(refresh)

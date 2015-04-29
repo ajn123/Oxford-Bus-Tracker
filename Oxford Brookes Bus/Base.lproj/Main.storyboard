@@ -111,13 +111,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="20i-1G-cCM">
-                                <rect key="frame" x="168" y="602" width="39" height="37"/>
-                                <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </pageControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-9v-eoX">
-                                <rect key="frame" x="0.0" y="20" width="375" height="574"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
+                                <rect key="frame" x="288" y="20" width="50" height="50"/>
+                                <state key="normal" image="changeDirection.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-9v-eoX">
+                                <rect key="frame" x="0.0" y="78" width="375" height="589"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="540" id="rac-aS-tD6"/>
@@ -170,62 +174,43 @@
                                     <outlet property="delegate" destination="454-R7-6vy" id="QO7-T2-DcH"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
-                                <rect key="frame" x="111" y="606" width="30" height="30"/>
-                                <state key="normal" title="🔃">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="35G-Qt-AfN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="20i-1G-cCM" secondAttribute="trailing" constant="152" id="F61-vl-PFL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="21" id="5zr-bt-LSh"/>
+                            <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="CXo-DT-LdJ"/>
+                            <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="8" id="ILb-jE-jlv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="Icm-l0-xAI"/>
-                            <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="20i-1G-cCM" secondAttribute="bottom" constant="61" id="Jqm-YC-89D"/>
-                            <constraint firstItem="20i-1G-cCM" firstAttribute="top" secondItem="HoU-9v-eoX" secondAttribute="bottom" constant="9" id="Khb-Ch-PoZ"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="SEH-8j-C42" secondAttribute="topMargin" constant="20" id="KjN-bu-snh"/>
-                            <constraint firstItem="20i-1G-cCM" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="152" id="PQA-vt-teE"/>
-                            <constraint firstAttribute="centerX" secondItem="20i-1G-cCM" secondAttribute="centerX" id="R0B-da-Vpc"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="top" secondItem="HoU-9v-eoX" secondAttribute="bottom" constant="12" id="UQO-pC-aYe"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="Wjc-Io-59O"/>
-                            <constraint firstItem="20i-1G-cCM" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="152" id="Wo6-2E-UUl"/>
-                            <constraint firstItem="20i-1G-cCM" firstAttribute="leading" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="27" id="Y8i-3Q-xeu"/>
-                            <constraint firstItem="20i-1G-cCM" firstAttribute="top" secondItem="HoU-9v-eoX" secondAttribute="bottom" constant="8" id="bGe-vi-Qex"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="XCP-gl-xGt"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="bV5-LO-qAR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="20i-1G-cCM" secondAttribute="trailing" constant="152" id="cVd-1Y-9r3"/>
+                            <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="HoU-9v-eoX" secondAttribute="bottom" id="eum-h2-mZa"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="fLd-YD-Fqg"/>
-                            <constraint firstItem="20i-1G-cCM" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="152" id="fNk-PN-Ogl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="20i-1G-cCM" secondAttribute="trailing" constant="152" id="j9N-6y-XCD"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="jeM-Nz-bZg"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="m6Q-w8-RAH"/>
-                            <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="20i-1G-cCM" secondAttribute="bottom" constant="57" id="nPZ-HF-Yga"/>
+                            <constraint firstItem="JG7-Io-Sw3" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="ngv-LP-O23"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="uxy-BL-GhT"/>
-                            <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="20i-1G-cCM" secondAttribute="bottom" constant="28" id="xff-2x-DLD"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="35G-Qt-AfN"/>
                                 <exclude reference="Icm-l0-xAI"/>
                                 <exclude reference="KjN-bu-snh"/>
+                                <exclude reference="Wjc-Io-59O"/>
                                 <exclude reference="bV5-LO-qAR"/>
+                                <exclude reference="fLd-YD-Fqg"/>
                                 <exclude reference="jeM-Nz-bZg"/>
-                                <exclude reference="Khb-Ch-PoZ"/>
-                                <exclude reference="PQA-vt-teE"/>
-                                <exclude reference="Wo6-2E-UUl"/>
-                                <exclude reference="cVd-1Y-9r3"/>
-                                <exclude reference="j9N-6y-XCD"/>
-                                <exclude reference="Jqm-YC-89D"/>
-                                <exclude reference="nPZ-HF-Yga"/>
+                                <exclude reference="m6Q-w8-RAH"/>
+                                <exclude reference="uxy-BL-GhT"/>
+                                <exclude reference="UQO-pC-aYe"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="pageControl" destination="20i-1G-cCM" id="828-ha-YVi"/>
                         <outlet property="table" destination="HoU-9v-eoX" id="0hL-GX-B7b"/>
                     </connections>
                 </viewController>
@@ -368,6 +353,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="changeDirection.png" width="100" height="100"/>
         <image name="pointingDown2.png" width="60" height="93"/>
     </resources>
     <inferredMetricsTieBreakers>
