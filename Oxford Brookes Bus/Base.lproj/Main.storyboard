@@ -66,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NaQ-Xp-WFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881.5" y="1349.5"/>
+            <point key="canvasLocation" x="923.5" y="1223.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XEf-I3-qat">
@@ -97,7 +97,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8e-PI-FGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479.5" y="1463.5"/>
+            <point key="canvasLocation" x="323.5" y="1825.5"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="dJg-Cv-Vne">
@@ -136,19 +136,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJ9-uk-L7x">
-                                                    <rect key="frame" x="113" y="49" width="229" height="35"/>
+                                                    <rect key="frame" x="25" y="49" width="229" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Next Bus:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwC-3i-YMR">
-                                                    <rect key="frame" x="113" y="31" width="93" height="21"/>
+                                                    <rect key="frame" x="25" y="31" width="93" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pointingDown2.png" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-N0-ITM">
-                                                    <rect key="frame" x="8" y="0.0" width="60" height="105"/>
+                                                    <rect key="frame" x="294" y="-7" width="40" height="105"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -256,7 +256,7 @@
                                     <action selector="segmentChange:" destination="TqT-WR-H09" eventType="valueChanged" id="Tpx-nC-wXR"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4dW-Wr-RRz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4dW-Wr-RRz">
                                 <rect key="frame" x="0.0" y="64" width="375" height="489"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
