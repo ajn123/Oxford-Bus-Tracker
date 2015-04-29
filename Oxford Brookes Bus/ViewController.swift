@@ -16,16 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var table: UITableView!
     
     var locations = [String]()
-    var overall = [String: AnyObject]()
-    
+
     var refresh = UIRefreshControl()
-    
-    // Initialize it right away here
-    private let contentImages =
-    ["nature_pic_1.png",
-     "nature_pic_2.png",
-     "nature_pic_3.png",
-     "nature_pic_4.png"];
 
     
     

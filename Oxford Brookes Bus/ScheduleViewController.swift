@@ -12,8 +12,7 @@ import CoreData
 class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     var locations = [Stop]()
-    var overall = Dictionary<String, AnyObject>()
-    
+
     @IBOutlet var pageControl: UIPageControl!
     var refresh = UIRefreshControl()
 
@@ -30,6 +29,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         locations = Stop.getAllBusStops()!
         
+        // no separator between the tables
         table.separatorStyle = UITableViewCellSeparatorStyle.None
         
         pageControl.currentPage = itemIndex
@@ -62,11 +62,11 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomRouteViewCell
         
-        cell.locationTitle.text = "\(stop.name)"
+        cell.locationTitle.text = "\(stop.stop_name)"
         
         cell.indexRow = indexPath.row
         
-        cell.downTime.text = "\(stop.displayAllTimes())"
+        cell.downTime.text = "\(stop.displayNextTimes())"
         
         if(stop.stop_number == 0)
         {
@@ -95,9 +95,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
             var ttvc =  segue.destinationViewController as! TimeViewController
             var cell = sender as! CustomRouteViewCell
             var place = cell.indexRow
-            var arr = locations[place].times.allObjects as! [Time]
+            ttvc.times = locations[place].getTimesAsArray()
             
-           ttvc.times = arr
         }
     }
     @IBAction func changeDirectionPressed(sender: AnyObject) {

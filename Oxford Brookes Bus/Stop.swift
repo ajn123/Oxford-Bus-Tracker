@@ -11,18 +11,20 @@ import UIKit
 
 class Stop: NSManagedObject {
 
-    @NSManaged var name: String
+    @NSManaged var stop_name: String
+    @NSManaged var bus_route: String
     @NSManaged var stop_number: NSNumber
     @NSManaged var times: NSSet
     
   
-    class func createInManagedObjectContext(name: String, stop_number: Int = 0) -> Stop {
+    class func createInManagedObjectContext(name: String, stop_number: Int = 0, bus_route: String = "Nono") -> Stop {
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var moc: NSManagedObjectContext = appDel.managedObjectContext!
 
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Stop", inManagedObjectContext: moc) as! Stop
-        newItem.name = name
+        newItem.stop_name = name
         newItem.stop_number = stop_number
+        newItem.bus_route = bus_route
         
         return newItem
     }
@@ -47,6 +49,14 @@ class Stop: NSManagedObject {
     }
     
     
+    func getTimesAsArray() -> [Time]
+    {
+        var ti = self.times.sortedArrayUsingDescriptors([NSSortDescriptor(key: "time", ascending: true)])
+        return ti as! [Time]
+    }
+
+    
+    
     func displayAllTimes() -> String
     {
         var ti = times.sortedArrayUsingDescriptors([NSSortDescriptor(key: "time", ascending: true)])
@@ -60,4 +70,33 @@ class Stop: NSManagedObject {
         
         return str
     }
+    
+    func displayNextTimes(count: Int = 3) -> String
+    {
+        var currentTime = NSDate.getTime()
+        
+        var ti = times.sortedArrayUsingDescriptors([NSSortDescriptor(key: "time", ascending: true)])
+        
+        var tim = ti.filter()
+        {
+            if let type = $0 as? Time
+            {
+                return type.time.integerValue > currentTime
+            }
+            else
+            {
+                return false
+            }
+        }
+        
+        var str = ""
+        for t in tim[0...2]
+        {
+            let ti = t as! Time
+            str += "\(ti.time), "
+        }
+        
+        return str
+    }
+    
 }

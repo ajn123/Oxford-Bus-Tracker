@@ -71,7 +71,7 @@ class CoreDataModel
         
         for (index, t) in enumerate(tup)
         {
-            let stop = Stop.createInManagedObjectContext(t.name, stop_number: index)
+            let stop = Stop.createInManagedObjectContext(t.name, stop_number: index, bus_route: t.bus_type)
             
             for s in t.stop_times
             {
