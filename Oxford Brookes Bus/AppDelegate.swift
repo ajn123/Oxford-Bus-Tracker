@@ -22,10 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var names = ["Wheatly Campus", "Wheatley Church", "Sandhills", "Headington Shops", "Brookes University",
                      "High Street", "Speedwell Street", "Castle Street", "Frideswide Square", "Harcourt Hill"]
         
-        for (index, n) in enumerate(names)
-        {
-            CoreDataModel.addData(n, stop_num: index)
-        }
+        CoreDataModel.massAssign()
         
         return true
     }

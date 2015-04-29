@@ -17,7 +17,7 @@ class Time: NSManagedObject {
     @NSManaged var direction: NSNumber
     @NSManaged var parent: Stop
 
-
+    
   
 
 }

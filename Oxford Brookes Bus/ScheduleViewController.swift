@@ -34,7 +34,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         pageControl.currentPage = itemIndex
         
-        
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         table.addSubview(refresh)
         // Do any additional setup after loading the view.
@@ -69,10 +68,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.downTime.text = "\(stop.displayAllTimes())"
         
-        if(itemIndex == 1)
+        if(stop.stop_number == 0)
         {
-            // flip image if the second index is happening
-            cell.downImage.transform = CGAffineTransformMakeRotation((180.0 * CGFloat(M_PI)) / 180.0)
+            println("HELLLLOOO")
+            cell.downImage.image = UIImage(named: "beginningRoute.png")
+        }
+        
+        if(stop.stop_number == locations.count - 1)
+        {
+            cell.downImage.image = UIImage(named: "endRoute.png")
         }
         
         return cell

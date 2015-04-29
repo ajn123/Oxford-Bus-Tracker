@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F3C11F61AEFEE01001EC7E5 /* beginningRoute.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C11F51AEFEE01001EC7E5 /* beginningRoute.png */; };
+		7F3C11F81AEFEE0C001EC7E5 /* endRoute.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C11F71AEFEE0C001EC7E5 /* endRoute.png */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
 		7F9AC30E1AE82F99005D0495 /* SchedulePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30D1AE82F99005D0495 /* SchedulePageViewController.swift */; };
 		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
@@ -20,7 +22,6 @@
 		7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */; };
 		7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36371AE6799C0055D8CD /* TimeViewController.swift */; };
 		7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */; };
-		7FDD47B81AEE476D00FE2235 /* tryDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD47B71AEE476D00FE2235 /* tryDown.png */; };
 		7FDD47BE1AEE7CDE00FE2235 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD47BD1AEE7CDE00FE2235 /* Time.swift */; };
 		7FDD47C01AEE7CDE00FE2235 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD47BF1AEE7CDE00FE2235 /* Stop.swift */; };
 		7FDD47C21AEE825200FE2235 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F3C11F51AEFEE01001EC7E5 /* beginningRoute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beginningRoute.png; sourceTree = "<group>"; };
+		7F3C11F71AEFEE0C001EC7E5 /* endRoute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endRoute.png; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		7F9AC30D1AE82F99005D0495 /* SchedulePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePageViewController.swift; sourceTree = "<group>"; };
 		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +60,6 @@
 		7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		7FBE36371AE6799C0055D8CD /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
-		7FDD47B71AEE476D00FE2235 /* tryDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tryDown.png; sourceTree = "<group>"; };
 		7FDD47BD1AEE7CDE00FE2235 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Time.swift; path = "Oxford Brookes Bus/Time.swift"; sourceTree = "<group>"; };
 		7FDD47BF1AEE7CDE00FE2235 /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stop.swift; path = "Oxford Brookes Bus/Stop.swift"; sourceTree = "<group>"; };
 		7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
@@ -107,9 +109,10 @@
 		7FBE360D1AE541640055D8CD /* Oxford Brookes Bus */ = {
 			isa = PBXGroup;
 			children = (
+				7F3C11F51AEFEE01001EC7E5 /* beginningRoute.png */,
+				7F3C11F71AEFEE0C001EC7E5 /* endRoute.png */,
 				7FDD47C51AEEA2C600FE2235 /* pointingDown2.png */,
 				7FDD47C31AEEA22B00FE2235 /* pointingDown.png */,
-				7FDD47B71AEE476D00FE2235 /* tryDown.png */,
 				7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */,
 				7FBE36101AE541640055D8CD /* AppDelegate.swift */,
 				7FBE36151AE541640055D8CD /* ViewController.swift */,
@@ -237,9 +240,10 @@
 				7FBE36191AE541640055D8CD /* Main.storyboard in Resources */,
 				7FDD47C61AEEA2C600FE2235 /* pointingDown2.png in Resources */,
 				7FBE361E1AE541640055D8CD /* LaunchScreen.xib in Resources */,
+				7F3C11F61AEFEE01001EC7E5 /* beginningRoute.png in Resources */,
 				7FDD47C41AEEA22B00FE2235 /* pointingDown.png in Resources */,
+				7F3C11F81AEFEE0C001EC7E5 /* endRoute.png in Resources */,
 				7FBE36341AE541A60055D8CD /* busSchedule.plist in Resources */,
-				7FDD47B81AEE476D00FE2235 /* tryDown.png in Resources */,
 				7FBE361B1AE541640055D8CD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

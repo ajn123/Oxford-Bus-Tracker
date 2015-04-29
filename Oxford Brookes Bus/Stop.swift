@@ -49,11 +49,13 @@ class Stop: NSManagedObject {
     
     func displayAllTimes() -> String
     {
+        var ti = times.sortedArrayUsingDescriptors([NSSortDescriptor(key: "time", ascending: true)])
+        
         var str = ""
-        for t in times
+        for t in ti
         {
             let ti = t as! Time
-            str += "\(ti.time)"
+            str += "\(ti.time), "
         }
         
         return str
