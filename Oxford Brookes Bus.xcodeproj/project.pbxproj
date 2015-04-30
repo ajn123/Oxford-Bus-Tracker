@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F2F42871AF2588C0088BC7F /* busStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F42861AF2588C0088BC7F /* busStop.swift */; };
+		7F3BBDBB1AF2A7BC0042C239 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */; };
 		7F3C11F61AEFEE01001EC7E5 /* beginningRoute.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C11F51AEFEE01001EC7E5 /* beginningRoute.png */; };
 		7F3C11F81AEFEE0C001EC7E5 /* endRoute.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C11F71AEFEE0C001EC7E5 /* endRoute.png */; };
 		7F3C11FA1AF16623001EC7E5 /* changeDirection.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C11F91AF16623001EC7E5 /* changeDirection.png */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		7F2F42861AF2588C0088BC7F /* busStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = busStop.swift; sourceTree = "<group>"; };
+		7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7F3C11F51AEFEE01001EC7E5 /* beginningRoute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beginningRoute.png; sourceTree = "<group>"; };
 		7F3C11F71AEFEE0C001EC7E5 /* endRoute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endRoute.png; sourceTree = "<group>"; };
 		7F3C11F91AF16623001EC7E5 /* changeDirection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changeDirection.png; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */,
 				7F3C122C1AF1771B001EC7E5 /* RoutesTableViewController.swift */,
 				7F2F42861AF2588C0088BC7F /* busStop.swift */,
+				7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */,
 			);
 			path = "Oxford Brookes Bus";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */,
 				7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */,
 				7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */,
+				7F3BBDBB1AF2A7BC0042C239 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

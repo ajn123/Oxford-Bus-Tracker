@@ -8,7 +8,7 @@
         <!--Routes-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MapViewController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,11 +16,26 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9rF-y9-8CA">
+                                <rect key="frame" x="0.0" y="-43" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="YlZ-OF-vL2"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9rF-y9-8CA" secondAttribute="trailing" constant="-16" id="GI8-12-d5P"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="9rF-y9-8CA" secondAttribute="bottom" constant="43" id="bb1-LY-62b"/>
+                            <constraint firstItem="9rF-y9-8CA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="bpk-wC-tx7"/>
+                            <constraint firstItem="9rF-y9-8CA" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="-43" id="sX3-ZX-uLh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Routes" id="Qtm-J2-6Hu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="map" destination="9rF-y9-8CA" id="vbA-Pq-Jys"/>
                         <outlet property="table" destination="HoU-9v-eoX" id="Scn-E3-rc3"/>
                     </connections>
                 </viewController>
@@ -83,7 +98,7 @@
         <scene sceneID="XEf-I3-qat">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s0R-ee-F6h" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="0CC-Ho-D8o"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="0CC-Ho-D8o"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="INR-HU-eZ8">
