@@ -59,12 +59,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.downTime.text = "\(stop.displayNextTimes())"
         
-        if(stop.stop_number == 0)
+        if(indexPath.row == 0)
         {
             cell.downImage.image = UIImage(named: "beginningRoute.png")
         }
         
-        if(stop.stop_number == locations.count - 1)
+        if(indexPath.row == locations.count - 1)
         {
             cell.downImage.image = UIImage(named: "endRoute.png")
         }

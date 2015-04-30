@@ -96,22 +96,22 @@ class Stop: NSManagedObject {
     {
         var currentTime = NSDate.getTime()
         
-        var ti = getTimesAsArray()
+        var allTimes = getTimesAsArray()
         
-        var tim = ti.filter()
+        var futureTimes = allTimes.filter()
         {
             return $0.time.integerValue > currentTime
         }
         
         var str = ""
         
-        if(tim.count > 0)
+        if(futureTimes.count > 0)
         {
         
-            for t in tim[0...1]
+            for t in futureTimes[0...1]
             {
-                let ti = t
-                str += "\(ti.time), "
+
+                str += "Arriving at: \(t.time), \(t.time.integerValue - currentTime) till Departure  \n"
             }
         }
         
