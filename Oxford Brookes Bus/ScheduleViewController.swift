@@ -55,7 +55,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.indexRow = indexPath.row
         
-        cell.downTime.text = "REPLACE ME"
+        cell.downTime.text = BusRoute.getTimesFromStop(stop.stop_name)
         if(indexPath.row == 0)
         {
             cell.downImage.image = UIImage(named: "beginningRoute.png")

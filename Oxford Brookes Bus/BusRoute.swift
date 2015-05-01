@@ -58,6 +58,7 @@ class BusRoute: NSManagedObject {
         var moc: NSManagedObjectContext = appDel.managedObjectContext!
         
         let fetchRequest = NSFetchRequest(entityName: "BusRoute")
+ 
         var sort = NSSortDescriptor(key: "name", ascending: true) // sort by bus stop
         
         fetchRequest.sortDescriptors = [sort]
@@ -77,6 +78,38 @@ class BusRoute: NSManagedObject {
         return []
         
       
+    }
+    
+    class func getTimesFromStop(stop: String) -> String
+    {
+        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var moc: NSManagedObjectContext = appDel.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "Stop")
+        
+        //   var sort = NSSortDescriptor(key: "name", ascending: true) // sort by bus stop
+        
+        //   fetchRequest.sortDescriptors = [sort]
+        
+        var currentTime = NSDate.getTime()
+        
+        let predicate = NSPredicate(format: "time >= %ld", currentTime)
+        
+        fetchRequest.predicate = predicate
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
+            
+            var stops = fetchResults
+            
+            for st in stops
+            {
+                println(st.time)
+            }
+            
+        }
+        
+        return "1200"
     }
 
 }
