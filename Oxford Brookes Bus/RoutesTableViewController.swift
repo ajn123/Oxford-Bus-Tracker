@@ -57,7 +57,15 @@ class RoutesTableViewController: UITableViewController {
    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-       // TODO pass route Details to view Controler
+        
+        var a = segue.destinationViewController as! UINavigationController
+        var seg = a.topViewController as! ScheduleViewController
+        
+
+            var cell = sender as! UITableViewCell
+            var routeString: String = cell.textLabel!.text!
+        println(routeString)
+            seg.locations = BusRoute.busRoutes(routeString)
         
     }
     

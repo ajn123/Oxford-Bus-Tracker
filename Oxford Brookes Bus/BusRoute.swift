@@ -35,7 +35,6 @@ class BusRoute: NSManagedObject {
     
     class func allBusRoutes() -> [String]
     {
-        
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var moc: NSManagedObjectContext = appDel.managedObjectContext!
         
@@ -51,6 +50,33 @@ class BusRoute: NSManagedObject {
         }
         
         return []
+    }
+    
+    class func busRoutes(name: String) -> [Stop]
+    {
+        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var moc: NSManagedObjectContext = appDel.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "BusRoute")
+        var sort = NSSortDescriptor(key: "name", ascending: true) // sort by bus stop
+        
+        fetchRequest.sortDescriptors = [sort]
+        
+        
+        let predicate = NSPredicate(format: "name == %@", name)
+        
+        fetchRequest.predicate = predicate
+    
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [BusRoute] {
+            var stops = fetchResults[0].stops.allObjects as! [Stop]
+            
+            return Array(Set(stops))
+        }
+        
+        return []
+        
+      
     }
 
 }

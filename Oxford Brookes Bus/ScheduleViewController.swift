@@ -20,8 +20,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locations = Stop.getAllBusStops()!
-        
         // no separator between the tables
         table.separatorStyle = UITableViewCellSeparatorStyle.None
         

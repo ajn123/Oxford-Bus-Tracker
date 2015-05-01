@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F2F42871AF2588C0088BC7F /* busStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F42861AF2588C0088BC7F /* busStop.swift */; };
 		7F306C2A1AF3A83200C9605D /* BusRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F306C291AF3A83200C9605D /* BusRoute.swift */; };
 		7F306C2E1AF3BA9F00C9605D /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F306C2D1AF3BA9F00C9605D /* Stop.swift */; };
 		7F3BBDBB1AF2A7BC0042C239 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */; };
@@ -44,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7F2F42861AF2588C0088BC7F /* busStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = busStop.swift; sourceTree = "<group>"; };
 		7F306C291AF3A83200C9605D /* BusRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRoute.swift; sourceTree = "<group>"; };
 		7F306C2D1AF3BA9F00C9605D /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */,
 				7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */,
 				7F3C122C1AF1771B001EC7E5 /* RoutesTableViewController.swift */,
-				7F2F42861AF2588C0088BC7F /* busStop.swift */,
 				7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */,
 				7F306C291AF3A83200C9605D /* BusRoute.swift */,
 				7F306C2D1AF3BA9F00C9605D /* Stop.swift */,
@@ -273,7 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FEE5BC71AE794A0006118DB /* CustomRouteViewCell.swift in Sources */,
-				7F2F42871AF2588C0088BC7F /* busStop.swift in Sources */,
 				7F3C122D1AF1771B001EC7E5 /* RoutesTableViewController.swift in Sources */,
 				7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */,
 				7FBE36161AE541640055D8CD /* ViewController.swift in Sources */,

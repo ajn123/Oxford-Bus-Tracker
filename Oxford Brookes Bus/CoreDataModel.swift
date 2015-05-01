@@ -14,9 +14,6 @@ class CoreDataModel
     static var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     static var context: NSManagedObjectContext = appDel.managedObjectContext!
 
-
-
-    
     class func massAssign()
     {
         var bus = BusRoute.createBusRoute("U1", destination: "Harcourt Hill", startTime: 1055, endTime: 1152, schedule: 0 )
