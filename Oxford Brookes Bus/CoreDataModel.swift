@@ -35,6 +35,15 @@ class CoreDataModel
         Stop.createStop(925, name: "OXFORD High St Carfax", stop_number: 3, latitude: 0.0, longitude: 2.0, parent: bus)
         Stop.createStop(935, name: "Frideswide Sq R9", stop_number: 4, latitude: 0.0, longitude: 2.0, parent: bus)
         Stop.createStop(945, name: "Harcourt Hill", stop_number: 5, latitude: 0.0, longitude: 2.0, parent: bus)
+        
+        bus = BusRoute.createBusRoute("U1", destination: "Speedwell Street", startTime: 910, endTime: 945, schedule: 0 )
+        Stop.createStop(910, name: "Wheatley campus", stop_number: 0, latitude: 0.0, longitude: 2.0, parent: bus)
+        Stop.createStop(914, name: "Wheatley church", stop_number: 1, latitude: 0.0, longitude: 2.0, parent: bus)
+        Stop.createStop(919, name: "Sandhills A40", stop_number: 2, latitude: 0.0, longitude: 2.0, parent: bus)
+        Stop.createStop(927, name: "Headington Shops", stop_number: 3, latitude: 0.0, longitude: 2.0, parent: bus)
+        Stop.createStop(935, name: "Brookes Uni stop B5", stop_number: 4, latitude: 0.0, longitude: 2.0, parent: bus)
+        Stop.createStop(942, name: "OXFORD High St Carfax", stop_number: 5, latitude: 0.0, longitude: 2.0, parent: bus)
+        Stop.createStop(945, name: "Speedwell Street", stop_number: 6, latitude: 0.0, longitude: 2.0, parent: bus)
     }
     
     

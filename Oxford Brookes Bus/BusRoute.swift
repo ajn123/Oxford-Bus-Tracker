@@ -46,38 +46,52 @@ class BusRoute: NSManagedObject {
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [BusRoute] {
-            return fetchResults.map({ $0.name})
+            return Array(Set(fetchResults.map({ $0.name })))
         }
         
         return []
     }
     
-    class func busRoutes(name: String) -> [Stop]
+    class func busRoutes(name: String) -> [String]
     {
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var moc: NSManagedObjectContext = appDel.managedObjectContext!
         
-        let fetchRequest = NSFetchRequest(entityName: "BusRoute")
+        let fetchRequest = NSFetchRequest(entityName: "Stop")
  
-        var sort = NSSortDescriptor(key: "name", ascending: true) // sort by bus stop
+        var sort = NSSortDescriptor(key: "stop_number", ascending: true) // sort by bus stop
         
         fetchRequest.sortDescriptors = [sort]
         
-        
-        let predicate = NSPredicate(format: "name == %@", name)
+        let predicate = NSPredicate(format: "busParent.name == %@", name)
         
         fetchRequest.predicate = predicate
     
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [BusRoute] {
-            var stops = fetchResults[0].stops.allObjects as! [Stop]
+        if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
+            return removeDuplicates(fetchResults.map({ $0.stop_name }))
             
-            return Array(Set(stops))
         }
         
         return []
         
       
+    }
+    
+    
+    
+    class func removeDuplicates(strings: [String]) -> [String]
+    {
+        var array = [String]()
+        for s in strings
+        {
+            if !contains(array, s)
+            {
+                array.append(s)
+            }
+        }
+        return array
+        
     }
     
     class func getTimesFromStop(stop: String) -> String
@@ -93,23 +107,28 @@ class BusRoute: NSManagedObject {
         
         var currentTime = NSDate.getTime()
         
-        let predicate = NSPredicate(format: "time >= %ld", currentTime)
+        let predicate = NSPredicate(format: "time >= %ld", 800)
         
-        fetchRequest.predicate = predicate
+        let predicate2 = NSPredicate(format: "stop_name == %@", stop)
+        
+        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate, predicate2])
+        
+        var str: String = ""
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
             
             var stops = fetchResults
             
+            
             for st in stops
             {
-                println(st.time)
+                str += "\(st.time), "
             }
             
         }
         
-        return "1200"
+        return str
     }
 
 }

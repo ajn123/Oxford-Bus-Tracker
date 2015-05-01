@@ -11,7 +11,7 @@ import CoreData
 
 class ScheduleViewController: UIViewController, UITableViewDelegate {
     
-    var locations = [Stop]()
+    var locations = [String]()
 
     var refresh = UIRefreshControl()
 
@@ -51,11 +51,11 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomRouteViewCell
         
-        cell.locationTitle.text = "\(stop.stop_name)"
+        cell.locationTitle.text = "\(stop)"
         
         cell.indexRow = indexPath.row
         
-        cell.downTime.text = BusRoute.getTimesFromStop(stop.stop_name)
+        cell.downTime.text = BusRoute.getTimesFromStop(stop)
         if(indexPath.row == 0)
         {
             cell.downImage.image = UIImage(named: "beginningRoute.png")
@@ -82,8 +82,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         let tableVC = navVC.topViewController as! TimeViewController
         
         var cell = sender as! CustomRouteViewCell
-        
-    
     }
     
     @IBAction func changeDirectionPressed(sender: AnyObject) {
