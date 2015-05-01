@@ -57,8 +57,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.indexRow = indexPath.row
         
-        cell.downTime.text = "\(stop.displayNextTimes())"
-        
+        cell.downTime.text = "REPLACE ME"
         if(indexPath.row == 0)
         {
             cell.downImage.image = UIImage(named: "beginningRoute.png")
@@ -86,7 +85,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         var cell = sender as! CustomRouteViewCell
         
-        tableVC.times = locations[cell.indexRow].getTimesAsArray()
     
     }
     

@@ -19,9 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         // Override point for customization after application launch.
         
-        var names = ["Wheatly Campus", "Wheatley Church", "Sandhills", "Headington Shops", "Brookes University",
-                     "High Street", "Speedwell Street", "Castle Street", "Frideswide Square", "Harcourt Hill"]
-        
         CoreDataModel.massAssign()
         
         return true

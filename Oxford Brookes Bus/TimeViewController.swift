@@ -13,7 +13,6 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var timeTable: UITableView!
     @IBOutlet var dayOfWeek: UISegmentedControl!
     
-    var times = [Time]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +48,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     // MARK: - Table view data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return times.count
+        return 1
     }
     
     
@@ -58,25 +57,17 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "timeCell")
 
         var militaryTime = NSDate.getTime()
-        
-        var ti = times[indexPath.row]
-        
-        var compare = ti.time as Int
-        
-        if( militaryTime < compare)
-        {
+       
+
             // green
             cell.backgroundColor = UIColor(red: 0.00, green: 1.00, blue: 0.00, alpha: 1.00)
             cell.detailTextLabel?.text = "Incoming in \( militaryTime)"
-        }
-        else
-        {
+        
             // red
             cell.backgroundColor = UIColor(red: 0.80, green: 0.00, blue: 0.00, alpha: 1.00)
             cell.detailTextLabel?.text = "Missed"
-        }
         
-        cell.textLabel?.text = "\(times[indexPath.row].time)"
+        cell.textLabel?.text = "REPLACE ME"
         
         return cell
     }

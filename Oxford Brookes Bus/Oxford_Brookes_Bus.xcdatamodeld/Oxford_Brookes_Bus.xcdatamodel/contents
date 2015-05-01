@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BusRoute" representedClassName="Oxford_Brookes_Bus.BusRoute" syncable="YES">
+        <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schedule" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="stops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stop" inverseName="busParent" inverseEntity="Stop" syncable="YES"/>
+    </entity>
     <entity name="Stop" representedClassName="Oxford_Brookes_Bus.Stop" syncable="YES">
-        <attribute name="bus_route" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stop_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stop_number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="times" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Time" inverseName="parent" inverseEntity="Time" syncable="YES"/>
-    </entity>
-    <entity name="Time" representedClassName="Oxford_Brookes_Bus.Time" syncable="YES">
-        <attribute name="bus_type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="direction" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stop" inverseName="times" inverseEntity="Stop" syncable="YES"/>
+        <relationship name="busParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusRoute" inverseName="stops" inverseEntity="BusRoute" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Stop" positionX="-180" positionY="-63" width="128" height="103"/>
-        <element name="Time" positionX="88" positionY="-13" width="128" height="118"/>
+        <element name="BusRoute" positionX="-380" positionY="-172" width="128" height="133"/>
+        <element name="Stop" positionX="-227" positionY="-94" width="128" height="133"/>
     </elements>
 </model>

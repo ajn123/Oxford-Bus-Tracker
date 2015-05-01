@@ -15,7 +15,8 @@ class RoutesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        routes = Stop.getBusRoutes()!
+        routes = BusRoute.allBusRoutes()
+      //  routes = Stop.getBusRoutes()!
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

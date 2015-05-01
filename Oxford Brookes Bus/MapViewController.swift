@@ -18,8 +18,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        self.map.delegate = self;
-        
         
         var latitude:CLLocationDegrees = 51.751798
         
@@ -27,7 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         var latDelta:CLLocationDegrees = 0.002
         
-        var lonDelta:CLLocationDegrees = 0.05
+        var lonDelta:CLLocationDegrees = 0.095
         
         var span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
         
@@ -46,14 +44,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         annotation.coordinate = olocation
         
-       
-        
         annotation.title = "Oxford"
         
         annotation.subtitle = "here"
         
-        
         map.addAnnotation(annotation)
+        
+        
         
         map.setRegion(region, animated: true)
     }
