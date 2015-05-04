@@ -44,7 +44,7 @@ extension NSDate{
         }
     }
     
-    // return current time in 24 style
+    // return current time in 24 hour style
     class func getTime() -> Int
     {
         let date = NSDate()
