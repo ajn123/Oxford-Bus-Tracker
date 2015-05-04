@@ -37,11 +37,32 @@
                     <connections>
                         <outlet property="map" destination="9rF-y9-8CA" id="vbA-Pq-Jys"/>
                         <outlet property="table" destination="HoU-9v-eoX" id="Scn-E3-rc3"/>
+                        <segue destination="6Qh-6F-Zga" kind="show" identifier="annotationPress" id="TP9-T1-oZl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2046.5" y="320.5"/>
+            <point key="canvasLocation" x="1480.5" y="540.5"/>
+        </scene>
+        <!--Route Information-->
+        <scene sceneID="b3V-te-CKP">
+            <objects>
+                <viewController id="Dq4-47-eaF" customClass="MapRouteViewController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5cO-e2-Rhz"/>
+                        <viewControllerLayoutGuide type="bottom" id="eI5-gM-kXX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NG9-jd-ZfU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Route Information" id="cQg-2G-cFu"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48W-eE-QXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2488.5" y="552.5"/>
         </scene>
         <!--Routes & Schedules-->
         <scene sceneID="ilf-lQ-GYl">
@@ -106,7 +127,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="1071.5" y="487.5"/>
+            <point key="canvasLocation" x="967.5" y="540.5"/>
         </scene>
         <!--Route Details-->
         <scene sceneID="dJg-Cv-Vne">
@@ -437,6 +458,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gE-53-BoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1683.5" y="1402.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0ze-CJ-e3o">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Qh-6F-Zga" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rq8-Q8-YUk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dq4-47-eaF" kind="relationship" relationship="rootViewController" id="3nj-PI-IlK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mug-5T-TIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1997.5" y="540.5"/>
         </scene>
     </scenes>
     <resources>

@@ -71,9 +71,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!)
     {
-        println("hello")
+          performSegueWithIdentifier("annotationPress", sender: view)
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "annotationPress"
+        {
+            var vc = MapRouteViewController()
+        }
+    }
     
     
     
