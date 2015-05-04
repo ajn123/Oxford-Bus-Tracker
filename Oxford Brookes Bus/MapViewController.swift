@@ -61,7 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // For MapKit provided annotations (eg. MKUserLocation) return nil to use the MapKit provided annotation view.
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView!
     {
-       var mkPinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pinLocation")
+        var mkPinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pinLocation")
         mkPinView.canShowCallout = true
         mkPinView.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
         
@@ -78,6 +78,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "annotationPress"
         {
+            // TODO pass data
             var vc = MapRouteViewController()
         }
     }

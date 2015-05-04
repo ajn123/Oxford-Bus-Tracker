@@ -172,6 +172,37 @@
 			path = TransitionAniamtions;
 			sourceTree = "<group>";
 		};
+		7F41D90B1AF82A6E00694800 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F306C291AF3A83200C9605D /* BusRoute.swift */,
+				7F306C2D1AF3BA9F00C9605D /* Stop.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7F41D90C1AF82A8600694800 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				7F41D9071AF6F9E300694800 /* Treasure Map-50.png */,
+				7F41D9051AF6F9AF00694800 /* Calendar-50.png */,
+				7F3C11F91AF16623001EC7E5 /* changeDirection.png */,
+				7F3C11F51AEFEE01001EC7E5 /* beginningRoute.png */,
+				7F3C11F71AEFEE0C001EC7E5 /* endRoute.png */,
+				7FDD47C51AEEA2C600FE2235 /* pointingDown2.png */,
+				7FDD47C31AEEA22B00FE2235 /* pointingDown.png */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		7F41D90D1AF82AA300694800 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		7FBE36021AE541640055D8CD = {
 			isa = PBXGroup;
 			children = (
@@ -193,14 +224,10 @@
 		7FBE360D1AE541640055D8CD /* Oxford Brookes Bus */ = {
 			isa = PBXGroup;
 			children = (
-				7F41D9071AF6F9E300694800 /* Treasure Map-50.png */,
-				7F41D9051AF6F9AF00694800 /* Calendar-50.png */,
+				7F41D90D1AF82AA300694800 /* Extensions */,
+				7F41D90C1AF82A8600694800 /* Photos */,
+				7F41D90B1AF82A6E00694800 /* Models */,
 				7F41D8EA1AF6E4E000694800 /* RAMAnimatedTabBarController */,
-				7F3C11F91AF16623001EC7E5 /* changeDirection.png */,
-				7F3C11F51AEFEE01001EC7E5 /* beginningRoute.png */,
-				7F3C11F71AEFEE0C001EC7E5 /* endRoute.png */,
-				7FDD47C51AEEA2C600FE2235 /* pointingDown2.png */,
-				7FDD47C31AEEA22B00FE2235 /* pointingDown.png */,
 				7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */,
 				7FBE36101AE541640055D8CD /* AppDelegate.swift */,
 				7FBE36151AE541640055D8CD /* ViewController.swift */,
@@ -212,13 +239,10 @@
 				7FBE360E1AE541640055D8CD /* Supporting Files */,
 				7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */,
 				7FBE36371AE6799C0055D8CD /* TimeViewController.swift */,
-				7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */,
 				7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */,
 				7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */,
 				7F3C122C1AF1771B001EC7E5 /* RoutesTableViewController.swift */,
 				7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */,
-				7F306C291AF3A83200C9605D /* BusRoute.swift */,
-				7F306C2D1AF3BA9F00C9605D /* Stop.swift */,
 				7F41D9091AF7893400694800 /* MapRouteViewController.swift */,
 			);
 			path = "Oxford Brookes Bus";
