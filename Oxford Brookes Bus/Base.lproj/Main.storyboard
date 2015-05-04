@@ -43,26 +43,6 @@
             </objects>
             <point key="canvasLocation" x="2046.5" y="320.5"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="sf0-Av-dTh">
-            <objects>
-                <viewController id="UXK-va-VAa" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8XR-Gq-Qjo"/>
-                        <viewControllerLayoutGuide type="bottom" id="T44-nx-dyo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1VX-r7-ppI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="0bA-lg-zL0"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RlJ-5I-J9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1505.5" y="-386.5"/>
-        </scene>
         <!--Routes & Schedules-->
         <scene sceneID="ilf-lQ-GYl">
             <objects>
@@ -94,11 +74,15 @@
             </objects>
             <point key="canvasLocation" x="1137.5" y="1402.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Maps-->
         <scene sceneID="XEf-I3-qat">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s0R-ee-F6h" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="0CC-Ho-D8o"/>
+                    <tabBarItem key="tabBarItem" title="Maps" image="Treasure Map-50.png" id="0CC-Ho-D8o" customClass="RAMAnimatedTabBarItem" customModule="Oxford_Brookes_Bus" customModuleProvider="target">
+                        <connections>
+                            <outlet property="animation" destination="Bb9-oD-vIG" id="AlM-1a-pMb"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="INR-HU-eZ8">
@@ -111,8 +95,18 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meP-Ct-bbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Bb9-oD-vIG" customClass="RAMLeftRotationAnimation" customModule="Oxford_Brookes_Bus" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="1547.5" y="309.5"/>
+            <point key="canvasLocation" x="1071.5" y="487.5"/>
         </scene>
         <!--Route Details-->
         <scene sceneID="dJg-Cv-Vne">
@@ -372,10 +366,10 @@
             </objects>
             <point key="canvasLocation" x="2627.5" y="1397.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Animated Tab Bar Controller-->
         <scene sceneID="9xU-ZA-lc2">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Yfk-ys-Qsc" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Yfk-ys-Qsc" customClass="RAMAnimatedTabBarController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -386,18 +380,21 @@
                     <connections>
                         <segue destination="13L-mO-M85" kind="relationship" relationship="viewControllers" id="PH9-en-I1x"/>
                         <segue destination="s0R-ee-F6h" kind="relationship" relationship="viewControllers" id="qD3-fT-Axh"/>
-                        <segue destination="UXK-va-VAa" kind="relationship" relationship="viewControllers" id="4JH-gi-VgW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dme-Ib-auP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="401.5" y="540.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Calendar-->
         <scene sceneID="Yka-U7-NMf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="13L-mO-M85" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="9qj-Xo-ORw"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="Calendar-50.png" id="9qj-Xo-ORw" customClass="RAMAnimatedTabBarItem" customModule="Oxford_Brookes_Bus" customModuleProvider="target">
+                        <connections>
+                            <outlet property="animation" destination="m7S-Ow-lKh" id="AVA-jI-A4r"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JKs-9h-uCx">
@@ -410,6 +407,16 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEI-YT-R1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="m7S-Ow-lKh" customClass="RAMBounceAnimation" customModule="Oxford_Brookes_Bus" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="624.5" y="1397.5"/>
         </scene>
@@ -433,6 +440,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Calendar-50.png" width="30" height="30"/>
+        <image name="Treasure Map-50.png" width="30" height="30"/>
         <image name="changeDirection.png" width="100" height="100"/>
         <image name="pointingDown2.png" width="60" height="93"/>
     </resources>

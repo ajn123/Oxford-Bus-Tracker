@@ -10,6 +10,16 @@ import Foundation
 
 extension NSDate{
     
+    
+    var currentMilitaryTime: Int {
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let hour = components.hour
+        let minutes = components.minute
+        return hour * 100 + minutes
+    }
+    
     /**
     Returns 0 if Weekday
     1 if Saturday
@@ -18,8 +28,8 @@ extension NSDate{
     class func getWeekday() -> Int?
     {
         let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
-        var a = myCalendar!.components(NSCalendarUnit.WeekdayCalendarUnit, fromDate: NSDate())
-        var day: Int = a.weekday
+        var weekdayComponent = myCalendar!.components(NSCalendarUnit.WeekdayCalendarUnit, fromDate: NSDate())
+        var day: Int = weekdayComponent.weekday
         switch day
         {
         case 2...6:
