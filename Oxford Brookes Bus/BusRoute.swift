@@ -98,7 +98,7 @@ class BusRoute: NSManagedObject {
         
     }
     
-    class func getTimesFromStop(stop: String, direction: Bool = true) -> String
+    class func getTimesFromStop(stop: String, direction: Bool = true) -> [String]
     {
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var moc: NSManagedObjectContext = appDel.managedObjectContext!
@@ -124,7 +124,7 @@ class BusRoute: NSManagedObject {
                 
         fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate, predicate2, predicate3])
         
-        var str: String = ""
+        var str = [String]()
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
@@ -134,7 +134,7 @@ class BusRoute: NSManagedObject {
             
             for st in stops
             {
-                str += "\(st.time), "
+                str.append("\(st.time) ")
             }
             
         }

@@ -12,6 +12,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var timeTable: UITableView!
     @IBOutlet var dayOfWeek: UISegmentedControl!
+    var times = [String]()
     
     
     override func viewDidLoad() {
@@ -48,7 +49,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     // MARK: - Table view data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return times.count
         
     }
     
@@ -68,7 +69,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
             cell.backgroundColor = UIColor(red: 0.80, green: 0.00, blue: 0.00, alpha: 1.00)
             cell.detailTextLabel?.text = "Missed"
         
-        cell.textLabel?.text = "REPLACE ME"
+        cell.textLabel?.text =  times[indexPath.row]
         
         return cell
     }
