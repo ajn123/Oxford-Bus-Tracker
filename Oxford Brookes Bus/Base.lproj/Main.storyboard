@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48W-eE-QXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2488.5" y="552.5"/>
+            <point key="canvasLocation" x="2384.5" y="540.5"/>
         </scene>
         <!--Routes & Schedules-->
         <scene sceneID="ilf-lQ-GYl">
@@ -172,8 +172,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pointingDown2.png" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-N0-ITM">
-                                                    <rect key="frame" x="294" y="-7" width="40" height="182"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="downArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-N0-ITM">
+                                                    <rect key="frame" x="272" y="-7" width="62" height="182"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -475,13 +475,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mug-5T-TIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1997.5" y="540.5"/>
+            <point key="canvasLocation" x="1929.5" y="540.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="Calendar-50.png" width="30" height="30"/>
         <image name="Treasure Map-50.png" width="30" height="30"/>
         <image name="changeDirection.png" width="100" height="100"/>
-        <image name="pointingDown2.png" width="60" height="93"/>
+        <image name="downArrow.png" width="100" height="100"/>
     </resources>
 </document>

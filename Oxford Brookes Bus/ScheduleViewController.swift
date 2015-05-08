@@ -14,6 +14,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     var locations = [String]()
 
     var refresh = UIRefreshControl()
+    
+    var direction: Bool = true
+    
+    var name: String = ""
 
     @IBOutlet var table: UITableView!
     
@@ -55,7 +59,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.indexRow = indexPath.row
         
-        cell.downTime.text = BusRoute.getTimesFromStop(stop)
+        cell.downTime.text = BusRoute.getTimesFromStop(stop, direction: direction)
         if(indexPath.row == 0)
         {
             cell.downImage.image = UIImage(named: "beginningRoute.png")
@@ -85,7 +89,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     }
     
     @IBAction func changeDirectionPressed(sender: AnyObject) {
-        locations = locations.reverse()
+        direction = !direction
+        locations = BusRoute.busRoutes(name, direction: direction)
         table.reloadData()
     }
     

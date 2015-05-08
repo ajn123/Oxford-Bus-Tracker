@@ -93,6 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return nil
         }
         var managedObjectContext = NSManagedObjectContext()
+        managedObjectContext.undoManager = nil
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()

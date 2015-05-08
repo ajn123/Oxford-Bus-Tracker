@@ -17,11 +17,12 @@ class BusRoute: NSManagedObject {
     @NSManaged var startTime: NSNumber
     @NSManaged var schedule: NSNumber
     @NSManaged var stops: NSSet
+    @NSManaged var direction: Bool
     
     
 
     
-    class func createBusRoute(name: String, destination: String, startTime: Int, endTime: Int, schedule: Int) -> BusRoute {
+    class func createBusRoute(name: String, destination: String, startTime: Int, endTime: Int, schedule: Int, direction: Bool) -> BusRoute {
         
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("BusRoute", inManagedObjectContext: CoreDataModel.context) as! BusRoute
         newItem.name = name
@@ -29,6 +30,7 @@ class BusRoute: NSManagedObject {
         newItem.startTime = startTime
         newItem.endTime = endTime
         newItem.schedule = schedule
+        newItem.direction = direction
         
         return newItem
     }
@@ -52,7 +54,7 @@ class BusRoute: NSManagedObject {
         return []
     }
     
-    class func busRoutes(name: String) -> [String]
+    class func busRoutes(name: String, direction: Bool = true) -> [String]
     {
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var moc: NSManagedObjectContext = appDel.managedObjectContext!
@@ -65,7 +67,9 @@ class BusRoute: NSManagedObject {
         
         let predicate = NSPredicate(format: "busParent.name == %@", name)
         
-        fetchRequest.predicate = predicate
+        let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
+        
+        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate, predicate2])
     
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = moc.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
@@ -94,7 +98,7 @@ class BusRoute: NSManagedObject {
         
     }
     
-    class func getTimesFromStop(stop: String) -> String
+    class func getTimesFromStop(stop: String, direction: Bool = true) -> String
     {
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var moc: NSManagedObjectContext = appDel.managedObjectContext!
@@ -107,11 +111,18 @@ class BusRoute: NSManagedObject {
         
         var currentTime = NSDate.getTime()
         
-        let predicate = NSPredicate(format: "time >= %ld", 800)
+        var sort = NSSortDescriptor(key: "time", ascending: true) // sort by bus stop
+        
+        fetchRequest.sortDescriptors = [sort]
+        
+        
+        let predicate = NSPredicate(format: "time >= %ld", 600)
         
         let predicate2 = NSPredicate(format: "stop_name == %@", stop)
         
-        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate, predicate2])
+        let predicate3 = NSPredicate(format: "busParent.direction == %@", direction)
+                
+        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate, predicate2, predicate3])
         
         var str: String = ""
         

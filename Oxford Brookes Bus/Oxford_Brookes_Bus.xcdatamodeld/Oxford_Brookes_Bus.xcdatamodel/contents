@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BusRoute" representedClassName="Oxford_Brookes_Bus.BusRoute" syncable="YES">
         <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="direction" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="endTime" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="schedule" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -17,7 +18,7 @@
         <relationship name="busParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusRoute" inverseName="stops" inverseEntity="BusRoute" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BusRoute" positionX="-380" positionY="-172" width="128" height="133"/>
+        <element name="BusRoute" positionX="-380" positionY="-172" width="128" height="150"/>
         <element name="Stop" positionX="-227" positionY="-94" width="128" height="133"/>
     </elements>
 </model>
