@@ -59,7 +59,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.indexRow = indexPath.row
         
-        cell.downTime.text = "".join(BusRoute.getTimesFromStop(stop, direction: direction))
+        cell.downTime.text = "".join(BusRoute.getTimesFromStop(stop, direction: direction, name: name))
         if(indexPath.row == 0)
         {
             cell.downImage.image = UIImage(named: "beginningRoute.png")
@@ -88,7 +88,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         var cell = sender as! CustomRouteViewCell
         
         
-        tableVC.times = BusRoute.getTimesFromStop(cell.locationTitle.text!, direction: direction)
+        tableVC.times = BusRoute.getTimesFromStop(cell.locationTitle.text!, direction: direction, name: name)
     }
     
     @IBAction func changeDirectionPressed(sender: AnyObject) {

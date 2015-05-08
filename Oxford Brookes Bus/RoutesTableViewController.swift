@@ -64,7 +64,6 @@ class RoutesTableViewController: UITableViewController {
 
             var cell = sender as! UITableViewCell
             var routeString: String = cell.textLabel!.text!
-        println(routeString)
             seg.locations = BusRoute.busRoutes(routeString)
             seg.name = routeString
         

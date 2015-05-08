@@ -98,7 +98,7 @@ class BusRoute: NSManagedObject {
         
     }
     
-    class func getTimesFromStop(stop: String, direction: Bool = true) -> [String]
+    class func getTimesFromStop(stop: String, direction: Bool = true, name: String) -> [String]
     {
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var moc: NSManagedObjectContext = appDel.managedObjectContext!
@@ -121,8 +121,11 @@ class BusRoute: NSManagedObject {
         let predicate2 = NSPredicate(format: "stop_name == %@", stop)
         
         let predicate3 = NSPredicate(format: "busParent.direction == %@", direction)
+        
+        let predicate4 = NSPredicate(format: "busParent.name == %@", name)
+        
                 
-        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate, predicate2, predicate3])
+        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate, predicate2, predicate3, predicate4])
         
         var str = [String]()
         
