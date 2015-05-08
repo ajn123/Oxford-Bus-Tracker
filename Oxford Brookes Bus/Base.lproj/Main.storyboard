@@ -122,7 +122,7 @@
                             <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="value" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
@@ -195,8 +195,8 @@
                                     <outlet property="delegate" destination="454-R7-6vy" id="QO7-T2-DcH"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
-                                <rect key="frame" x="309" y="72" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
+                                <rect key="frame" x="16" y="72" width="30" height="30"/>
                                 <state key="normal" image="changeDirection.png"/>
                                 <connections>
                                     <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
@@ -242,6 +242,12 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="5zr-bt-LSh"/>
+                                <exclude reference="ENj-LJ-ZyT"/>
+                                <exclude reference="GCV-DV-Sn3"/>
+                                <exclude reference="UQO-pC-aYe"/>
+                                <exclude reference="ngv-LP-O23"/>
+                                <exclude reference="qI1-Vz-7xD"/>
                                 <exclude reference="2Dq-fo-F7M"/>
                                 <exclude reference="35G-Qt-AfN"/>
                                 <exclude reference="AIM-PV-1Gt"/>
@@ -260,12 +266,6 @@
                                 <exclude reference="jeM-Nz-bZg"/>
                                 <exclude reference="m6Q-w8-RAH"/>
                                 <exclude reference="uxy-BL-GhT"/>
-                                <exclude reference="5zr-bt-LSh"/>
-                                <exclude reference="ENj-LJ-ZyT"/>
-                                <exclude reference="GCV-DV-Sn3"/>
-                                <exclude reference="UQO-pC-aYe"/>
-                                <exclude reference="ngv-LP-O23"/>
-                                <exclude reference="qI1-Vz-7xD"/>
                                 <exclude reference="IT2-Wk-22i"/>
                                 <exclude reference="eum-h2-mZa"/>
                             </mask>
@@ -434,7 +434,7 @@
                             <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>

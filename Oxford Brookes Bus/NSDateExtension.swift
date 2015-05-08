@@ -54,4 +54,20 @@ extension NSDate{
         let minutes = components.minute
         return hour * 100 + minutes
     }
+    
+    
+    class func militaryTimeDifferanceInMinutes(time1: Int, time2: Int) -> Int
+    {
+        if time2 > time1
+        {
+            NSException(name: "Incorrect Parameters", reason: "first parameter time1 should be bigger than parameter time2", userInfo: nil)
+        }
+        
+        var time1Hour = time1 / 100
+        var time2Hour = time2 / 100
+        
+        var hourDifferance = time1Hour - time2Hour
+        
+        return time1 - time2 - (40 * hourDifferance)
+    }
 }

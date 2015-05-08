@@ -58,8 +58,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         cell.locationTitle.text = "\(stop)"
         
         cell.indexRow = indexPath.row
+      
+        cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name)
         
-        cell.downTime.text = "".join(BusRoute.getTimesFromStop(stop, direction: direction, name: name))
+        
         if(indexPath.row == 0)
         {
             cell.downImage.image = UIImage(named: "beginningRoute.png")
