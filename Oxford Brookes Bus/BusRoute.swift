@@ -21,7 +21,8 @@ class BusRoute: NSManagedObject {
     
     class func createBusRoute(name: String, destination: String, startTime: Int, endTime: Int, schedule: Int, direction: Bool) -> BusRoute {
         
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("BusRoute", inManagedObjectContext: CoreDataModel.context) as! BusRoute
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName(
+            "BusRoute", inManagedObjectContext: CoreDataModel.context) as! BusRoute
         newItem.name = name
         newItem.destination = destination
         newItem.startTime = startTime
@@ -41,7 +42,8 @@ class BusRoute: NSManagedObject {
         fetchRequest.sortDescriptors = [sort]
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [BusRoute] {
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [BusRoute]
+        {
             return Array(Set(fetchResults.map({ $0.name })))
         }
         
@@ -63,7 +65,8 @@ class BusRoute: NSManagedObject {
         fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate, predicate2])
     
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop]
+        {
             return removeDuplicates(fetchResults.map({ $0.stop_name }))
         }
         
@@ -74,24 +77,21 @@ class BusRoute: NSManagedObject {
     class func removeDuplicates(strings: [String]) -> [String]
     {
         var array = [String]()
-        for s in strings
+        for str in strings
         {
-            if !contains(array, s)
+            if !contains(array, str)
             {
-                array.append(s)
+                array.append(str)
             }
         }
         return array
         
     }
     
-    class func getDepartures(stop: String, direction: Bool = true, name: String) -> [Stop]
+    
+    class func busDepartureSearchRequest(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> NSFetchRequest
     {
         let fetchRequest = NSFetchRequest(entityName: "Stop")
-        
-        //   var sort = NSSortDescriptor(key: "name", ascending: true) // sort by bus stop
-        
-        //   fetchRequest.sortDescriptors = [sort]
         
         var currentTime = NSDate.getTime()
         
@@ -99,27 +99,41 @@ class BusRoute: NSManagedObject {
         
         fetchRequest.sortDescriptors = [sort]
         
-        let predicate = NSPredicate(format: "time >= %ld", currentTime)
+        let predicate1 = NSPredicate(format: "stop_name == %@", stop)
         
-        let predicate2 = NSPredicate(format: "stop_name == %@", stop)
+        let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
         
-        let predicate3 = NSPredicate(format: "busParent.direction == %@", direction)
+        let predicate3 = NSPredicate(format: "busParent.name == %@", name)
         
-        let predicate4 = NSPredicate(format: "busParent.name == %@", name)
+        let predicate4 = NSPredicate(format: "busParent.schedule == %ld", schedule)
         
         fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
-            [predicate, predicate2, predicate3, predicate4])
+            [predicate1, predicate2, predicate3, predicate4])
+
+        return fetchRequest
+    }
+    
+    class func getDepartures(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [Stop]
+    {
+        let fetchRequest = busDepartureSearchRequest(stop, direction: direction, name: name, schedule: schedule)
+        
+        var currentTime = NSDate.getTime()
+        
+        let predicate = NSPredicate(format: "time >= %ld", currentTime)
+        
+        let currentPredicate = fetchRequest.predicate!
+        let nextPredicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [currentPredicate, predicate])
+        fetchRequest.predicate = nextPredicate
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
         return (CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop])!
-        
     }
     
-    class func getTimesFromStop(stop: String, direction: Bool = true, name: String) -> [String]
+    class func getTimesFromStop(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [String]
     {
         var str = [String]()
         
-        let fetchResults = getDepartures(stop, direction: direction, name: name)
+        let fetchResults = getDepartures(stop, direction: direction, name: name, schedule: schedule)
             
         var stops = fetchResults
         
@@ -132,6 +146,33 @@ class BusRoute: NSManagedObject {
     }
     
     
+    
+    class func getDeparturesRegardlessOfTime(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [Stop]
+    {
+        let fetchRequest = busDepartureSearchRequest(stop, direction: direction, name: name, schedule: schedule)
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        return (CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop])!
+    }
+    
+    class func getTimesFromStopRegardlessOfTime(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [String]
+    {
+        var str = [String]()
+        
+        let fetchResults = getDeparturesRegardlessOfTime(stop, direction: direction, name: name, schedule: schedule)
+        
+        var stops = fetchResults
+        
+        for st in stops
+        {
+            str.append("\(st.time)")
+        }
+        
+        return str
+    }
+    
+    
+    
     class func getRecentDepartures(stop: String, direction: Bool = true, name: String) -> String
     {
         var fetchResults = getDepartures(stop, direction: direction, name: name)
@@ -140,28 +181,33 @@ class BusRoute: NSManagedObject {
         
         var str = ""
         
-        println(fetchResults.count)
-        
         switch fetchResults.count
         {
-        case 0:
-            str = "no times left for today"
-        case 1:
-            slice = fetchResults[0...0]
-        case 2:
-            slice = fetchResults[0...1]
-        default:
-             slice = fetchResults[0...2]
+            case 0:
+                str = "no times left for today"
+            case 1:
+                slice = fetchResults[0...0]  // to be considered a slice, use '...'
+            case 2:
+                slice = fetchResults[0...1]
+            default:
+                slice = fetchResults[0...2]
         }
         
-        if (slice != nil){
-        
+        if let stops = slice
+        {
             var currentTime = NSDate.getTime()
         
-            for times in slice!
+            for stop in stops
             {
-                var timeToGo = NSDate.militaryTimeDifferanceInMinutes(times.time.integerValue, time2: currentTime)
-                str += "\(timeToGo) minutes \(times.time.integerValue)\n"
+                var timeToGo = NSDate.militaryTimeDifferanceInMinutes(stop.time.integerValue, time2: currentTime)
+                if (timeToGo <= 2)
+                {
+                    str += "ARRIVING NOW \(stop.time.integerValue)\n"
+                }
+                else
+                {
+                    str += "\(timeToGo) minutes \(stop.time.integerValue)\n"
+                }
             }
         }
         

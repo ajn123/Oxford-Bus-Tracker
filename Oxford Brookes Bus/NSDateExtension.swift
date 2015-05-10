@@ -37,7 +37,7 @@ extension NSDate{
         case 1:
             return 1
         case 7:
-            return 7
+            return 2
         default:
             NSException(name: "Date Incorrect", reason: "Returned a value outside of 1 - 7", userInfo: nil).raise()
             return nil

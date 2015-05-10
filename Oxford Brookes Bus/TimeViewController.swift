@@ -13,6 +13,9 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var timeTable: UITableView!
     @IBOutlet var dayOfWeek: UISegmentedControl!
     var times = [String]()
+    var stop: String = ""
+    var direction: Bool = true
+    var name: String = ""
     
     
     override func viewDidLoad() {
@@ -30,19 +33,8 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func segmentChange(sender: AnyObject) {
-     /**   var arr = [Time]()
-        switch dayOfWeek.selectedSegmentIndex
-        {
-            case 0:
-                arr = days["Weekday"] as! [Int]
-            case 1:
-                arr = days["Saturday"] as! [Int]
-            case 2:
-                arr = days["Sunday"] as! [Int]
-            default:
-                break;
-        }
-        times = arr.reverse() */
+        println(dayOfWeek.selectedSegmentIndex)
+        times = BusRoute.getTimesFromStopRegardlessOfTime(stop, direction: direction, name: name, schedule: dayOfWeek.selectedSegmentIndex)
         
         timeTable.reloadData()
     }
@@ -60,14 +52,19 @@ class TimeViewController: UIViewController, UITableViewDelegate {
 
         var militaryTime = NSDate.getTime()
        
-
+        if(militaryTime < times[indexPath.row].toInt())
+        {
             // green
             cell.backgroundColor = UIColor(red: 0.00, green: 1.00, blue: 0.00, alpha: 1.00)
-            cell.detailTextLabel?.text = "Incoming in \( militaryTime)"
+            cell.detailTextLabel?.text = "Incoming in \(militaryTime)"
+        }
+        else
+        {
         
             // red
             cell.backgroundColor = UIColor(red: 0.80, green: 0.00, blue: 0.00, alpha: 1.00)
             cell.detailTextLabel?.text = "Missed"
+        }
         
         cell.textLabel?.text =  times[indexPath.row]
         

@@ -23,18 +23,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // no separator between the tables
         table.separatorStyle = UITableViewCellSeparatorStyle.None
         
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         table.addSubview(refresh)
-        // Do any additional setup after loading the view.
     }
     
     func refreshing()
     {
-        // TODO: refresh times
         table.reloadData()
         refresh.endRefreshing()
     }
@@ -60,7 +57,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         cell.indexRow = indexPath.row
       
         cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name)
-        
         
         if(indexPath.row == 0)
         {
@@ -89,8 +85,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         var cell = sender as! CustomRouteViewCell
         
-        
-        tableVC.times = BusRoute.getTimesFromStop(cell.locationTitle.text!, direction: direction, name: name)
+        tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!, direction: direction, name: name, schedule: NSDate.getWeekday()!)
+        tableVC.stop = cell.locationTitle.text!
+        tableVC.direction = direction
+        tableVC.name = name
     }
     
     @IBAction func changeDirectionPressed(sender: AnyObject) {
