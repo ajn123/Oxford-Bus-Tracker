@@ -54,20 +54,21 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.locationTitle.text = "\(stop)"
         
-        cell.indexRow = indexPath.row
-      
         cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name)
         
-        if(indexPath.row == 0)
-        {
-            cell.downImage.image = UIImage(named: "beginningRoute.png")
+        println(indexPath.row)
+        
+      
+        switch indexPath.row {
+            case 0:
+                cell.downImage.image = UIImage(named: "beginningRoute.png")
+            case self.tableView(tableView, numberOfRowsInSection: 0) - 1:
+                cell.downImage.image = UIImage(named: "endRoute.png")
+            default:
+                cell.downImage.image = UIImage(named: "downArrow.png")
         }
         
-        if(indexPath.row == locations.count - 1)
-        {
-            cell.downImage.image = UIImage(named: "endRoute.png")
-        }
-        
+
         return cell
     }
     

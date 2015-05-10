@@ -145,8 +145,6 @@ class BusRoute: NSManagedObject {
         return str
     }
     
-    
-    
     class func getDeparturesRegardlessOfTime(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [Stop]
     {
         let fetchRequest = busDepartureSearchRequest(stop, direction: direction, name: name, schedule: schedule)
@@ -212,8 +210,7 @@ class BusRoute: NSManagedObject {
         }
         
         return str
-        
-        
     }
+    
 
 }

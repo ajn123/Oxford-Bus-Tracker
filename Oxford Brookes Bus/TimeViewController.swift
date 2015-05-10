@@ -33,7 +33,6 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func segmentChange(sender: AnyObject) {
-        println(dayOfWeek.selectedSegmentIndex)
         times = BusRoute.getTimesFromStopRegardlessOfTime(stop, direction: direction, name: name, schedule: dayOfWeek.selectedSegmentIndex)
         
         timeTable.reloadData()
@@ -60,13 +59,12 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         }
         else
         {
-        
             // red
             cell.backgroundColor = UIColor(red: 0.80, green: 0.00, blue: 0.00, alpha: 1.00)
             cell.detailTextLabel?.text = "Missed"
         }
         
-        cell.textLabel?.text =  times[indexPath.row]
+        cell.textLabel?.text = times[indexPath.row]
         
         return cell
     }
