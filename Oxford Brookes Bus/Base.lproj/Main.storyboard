@@ -152,8 +152,8 @@
                                     <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="146" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-9v-eoX">
-                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="146" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-9v-eoX">
+                                <rect key="frame" x="-7" y="110" width="382" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="540" id="rac-aS-tD6"/>
@@ -209,7 +209,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="1" id="0JF-2O-i8p"/>
+                            <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="8" id="0JF-2O-i8p"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="293" id="0ry-jI-yff"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="313" id="1Vy-qs-Q7w"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="2Dq-fo-F7M"/>
@@ -223,7 +223,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="G9D-3W-gG8"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="293" id="GCV-DV-Sn3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="H1E-g9-BKM"/>
-                            <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="Hja-Ss-GC4"/>
+                            <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-23" id="Hja-Ss-GC4"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="8" id="ILb-jE-jlv"/>
                             <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="496" id="IT2-Wk-22i"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="Icm-l0-xAI"/>
@@ -235,7 +235,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="XCP-gl-xGt"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="ZHi-nH-ODF"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="bV5-LO-qAR"/>
-                            <constraint firstItem="HoU-9v-eoX" firstAttribute="bottom" secondItem="SEH-8j-C42" secondAttribute="bottomMargin" id="boP-Hv-wGP"/>
+                            <constraint firstItem="HoU-9v-eoX" firstAttribute="bottom" secondItem="SEH-8j-C42" secondAttribute="bottomMargin" constant="-49" id="boP-Hv-wGP"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" id="ckp-g7-fTQ"/>
                             <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="HoU-9v-eoX" secondAttribute="bottom" id="eum-h2-mZa"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="fLd-YD-Fqg"/>
