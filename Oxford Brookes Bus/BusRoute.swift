@@ -67,33 +67,20 @@ class BusRoute: NSManagedObject {
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop]
         {
-            return removeDuplicates(fetchResults.map({ $0.stop_name }))
+            return fetchResults.map({ $0.stop_name }).removeDuplicates()
         }
         
         return []
     }
     
 
-    class func removeDuplicates(strings: [String]) -> [String]
-    {
-        var array = [String]()
-        for str in strings
-        {
-            if !contains(array, str)
-            {
-                array.append(str)
-            }
-        }
-        return array
-        
-    }
-    
+
     
     class func busDepartureSearchRequest(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> NSFetchRequest
     {
         let fetchRequest = NSFetchRequest(entityName: "Stop")
         
-        var currentTime = NSDate.getTime()
+        var currentTime = NSDate.currentMilitaryTime
         
         var sort = NSSortDescriptor(key: "time", ascending: true) // sort by bus stop
         
@@ -117,7 +104,7 @@ class BusRoute: NSManagedObject {
     {
         let fetchRequest = busDepartureSearchRequest(stop, direction: direction, name: name, schedule: schedule)
         
-        var currentTime = NSDate.getTime()
+        var currentTime = NSDate.currentMilitaryTime
         
         let predicate = NSPredicate(format: "time >= %ld", currentTime)
         
@@ -193,7 +180,7 @@ class BusRoute: NSManagedObject {
         
         if let stops = slice
         {
-            var currentTime = NSDate.getTime()
+            var currentTime = NSDate.currentMilitaryTime
         
             for stop in stops
             {

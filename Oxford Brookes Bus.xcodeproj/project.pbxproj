@@ -40,6 +40,7 @@
 		7F41D9361AFD00A400694800 /* 0U5SA1435.xls in Resources */ = {isa = PBXBuildFile; fileRef = 7F41D9261AFD00A400694800 /* 0U5SA1435.xls */; };
 		7F41D9371AFD00A400694800 /* 0U5SU1435.xls in Resources */ = {isa = PBXBuildFile; fileRef = 7F41D9271AFD00A400694800 /* 0U5SU1435.xls */; };
 		7F41D9381AFD00A400694800 /* U5XMF1435.xls in Resources */ = {isa = PBXBuildFile; fileRef = 7F41D9291AFD00A400694800 /* U5XMF1435.xls */; };
+		7F41D93B1B00252D00694800 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41D93A1B00252D00694800 /* ArrayExtension.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
 		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
 		7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */; };
@@ -101,6 +102,7 @@
 		7F41D9261AFD00A400694800 /* 0U5SA1435.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0U5SA1435.xls; sourceTree = "<group>"; };
 		7F41D9271AFD00A400694800 /* 0U5SU1435.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0U5SU1435.xls; sourceTree = "<group>"; };
 		7F41D9291AFD00A400694800 /* U5XMF1435.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = U5XMF1435.xls; sourceTree = "<group>"; };
+		7F41D93A1B00252D00694800 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBE360F1AE541640055D8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */,
+				7F41D93A1B00252D00694800 /* ArrayExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				7F41D8F91AF6E4E000694800 /* RAMFrameItemAnimation.swift in Sources */,
 				7F41D8FA1AF6E4E000694800 /* RAMFumeAnimation.swift in Sources */,
 				7F3BBDBB1AF2A7BC0042C239 /* MapViewController.swift in Sources */,
+				7F41D93B1B00252D00694800 /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

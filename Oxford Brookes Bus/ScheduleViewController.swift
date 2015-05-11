@@ -56,9 +56,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name)
         
-        println(indexPath.row)
-        
-      
         switch indexPath.row {
             case 0:
                 cell.downImage.image = UIImage(named: "beginningRoute.png")
@@ -67,7 +64,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
             default:
                 cell.downImage.image = UIImage(named: "downArrow.png")
         }
-        
 
         return cell
     }
@@ -75,7 +71,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        //  performSegueWithIdentifier("routeToTime", sender: indexPath.row)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -11,7 +11,7 @@ import Foundation
 extension NSDate{
     
     
-    var currentMilitaryTime: Int {
+    static var currentMilitaryTime: Int {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
@@ -43,18 +43,6 @@ extension NSDate{
             return nil
         }
     }
-    
-    // return current time in 24 hour style
-    class func getTime() -> Int
-    {
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-        let hour = components.hour
-        let minutes = components.minute
-        return hour * 100 + minutes
-    }
-    
     
     class func militaryTimeDifferanceInMinutes(time1: Int, time2: Int) -> Int
     {
