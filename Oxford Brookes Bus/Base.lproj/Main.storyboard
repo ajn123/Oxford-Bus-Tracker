@@ -141,14 +141,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="176" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-9v-eoX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
+                                <rect key="frame" x="16" y="72" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Kk4-j0-dxU"/>
+                                    <constraint firstAttribute="width" constant="30" id="P6w-fJ-iML"/>
+                                </constraints>
+                                <state key="normal" image="changeDirection.png"/>
+                                <connections>
+                                    <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="146" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-9v-eoX">
                                 <rect key="frame" x="0.0" y="110" width="375" height="557"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="540" id="rac-aS-tD6"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="176" id="MCL-Cy-W8e" customClass="CustomRouteViewCell" customModule="Oxford_Brookes_Bus" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="146" id="MCL-Cy-W8e" customClass="CustomRouteViewCell" customModule="Oxford_Brookes_Bus" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MCL-Cy-W8e" id="vSn-sU-fXR">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -157,12 +168,6 @@
                                                     <rect key="frame" x="25" y="8" width="309" height="21"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJ9-uk-L7x">
-                                                    <rect key="frame" x="25" y="49" width="261" height="118"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -175,6 +180,12 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="downArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-N0-ITM">
                                                     <rect key="frame" x="272" y="-7" width="62" height="182"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJ9-uk-L7x">
+                                                    <rect key="frame" x="25" y="60" width="233" height="80"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -195,17 +206,12 @@
                                     <outlet property="delegate" destination="454-R7-6vy" id="QO7-T2-DcH"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
-                                <rect key="frame" x="16" y="72" width="30" height="30"/>
-                                <state key="normal" image="changeDirection.png"/>
-                                <connections>
-                                    <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="1" id="0JF-2O-i8p"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="293" id="0ry-jI-yff"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="313" id="1Vy-qs-Q7w"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="2Dq-fo-F7M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="35G-Qt-AfN"/>
                             <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="516" id="4ru-IL-n4c"/>
@@ -230,22 +236,29 @@
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="ZHi-nH-ODF"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="bV5-LO-qAR"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="bottom" secondItem="SEH-8j-C42" secondAttribute="bottomMargin" id="boP-Hv-wGP"/>
+                            <constraint firstItem="JG7-Io-Sw3" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" id="ckp-g7-fTQ"/>
                             <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="HoU-9v-eoX" secondAttribute="bottom" id="eum-h2-mZa"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="fLd-YD-Fqg"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="hgx-Dm-KeA"/>
+                            <constraint firstItem="JG7-Io-Sw3" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" constant="8" id="iVl-et-3XZ"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" constant="8" id="ifV-PA-p1a"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="jeM-Nz-bZg"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="m6Q-w8-RAH"/>
+                            <constraint firstItem="JG7-Io-Sw3" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" id="mMM-Aq-ct9"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="ngv-LP-O23"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="trailing" secondItem="SEH-8j-C42" secondAttribute="trailingMargin" id="qI1-Vz-7xD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="uxy-BL-GhT"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="0ry-jI-yff"/>
+                                <exclude reference="4zd-Y3-LdW"/>
                                 <exclude reference="5zr-bt-LSh"/>
                                 <exclude reference="ENj-LJ-ZyT"/>
                                 <exclude reference="GCV-DV-Sn3"/>
                                 <exclude reference="UQO-pC-aYe"/>
+                                <exclude reference="ifV-PA-p1a"/>
+                                <exclude reference="mMM-Aq-ct9"/>
                                 <exclude reference="ngv-LP-O23"/>
                                 <exclude reference="qI1-Vz-7xD"/>
                                 <exclude reference="2Dq-fo-F7M"/>
@@ -256,6 +269,7 @@
                                 <exclude reference="ILb-jE-jlv"/>
                                 <exclude reference="Icm-l0-xAI"/>
                                 <exclude reference="KjN-bu-snh"/>
+                                <exclude reference="KwW-Vd-0qA"/>
                                 <exclude reference="Rgs-Jv-aOX"/>
                                 <exclude reference="Wjc-Io-59O"/>
                                 <exclude reference="XCP-gl-xGt"/>
@@ -266,6 +280,7 @@
                                 <exclude reference="jeM-Nz-bZg"/>
                                 <exclude reference="m6Q-w8-RAH"/>
                                 <exclude reference="uxy-BL-GhT"/>
+                                <exclude reference="4ru-IL-n4c"/>
                                 <exclude reference="IT2-Wk-22i"/>
                                 <exclude reference="eum-h2-mZa"/>
                             </mask>

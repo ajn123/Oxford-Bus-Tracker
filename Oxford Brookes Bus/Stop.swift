@@ -18,8 +18,6 @@ class Stop: NSManagedObject {
     @NSManaged var longitude: NSNumber
     @NSManaged var time: NSNumber
     @NSManaged var busParent: BusRoute
-
-    
     
     class func createStop(time: Int, name: String, stop_number: Int = 0, latitude: Double = 0, longitude: Double = 0, parent: BusRoute) -> Stop {
         

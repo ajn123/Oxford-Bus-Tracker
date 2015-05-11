@@ -13,8 +13,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet var map: MKMapView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
