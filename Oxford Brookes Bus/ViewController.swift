@@ -18,20 +18,13 @@ class ViewController: UIViewController, UITableViewDelegate {
     var locations = [String]()
 
     var refresh = UIRefreshControl()
-
-    
     
     // MARK: - Variables
     private var pageViewController: UIPageViewController?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-       
-        
- 
         //refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         
         // table.addSubview(refresh)
@@ -47,14 +40,13 @@ class ViewController: UIViewController, UITableViewDelegate {
         //            println("worked")
         //            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
         //        }
-        
-//        if let path = NSBundle.mainBundle().pathForResource("busSchedule", ofType: "plist")
-//        {
-//            if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject>
-//            {
-//                locations = dict.keys.array
-//                overall = dict
-//            }
+        //        if let path = NSBundle.mainBundle().pathForResource("busSchedule", ofType: "plist")
+        //        {
+        //            if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject>
+        //            {
+        //                locations = dict.keys.array
+        //                overall = dict
+        //            }
 //        }
         // Do any additional setup after loading the view, typically from a nib.
     }

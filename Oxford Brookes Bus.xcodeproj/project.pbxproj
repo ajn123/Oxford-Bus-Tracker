@@ -54,6 +54,7 @@
 		7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */; };
 		7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36371AE6799C0055D8CD /* TimeViewController.swift */; };
 		7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */; };
+		7FDADA8B1B0205180008EC1D /* OBUBusTrackerAppIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8A1B0205180008EC1D /* OBUBusTrackerAppIcon80.png */; };
 		7FDD47C21AEE825200FE2235 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */; };
 		7FDD47C41AEEA22B00FE2235 /* pointingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD47C31AEEA22B00FE2235 /* pointingDown.png */; };
 		7FDD47C61AEEA2C600FE2235 /* pointingDown2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD47C51AEEA2C600FE2235 /* pointingDown2.png */; };
@@ -122,6 +123,7 @@
 		7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		7FBE36371AE6799C0055D8CD /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		7FDADA8A1B0205180008EC1D /* OBUBusTrackerAppIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon80.png; sourceTree = "<group>"; };
 		7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		7FDD47C31AEEA22B00FE2235 /* pointingDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointingDown.png; sourceTree = "<group>"; };
 		7FDD47C51AEEA2C600FE2235 /* pointingDown2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointingDown2.png; sourceTree = "<group>"; };
@@ -221,6 +223,8 @@
 		7F41D90C1AF82A8600694800 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
+				7FDADA8A1B0205180008EC1D /* OBUBusTrackerAppIcon80.png */,
+				7F41D93C1B00F30C00694800 /* OBUBusTrackerAppIcon180.png */,
 				7F41D93E1B00F3B800694800 /* OBUBusTrackerAppIcon120.png */,
 				7F41D90F1AF8350100694800 /* downArrow.png */,
 				7F41D9071AF6F9E300694800 /* Treasure Map-50.png */,
@@ -391,7 +395,6 @@
 				7FBE36151AE541640055D8CD /* ViewController.swift */,
 				7FBE36171AE541640055D8CD /* Main.storyboard */,
 				7FBE361A1AE541640055D8CD /* Images.xcassets */,
-				7F41D93C1B00F30C00694800 /* OBUBusTrackerAppIcon180.png */,
 				7FBE361C1AE541640055D8CD /* LaunchScreen.xib */,
 				7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */,
 				7FBE360E1AE541640055D8CD /* Supporting Files */,
@@ -524,6 +527,7 @@
 				7F41D9081AF6F9E300694800 /* Treasure Map-50.png in Resources */,
 				7F3C11F61AEFEE01001EC7E5 /* beginningRoute.png in Resources */,
 				7F41D9311AFD00A400694800 /* U5XMF1430.RTF in Resources */,
+				7FDADA8B1B0205180008EC1D /* OBUBusTrackerAppIcon80.png in Resources */,
 				7F41D9351AFD00A400694800 /* 0U5MF1435.xls in Resources */,
 				7F41D9321AFD00A400694800 /* 0U1MF1438.xls in Resources */,
 				7FDD47C41AEEA22B00FE2235 /* pointingDown.png in Resources */,

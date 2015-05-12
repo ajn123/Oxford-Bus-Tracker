@@ -10,19 +10,20 @@ import Foundation
 
 
 extension Array{
- 
     
     func removeDuplicates<T: Comparable>() -> [T]
     {
         var array = [T]()
-        for elem in self
+        for element in self
         {
-            if !contains(array, elem as! T)
+            if let elem = element as? T
             {
-                array.append(elem as! T)
+                if !contains(array, elem)
+                {
+                    array.append(elem)
+                }
             }
         }
         return array
-        
     }
 }
