@@ -111,7 +111,41 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        createReminder("take bus", timeInterval: NSDate(timeIntervalSinceNow: 10))
+        var time = times[indexPath.row].toInt()!
+        
+        var currentTime = NSDate.currentMilitaryTime
+        
+        if((currentTime + 5) <= time) // You can still make this bus
+        {
+            var alert = UIAlertController(title: "Reminder", message: "Set a time", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+            for num in [5,10,15]
+            {
+                
+                if((currentTime + num) <= time)
+                {
+                    var timeInMinutes: NSTimeInterval =
+                        Double(NSDate.militaryTimeDifferanceInMinutes(time, time2: currentTime) - num) * Double(60)
+                    
+                    var action = UIAlertAction(title: "\(num) minutes before departure", style: UIAlertActionStyle.Default,
+                        handler: { action -> Void in
+                            self.createReminder("Catch \(self.name) Bus", timeInterval: NSDate(timeIntervalSinceNow: timeInMinutes))
+                    })
+            
+                    alert.addAction(action)
+                }
+                
+            }
+                
+            var cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+                
+            alert.addAction(cancel)
+                
+            self.presentViewController(alert, animated: true, completion: nil)
+         }
+        
+        
+     //   createReminder("take bus", timeInterval: NSDate(timeIntervalSinceNow: 10))
     }
     
 
