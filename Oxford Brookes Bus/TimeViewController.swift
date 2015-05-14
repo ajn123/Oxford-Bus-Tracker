@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import EventKit
+
+
 
 class TimeViewController: UIViewController, UITableViewDelegate {
     
@@ -17,11 +20,49 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     var direction: Bool = true
     var name: String = ""
     
+    var calendarDatabase = EKEventStore()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dayOfWeek.selectedSegmentIndex =  NSDate.getWeekday()!
+    }
+    
+    
+    func eventStoreAccessReminders() {
+        
+        calendarDatabase.requestAccessToEntityType(EKEntityTypeReminder,
+                                                   completion: {(granted: Bool, error:NSError!)
+                                                   -> Void in
+            if !granted {
+                println("hello world")
+            }
+        })
+    }
+    
+
+    
+    func createReminder(reminderTitle: String, timeInterval: NSDate) {
+        
+        var calendars = calendarDatabase.calendarsForEntityType(EKEntityTypeReminder)
+        
+        eventStoreAccessReminders()
+        
+        let reminder = EKReminder(eventStore: calendarDatabase)
+        
+        reminder.title = reminderTitle
+        
+        let alarm = EKAlarm(absoluteDate: timeInterval)
+        
+        reminder.addAlarm(alarm)
+        
+        reminder.calendar = calendarDatabase.defaultCalendarForNewReminders()
+        
+        var error: NSError?
+        
+        calendarDatabase.saveReminder(reminder, commit: true, error: &error)
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,13 +82,12 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return times.count
-        
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "timeCell")
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "timeCell")
 
         var militaryTime = NSDate.currentMilitaryTime
        
@@ -55,7 +95,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         {
             // green
             cell.backgroundColor = UIColor(red: 0.00, green: 1.00, blue: 0.00, alpha: 1.00)
-            cell.detailTextLabel?.text = "Incoming in \(militaryTime)"
+            cell.detailTextLabel?.text = "Incoming in \(NSDate.militaryTimeDifferanceInMinutes(times[indexPath.row].toInt()!, time2: militaryTime)) minutes"
         }
         else
         {
@@ -67,6 +107,11 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         cell.textLabel?.text = times[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        createReminder("take bus", timeInterval: NSDate(timeIntervalSinceNow: 10))
     }
     
 

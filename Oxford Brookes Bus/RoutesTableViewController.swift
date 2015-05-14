@@ -56,7 +56,7 @@ class RoutesTableViewController: UITableViewController {
         var seg = dVC.topViewController as! ScheduleViewController
         
         let cell = sender as! UITableViewCell
-        let routeString: String = cell.textLabel!.text!
+        let routeString = cell.textLabel!.text!
         seg.locations = BusRoute.busRoutes(routeString)
         seg.name = routeString
     }

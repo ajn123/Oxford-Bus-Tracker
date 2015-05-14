@@ -30,6 +30,7 @@ class BusRoute: NSManagedObject {
         newItem.schedule = schedule
         newItem.direction = direction
         
+        
         return newItem
     }
     
