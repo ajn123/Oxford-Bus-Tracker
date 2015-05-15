@@ -58,11 +58,11 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         switch indexPath.row {
             case 0:
-                cell.downImage.image = UIImage(named: "beginningRoute.png")
+                cell.downImage.image = UIImage(named: "ArrowPathBegin.png")
             case self.tableView(tableView, numberOfRowsInSection: 0) - 1:
-                cell.downImage.image = UIImage(named: "endRoute.png")
+                cell.downImage.image = UIImage(named: "ArrowPathEnd.png")
             default:
-                cell.downImage.image = UIImage(named: "downArrow.png")
+                cell.downImage.image = UIImage(named: "ArrowPathMiddle")
         }
 
         return cell

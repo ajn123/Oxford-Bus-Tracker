@@ -55,6 +55,9 @@
 		7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36371AE6799C0055D8CD /* TimeViewController.swift */; };
 		7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */; };
 		7FDADA8B1B0205180008EC1D /* OBUBusTrackerAppIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8A1B0205180008EC1D /* OBUBusTrackerAppIcon80.png */; };
+		7FDADA8F1B0617D90008EC1D /* ArrowPathBegin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */; };
+		7FDADA901B0617D90008EC1D /* ArrowPathEnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */; };
+		7FDADA911B0617D90008EC1D /* ArrowPathMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8E1B0617D90008EC1D /* ArrowPathMiddle.png */; };
 		7FDD47C21AEE825200FE2235 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */; };
 		7FDD47C41AEEA22B00FE2235 /* pointingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD47C31AEEA22B00FE2235 /* pointingDown.png */; };
 		7FDD47C61AEEA2C600FE2235 /* pointingDown2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD47C51AEEA2C600FE2235 /* pointingDown2.png */; };
@@ -124,6 +127,9 @@
 		7FBE36371AE6799C0055D8CD /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		7FDADA8A1B0205180008EC1D /* OBUBusTrackerAppIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon80.png; sourceTree = "<group>"; };
+		7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathBegin.png; sourceTree = "<group>"; };
+		7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathEnd.png; sourceTree = "<group>"; };
+		7FDADA8E1B0617D90008EC1D /* ArrowPathMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathMiddle.png; sourceTree = "<group>"; };
 		7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		7FDD47C31AEEA22B00FE2235 /* pointingDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointingDown.png; sourceTree = "<group>"; };
 		7FDD47C51AEEA2C600FE2235 /* pointingDown2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointingDown2.png; sourceTree = "<group>"; };
@@ -385,6 +391,9 @@
 		7FBE360D1AE541640055D8CD /* Oxford Brookes Bus */ = {
 			isa = PBXGroup;
 			children = (
+				7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */,
+				7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */,
+				7FDADA8E1B0617D90008EC1D /* ArrowPathMiddle.png */,
 				7F41D9391B00161D00694800 /* Views */,
 				7F41D90E1AF82B6100694800 /* Controllers */,
 				7F41D90D1AF82AA300694800 /* Extensions */,
@@ -509,6 +518,7 @@
 			files = (
 				7F41D93D1B00F30C00694800 /* OBUBusTrackerAppIcon180.png in Resources */,
 				7FBE36191AE541640055D8CD /* Main.storyboard in Resources */,
+				7FDADA8F1B0617D90008EC1D /* ArrowPathBegin.png in Resources */,
 				7F41D9061AF6F9AF00694800 /* Calendar-50.png in Resources */,
 				7F41D93F1B00F3B800694800 /* OBUBusTrackerAppIcon120.png in Resources */,
 				7F3C11FA1AF16623001EC7E5 /* changeDirection.png in Resources */,
@@ -518,6 +528,8 @@
 				7FDD47C61AEEA2C600FE2235 /* pointingDown2.png in Resources */,
 				7F41D9301AFD00A400694800 /* 0U5SU1430.xls in Resources */,
 				7F41D92C1AFD00A400694800 /* 0U1SU1430.xls in Resources */,
+				7FDADA901B0617D90008EC1D /* ArrowPathEnd.png in Resources */,
+				7FDADA911B0617D90008EC1D /* ArrowPathMiddle.png in Resources */,
 				7F41D9101AF8350100694800 /* downArrow.png in Resources */,
 				7F41D9341AFD00A400694800 /* 0U1SU1435.xls in Resources */,
 				7F41D92E1AFD00A400694800 /* 0U5MF1430.xls in Resources */,

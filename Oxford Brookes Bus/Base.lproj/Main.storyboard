@@ -144,10 +144,18 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
                                 <rect key="frame" x="16" y="72" width="30" height="30"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Ah2-xl-P1u"/>
                                     <constraint firstAttribute="height" constant="30" id="Kk4-j0-dxU"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="OTk-Yp-aWv"/>
                                     <constraint firstAttribute="width" constant="30" id="P6w-fJ-iML"/>
                                 </constraints>
                                 <state key="normal" image="changeDirection.png"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ah2-xl-P1u"/>
+                                        <exclude reference="OTk-Yp-aWv"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
                                 </connections>
@@ -177,8 +185,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="downArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-N0-ITM">
-                                                    <rect key="frame" x="272" y="-7" width="62" height="182"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ArrowPathMiddle.png" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-N0-ITM">
+                                                    <rect key="frame" x="272" y="-7" width="106" height="182"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJ9-uk-L7x">
                                                     <rect key="frame" x="25" y="60" width="233" height="80"/>
@@ -308,8 +316,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="apj-bx-Nmp">
-                                <rect key="frame" x="83" y="574" width="209" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="apj-bx-Nmp">
+                                <rect key="frame" x="83" y="582" width="209" height="29"/>
                                 <segments>
                                     <segment title="Weekday"/>
                                     <segment title="Saturday"/>
@@ -319,8 +327,8 @@
                                     <action selector="segmentChange:" destination="TqT-WR-H09" eventType="valueChanged" id="Tpx-nC-wXR"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4dW-Wr-RRz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="489"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4dW-Wr-RRz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="489" id="RLx-Mw-YPM"/>
@@ -346,14 +354,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="apj-bx-Nmp" secondAttribute="trailing" constant="67" id="4vg-ft-i5z"/>
                             <constraint firstItem="4dW-Wr-RRz" firstAttribute="leading" secondItem="QRA-cX-hRu" secondAttribute="leadingMargin" constant="-16" id="80n-Qp-dcy"/>
+                            <constraint firstItem="apj-bx-Nmp" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="29" id="8u6-eX-oOB"/>
+                            <constraint firstItem="3RJ-ye-nrk" firstAttribute="top" secondItem="apj-bx-Nmp" secondAttribute="bottom" id="9HC-wm-xDJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4dW-Wr-RRz" secondAttribute="trailing" constant="-16" id="Cdh-Ui-LKv"/>
                             <constraint firstItem="4dW-Wr-RRz" firstAttribute="leading" secondItem="QRA-cX-hRu" secondAttribute="leadingMargin" constant="-16" id="E4C-hR-vq6"/>
+                            <constraint firstItem="apj-bx-Nmp" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="8" id="HCJ-lF-hit"/>
                             <constraint firstItem="3RJ-ye-nrk" firstAttribute="top" secondItem="apj-bx-Nmp" secondAttribute="bottom" constant="65" id="ODO-NK-E2R"/>
+                            <constraint firstItem="apj-bx-Nmp" firstAttribute="leading" secondItem="QRA-cX-hRu" secondAttribute="leadingMargin" constant="67" id="SEC-vn-U57"/>
                             <constraint firstAttribute="centerX" secondItem="4dW-Wr-RRz" secondAttribute="centerX" id="Tnd-VC-9KV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4dW-Wr-RRz" secondAttribute="trailing" constant="-16" id="YGt-8B-6z2"/>
                             <constraint firstItem="4dW-Wr-RRz" firstAttribute="top" secondItem="CXg-6x-1Cp" secondAttribute="bottom" constant="44" id="aOb-bQ-5c6"/>
                             <constraint firstItem="4dW-Wr-RRz" firstAttribute="leading" secondItem="QRA-cX-hRu" secondAttribute="leadingMargin" constant="-16" id="b66-7I-o3X"/>
+                            <constraint firstItem="3RJ-ye-nrk" firstAttribute="top" secondItem="apj-bx-Nmp" secondAttribute="bottom" constant="8" id="bJT-ce-e5x"/>
+                            <constraint firstItem="apj-bx-Nmp" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="37" id="ckR-Ba-lcF"/>
                             <constraint firstItem="apj-bx-Nmp" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="21" id="ldU-aE-UE7"/>
                             <constraint firstItem="4dW-Wr-RRz" firstAttribute="top" secondItem="CXg-6x-1Cp" secondAttribute="bottom" id="lde-HS-ifU"/>
                             <constraint firstAttribute="centerX" secondItem="apj-bx-Nmp" secondAttribute="centerX" id="mIk-pa-FAY"/>
@@ -369,6 +384,12 @@
                                 <exclude reference="aOb-bQ-5c6"/>
                                 <exclude reference="sLI-z9-Hj1"/>
                                 <exclude reference="ynq-ym-ely"/>
+                                <exclude reference="8u6-eX-oOB"/>
+                                <exclude reference="ckR-Ba-lcF"/>
+                                <exclude reference="ldU-aE-UE7"/>
+                                <exclude reference="mIk-pa-FAY"/>
+                                <exclude reference="9HC-wm-xDJ"/>
+                                <exclude reference="ODO-NK-E2R"/>
                             </mask>
                         </variation>
                     </view>
@@ -494,9 +515,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ArrowPathMiddle.png" width="180" height="180"/>
         <image name="Calendar-50.png" width="30" height="30"/>
         <image name="Treasure Map-50.png" width="30" height="30"/>
         <image name="changeDirection.png" width="100" height="100"/>
-        <image name="downArrow.png" width="100" height="100"/>
     </resources>
 </document>

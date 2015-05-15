@@ -115,9 +115,11 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         
         var currentTime = NSDate.currentMilitaryTime
         
+        var alert: UIAlertController = UIAlertController()
+        
         if((currentTime + 5) <= time) // You can still make this bus
         {
-            var alert = UIAlertController(title: "Reminder", message: "Set a time", preferredStyle: UIAlertControllerStyle.ActionSheet)
+            alert = UIAlertController(title: "Reminder", message: "Set a time", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
             for num in [5,10,15]
             {
@@ -136,16 +138,19 @@ class TimeViewController: UIViewController, UITableViewDelegate {
                 }
                 
             }
-                
-            var cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-                
-            alert.addAction(cancel)
-                
-            self.presentViewController(alert, animated: true, completion: nil)
-         }
+            
+        }
+        else
+        {
+            alert = UIAlertController(title: "Run for your life!", message: "You should have left already!", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        }
         
+        var cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
         
-     //   createReminder("take bus", timeInterval: NSDate(timeIntervalSinceNow: 10))
+        alert.addAction(cancel)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
     
 
