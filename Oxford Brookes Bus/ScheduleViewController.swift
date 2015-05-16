@@ -54,7 +54,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         cell.locationTitle.text = "\(stop)"
         
-        cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name)
+        
+        cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name, schedule: NSDate.getWeekday()! )
         
         switch indexPath.row {
             case 0:

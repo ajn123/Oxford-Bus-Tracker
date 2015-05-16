@@ -117,6 +117,9 @@ class BusRoute: NSManagedObject {
         return (CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop])!
     }
     
+    
+    
+    
     class func getTimesFromStop(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [String]
     {
         var str = [String]()
@@ -159,9 +162,9 @@ class BusRoute: NSManagedObject {
     
     
     
-    class func getRecentDepartures(stop: String, direction: Bool = true, name: String) -> String
+    class func getRecentDepartures(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> String
     {
-        var fetchResults = getDepartures(stop, direction: direction, name: name)
+        var fetchResults = getDepartures(stop, direction: direction, name: name, schedule: schedule)
         
         var slice: ArraySlice<Stop>?
         

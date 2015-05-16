@@ -27,17 +27,20 @@ extension NSDate{
     */
     class func getWeekday() -> Int?
     {
+        let todayDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
-        var weekdayComponent = myCalendar!.components(NSCalendarUnit.WeekdayCalendarUnit, fromDate: NSDate())
-        var day: Int = weekdayComponent.weekday
+        let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: todayDate)
+        let day = myComponents!.weekday
+  
+        println(day)
         switch day
         {
         case 2...6:
             return 0
         case 1:
-            return 1
-        case 7:
             return 2
+        case 7:
+            return 1
         default:
             NSException(name: "Date Incorrect", reason: "Returned a value outside of 1 - 7", userInfo: nil).raise()
             return nil
