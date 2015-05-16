@@ -31,8 +31,7 @@ extension NSDate{
         let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
         let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: todayDate)
         let day = myComponents!.weekday
-  
-        println(day)
+        
         switch day
         {
         case 2...6:
