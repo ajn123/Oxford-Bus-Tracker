@@ -31,14 +31,14 @@ extension NSDate{
         let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
         let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: todayDate)
         let day = myComponents!.weekday
-        
+        println(day)
         switch day
         {
-        case 2...6:
+        case 2...6: // Monday - Friday
             return 0
-        case 1:
+        case 1: // sunday
             return 2
-        case 7:
+        case 7: // saturday
             return 1
         default:
             NSException(name: "Date Incorrect", reason: "Returned a value outside of 1 - 7", userInfo: nil).raise()

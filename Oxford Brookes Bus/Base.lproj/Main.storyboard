@@ -186,7 +186,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ArrowPathMiddle.png" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-N0-ITM">
-                                                    <rect key="frame" x="272" y="-7" width="106" height="182"/>
+                                                    <rect key="frame" x="225" y="-7" width="182" height="182"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJ9-uk-L7x">
                                                     <rect key="frame" x="25" y="60" width="233" height="80"/>
