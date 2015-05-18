@@ -1,0 +1,6 @@
+framework module Pods_Oxford_Brookes_BusTests {
+  umbrella header "Pods-Oxford Brookes BusTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

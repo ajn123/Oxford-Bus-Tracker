@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>858FDFA1-C691-4C81-AD3D-73780600C03B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Oxford Brookes Bus</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C0B7950632460547C273B5076E676418ECF9BFA1</key>
+		<string>github.com:ajn123/Oxford-Bus-Tracker.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Oxford Brookes Bus.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C0B7950632460547C273B5076E676418ECF9BFA1</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:ajn123/Oxford-Bus-Tracker.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C0B7950632460547C273B5076E676418ECF9BFA1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C0B7950632460547C273B5076E676418ECF9BFA1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Oxford%20Brookes%20Bus</string>
+		</dict>
+	</array>
+</dict>
+</plist>

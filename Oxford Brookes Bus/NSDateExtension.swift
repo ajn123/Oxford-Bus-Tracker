@@ -11,7 +11,7 @@ import Foundation
 extension NSDate{
     
     
-    static var currentMilitaryTime: Int {
+    public static var currentMilitaryTime: Int {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
@@ -25,7 +25,7 @@ extension NSDate{
     1 if Saturday
     2 if Sunday
     */
-    class func getWeekday() -> Int?
+    public class func getWeekday() -> Int?
     {
         let todayDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
@@ -46,7 +46,7 @@ extension NSDate{
         }
     }
     
-    class func militaryTimeDifferanceInMinutes(time1: Int, time2: Int) -> Int
+    public class func militaryTimeDifferanceInMinutes(time1: Int, time2: Int) -> Int
     {
         if time2 > time1
         {
@@ -61,18 +61,39 @@ extension NSDate{
         return time1 - time2 - (40 * hourDifferance)
     }
     
-    class func minutesToHours(minutes: Int) -> String
+    public class func minutesToHours(minutes: Int) -> String
     {
         var hours = minutes / 60
         var minutes = minutes % 60
         
-        if(hours == 0)
+        var hoursStr = ""
+        var minutesStr = ""
+        var andStr = ""
+        
+        if(hours >= 1 && minutes >= 1)
         {
-            return "\(minutes) minutes"
+            andStr = " and "
+        }
+        
+        if(hours == 1)
+        {
+            hoursStr = "1 hour"
         }
         else
         {
-            return "\(hours) hours and \(minutes) minutes"
+            hoursStr = "\(hours) hours"
         }
+            
+            
+        if(minutes == 1)
+        {
+            minutesStr = "1 minute"
+        }
+        else
+        {
+            hoursStr = "\(hours) minutes"
+        }
+        
+        return hoursStr + andStr + minutesStr
     }
 }

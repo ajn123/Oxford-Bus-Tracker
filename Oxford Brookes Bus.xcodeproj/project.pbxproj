@@ -44,6 +44,7 @@
 		7F41D93B1B00252D00694800 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41D93A1B00252D00694800 /* ArrayExtension.swift */; };
 		7F41D93D1B00F30C00694800 /* OBUBusTrackerAppIcon180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F41D93C1B00F30C00694800 /* OBUBusTrackerAppIcon180.png */; };
 		7F41D93F1B00F3B800694800 /* OBUBusTrackerAppIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F41D93E1B00F3B800694800 /* OBUBusTrackerAppIcon120.png */; };
+		7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F580F021B0A869600D88783 /* NSDateTest.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
 		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
 		7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */; };
@@ -113,6 +114,7 @@
 		7F41D93A1B00252D00694800 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		7F41D93C1B00F30C00694800 /* OBUBusTrackerAppIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon180.png; sourceTree = "<group>"; };
 		7F41D93E1B00F3B800694800 /* OBUBusTrackerAppIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon120.png; sourceTree = "<group>"; };
+		7F580F021B0A869600D88783 /* NSDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTest.swift; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBE360F1AE541640055D8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 		7FBE36261AE541640055D8CD /* Oxford Brookes BusTests */ = {
 			isa = PBXGroup;
 			children = (
+				7F580F021B0A869600D88783 /* NSDateTest.swift */,
 				7FBE36291AE541640055D8CD /* Oxford_Brookes_BusTests.swift */,
 				7FBE36271AE541640055D8CD /* Supporting Files */,
 			);
@@ -669,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */,
 				7FBE362A1AE541640055D8CD /* Oxford_Brookes_BusTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +727,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -767,6 +772,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
