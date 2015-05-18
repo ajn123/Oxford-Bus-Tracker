@@ -79,7 +79,7 @@ extension NSDate{
         {
             hoursStr = "1 hour"
         }
-        else
+        else if(hours > 1)
         {
             hoursStr = "\(hours) hours"
         }
@@ -89,9 +89,9 @@ extension NSDate{
         {
             minutesStr = "1 minute"
         }
-        else
+        else if(minutes > 1)
         {
-            hoursStr = "\(hours) minutes"
+            minutesStr = "\(minutes) minutes"
         }
         
         return hoursStr + andStr + minutesStr
