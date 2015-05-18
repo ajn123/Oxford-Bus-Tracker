@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Only allow bus times to be loaded on first launch of app
           if((NSUserDefaults.standardUserDefaults().objectForKey("firstTime")) == nil)
           {
-              CoreDataModel.massAssign()
+       //       CoreDataModel.massAssign()
           }
         
           NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")

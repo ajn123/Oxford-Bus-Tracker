@@ -15,6 +15,8 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var timeTable: UITableView!
     @IBOutlet var dayOfWeek: UISegmentedControl!
+    
+    var refresh = UIRefreshControl()
     var times = [String]()
     var stop: String = ""
     var direction: Bool = true
@@ -27,7 +29,16 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
+        timeTable.addSubview(refresh)
+        
         dayOfWeek.selectedSegmentIndex =  NSDate.getWeekday()!
+    }
+    
+    func refreshing()
+    {
+        timeTable.reloadData()
+        refresh.endRefreshing()
     }
     
     
@@ -90,12 +101,14 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "timeCell")
 
         var militaryTime = NSDate.currentMilitaryTime
+        
+        var time = NSDate.militaryTimeDifferanceInMinutes(times[indexPath.row].toInt()!, time2: militaryTime)
        
         if(militaryTime < times[indexPath.row].toInt())
         {
             // green
             cell.backgroundColor = UIColor(red: 0.00, green: 1.00, blue: 0.00, alpha: 1.00)
-            cell.detailTextLabel?.text = "Incoming in \(NSDate.militaryTimeDifferanceInMinutes(times[indexPath.row].toInt()!, time2: militaryTime)) minutes"
+            cell.detailTextLabel?.text = "Incoming in \(NSDate.minutesToHours(time))"
         }
         else
         {

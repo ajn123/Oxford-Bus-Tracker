@@ -81,7 +81,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         var cell = sender as! CustomRouteViewCell
         
-        tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!, direction: direction, name: name, schedule: NSDate.getWeekday()!)
+        tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!,
+                                                                  direction: direction,
+                                                                  name: name,
+                                                                  schedule: NSDate.getWeekday()!)
         tableVC.stop = cell.locationTitle.text!
         tableVC.direction = direction
         tableVC.name = name

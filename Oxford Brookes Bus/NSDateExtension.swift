@@ -31,7 +31,7 @@ extension NSDate{
         let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
         let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: todayDate)
         let day = myComponents!.weekday
-        println(day)
+        
         switch day
         {
         case 2...6: // Monday - Friday
@@ -40,7 +40,7 @@ extension NSDate{
             return 2
         case 7: // saturday
             return 1
-        default:
+        default: // out of week index
             NSException(name: "Date Incorrect", reason: "Returned a value outside of 1 - 7", userInfo: nil).raise()
             return nil
         }
@@ -50,7 +50,7 @@ extension NSDate{
     {
         if time2 > time1
         {
-            NSException(name: "Incorrect Parameters", reason: "first parameter time1 should be bigger than parameter time2", userInfo: nil)
+         //   NSException(name: "Incorrect Parameters", reason: "first parameter time1 should be bigger than parameter time2", userInfo: nil)
         }
         
         var time1Hour = time1 / 100
@@ -59,5 +59,20 @@ extension NSDate{
         var hourDifferance = time1Hour - time2Hour
         
         return time1 - time2 - (40 * hourDifferance)
+    }
+    
+    class func minutesToHours(minutes: Int) -> String
+    {
+        var hours = minutes / 60
+        var minutes = minutes % 60
+        
+        if(hours == 0)
+        {
+            return "\(minutes) minutes"
+        }
+        else
+        {
+            return "\(hours) hours and \(minutes) minutes"
+        }
     }
 }
