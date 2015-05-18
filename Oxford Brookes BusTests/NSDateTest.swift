@@ -18,15 +18,17 @@ class NSDateTest: QuickSpec {
     override func spec() {
         
         describe("NSDate")
+        {
+            describe("minutes To Hours")
             {
                 it("is the right time")
-                    {
-                        expect(NSDate.minutesToHours(61)).to(equal("1 hour and 1 minute"))
-                        expect(NSDate.minutesToHours(1)).to(equal("1 minute"))
-                        expect(NSDate.minutesToHours(120)).to(equal("2 hours"))
-                        expect(NSDate.minutesToHours(123)).to(equal("2 hours and 3 minutes"))
+                {
+                    expect(NSDate.minutesToHours(61)).to(equal("1 hour and 1 minute"))
+                    expect(NSDate.minutesToHours(1)).to(equal("1 minute"))
+                    expect(NSDate.minutesToHours(120)).to(equal("2 hours"))
+                    expect(NSDate.minutesToHours(123)).to(equal("2 hours and 3 minutes"))
                 }
-                
+            }
         }
     }
 }
