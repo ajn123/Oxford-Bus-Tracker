@@ -58,13 +58,11 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         switch indexPath.row {
             case 0:
-                cell.topView.backgroundColor = UIColor.blackColor()
                 cell.downImage.image = UIImage(named: "ArrowPathBegin.png")
             case self.tableView(tableView, numberOfRowsInSection: 0) - 1:
                 cell.downImage.image = UIImage(named: "ArrowPathEnd.png")
             default:
                 cell.downImage.image = UIImage(named: "ArrowPathMiddle")
-                cell.topView.backgroundColor = UIColor.whiteColor()
             
         }
 

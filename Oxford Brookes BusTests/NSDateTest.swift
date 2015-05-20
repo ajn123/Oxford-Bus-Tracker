@@ -29,6 +29,15 @@ class NSDateTest: QuickSpec {
                     expect(NSDate.minutesToHours(123)).to(equal("2 hours and 3 minutes"))
                 }
             }
+            
+            describe("Military time differance")
+            {
+                it("is a time differance")
+                {
+                    expect(NSDate.militaryTimeDifferanceInMinutes(1240, time2: 1123)).to(equal(17 + 60))
+                    expect(NSDate.militaryTimeDifferanceInMinutes(1140, time2: 1123)).to(equal(17))
+                }
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var timeTable: UITableView!
     @IBOutlet var dayOfWeek: UISegmentedControl!
+    @IBOutlet var availableTimes: UISegmentedControl!
     
     var refresh = UIRefreshControl()
     var times = [String]()
@@ -41,7 +42,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         refresh.endRefreshing()
     }
     
-    
+ 
     func eventStoreAccessReminders() {
         
         calendarDatabase.requestAccessToEntityType(EKEntityTypeReminder,
@@ -83,6 +84,21 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func backPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+ 
+    @IBAction func availbilityChanged(sender: UISegmentedControl) {
+        
+        if(sender.selectedSegmentIndex == 0)
+        {
+            times = BusRoute.getTimesFromStopRegardlessOfTime(stop, direction: direction, name: name, schedule: dayOfWeek.selectedSegmentIndex)
+        }
+        else
+        {
+            times = BusRoute.getAvailableDepartures(stop, direction: direction, name: name, schedule: dayOfWeek.selectedSegmentIndex)
+            
+        }
+        timeTable.reloadData()
+        
     }
     @IBAction func segmentChange(sender: AnyObject) {
         times = BusRoute.getTimesFromStopRegardlessOfTime(stop, direction: direction, name: name, schedule: dayOfWeek.selectedSegmentIndex)

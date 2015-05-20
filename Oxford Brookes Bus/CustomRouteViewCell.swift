@@ -16,9 +16,7 @@ class CustomRouteViewCell: UITableViewCell {
     @IBOutlet var locationTitle: UILabel!
     
     var indexRow: Int = 0
-    
-    @IBOutlet var topView: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

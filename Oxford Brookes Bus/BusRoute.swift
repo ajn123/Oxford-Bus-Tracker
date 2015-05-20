@@ -160,6 +160,22 @@ class BusRoute: NSManagedObject {
         return str
     }
     
+    class func getAvailableDepartures(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [String]
+    {
+        var str = [String]()
+        
+        let fetchResults = getDepartures(stop, direction: direction, name: name, schedule: schedule)
+        
+        var stops = fetchResults
+        
+        for st in stops
+        {
+            str.append("\(st.time)")
+        }
+        
+        return str
+    }
+    
     
     
     class func getRecentDepartures(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> String

@@ -10,7 +10,6 @@ import Foundation
 
 extension NSDate{
     
-    
     public static var currentMilitaryTime: Int {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
