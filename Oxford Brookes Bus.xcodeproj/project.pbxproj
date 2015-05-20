@@ -44,6 +44,7 @@
 		7F41D93B1B00252D00694800 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41D93A1B00252D00694800 /* ArrayExtension.swift */; };
 		7F41D93D1B00F30C00694800 /* OBUBusTrackerAppIcon180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F41D93C1B00F30C00694800 /* OBUBusTrackerAppIcon180.png */; };
 		7F41D93F1B00F3B800694800 /* OBUBusTrackerAppIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F41D93E1B00F3B800694800 /* OBUBusTrackerAppIcon120.png */; };
+		7F4A20521B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */; };
 		7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F580F021B0A869600D88783 /* NSDateTest.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
 		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
@@ -114,6 +115,7 @@
 		7F41D93A1B00252D00694800 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		7F41D93C1B00F30C00694800 /* OBUBusTrackerAppIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon180.png; sourceTree = "<group>"; };
 		7F41D93E1B00F3B800694800 /* OBUBusTrackerAppIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon120.png; sourceTree = "<group>"; };
+		7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewControllerTest.swift; sourceTree = "<group>"; };
 		7F580F021B0A869600D88783 /* NSDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTest.swift; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -434,6 +436,7 @@
 				7F580F021B0A869600D88783 /* NSDateTest.swift */,
 				7FBE36291AE541640055D8CD /* Oxford_Brookes_BusTests.swift */,
 				7FBE36271AE541640055D8CD /* Supporting Files */,
+				7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */,
 			);
 			path = "Oxford Brookes BusTests";
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 			files = (
 				7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */,
 				7FBE362A1AE541640055D8CD /* Oxford_Brookes_BusTests.swift in Sources */,
+				7F4A20521B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +751,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -785,6 +790,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
