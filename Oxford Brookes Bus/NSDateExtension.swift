@@ -49,7 +49,7 @@ extension NSDate{
     {
         if time2 > time1
         {
-         //   NSException(name: "Incorrect Parameters", reason: "first parameter time1 should be bigger than parameter time2", userInfo: nil)
+            NSException(name: "Incorrect Parameters", reason: "first parameter time1 should be bigger than parameter time2", userInfo: nil)
         }
         
         var time1Hour = time1 / 100

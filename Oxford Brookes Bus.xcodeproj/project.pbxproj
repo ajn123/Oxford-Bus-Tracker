@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08CD494FD79C130577D24109 /* Pods_Oxford_Brookes_Bus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB81898226276427AA18CC79 /* Pods_Oxford_Brookes_Bus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E3B8100393516602FFA4A41 /* Pods_Oxford_Brookes_BusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7895C7E82171E30A4998B7 /* Pods_Oxford_Brookes_BusTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7F306C2A1AF3A83200C9605D /* BusRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F306C291AF3A83200C9605D /* BusRoute.swift */; };
 		7F306C2E1AF3BA9F00C9605D /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F306C2D1AF3BA9F00C9605D /* Stop.swift */; };
@@ -78,7 +79,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3CA6AA377EE2B5AAC27AA84B /* Pods-Oxford Brookes Bus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes Bus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes Bus/Pods-Oxford Brookes Bus.release.xcconfig"; sourceTree = "<group>"; };
 		5D91B7B4CEDDF3429BCB831C /* Pods-Oxford Brookes BusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes BusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes BusTests/Pods-Oxford Brookes BusTests.release.xcconfig"; sourceTree = "<group>"; };
+		63C1B77D9F5DB3F18997A086 /* Pods-Oxford Brookes Bus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes Bus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes Bus/Pods-Oxford Brookes Bus.debug.xcconfig"; sourceTree = "<group>"; };
 		7F306C291AF3A83200C9605D /* BusRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRoute.swift; sourceTree = "<group>"; };
 		7F306C2D1AF3BA9F00C9605D /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 		7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRouteViewCell.swift; sourceTree = "<group>"; };
 		823A24DD60377FB62FCE37B0 /* Pods-Oxford Brookes BusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes BusTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes BusTests/Pods-Oxford Brookes BusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D7895C7E82171E30A4998B7 /* Pods_Oxford_Brookes_BusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oxford_Brookes_BusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB81898226276427AA18CC79 /* Pods_Oxford_Brookes_Bus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oxford_Brookes_Bus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08CD494FD79C130577D24109 /* Pods_Oxford_Brookes_Bus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +459,8 @@
 			children = (
 				823A24DD60377FB62FCE37B0 /* Pods-Oxford Brookes BusTests.debug.xcconfig */,
 				5D91B7B4CEDDF3429BCB831C /* Pods-Oxford Brookes BusTests.release.xcconfig */,
+				63C1B77D9F5DB3F18997A086 /* Pods-Oxford Brookes Bus.debug.xcconfig */,
+				3CA6AA377EE2B5AAC27AA84B /* Pods-Oxford Brookes Bus.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -462,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				8D7895C7E82171E30A4998B7 /* Pods_Oxford_Brookes_BusTests.framework */,
+				AB81898226276427AA18CC79 /* Pods_Oxford_Brookes_Bus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -473,9 +481,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FBE362D1AE541640055D8CD /* Build configuration list for PBXNativeTarget "Oxford Brookes Bus" */;
 			buildPhases = (
+				F95535E7A7D1E372BED9BBAE /* Check Pods Manifest.lock */,
 				7FBE36071AE541640055D8CD /* Sources */,
 				7FBE36081AE541640055D8CD /* Frameworks */,
 				7FBE36091AE541640055D8CD /* Resources */,
+				F0607EA1EAEFA490A1B1AEBA /* Embed Pods Frameworks */,
+				C02544E1ED391B27B7B32EA0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -624,7 +635,52 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oxford Brookes BusTests/Pods-Oxford Brookes BusTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C02544E1ED391B27B7B32EA0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oxford Brookes Bus/Pods-Oxford Brookes Bus-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EBB057CF5512A293EB2031AB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F0607EA1EAEFA490A1B1AEBA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oxford Brookes Bus/Pods-Oxford Brookes Bus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F95535E7A7D1E372BED9BBAE /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -798,6 +854,7 @@
 		};
 		7FBE362E1AE541640055D8CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63C1B77D9F5DB3F18997A086 /* Pods-Oxford Brookes Bus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Oxford Brookes Bus/Info.plist";
@@ -808,6 +865,7 @@
 		};
 		7FBE362F1AE541640055D8CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CA6AA377EE2B5AAC27AA84B /* Pods-Oxford Brookes Bus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Oxford Brookes Bus/Info.plist";

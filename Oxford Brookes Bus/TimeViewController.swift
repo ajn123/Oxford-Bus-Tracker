@@ -9,13 +9,12 @@
 import UIKit
 import EventKit
 
-
-
 class TimeViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var timeTable: UITableView!
     @IBOutlet var dayOfWeek: UISegmentedControl!
     @IBOutlet var availableTimes: UISegmentedControl!
+    
     
     var refresh = UIRefreshControl()
     var times = [String]()
@@ -30,6 +29,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+      
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         timeTable.addSubview(refresh)
         
@@ -132,7 +132,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
             cell.backgroundColor = UIColor(red: 0.80, green: 0.00, blue: 0.00, alpha: 1.00)
             cell.detailTextLabel?.text = "Missed"
         }
-        
+       
         cell.textLabel?.text = times[indexPath.row]
         
         return cell
@@ -155,9 +155,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
                 
                 if((currentTime + num) <= time)
                 {
-                    var timeInMinutes: NSTimeInterval =
-                        Double(NSDate.militaryTimeDifferanceInMinutes(time, time2: currentTime) - num) * Double(60)
-                    
+                    var timeInMinutes: NSTimeInterval = Double(5)
                     var action = UIAlertAction(title: "\(num) minutes before departure", style: UIAlertActionStyle.Default,
                         handler: { action -> Void in
                             self.createReminder("Catch \(self.name) Bus", timeInterval: NSDate(timeIntervalSinceNow: timeInMinutes))

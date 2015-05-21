@@ -2,6 +2,8 @@
 # platform :ios, '6.0'
 
 target 'Oxford Brookes Bus' do
+use_frameworks!
+pod 'WobbleView'
 
 end
 

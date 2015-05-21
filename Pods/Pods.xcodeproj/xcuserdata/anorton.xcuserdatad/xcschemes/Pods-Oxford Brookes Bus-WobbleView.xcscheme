@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E1D1F12449796ABC9E2BE8D8"
-               BuildableName = "Nimble.framework"
-               BlueprintName = "Pods-Oxford Brookes BusTests-Nimble"
+               BlueprintIdentifier = "B725A504EAB01B4017EDCB46"
+               BuildableName = "WobbleView.framework"
+               BlueprintName = "Pods-Oxford Brookes Bus-WobbleView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
