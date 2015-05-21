@@ -17,13 +17,15 @@ class CustomRouteViewCell: UITableViewCell {
     @IBOutlet weak var trailingSpaceConstraint: NSLayoutConstraint!
     
     @IBOutlet var locationTitle: UILabel!
-    @IBOutlet weak var panView: WobbleView!
+    @IBOutlet weak var panView: UIView!
     
     @IBOutlet var timerLabel: UILabel!
     var indexRow: Int = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.panView.backgroundColor = UIColor(patternImage: UIImage(named: "tableSwipe.png")!)
   
         if self.respondsToSelector(Selector("setLayoutMargins:")) {
             layoutMargins = UIEdgeInsetsZero
@@ -33,7 +35,7 @@ class CustomRouteViewCell: UITableViewCell {
             preservesSuperviewLayoutMargins = false
         }
         
-        panView.edges = ViewEdge.Right
+     //   panView.edges = ViewEdge.Right
         
         var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
         panGestureRecognizer.delegate = self
@@ -55,8 +57,6 @@ class CustomRouteViewCell: UITableViewCell {
             println(trailingSpaceConstraint.constant)
             
         case UIGestureRecognizerState.Ended, UIGestureRecognizerState.Cancelled:
-            
-            
             leadingSpaceConstraint.constant = 0
             trailingSpaceConstraint.constant = 0
             
@@ -65,7 +65,6 @@ class CustomRouteViewCell: UITableViewCell {
             })
             
         default:
-            println("hello")
             trailingSpaceConstraint.constant = 0
             leadingSpaceConstraint.constant = 0
         }

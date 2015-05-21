@@ -26,13 +26,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Oxford Brookes Bus/CustomRouteViewCell.swift"
-            timestampString = "453909743.763715"
+            timestampString = "453924685.655025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "handlePanGesture(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Oxford Brookes Bus/CustomRouteViewCell.swift"
+            timestampString = "453925056.474017"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "CustomRouteViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Oxford_Brookes_Bus.CustomRouteViewCell.panView.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIView&gt;"
+                  moduleName = "Oxford Brookes Bus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anorton/projects/swift/Oxford%20Brookes%20Bus/Oxford%20Brookes%20Bus/CustomRouteViewCell.swift"
+                  timestampString = "453925122.058379"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Oxford_Brookes_Bus.CustomRouteViewCell.panView.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIView&gt;"
+                  moduleName = "Oxford Brookes Bus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anorton/projects/swift/Oxford%20Brookes%20Bus/Oxford%20Brookes%20Bus/CustomRouteViewCell.swift"
+                  timestampString = "453925122.058701"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Oxford_Brookes_Bus.CustomRouteViewCell.init (Oxford_Brookes_Bus.CustomRouteViewCell.Type)(style : C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; Oxford_Brookes_Bus.CustomRouteViewCell"
+                  moduleName = "Oxford Brookes Bus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anorton/projects/swift/Oxford%20Brookes%20Bus/Oxford%20Brookes%20Bus/CustomRouteViewCell.swift"
+                  timestampString = "453925122.059009"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "287">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Oxford_Brookes_Bus.CustomRouteViewCell.init (Oxford_Brookes_Bus.CustomRouteViewCell.Type)(coder : ObjectiveC.NSCoder) -&gt; Oxford_Brookes_Bus.CustomRouteViewCell"
+                  moduleName = "Oxford Brookes Bus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anorton/projects/swift/Oxford%20Brookes%20Bus/Oxford%20Brookes%20Bus/CustomRouteViewCell.swift"
+                  timestampString = "453925122.059255"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "211">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
