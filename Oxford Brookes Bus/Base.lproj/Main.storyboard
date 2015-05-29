@@ -160,7 +160,7 @@
                                     <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="146" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-9v-eoX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="146" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-9v-eoX">
                                 <rect key="frame" x="-7" y="118" width="382" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -172,9 +172,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MCL-Cy-W8e" id="vSn-sU-fXR">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYT-Jd-dSu">
-                                                    <rect key="frame" x="320" y="20" width="42" height="42"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYT-Jd-dSu">
+                                                    <rect key="frame" x="310" y="46" width="60" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -219,8 +219,12 @@
                                             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="rVW-pk-reG" firstAttribute="leading" secondItem="vSn-sU-fXR" secondAttribute="leading" id="I8S-sA-vFf"/>
+                                                <constraint firstItem="AYT-Jd-dSu" firstAttribute="top" secondItem="vSn-sU-fXR" secondAttribute="topMargin" constant="38" id="MjK-QD-QCv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AYT-Jd-dSu" secondAttribute="trailing" constant="4" id="Qko-dd-si5"/>
+                                                <constraint firstItem="AYT-Jd-dSu" firstAttribute="leading" secondItem="vSn-sU-fXR" secondAttribute="leadingMargin" constant="302" id="Rez-XW-vBh"/>
                                                 <constraint firstAttribute="trailing" secondItem="rVW-pk-reG" secondAttribute="trailing" id="aa8-hO-oPM"/>
                                                 <constraint firstItem="rVW-pk-reG" firstAttribute="top" secondItem="vSn-sU-fXR" secondAttribute="top" id="uqu-DZ-9gm"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="AYT-Jd-dSu" secondAttribute="bottom" constant="41" id="xfg-b1-Bud"/>
                                                 <constraint firstAttribute="bottom" secondItem="rVW-pk-reG" secondAttribute="bottom" id="zlE-wN-toH"/>
                                             </constraints>
                                         </tableViewCellContentView>

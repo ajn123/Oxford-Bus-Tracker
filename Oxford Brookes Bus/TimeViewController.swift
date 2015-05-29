@@ -22,14 +22,11 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     var direction: Bool = true
     var name: String = ""
     
-    var calendarDatabase = EKEventStore()
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         timeTable.addSubview(refresh)
         
@@ -43,39 +40,8 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     }
     
  
-    func eventStoreAccessReminders() {
-        
-        calendarDatabase.requestAccessToEntityType(EKEntityTypeReminder,
-                                                   completion: {(granted: Bool, error:NSError!)
-                                                   -> Void in
-            if !granted {
-                println("hello world")
-            }
-        })
-    }
+   
     
-
-    
-    func createReminder(reminderTitle: String, timeInterval: NSDate) {
-        
-        var calendars = calendarDatabase.calendarsForEntityType(EKEntityTypeReminder)
-        
-        eventStoreAccessReminders()
-        
-        let reminder = EKReminder(eventStore: calendarDatabase)
-        
-        reminder.title = reminderTitle
-        
-        let alarm = EKAlarm(absoluteDate: timeInterval)
-        
-        reminder.addAlarm(alarm)
-        
-        reminder.calendar = calendarDatabase.defaultCalendarForNewReminders()
-        
-        var error: NSError?
-        
-        calendarDatabase.saveReminder(reminder, commit: true, error: &error)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -158,9 +124,9 @@ class TimeViewController: UIViewController, UITableViewDelegate {
                     var timeInMinutes: NSTimeInterval = Double(5)
                     var action = UIAlertAction(title: "\(num) minutes before departure", style: UIAlertActionStyle.Default,
                         handler: { action -> Void in
-                            self.createReminder("Catch \(self.name) Bus", timeInterval: NSDate(timeIntervalSinceNow: timeInMinutes))
+                            Alarm.createReminder("Catch \(self.name) Bus",
+                                                 timeInterval: NSDate(timeIntervalSinceNow: timeInMinutes))
                     })
-            
                     alert.addAction(action)
                 }
                 

@@ -48,6 +48,8 @@
 		7F4A20521B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */; };
 		7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F580F021B0A869600D88783 /* NSDateTest.swift */; };
 		7F820CFF1B0E56A7002CAA53 /* tableSwipe.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F820CFE1B0E56A7002CAA53 /* tableSwipe.png */; };
+		7F820D011B0E6F80002CAA53 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D001B0E6F80002CAA53 /* Alarm.swift */; };
+		7F820D051B15FF24002CAA53 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D041B15FF24002CAA53 /* UIViewExtension.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
 		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
 		7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */; };
@@ -122,6 +124,8 @@
 		7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewControllerTest.swift; sourceTree = "<group>"; };
 		7F580F021B0A869600D88783 /* NSDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTest.swift; sourceTree = "<group>"; };
 		7F820CFE1B0E56A7002CAA53 /* tableSwipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableSwipe.png; sourceTree = "<group>"; };
+		7F820D001B0E6F80002CAA53 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		7F820D041B15FF24002CAA53 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBE360F1AE541640055D8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */,
 				7F306C291AF3A83200C9605D /* BusRoute.swift */,
 				7F306C2D1AF3BA9F00C9605D /* Stop.swift */,
+				7F820D001B0E6F80002CAA53 /* Alarm.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 			children = (
 				7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */,
 				7F41D93A1B00252D00694800 /* ArrayExtension.swift */,
+				7F820D041B15FF24002CAA53 /* UIViewExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -712,11 +718,13 @@
 				7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */,
 				7FBE36161AE541640055D8CD /* ViewController.swift in Sources */,
 				7F41D8FD1AF6E4E000694800 /* RAMAnimatedTabBarController.swift in Sources */,
+				7F820D051B15FF24002CAA53 /* UIViewExtension.swift in Sources */,
 				7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */,
 				7F41D90A1AF7893400694800 /* MapRouteViewController.swift in Sources */,
 				7F41D8FB1AF6E4E000694800 /* RAMRotationAnimation.swift in Sources */,
 				7FDD47C21AEE825200FE2235 /* CoreDataModel.swift in Sources */,
 				7F306C2E1AF3BA9F00C9605D /* Stop.swift in Sources */,
+				7F820D011B0E6F80002CAA53 /* Alarm.swift in Sources */,
 				7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */,
 				7F41D8FC1AF6E4E000694800 /* RAMTransitionItemAnimation.swift in Sources */,
 				7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */,
