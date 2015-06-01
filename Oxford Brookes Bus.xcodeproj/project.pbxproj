@@ -51,6 +51,7 @@
 		7F820D011B0E6F80002CAA53 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D001B0E6F80002CAA53 /* Alarm.swift */; };
 		7F820D051B15FF24002CAA53 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D041B15FF24002CAA53 /* UIViewExtension.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
+		7FB6DC681B1C9D3900B9F768 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB6DC671B1C9D3900B9F768 /* Alert.swift */; };
 		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
 		7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */; };
 		7FBE36161AE541640055D8CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36151AE541640055D8CD /* ViewController.swift */; };
@@ -127,6 +128,7 @@
 		7F820D001B0E6F80002CAA53 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		7F820D041B15FF24002CAA53 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		7FB6DC671B1C9D3900B9F768 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBE360F1AE541640055D8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FBE36101AE541640055D8CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				7F3C122C1AF1771B001EC7E5 /* RoutesTableViewController.swift */,
 				7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */,
 				7F41D9091AF7893400694800 /* MapRouteViewController.swift */,
+				7FB6DC671B1C9D3900B9F768 /* Alert.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				7FEE5BC71AE794A0006118DB /* CustomRouteViewCell.swift in Sources */,
 				7F41D8F81AF6E4E000694800 /* RAMBounceAnimation.swift in Sources */,
 				7F3C122D1AF1771B001EC7E5 /* RoutesTableViewController.swift in Sources */,
+				7FB6DC681B1C9D3900B9F768 /* Alert.swift in Sources */,
 				7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */,
 				7FBE36161AE541640055D8CD /* ViewController.swift in Sources */,
 				7F41D8FD1AF6E4E000694800 /* RAMAnimatedTabBarController.swift in Sources */,
