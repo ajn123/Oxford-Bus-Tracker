@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class BusRoute: NSManagedObject {
+class BusRoute: NSManagedObject, Printable {
 
     @NSManaged var name: String
     @NSManaged var destination: String
@@ -18,6 +18,10 @@ class BusRoute: NSManagedObject {
     @NSManaged var schedule: NSNumber
     @NSManaged var stops: NSSet
     @NSManaged var direction: Bool
+    
+    override var description: String{
+        return "\(name) \(destination) \(self.stops.count)"
+    }
     
     class func createBusRoute(name: String, destination: String, startTime: Int, endTime: Int, schedule: Int, direction: Bool) -> BusRoute {
         
@@ -36,6 +40,7 @@ class BusRoute: NSManagedObject {
     
     class func allBusRoutes() -> [String]
     {
+        
         let fetchRequest = NSFetchRequest(entityName: "BusRoute")
         
         var sort = NSSortDescriptor(key: "name", ascending: true) // sort by bus stop
