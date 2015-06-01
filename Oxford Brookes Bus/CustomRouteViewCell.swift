@@ -29,7 +29,7 @@ class CustomRouteViewCell: UITableViewCell {
         super.awakeFromNib()
         
         self.panView.backgroundColor = UIColor(patternImage: UIImage(named: "tableSwipe.png")!)
-  
+        
         if self.respondsToSelector(Selector("setLayoutMargins:")) {
             layoutMargins = UIEdgeInsetsZero
         }
@@ -38,7 +38,7 @@ class CustomRouteViewCell: UITableViewCell {
             preservesSuperviewLayoutMargins = false
         }
         
-
+        
         var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
         panGestureRecognizer.delegate = self
         addGestureRecognizer(panGestureRecognizer)
@@ -63,43 +63,33 @@ class CustomRouteViewCell: UITableViewCell {
             
         case UIGestureRecognizerState.Ended, UIGestureRecognizerState.Cancelled:
             
-            //UIViewController.alertReminden(timeInterval)
-            
-            
-            
-            var refreshAlert = UIAlertController(title: "Reminder", message: "Set a reminder for the bus in \(self.timeInterval) minutes.", preferredStyle: UIAlertControllerStyle.Alert)
+            var refreshAlert = UIAlertController(title: "Reminder", message: "Set a reminder for the bus.", preferredStyle: UIAlertControllerStyle.Alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                
+                let strTime = refreshAlert.textFields![0] as! UITextField
+                let time = strTime.text.toInt()!
                 Alarm.createReminder("Catch the Bus",
-                    timeInterval: NSDate(timeIntervalSinceNow: Double(self.timeInterval * 60)))
+                    timeInterval: NSDate(timeIntervalSinceNow: Double(time * 60)))
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action: UIAlertAction!) in
                 println("Handle Cancel Logic here")
             }))
             
-            var view = UIViewController()
             
+            refreshAlert.addTextFieldWithConfigurationHandler()
+            { textField -> Void in
+                textField.text = "\(self.timeInterval)"
+                textField.keyboardAppearance = UIKeyboardAppearance.Dark
+                textField.keyboardType = UIKeyboardType.NumberPad
+            }
             
-            var myFrame = CGRectMake(10.0, 10.0, 250.0, 25.0)
-            
-            var slider = UISlider(frame: myFrame)
-            
-            slider.minimumValue = 1
-            slider.maximumValue = 50
-            slider.value = Float(timeInterval)
-            
-            view.view.addSubview(slider)
-
-            refreshAlert.view.addSubview(view.view)
-            
-            self.viewForBaselineLayout()!.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
-           
-            
+            self.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
             leadingSpaceConstraint.constant = 0
             trailingSpaceConstraint.constant = 0
             
-          
+            
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.layoutIfNeeded()
             })
@@ -109,7 +99,7 @@ class CustomRouteViewCell: UITableViewCell {
             leadingSpaceConstraint.constant = 0
         }
     }
-
+    
 }
 
 
