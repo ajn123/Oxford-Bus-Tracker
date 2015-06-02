@@ -74,6 +74,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -83,6 +84,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         let tableVC = navVC.topViewController as! TimeViewController
         
         var cell = sender as! CustomRouteViewCell
+        
+        // removes selection view so reminder tab is still shown
+        cell.selectedBackgroundView.removeFromSuperview()
+        cell.panView.backgroundColor = UIColor(patternImage: UIImage(named: "tableSwipe.png")!)
         
         tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!,
                                                                   direction: direction,

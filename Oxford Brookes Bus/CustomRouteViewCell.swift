@@ -28,6 +28,8 @@ class CustomRouteViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.selectedBackgroundView = nil
+        
         self.panView.backgroundColor = UIColor(patternImage: UIImage(named: "tableSwipe.png")!)
         
         if self.respondsToSelector(Selector("setLayoutMargins:")) {
