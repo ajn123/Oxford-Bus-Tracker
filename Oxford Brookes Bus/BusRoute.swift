@@ -19,7 +19,8 @@ class BusRoute: NSManagedObject, Printable {
     @NSManaged var stops: NSSet
     @NSManaged var direction: Bool
     
-    override var description: String{
+    override var description: String
+    {
         return "\(name) \(destination) \(self.stops.count)"
     }
     
@@ -40,7 +41,6 @@ class BusRoute: NSManagedObject, Printable {
     
     class func allBusRoutes() -> [String]
     {
-        
         let fetchRequest = NSFetchRequest(entityName: "BusRoute")
         
         var sort = NSSortDescriptor(key: "name", ascending: true) // sort by bus stop

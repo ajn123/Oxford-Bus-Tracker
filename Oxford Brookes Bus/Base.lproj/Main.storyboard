@@ -181,20 +181,20 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVW-pk-reG">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="145"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="ArrowPathBegin.png" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-N0-ITM">
-                                                            <rect key="frame" x="-30" y="0.0" width="182" height="137"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArrowPathBegin.png" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-N0-ITM">
+                                                            <rect key="frame" x="-30" y="0.0" width="182" height="145"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="182" id="DUv-ex-rCo"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Next Bus:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwC-3i-YMR">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Bus:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwC-3i-YMR">
                                                             <rect key="frame" x="130" y="26" width="76" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e15-ad-RDl">
-                                                            <rect key="frame" x="130" y="0.0" width="189" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e15-ad-RDl">
+                                                            <rect key="frame" x="130" y="0.0" width="49" height="21"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="cqf-O2-kBI"/>
@@ -203,10 +203,11 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJ9-uk-L7x">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJ9-uk-L7x">
                                                             <rect key="frame" x="130" y="50" width="240" height="80"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="80" id="7xP-Gp-T8M"/>
+                                                                <constraint firstAttribute="width" constant="240" id="SwE-5W-sK5"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -214,6 +215,17 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="YC6-N0-ITM" firstAttribute="leading" secondItem="rVW-pk-reG" secondAttribute="leading" constant="-30" id="038-0p-2Ft"/>
+                                                        <constraint firstItem="QJ9-uk-L7x" firstAttribute="leading" secondItem="e15-ad-RDl" secondAttribute="leading" id="9gp-FF-ZCY"/>
+                                                        <constraint firstItem="QJ9-uk-L7x" firstAttribute="leading" secondItem="fwC-3i-YMR" secondAttribute="leading" id="H6H-JL-Q6y"/>
+                                                        <constraint firstItem="YC6-N0-ITM" firstAttribute="top" secondItem="rVW-pk-reG" secondAttribute="top" id="ORa-BX-gd1"/>
+                                                        <constraint firstItem="YC6-N0-ITM" firstAttribute="top" secondItem="e15-ad-RDl" secondAttribute="top" id="a0Y-Qz-O7b"/>
+                                                        <constraint firstAttribute="trailing" secondItem="QJ9-uk-L7x" secondAttribute="trailing" constant="12" id="aLd-N6-C51"/>
+                                                        <constraint firstItem="QJ9-uk-L7x" firstAttribute="top" secondItem="fwC-3i-YMR" secondAttribute="bottom" constant="3" id="boo-Fk-wEW"/>
+                                                        <constraint firstAttribute="bottom" secondItem="QJ9-uk-L7x" secondAttribute="bottom" constant="15" id="dOM-rW-2Ly"/>
+                                                        <constraint firstAttribute="bottom" secondItem="YC6-N0-ITM" secondAttribute="bottom" id="zdv-ui-tLx"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

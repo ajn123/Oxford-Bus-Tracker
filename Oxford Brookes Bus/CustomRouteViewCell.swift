@@ -57,55 +57,15 @@ class CustomRouteViewCell: UITableViewCell {
             recognizer.setTranslation(CGPointZero, inView: recognizer.view!)
             
             timeInterval = Int(trailingSpaceConstraint.constant / 30) * 5
-            
-            timerLabel.text! = "\( Int(trailingSpaceConstraint.constant / 30) * 5)"
-            println(trailingSpaceConstraint.constant)
+            timerLabel.text! = "\(timeInterval)"
             
         case UIGestureRecognizerState.Ended, UIGestureRecognizerState.Cancelled:
             
-            var refreshAlert = UIAlertController(title: "Reminder", message: "Set a reminder for the bus.", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel)
-                { action in
-                    println("Handle Cancel Logic here")
-                })
-            
-            
-            refreshAlert.addTextFieldWithConfigurationHandler()
-                { textField -> Void in
-                    textField.text = "\(self.timeInterval)"
-                    textField.keyboardAppearance = UIKeyboardAppearance.Dark
-                    textField.keyboardType = UIKeyboardType.NumberPad
-            }
-            
-            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default) { action in
-                let strTime = refreshAlert.textFields![0] as! UITextField
-                if( strTime.text != "")
-                {
-                    let time = strTime.text.toInt()!
-                    if(time < 300)
-                    {
-                        Alarm.createReminder("Catch the Bus",
-                        timeInterval: NSDate(timeIntervalSinceNow: Double(time * 60)))
-                    }
-                    else
-                    {
-                        Alert.presentErrorSheet("Select a time under 300 minutes", view: self.parentViewController!)
-                    }
-                }
-                else
-                {
-                    Alert.presentErrorSheet("Select a real time!", view: self.parentViewController!)
-                  
-                }
-            })
-            
-       
-            
+            var refreshAlert = Alarm.getReminderView(self.timeInterval, view: self.parentViewController!.view)
+
             self.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
             leadingSpaceConstraint.constant = 0
             trailingSpaceConstraint.constant = 0
-            
             
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.layoutIfNeeded()

@@ -8,6 +8,7 @@
 
 import Foundation
 import EventKit
+import UIKit
 
 
 
@@ -44,6 +45,50 @@ public class Alarm{
         var error: NSError?
         
         calendarDatabase.saveReminder(reminder, commit: true, error: &error)
+    }
+    
+    public class func getReminderView(timeInterval: Int, view: UIView) -> UIAlertController
+    {
+    
+    var refreshAlert = UIAlertController(title: "Reminder", message: "Set a reminder for the bus.", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel)
+    { action in
+    println("Handle Cancel Logic here")
+    })
+    
+    
+    refreshAlert.addTextFieldWithConfigurationHandler()
+    { textField -> Void in
+        textField.text = "\(timeInterval)"
+        textField.keyboardAppearance = UIKeyboardAppearance.Dark
+        textField.keyboardType = UIKeyboardType.NumberPad
+    }
+    
+    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default) {
+        action in
+        let strTime = refreshAlert.textFields![0] as! UITextField
+        if( strTime.text != "")
+        {
+            let time = strTime.text.toInt()!
+            if(time < 300)
+            {
+                Alarm.createReminder("Catch the Bus",
+                    timeInterval: NSDate(timeIntervalSinceNow: Double(time * 60)))
+            }
+            else
+            {
+            Alert.presentErrorSheet("Select a time under 300 minutes", view: view.parentViewController!)
+            }
+        }
+    else
+    {
+        Alert.presentErrorSheet("Select a real time!", view: view.parentViewController!)
+    
+    }
+    })
+
+        return refreshAlert
     }
     
     
