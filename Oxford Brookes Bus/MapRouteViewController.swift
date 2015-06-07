@@ -9,15 +9,21 @@
 import UIKit
 
 class MapRouteViewController: UIViewController {
+    
+    var routeLabelName: String = "HELLLO "
 
+    @IBOutlet var routeName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        routeName.text = routeLabelName
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        
         // Dispose of any resources that can be recreated.
     }
     

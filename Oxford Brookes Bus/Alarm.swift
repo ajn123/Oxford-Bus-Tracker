@@ -18,12 +18,7 @@ public class Alarm{
     public class func eventStoreAccessReminders() {
         
         calendarDatabase.requestAccessToEntityType(EKEntityTypeReminder,
-            completion: {(granted: Bool, error:NSError!)
-                -> Void in
-                if !granted {
-                   // println("hello world")
-                }
-        })
+            completion: nil)
     }
     
     public class func createReminder(reminderTitle: String, timeInterval: NSDate) {
@@ -50,25 +45,22 @@ public class Alarm{
     public class func getReminderView(timeInterval: Int, view: UIView) -> UIAlertController
     {
     
-    var refreshAlert = UIAlertController(title: "Reminder", message: "Set a reminder for the bus.", preferredStyle: UIAlertControllerStyle.Alert)
+        var refreshAlert = UIAlertController(title: "Reminder",
+                                             message: "Set a reminder for the bus.",
+                                             preferredStyle: UIAlertControllerStyle.Alert)
     
-    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel)
-    { action in
-    println("Handle Cancel Logic here")
-    })
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+
+        refreshAlert.addTextFieldWithConfigurationHandler()
+        { textField -> Void in
+            textField.text = "\(timeInterval)"
+            textField.keyboardAppearance = UIKeyboardAppearance.Dark
+            textField.keyboardType = UIKeyboardType.NumberPad
+        }
     
-    
-    refreshAlert.addTextFieldWithConfigurationHandler()
-    { textField -> Void in
-        textField.text = "\(timeInterval)"
-        textField.keyboardAppearance = UIKeyboardAppearance.Dark
-        textField.keyboardType = UIKeyboardType.NumberPad
-    }
-    
-    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default) {
-        action in
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default) { action in
         let strTime = refreshAlert.textFields![0] as! UITextField
-        if( strTime.text != "")
+        if(strTime.text != "")
         {
             let time = strTime.text.toInt()!
             if(time < 300)
@@ -78,18 +70,16 @@ public class Alarm{
             }
             else
             {
-            Alert.presentErrorSheet("Select a time under 300 minutes", view: view.parentViewController!)
+                Alert.presentErrorSheet("Select a time under 300 minutes", view: view.parentViewController!)
             }
         }
-    else
-    {
-        Alert.presentErrorSheet("Select a real time!", view: view.parentViewController!)
-    
-    }
-    })
+        else
+        {
+            Alert.presentErrorSheet("Select a real time!", view: view.parentViewController!)
+        }
+        })
 
         return refreshAlert
     }
-    
     
 }

@@ -26,4 +26,19 @@ extension Array{
         }
         return array
     }
+    
+    func withoutDuplicates<U : Hashable>(attribute : T -> U) -> [T] {
+        var result : [T] = []
+        
+        var seen : Set<U> = Set()
+        for elem in self {
+            let value = attribute(elem)
+            if !seen.contains(value) {
+                result.append(elem)
+                seen.insert(value)
+            }
+        }
+        
+        return result
+    }
 }

@@ -55,10 +55,33 @@
                     <view key="view" contentMode="scaleToFill" id="NG9-jd-ZfU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzC-VX-IYL">
+                                <rect key="frame" x="145" y="137" width="135" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="98Z-7n-Lvd"/>
+                                    <constraint firstAttribute="width" constant="135" id="U0B-3d-3Qa"/>
+                                    <constraint firstAttribute="height" constant="21" id="hOC-o3-YGo"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="yHK-gJ-7Zc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rzC-VX-IYL" firstAttribute="leading" secondItem="NG9-jd-ZfU" secondAttribute="leadingMargin" constant="129" id="4Nd-Oi-hNh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rzC-VX-IYL" secondAttribute="trailing" constant="79" id="CPU-Gf-2WD"/>
+                            <constraint firstItem="rzC-VX-IYL" firstAttribute="top" secondItem="5cO-e2-Rhz" secondAttribute="bottom" constant="73" id="GLp-ud-agl"/>
+                            <constraint firstItem="eI5-gM-kXX" firstAttribute="top" secondItem="rzC-VX-IYL" secondAttribute="bottom" constant="460" id="S6i-Za-dyq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Route Information" id="cQg-2G-cFu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="routeName" destination="rzC-VX-IYL" id="QI5-Un-Yiv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48W-eE-QXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

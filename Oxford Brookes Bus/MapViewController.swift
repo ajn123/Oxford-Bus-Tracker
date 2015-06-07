@@ -32,22 +32,29 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         var region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
         
         
-        var annotation: MKPointAnnotation = MKPointAnnotation()
         
-        var olatitude:CLLocationDegrees = 51.755511
+       
         
-        var olongitude:CLLocationDegrees = -1.226302
+        for stop in Stop.getDifferantStops()!
+        {
+        // TODO: Put in Loop
+            var annotation: MKPointAnnotation = MKPointAnnotation()
         
-        var olocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(olatitude, olongitude)
+            var olatitude:CLLocationDegrees = stop.latitude.doubleValue
         
-        annotation.coordinate = olocation
+            var olongitude:CLLocationDegrees = stop.longitude.doubleValue
         
-        annotation.title = "Oxford"
+            var olocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(olatitude, olongitude)
         
-        annotation.subtitle = "here"
+            annotation.coordinate = olocation
         
-        map.addAnnotation(annotation)
+            annotation.title = stop.stop_name
         
+            annotation.subtitle = "here"
+        
+            map.addAnnotation(annotation)
+        
+        }
         
         
         map.setRegion(region, animated: true)
@@ -69,15 +76,21 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!)
     {
-          performSegueWithIdentifier("annotationPress", sender: view)
+        performSegueWithIdentifier("annotationPress", sender: view)
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "annotationPress"
         {
-            // TODO pass data
-            var vc = MapRouteViewController()
+            
+            var dvc = segue.destinationViewController as! UINavigationController
+            
+            var vc = dvc.topViewController as! MapRouteViewController
+            
+            var view = sender as! MKAnnotationView
+  
+            vc.routeLabelName = view.annotation.title!
         }
     }
     

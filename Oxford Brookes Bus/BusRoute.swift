@@ -35,7 +35,6 @@ class BusRoute: NSManagedObject, Printable {
         newItem.schedule = schedule
         newItem.direction = direction
         
-        
         return newItem
     }
     
