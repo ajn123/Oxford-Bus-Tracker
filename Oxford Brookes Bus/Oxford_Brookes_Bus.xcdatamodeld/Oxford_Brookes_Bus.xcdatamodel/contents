@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BusRoute" representedClassName="Oxford_Brookes_Bus.BusRoute" syncable="YES">
         <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="direction" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -10,8 +10,8 @@
         <relationship name="stops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stop" inverseName="busParent" inverseEntity="Stop" syncable="YES"/>
     </entity>
     <entity name="Stop" representedClassName="Oxford_Brookes_Bus.Stop" syncable="YES">
-        <attribute name="latitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="stop_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stop_number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -19,6 +19,6 @@
     </entity>
     <elements>
         <element name="BusRoute" positionX="-380" positionY="-172" width="128" height="150"/>
-        <element name="Stop" positionX="-227" positionY="-94" width="128" height="133"/>
+        <element name="Stop" positionX="-227" positionY="-94" width="128" height="135"/>
     </elements>
 </model>

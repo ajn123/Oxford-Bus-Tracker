@@ -37,9 +37,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         for stop in Stop.getDifferantStops()!
         {
-            println("hello")
+            println(stop.latitude.doubleValue)
             var annotation: MKPointAnnotation = MKPointAnnotation()
-        
+            
             var olatitude:CLLocationDegrees = stop.latitude.doubleValue
         
             var olongitude:CLLocationDegrees = stop.longitude.doubleValue

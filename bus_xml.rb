@@ -68,7 +68,7 @@ sheets = xlsx.sheets.each_with_index do |sheet, ind|
 		end
 		
 		schedule = ind / 2
-		puts %Q(bus = BusRoute.createBusRoute("#{name}", destination: "#{destination}", startTime: #{start_time}, endTime: #{end_time}, schedule: #{schedule}, direction: #{direction} ))
+		puts %Q(		bus = BusRoute.createBusRoute("#{name}", destination: "#{destination}", startTime: #{start_time}, endTime: #{end_time}, schedule: #{schedule}, direction: #{direction} ))
 		
 		a.each_with_index do |elem, index|
 			stop_time = elem[0].to_i
@@ -85,7 +85,7 @@ sheets = xlsx.sheets.each_with_index do |sheet, ind|
 
 
 			
-			puts %Q(Stop.createStop(#{stop_time}, name: "#{stop_name}", stop_number: #{stop_number}, latitude: #{latitude}, longitude: #{longitude}, parent: bus))
+			puts %Q(		Stop.createStop(#{stop_time}, name: "#{stop_name}", stop_number: #{stop_number}, latitude: #{latitude}, longitude: #{longitude}, parent: bus))
 		end
 
 	    # stop_times = row[1..-1].compact.map(&:to_i)  # from second to last element
