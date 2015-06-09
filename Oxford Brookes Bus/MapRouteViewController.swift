@@ -10,7 +10,7 @@ import UIKit
 
 class MapRouteViewController: UIViewController {
     
-    var routeLabelName: String = "HELLLO "
+    var routeLabelName: String = ""
     
     var stop: Stop? = nil
 

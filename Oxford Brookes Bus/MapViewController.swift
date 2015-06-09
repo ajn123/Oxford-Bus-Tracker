@@ -31,13 +31,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         var region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
         
-        
-        
-       
-        
         for stop in Stop.getDifferantStops()!
         {
-            println(stop.latitude.doubleValue)
             var annotation: MKPointAnnotation = MKPointAnnotation()
             
             var olatitude:CLLocationDegrees = stop.latitude.doubleValue
@@ -53,7 +48,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             annotation.subtitle = Stop.allBusUniqueBusStopNames(stop)
         
             map.addAnnotation(annotation)
-        
         }
         
         map.setRegion(region, animated: true)
@@ -70,7 +64,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mkPinView.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
         
         return mkPinView
-        
     }
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!)
@@ -82,7 +75,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "annotationPress"
         {
-            
             var dvc = segue.destinationViewController as! UINavigationController
             
             var vc = dvc.topViewController as! MapRouteViewController
@@ -90,8 +82,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             var view = sender as! MKAnnotationView
   
             vc.routeLabelName = view.annotation.title!
-            
-          
         }
     }
     

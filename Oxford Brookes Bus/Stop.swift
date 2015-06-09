@@ -64,10 +64,7 @@ class Stop: NSManagedObject {
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
-            var busRoutes = fetchResults.map()
-            {
-                $0.busParent
-            }
+            var busRoutes = fetchResults.map(){ $0.busParent }
             
             return busRoutes
         }
@@ -83,8 +80,8 @@ class Stop: NSManagedObject {
                 $0.name
             }.withoutDuplicates(){ $0 }.reduce("")
             {
-                (a, b) -> String in
-                    return "\(a) \(b)"
+                (all, elem) in
+                "\(all) \(elem)"
             }
     }
     
