@@ -54,6 +54,40 @@ class Stop: NSManagedObject {
         return getAllBusStops()!.withoutDuplicates { $0.stop_name } 
     }
     
+    class func allBusRoutesForStop(stop: Stop) -> [BusRoute]?
+    {
+        let fetchRequest = NSFetchRequest(entityName: "Stop")
+        
+        let predicate1 = NSPredicate(format: "stop_name == %@", stop.stop_name)
+        
+        fetchRequest.predicate = predicate1
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
+            var busRoutes = fetchResults.map()
+            {
+                $0.busParent
+            }
+            
+            return busRoutes
+        }
+        
+        return nil
+    }
+    
+    
+    class func allBusUniqueBusStopNames(stop: Stop) -> String
+    {
+        return Stop.allBusRoutesForStop(stop)!.map()
+            {
+                $0.name
+            }.withoutDuplicates(){ $0 }.reduce("")
+            {
+                (a, b) -> String in
+                    return "\(a) \(b)"
+            }
+    }
+    
 }
     
     

@@ -50,12 +50,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
             annotation.title = stop.stop_name
         
-            annotation.subtitle = "here"
+            annotation.subtitle = Stop.allBusUniqueBusStopNames(stop)
         
             map.addAnnotation(annotation)
         
         }
-        
         
         map.setRegion(region, animated: true)
     }
@@ -91,6 +90,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             var view = sender as! MKAnnotationView
   
             vc.routeLabelName = view.annotation.title!
+            
+          
         }
     }
     

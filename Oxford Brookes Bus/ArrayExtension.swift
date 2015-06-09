@@ -38,7 +38,6 @@ extension Array{
                 seen.insert(value)
             }
         }
-        
         return result
     }
 }

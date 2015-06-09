@@ -11,6 +11,8 @@ import UIKit
 class MapRouteViewController: UIViewController {
     
     var routeLabelName: String = "HELLLO "
+    
+    var stop: Stop? = nil
 
     @IBOutlet var routeName: UILabel!
     
