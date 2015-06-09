@@ -164,25 +164,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
-                                <rect key="frame" x="16" y="72" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Ah2-xl-P1u"/>
-                                    <constraint firstAttribute="height" constant="30" id="Kk4-j0-dxU"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="OTk-Yp-aWv"/>
-                                    <constraint firstAttribute="width" constant="30" id="P6w-fJ-iML"/>
-                                </constraints>
-                                <state key="normal" image="changeDirection.png"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Ah2-xl-P1u"/>
-                                        <exclude reference="OTk-Yp-aWv"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="146" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HoU-9v-eoX">
                                 <rect key="frame" x="-7" y="118" width="382" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -251,7 +232,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.25882352939999997" green="0.65098039220000004" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="rVW-pk-reG" firstAttribute="leading" secondItem="vSn-sU-fXR" secondAttribute="leading" id="I8S-sA-vFf"/>
                                                 <constraint firstItem="AYT-Jd-dSu" firstAttribute="top" secondItem="vSn-sU-fXR" secondAttribute="topMargin" constant="38" id="MjK-QD-QCv"/>
@@ -285,6 +266,25 @@
                                     <outlet property="delegate" destination="454-R7-6vy" id="QO7-T2-DcH"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
+                                <rect key="frame" x="16" y="72" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Ah2-xl-P1u"/>
+                                    <constraint firstAttribute="height" constant="30" id="Kk4-j0-dxU"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="OTk-Yp-aWv"/>
+                                    <constraint firstAttribute="width" constant="30" id="P6w-fJ-iML"/>
+                                </constraints>
+                                <state key="normal" image="changeDirection.png"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ah2-xl-P1u"/>
+                                        <exclude reference="OTk-Yp-aWv"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="changeDirectionPressed:" destination="454-R7-6vy" eventType="touchUpInside" id="GlJ-ic-H8e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

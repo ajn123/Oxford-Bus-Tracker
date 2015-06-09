@@ -62,6 +62,7 @@
 		7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */; };
 		7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36371AE6799C0055D8CD /* TimeViewController.swift */; };
 		7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */; };
+		7FBE61CE1B27AF5100C03766 /* tableSwipeArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE61CD1B27AF5100C03766 /* tableSwipeArrow.png */; };
 		7FDADA8B1B0205180008EC1D /* OBUBusTrackerAppIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8A1B0205180008EC1D /* OBUBusTrackerAppIcon80.png */; };
 		7FDADA8F1B0617D90008EC1D /* ArrowPathBegin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */; };
 		7FDADA901B0617D90008EC1D /* ArrowPathEnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */; };
@@ -143,6 +144,7 @@
 		7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		7FBE36371AE6799C0055D8CD /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		7FBE61CD1B27AF5100C03766 /* tableSwipeArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableSwipeArrow.png; sourceTree = "<group>"; };
 		7FDADA8A1B0205180008EC1D /* OBUBusTrackerAppIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon80.png; sourceTree = "<group>"; };
 		7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathBegin.png; sourceTree = "<group>"; };
 		7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathEnd.png; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 		7FBE360D1AE541640055D8CD /* Oxford Brookes Bus */ = {
 			isa = PBXGroup;
 			children = (
+				7FBE61CD1B27AF5100C03766 /* tableSwipeArrow.png */,
 				7F820CFE1B0E56A7002CAA53 /* tableSwipe.png */,
 				7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */,
 				7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */,
@@ -603,6 +606,7 @@
 				7F41D92B1AFD00A400694800 /* 0U1SA1505.xls in Resources */,
 				7F41D9361AFD00A400694800 /* 0U5SA1435.xls in Resources */,
 				7F3C11F81AEFEE0C001EC7E5 /* endRoute.png in Resources */,
+				7FBE61CE1B27AF5100C03766 /* tableSwipeArrow.png in Resources */,
 				7F41D9381AFD00A400694800 /* U5XMF1435.xls in Resources */,
 				7FBE361B1AE541640055D8CD /* Images.xcassets in Resources */,
 			);

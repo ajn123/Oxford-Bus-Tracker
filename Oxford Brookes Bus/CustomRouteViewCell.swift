@@ -30,7 +30,7 @@ class CustomRouteViewCell: UITableViewCell {
         
         self.selectedBackgroundView = nil
         
-        self.panView.backgroundColor = UIColor(patternImage: UIImage(named: "tableSwipe.png")!)
+        self.panView.backgroundColor = UIColor(patternImage: UIImage(named: "tableSwipeArrow.png")!)
         
         if self.respondsToSelector(Selector("setLayoutMargins:")) {
             layoutMargins = UIEdgeInsetsZero
