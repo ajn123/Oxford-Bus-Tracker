@@ -31,7 +31,9 @@ dict  = {
 	"Harcourt Hill" => [51.7404539,-1.2914457], "Wheatley campus" => [51.7488942, -1.1265288], 
 	"Wheatley church" => [51.747191, -1.135268], "Castle Street" => [51.751495,-1.260925], 
 	"Speedwell Street" => [51.748428,-1.258112], "OXFORD High St Carfax" => [51.751985,-1.2580974],
-	"Frideswide Sq R9" => [51.7526129,-1.2680492], "Sandhills A40" => [51.7631259,-1.1808569]
+	"Frideswide Sq R9" => [51.7526129,-1.2680492], "Sandhills A40" => [51.7631259,-1.1808569],
+	"Brookes Uni stop B2" => [51.7557222,-1.2255214], "High St Turl St" => [51.7521907,-1.2563702], 
+	
 }
 
 sheets = xlsx.sheets.each_with_index do |sheet, ind|
