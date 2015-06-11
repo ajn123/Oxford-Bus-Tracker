@@ -58,7 +58,8 @@ public class Alarm{
             textField.keyboardType = UIKeyboardType.NumberPad
         }
     
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default) { action in
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default)
+        { action in
         let strTime = refreshAlert.textFields![0] as! UITextField
         if(strTime.text != "")
         {
@@ -70,7 +71,8 @@ public class Alarm{
             }
             else
             {
-                Alert.presentErrorSheet("Select a time under 300 minutes", view: view.parentViewController!)
+                Alert.presentErrorSheet("Select a time under 300 minutes",
+                                        view: view.parentViewController!)
             }
         }
         else

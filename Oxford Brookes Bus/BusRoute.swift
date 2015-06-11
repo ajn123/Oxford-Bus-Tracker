@@ -24,10 +24,16 @@ class BusRoute: NSManagedObject, Printable {
         return "\(name) \(destination) \(self.stops.count)"
     }
     
-    class func createBusRoute(name: String, destination: String, startTime: Int, endTime: Int, schedule: Int, direction: Bool) -> BusRoute {
+    class func createBusRoute(name: String,
+                              destination: String,
+                              startTime: Int,
+                              endTime: Int,
+                              schedule: Int,
+                              direction: Bool) -> BusRoute {
         
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName(
-            "BusRoute", inManagedObjectContext: CoreDataModel.context) as! BusRoute
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("BusRoute",
+                                                                          inManagedObjectContext: CoreDataModel.context)
+                                                                          as! BusRoute
         newItem.name = name
         newItem.destination = destination
         newItem.startTime = startTime
@@ -47,7 +53,9 @@ class BusRoute: NSManagedObject, Printable {
         fetchRequest.sortDescriptors = [sort]
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [BusRoute]
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(
+                                                        fetchRequest,
+                                                        error: nil) as? [BusRoute]
         {
             return Array(Set(fetchResults.map({ $0.name })))
         }
@@ -67,10 +75,13 @@ class BusRoute: NSManagedObject, Printable {
         
         let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
         
-        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate, predicate2])
+        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
+                                                                [predicate, predicate2])
     
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop]
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(
+                                                        fetchRequest,
+                                                        error: nil) as? [Stop]
         {
             return fetchResults.map({ $0.stop_name }).removeDuplicates()
         }
@@ -81,7 +92,10 @@ class BusRoute: NSManagedObject, Printable {
 
 
     
-    class func busDepartureSearchRequest(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> NSFetchRequest
+    class func busDepartureSearchRequest(stop: String,
+                                         direction: Bool = true,
+                                         name: String,
+                                         schedule: Int = 0) -> NSFetchRequest
     {
         let fetchRequest = NSFetchRequest(entityName: "Stop")
         
@@ -100,12 +114,15 @@ class BusRoute: NSManagedObject, Printable {
         let predicate4 = NSPredicate(format: "busParent.schedule == %ld", schedule)
         
         fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
-            [predicate1, predicate2, predicate3, predicate4])
+                    [predicate1, predicate2, predicate3, predicate4])
 
         return fetchRequest
     }
     
-    class func getDepartures(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [Stop]
+    class func getDepartures(stop: String,
+                             direction: Bool = true,
+                             name: String,
+                             schedule: Int = 0) -> [Stop]
     {
         let fetchRequest = busDepartureSearchRequest(stop, direction: direction, name: name, schedule: schedule)
         
@@ -114,7 +131,9 @@ class BusRoute: NSManagedObject, Printable {
         let predicate = NSPredicate(format: "time >= %ld", currentTime)
         
         let currentPredicate = fetchRequest.predicate!
-        let nextPredicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [currentPredicate, predicate])
+        let nextPredicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType,
+                subpredicates: [currentPredicate, predicate])
+        
         fetchRequest.predicate = nextPredicate
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
@@ -124,23 +143,29 @@ class BusRoute: NSManagedObject, Printable {
     
     
     
-    class func getTimesFromStop(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [String]
+    class func getTimesFromStop(stop: String,
+                                direction: Bool = true,
+                                name: String,
+                                schedule: Int = 0) -> [String]
     {
-        var str = [String]()
+        var strings = [String]()
         
         let fetchResults = getDepartures(stop, direction: direction, name: name, schedule: schedule)
             
         var stops = fetchResults
         
-        for st in stops
+        for str in stops
         {
-            str.append("\(st.time)")
+            strings.append("\(str.time)")
         }
         
-        return str
+        return strings
     }
     
-    class func getDeparturesRegardlessOfTime(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [Stop]
+    class func getDeparturesRegardlessOfTime(stop: String,
+                                             direction: Bool = true,
+                                             name: String,
+                                             schedule: Int = 0) -> [Stop]
     {
         let fetchRequest = busDepartureSearchRequest(stop, direction: direction, name: name, schedule: schedule)
         
@@ -164,7 +189,10 @@ class BusRoute: NSManagedObject, Printable {
         return str
     }
     
-    class func getAvailableDepartures(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [String]
+    class func getAvailableDepartures(stop: String,
+                                      direction: Bool = true,
+                                      name: String,
+                                      schedule: Int = 0) -> [String]
     {
         var str = [String]()
         
@@ -182,7 +210,10 @@ class BusRoute: NSManagedObject, Printable {
     
     
     
-    class func getRecentDepartures(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> String
+    class func getRecentDepartures(stop: String,
+                                   direction: Bool = true,
+                                   name: String,
+                                   schedule: Int = 0) -> String
     {
         var fetchResults = getDepartures(stop, direction: direction, name: name, schedule: schedule)
         

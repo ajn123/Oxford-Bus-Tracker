@@ -19,10 +19,16 @@ class Stop: NSManagedObject {
     @NSManaged var time: NSNumber
     @NSManaged var busParent: BusRoute
     
-    class func createStop(time: Int, name: String, stop_number: Int = 0, latitude: Double = 0, longitude: Double = 0, parent: BusRoute) -> Stop {
+    class func createStop(time: Int,
+                          name: String,
+                          stop_number: Int = 0,
+                          latitude: Double,
+                          longitude: Double,
+                          parent: BusRoute) -> Stop {
         
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Stop",
-                                                                          inManagedObjectContext: CoreDataModel.context)as! Stop
+                                                                          inManagedObjectContext: CoreDataModel.context)
+                                                                          as! Stop
         newItem.stop_name = name
         newItem.stop_number = stop_number
         newItem.time = time
@@ -42,7 +48,10 @@ class Stop: NSManagedObject {
         fetchRequest.sortDescriptors = [sort]
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(
+                                                        fetchRequest,
+                                                        error: nil)
+                                                        as? [Stop] {
             return fetchResults
         }
         
@@ -63,7 +72,9 @@ class Stop: NSManagedObject {
         fetchRequest.predicate = predicate1
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop] {
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest,
+                                                                        error: nil)
+                                                                        as? [Stop] {
             var busRoutes = fetchResults.map(){ $0.busParent }
             
             return busRoutes
@@ -80,7 +91,7 @@ class Stop: NSManagedObject {
                 $0.name
             }.withoutDuplicates(){ $0 }.reduce("")
             {
-                (all, elem) in
+                (all: String, elem: String) in
                 "\(all) \(elem)"
             }
     }
