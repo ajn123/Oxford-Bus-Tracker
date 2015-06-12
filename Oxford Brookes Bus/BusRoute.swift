@@ -57,7 +57,7 @@ class BusRoute: NSManagedObject, Printable {
                                                         fetchRequest,
                                                         error: nil) as? [BusRoute]
         {
-            return Array(Set(fetchResults.map({ $0.name })))
+            return fetchResults.map({ $0.name }).removeDuplicates()
         }
         
         return []
