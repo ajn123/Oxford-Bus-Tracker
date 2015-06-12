@@ -282,6 +282,7 @@
 		7F41D90E1AF82B6100694800 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7FBE36151AE541640055D8CD /* ViewController.swift */,
 				7FBE36351AE5421D0055D8CD /* TimeTableViewController.swift */,
 				7FBE36371AE6799C0055D8CD /* TimeViewController.swift */,
 				7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */,
@@ -432,7 +433,6 @@
 				7F41D90B1AF82A6E00694800 /* Models */,
 				7F41D8EA1AF6E4E000694800 /* RAMAnimatedTabBarController */,
 				7FBE36101AE541640055D8CD /* AppDelegate.swift */,
-				7FBE36151AE541640055D8CD /* ViewController.swift */,
 				7FBE36171AE541640055D8CD /* Main.storyboard */,
 				7FBE361A1AE541640055D8CD /* Images.xcassets */,
 				7FBE361C1AE541640055D8CD /* LaunchScreen.xib */,
