@@ -71,7 +71,7 @@ extension NSDate{
         
         if(hours >= 1 && minutes >= 1)
         {
-            andStr = " and "
+            andStr = ", "
         }
         
         if(hours == 1)

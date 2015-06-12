@@ -126,7 +126,7 @@ class BusRoute: NSManagedObject, Printable {
     {
         let fetchRequest = busDepartureSearchRequest(stop, direction: direction, name: name, schedule: schedule)
         
-        var currentTime = NSDate.currentMilitaryTime
+        let currentTime = NSDate.currentMilitaryTime
         
         let predicate = NSPredicate(format: "time >= %ld", currentTime)
         
@@ -173,11 +173,17 @@ class BusRoute: NSManagedObject, Printable {
         return (CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop])!
     }
     
-    class func getTimesFromStopRegardlessOfTime(stop: String, direction: Bool = true, name: String, schedule: Int = 0) -> [String]
+    class func getTimesFromStopRegardlessOfTime(stop: String,
+                                                direction: Bool = true,
+                                                name: String,
+                                                schedule: Int = 0) -> [String]
     {
         var str = [String]()
         
-        let fetchResults = getDeparturesRegardlessOfTime(stop, direction: direction, name: name, schedule: schedule)
+        let fetchResults = getDeparturesRegardlessOfTime(stop,
+                                                         direction: direction,
+                                                         name: name,
+                                                         schedule: schedule)
         
         var stops = fetchResults
         
@@ -235,18 +241,23 @@ class BusRoute: NSManagedObject, Printable {
         
         if let stops = slice
         {
-            var currentTime = NSDate.currentMilitaryTime
+            let currentTime = NSDate.currentMilitaryTime
+            
+            let formatter = NSNumberFormatter()
+            formatter.minimumIntegerDigits = 4
         
             for stop in stops
             {
-                var timeToGo = NSDate.militaryTimeDifferanceInMinutes(stop.time.integerValue, time2: currentTime)
+                var time = stop.time.integerValue
+                let timeToGo = NSDate.militaryTimeDifferanceInMinutes(time, time2: currentTime)
+                let formattedTime = formatter.stringFromNumber(time)!
                 if (timeToGo <= 2)
                 {
-                    str += "ARRIVING NOW \(stop.time.integerValue)\n"
+                    str += "ARRIVING NOW \(time)\n"
                 }
                 else
                 {
-                    str += "\(timeToGo) minutes \(stop.time.integerValue)\n"
+                    str += "\(formattedTime): \(NSDate.minutesToHours(timeToGo))\n"
                 }
             }
         }

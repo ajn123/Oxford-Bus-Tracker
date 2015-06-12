@@ -16,6 +16,7 @@ public class RoutesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         routes = BusRoute.allBusRoutes()
+
     }
 
     override public func didReceiveMemoryWarning() {

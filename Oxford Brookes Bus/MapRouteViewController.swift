@@ -19,6 +19,7 @@ class MapRouteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         routeName.text = routeLabelName
+       
         // Do any additional setup after loading the view.
     }
 

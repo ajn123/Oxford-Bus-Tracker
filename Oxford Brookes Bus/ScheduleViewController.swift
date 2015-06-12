@@ -87,7 +87,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         
         // removes selection view so reminder tab is still shown
         cell.selectedBackgroundView.removeFromSuperview()
-        cell.panView.backgroundColor = UIColor(patternImage: UIImage(named: "tableSwipe.png")!)
+        cell.panView.backgroundColor = UIColor(patternImage: UIImage(named: "tableSwipeArrow.png")!)
         
         tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!,
                                                                   direction: direction,
