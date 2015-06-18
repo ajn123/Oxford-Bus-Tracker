@@ -19,7 +19,7 @@ class CustomRouteViewCell: UITableViewCell {
     @IBOutlet weak var trailingSpaceConstraint: NSLayoutConstraint!
     
     @IBOutlet var locationTitle: UILabel!
-    @IBOutlet weak var panView: UIView!
+    @IBOutlet var slideImage: UIImageView!
     
     @IBOutlet var timerLabel: UILabel!
     var indexRow: Int = 0
@@ -28,9 +28,7 @@ class CustomRouteViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.selectedBackgroundView = nil
-        
-        self.panView.backgroundColor = UIColor(patternImage: UIImage(named: "tableSwipeArrow.png")!)
+        self.slideImage.image = UIImage(named:"tableSwipeArrow.png")
         
         if self.respondsToSelector(Selector("setLayoutMargins:")) {
             layoutMargins = UIEdgeInsetsZero
@@ -39,7 +37,6 @@ class CustomRouteViewCell: UITableViewCell {
         if self.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:")) {
             preservesSuperviewLayoutMargins = false
         }
-        
         
         var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
         panGestureRecognizer.delegate = self
