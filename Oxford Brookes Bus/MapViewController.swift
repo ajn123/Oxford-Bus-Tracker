@@ -9,13 +9,15 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet var map: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        map.showsUserLocation = true
         
         var latitude:CLLocationDegrees = 51.751798
         
@@ -69,6 +71,27 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!)
     {
         performSegueWithIdentifier("annotationPress", sender: view)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        var a = locations[0] as! CLLocation
+        
+        var latitude:CLLocationDegrees = a.coordinate.latitude
+        
+        var long: CLLocationDegrees = a.coordinate.longitude
+        
+        var latDelta: CLLocationDegrees = 0.00001
+        
+        var longDelte: CLLocationDegrees = 0.00001
+        
+        var span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelte)
+        
+        var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: long)
+        
+        var region = MKCoordinateRegion(center: location, span: span)
+        
+        self.map.setRegion(region, animated: true)
+    
     }
     
     

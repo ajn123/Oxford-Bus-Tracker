@@ -20,14 +20,14 @@ class CoreDataModel
 
     class func massAssign()
     {
-    var "
+      var "
 
 
 xlsx = Roo::Excelx.new("Book1.xlsx")
 
 
 dict  = { 
-	"Brookes Uni stop B5" =>[51.755474, -1.226263], "Headington Shops" => [51.759688, -1.212619],
+	"Brookes Uni stop B5" => [51.755474, -1.226263], "Headington Shops" => [51.759688, -1.212619],
 	"Harcourt Hill" => [51.7404539,-1.2914457], "Wheatley campus" => [51.7488942, -1.1265288], 
 	"Wheatley church" => [51.747191, -1.135268], "Castle Street" => [51.751495,-1.260925], 
 	"Speedwell Street" => [51.748428,-1.258112], "OXFORD High St Carfax" => [51.751985,-1.2580974],
@@ -52,7 +52,7 @@ sheets = xlsx.sheets.each_with_index do |sheet, ind|
 		col = xls.column(num)
 	#	stop = row[0].strip
 		times = col[1..-1]
-		a = times.each_with_index.map do |x,i|
+		a = times.each_with_index.map do |x, i|
 				[x, i + 2]
 
 		end.select { |x| x[0] }  # remove nil statements
@@ -68,10 +68,8 @@ sheets = xlsx.sheets.each_with_index do |sheet, ind|
 		if ind % 2 == 1
 			direction = false # going down
 		end
-		
 		schedule = ind / 2
 		puts %Q(		bus = BusRoute.createBusRoute("#{name}", destination: "#{destination}", startTime: #{start_time}, endTime: #{end_time}, schedule: #{schedule}, direction: #{direction} ))
-		
 		a.each_with_index do |elem, index|
 			stop_time = elem[0].to_i
 			stop_number = elem[1]
@@ -82,7 +80,7 @@ sheets = xlsx.sheets.each_with_index do |sheet, ind|
 
 			if dict[stop_name]
 				longitude = dict[stop_name][1] 
-				latitude = dict[stop_name][0] 
+        latitude = dict[stop_name][0] 
 			end
 
 
@@ -97,6 +95,7 @@ sheets = xlsx.sheets.each_with_index do |sheet, ind|
 
 end
 
+# For file completion
 puts "	}
 }"
 

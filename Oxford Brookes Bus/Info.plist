@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Add User Location</string>
 	<key>CFBundleDisplayName</key>
 	<string>OBU Transit</string>
 	<key>CFBundleDevelopmentRegion</key>
