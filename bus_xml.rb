@@ -64,12 +64,17 @@ sheets = xlsx.sheets.each_with_index do |sheet, ind|
 		start_time = a[0][0].to_i
 		end_time = a[-1][0].to_i
 		direction = true
+		vacation = false
+
+		if ind > 5
+			vacation = true
+		end
 
 		if ind % 2 == 1
 			direction = false # going down
 		end
-		schedule = ind / 2
-		puts %Q(		bus = BusRoute.createBusRoute("#{name}", destination: "#{destination}", startTime: #{start_time}, endTime: #{end_time}, schedule: #{schedule}, direction: #{direction} ))
+		schedule = ind % 3
+		puts %Q(		bus = BusRoute.createBusRoute("#{name}", destination: "#{destination}", startTime: #{start_time}, endTime: #{end_time}, schedule: #{schedule}, direction: #{direction}, vacation: #{vacation} ))
 		a.each_with_index do |elem, index|
 			stop_time = elem[0].to_i
 			stop_number = elem[1]
@@ -80,11 +85,9 @@ sheets = xlsx.sheets.each_with_index do |sheet, ind|
 
 			if dict[stop_name]
 				longitude = dict[stop_name][1] 
-        latitude = dict[stop_name][0] 
+        		latitude = dict[stop_name][0] 
 			end
 
-
-			
 			puts %Q(		Stop.createStop(#{stop_time}, name: "#{stop_name}", stop_number: #{stop_number}, latitude: #{latitude}, longitude: #{longitude}, parent: bus))
 		end
 

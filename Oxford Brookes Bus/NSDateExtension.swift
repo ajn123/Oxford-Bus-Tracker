@@ -19,6 +19,40 @@ extension NSDate{
         return hour * 100 + minutes
     }
     
+    
+    // Vacation is 25th May 2015 – 11th Sep 2015.
+    //             5/25            9/11
+    public func isSummer() -> Bool
+    {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitMonth
+                                             | .CalendarUnitDay
+                                             | .CalendarUnitYear, fromDate: self)
+        components.month = 5
+        components.day = 25
+        components.hour = 0
+   
+        var startSummer: NSDate = calendar.dateFromComponents(components)!
+        println(startSummer)
+        if(self.compare(startSummer) == NSComparisonResult.OrderedAscending)
+        {
+            return false
+        }
+        
+        components.month = 9
+        components.day = 11
+        
+        var endSummer: NSDate = calendar.dateFromComponents(components)!
+        
+        if(self.compare(endSummer) == NSComparisonResult.OrderedDescending)
+        {
+            return false
+        }
+        
+        return true
+    }
+    
+    
     /**
     Returns 0 if Weekday
     1 if Saturday
@@ -95,4 +129,11 @@ extension NSDate{
         
         return hoursStr + andStr + minutesStr
     }
+    
+    
+
+    
+    
+    
+    
 }

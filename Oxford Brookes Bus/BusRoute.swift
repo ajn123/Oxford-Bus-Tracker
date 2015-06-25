@@ -18,6 +18,7 @@ class BusRoute: NSManagedObject, Printable {
     @NSManaged var schedule: NSNumber
     @NSManaged var stops: NSSet
     @NSManaged var direction: Bool
+    @NSManaged var vacation: Bool
     
     override var description: String
     {
@@ -29,7 +30,8 @@ class BusRoute: NSManagedObject, Printable {
                               startTime: Int,
                               endTime: Int,
                               schedule: Int,
-                              direction: Bool) -> BusRoute {
+                              direction: Bool,
+                              vacation: Bool = false) -> BusRoute {
         
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("BusRoute",
                                                                           inManagedObjectContext: CoreDataModel.context)
@@ -40,6 +42,7 @@ class BusRoute: NSManagedObject, Printable {
         newItem.endTime = endTime
         newItem.schedule = schedule
         newItem.direction = direction
+        newItem.vacation = vacation
         
         return newItem
     }
@@ -105,6 +108,7 @@ class BusRoute: NSManagedObject, Printable {
         
         fetchRequest.sortDescriptors = [sort]
         
+        
         let predicate1 = NSPredicate(format: "stop_name == %@", stop)
         
         let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
@@ -113,8 +117,10 @@ class BusRoute: NSManagedObject, Printable {
         
         let predicate4 = NSPredicate(format: "busParent.schedule == %ld", schedule)
         
+        let predicate5 = NSPredicate(format: "busParent.vacation == %@", NSDate().isSummer())
+        
         fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
-                    [predicate1, predicate2, predicate3, predicate4])
+                    [predicate1, predicate2, predicate3, predicate4, predicate5])
 
         return fetchRequest
     }

@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
           NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
         
-      
-        
+ 
         return true
     }
 
