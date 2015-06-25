@@ -73,7 +73,7 @@ sheets = xlsx.sheets.each_with_index do |sheet, ind|
 		if ind % 2 == 1
 			direction = false # going down
 		end
-		schedule = ind % 3
+		schedule = (ind / 2) % 3
 		puts %Q(		bus = BusRoute.createBusRoute("#{name}", destination: "#{destination}", startTime: #{start_time}, endTime: #{end_time}, schedule: #{schedule}, direction: #{direction}, vacation: #{vacation} ))
 		a.each_with_index do |elem, index|
 			stop_time = elem[0].to_i
