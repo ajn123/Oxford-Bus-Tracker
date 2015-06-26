@@ -13,11 +13,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBOutlet var map: MKMapView!
     
+    var locationManager = CLLocationManager()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        map.showsUserLocation = true
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
         
         var latitude:CLLocationDegrees = 51.751798
         
@@ -56,24 +60,32 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     
-    // U! Heading Hill 51.755511, -1.226302
-    
+    // U1 Heading Hill 51.755511, -1.226302
+  
     // For MapKit provided annotations (eg. MKUserLocation) return nil to use the MapKit provided annotation view.
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView!
     {
+        // do NOT annotate your current location
+        if(annotation is MKUserLocation)
+        {
+            return nil
+        }
+        
         var mkPinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pinLocation")
         mkPinView.canShowCallout = true
+        
         mkPinView.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
         
         return mkPinView
     }
-    
+
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!)
     {
         performSegueWithIdentifier("annotationPress", sender: view)
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        
         var a = locations[0] as! CLLocation
         
         var latitude:CLLocationDegrees = a.coordinate.latitude

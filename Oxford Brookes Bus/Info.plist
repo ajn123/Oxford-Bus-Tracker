@@ -4,6 +4,8 @@
 <dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Add User Location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>May we use your location for the busses</string>
 	<key>CFBundleDisplayName</key>
 	<string>OBU Transit</string>
 	<key>CFBundleDevelopmentRegion</key>
