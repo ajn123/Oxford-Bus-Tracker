@@ -23,7 +23,7 @@ class CoreDataModel
       var "
 
 
-buses = ["U1", "U4", "U5"] # U5 needs to be added
+buses = ["U1", "U4", "U5", "U5X"] # U5 needs to be added
 
 buses.each do |bus|
 
@@ -69,7 +69,7 @@ buses.each do |bus|
 			direction = true
 			vacation = false
 
-			if ind > 5
+			if sheet.include? "SUMMER" ||  ind > 5 
 				vacation = true
 			end
 
