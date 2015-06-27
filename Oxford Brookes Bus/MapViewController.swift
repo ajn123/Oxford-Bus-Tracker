@@ -22,6 +22,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         var latitude:CLLocationDegrees = 51.751798
         
@@ -39,7 +40,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         for stop in Stop.getDifferantStops()!
         {
-            var annotation: MKPointAnnotation = MKPointAnnotation()
+            var annotation: StopMKAnnotation = StopMKAnnotation(stop: stop)
             
             var olatitude:CLLocationDegrees = stop.latitude.doubleValue
         
@@ -50,7 +51,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             annotation.coordinate = olocation
         
             annotation.title = stop.stop_name
-        
+            
             annotation.subtitle = Stop.allBusUniqueBusStopNames(stop)
         
             map.addAnnotation(annotation)
@@ -65,7 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // For MapKit provided annotations (eg. MKUserLocation) return nil to use the MapKit provided annotation view.
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView!
     {
-        // do NOT annotate your current location
+        // Do NOT annotate your current location
         if(annotation is MKUserLocation)
         {
             return nil
@@ -102,7 +103,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         var region = MKCoordinateRegion(center: location, span: span)
         
-        self.map.setRegion(region, animated: true)
+    //  self.map.setRegion(region, animated: true)
     
     }
     
@@ -115,8 +116,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             var vc = dvc.topViewController as! MapRouteViewController
             
             var view = sender as! MKAnnotationView
+            
+            var annotation = view.annotation as! StopMKAnnotation
   
-            vc.routeLabelName = view.annotation.title!
+            vc.routeLabelName = annotation.stop.stop_name
+            
+            vc.stop = annotation.stop
         }
     }
     

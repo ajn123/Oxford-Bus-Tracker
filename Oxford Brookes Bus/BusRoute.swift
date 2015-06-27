@@ -115,6 +115,7 @@ class BusRoute: NSManagedObject, Printable {
         
         let predicate3 = NSPredicate(format: "busParent.name == %@", name)
         
+        
         let predicate4 = NSPredicate(format: "busParent.schedule == %ld", schedule)
         
         let predicate5 = NSPredicate(format: "busParent.vacation == %@", NSDate().isSummer())

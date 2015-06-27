@@ -84,12 +84,18 @@ class Stop: NSManagedObject {
     }
     
     
-    class func allBusUniqueBusStopNames(stop: Stop) -> String
+    class func uniqueBusNamesArray(stop: Stop) -> [String]
     {
         return Stop.allBusRoutesForStop(stop)!.map()
             {
                 $0.name
-            }.withoutDuplicates(){ $0 }.reduce("")
+            }.withoutDuplicates(){ $0 }
+    }
+    
+    
+    class func allBusUniqueBusStopNames(stop: Stop) -> String
+    {
+        return uniqueBusNamesArray(stop).reduce("")
             {
                 (all: String, elem: String) in
                 "\(all) \(elem)"

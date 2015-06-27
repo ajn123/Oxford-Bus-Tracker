@@ -24,31 +24,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        //refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
-        
-        // table.addSubview(refresh)
-        
-        // check if the user is running the app for the first time
-        //        if let firstTime = NSUserDefaults.standardUserDefaults().objectForKey("firstTime")
-        //        {
-        //
-        //            println("second time")
-        //        }
-        //        else
-        //        {
-        //            println("worked")
-        //            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
-        //        }
-        //        if let path = NSBundle.mainBundle().pathForResource("busSchedule", ofType: "plist")
-        //        {
-        //            if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject>
-        //            {
-        //                locations = dict.keys.array
-        //                overall = dict
-        //            }
-//        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     

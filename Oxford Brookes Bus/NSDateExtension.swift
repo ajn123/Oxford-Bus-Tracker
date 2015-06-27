@@ -19,6 +19,14 @@ extension NSDate{
         return hour * 100 + minutes
     }
     
+    public enum BusDayPatterns: Int{
+        case MondayThroughFriday = 0
+        case SaturdayOnly
+        case SundayOnly
+        case WendnesdayAndFriday
+        case FridayOnly
+    }
+    
     
     // Vacation is 25th May 2015 – 11th Sep 2015.
     //             5/25            9/11
@@ -33,7 +41,7 @@ extension NSDate{
         components.hour = 0
    
         var startSummer: NSDate = calendar.dateFromComponents(components)!
-        println(startSummer)
+        //println(startSummer)
         if(self.compare(startSummer) == NSComparisonResult.OrderedAscending)
         {
             return false
@@ -68,11 +76,11 @@ extension NSDate{
         switch day
         {
         case 2...6: // Monday - Friday
-            return 0
+            return BusDayPatterns.MondayThroughFriday.rawValue
         case 1: // sunday
-            return 2
+            return BusDayPatterns.SundayOnly.rawValue
         case 7: // saturday
-            return 1
+            return BusDayPatterns.SaturdayOnly.rawValue
         default: // out of week index
             NSException(name: "Date Incorrect", reason: "Returned a value outside of 1 - 7", userInfo: nil).raise()
             return nil

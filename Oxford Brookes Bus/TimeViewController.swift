@@ -30,7 +30,7 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         timeTable.addSubview(refresh)
         
-        dayOfWeek.selectedSegmentIndex =  NSDate.getWeekday()!
+        dayOfWeek.selectedSegmentIndex = NSDate.getWeekday()!
     }
     
     func refreshing()

@@ -10,6 +10,7 @@
 		08CD494FD79C130577D24109 /* Pods_Oxford_Brookes_Bus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB81898226276427AA18CC79 /* Pods_Oxford_Brookes_Bus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E3B8100393516602FFA4A41 /* Pods_Oxford_Brookes_BusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7895C7E82171E30A4998B7 /* Pods_Oxford_Brookes_BusTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7F1230CB1B3D705B00895909 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1230CA1B3D705B00895909 /* MapKit.framework */; };
+		7F1230CF1B3D813100895909 /* StopMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1230CE1B3D813100895909 /* StopMKAnnotation.swift */; };
 		7F306C2A1AF3A83200C9605D /* BusRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F306C291AF3A83200C9605D /* BusRoute.swift */; };
 		7F306C2E1AF3BA9F00C9605D /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F306C2D1AF3BA9F00C9605D /* Stop.swift */; };
 		7F3BBDBB1AF2A7BC0042C239 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */; };
@@ -89,6 +90,7 @@
 		5D91B7B4CEDDF3429BCB831C /* Pods-Oxford Brookes BusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes BusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes BusTests/Pods-Oxford Brookes BusTests.release.xcconfig"; sourceTree = "<group>"; };
 		63C1B77D9F5DB3F18997A086 /* Pods-Oxford Brookes Bus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes Bus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes Bus/Pods-Oxford Brookes Bus.debug.xcconfig"; sourceTree = "<group>"; };
 		7F1230CA1B3D705B00895909 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7F1230CE1B3D813100895909 /* StopMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopMKAnnotation.swift; sourceTree = "<group>"; };
 		7F306C291AF3A83200C9605D /* BusRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRoute.swift; sourceTree = "<group>"; };
 		7F306C2D1AF3BA9F00C9605D /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */,
+				7F1230CE1B3D813100895909 /* StopMKAnnotation.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				7F306C2E1AF3BA9F00C9605D /* Stop.swift in Sources */,
 				7F820D011B0E6F80002CAA53 /* Alarm.swift in Sources */,
 				7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */,
+				7F1230CF1B3D813100895909 /* StopMKAnnotation.swift in Sources */,
 				7F41D8FC1AF6E4E000694800 /* RAMTransitionItemAnimation.swift in Sources */,
 				7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */,
 				7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */,
