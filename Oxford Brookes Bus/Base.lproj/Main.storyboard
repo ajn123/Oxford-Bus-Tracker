@@ -172,11 +172,11 @@
             </objects>
             <point key="canvasLocation" x="1137.5" y="1402.5"/>
         </scene>
-        <!--Maps-->
+        <!--Map-->
         <scene sceneID="XEf-I3-qat">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s0R-ee-F6h" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Maps" image="Treasure Map-50.png" id="0CC-Ho-D8o" customClass="RAMAnimatedTabBarItem" customModule="Oxford_Brookes_Bus" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Map" image="Treasure Map-50.png" id="0CC-Ho-D8o" customClass="RAMAnimatedTabBarItem" customModule="Oxford_Brookes_Bus" customModuleProvider="target">
                         <connections>
                             <outlet property="animation" destination="Bb9-oD-vIG" id="AlM-1a-pMb"/>
                         </connections>

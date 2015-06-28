@@ -24,7 +24,6 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        busStops = BusRoute.busRoutes(stop!.busParent.name, direction: stop!.busParent.direction)
         
         routeTable.separatorStyle = UITableViewCellSeparatorStyle.None
         routeName.text = routeLabelName
@@ -54,6 +53,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
             println("No routes found")
         }
         
+        busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex], direction: stop!.busParent.direction)
         
         // Do any additional setup after loading the view.
     }
@@ -92,8 +92,19 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         
         cell.textLabel!.text = singleStop
         
-        cell.imageView!.image = UIImage(named: "ArrowPathMiddle.png")
+        if(indexPath.row == self.tableView(tableView, numberOfRowsInSection: 0) - 1)
+        {
+            cell.imageView!.image = UIImage(named: "ArrowPathEnd.png")
+            
+        }
+        else
+        {
+            cell.imageView!.image = UIImage(named: "ArrowPathMiddle.png")
+            
+        }
         
+        
+       
         return cell
     }
 
