@@ -16,46 +16,7 @@ public class RoutesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         routes = BusRoute.allBusRoutes()
-        
-        /**
-        Sort the routes by number (U1 should come before U5)
-        Then sort them by suffix (busses that end in X should come before the night busses (N)
-        */
-        self.routes.sort()
-        {
-            (a, b) -> Bool in
-            
-            var str =  a.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-            var abc = "".join(str)
-            var comp1 = abc.toInt()!
-            
-            var str2 =  b.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-            var abc2 = "".join(str2)
-            var comp2 = abc2.toInt()!
-            
-            if(comp1 < comp2)
-            {
-                return true
-            }
-            else if(comp1 > comp2)
-            {
-                return false
-            }
-            
-            if(!a.hasSuffix("X") && !a.hasPrefix("N"))
-            {
-                return true
-            }
-            
-            if(a.hasSuffix("X") && b.hasPrefix("N"))
-            {
-                return true
-            }
-            else
-            {
-                return false
-            }
-        }
+        routes = StringManipulation.sortBusses(self.routes)
 
     }
 
@@ -82,9 +43,7 @@ public class RoutesTableViewController: UITableViewController {
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
-        
         cell.textLabel?.text = routes[indexPath.row]
-
         return cell
     }
     
