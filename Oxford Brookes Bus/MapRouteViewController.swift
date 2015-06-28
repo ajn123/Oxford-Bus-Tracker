@@ -30,6 +30,8 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
     
         self.stopNames = Stop.uniqueBusNamesArray(stop!)
         
+        println(stopNames.count)
+        
         self.stops = (stop!.busParent.stops.allObjects as? [Stop])!
         
         self.stops.sort(){
@@ -39,12 +41,12 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         
         routeSegmentControl.removeAllSegments()
         
-        for (index, s) in enumerate(stopNames)
+        for (index, s) in enumerate(self.stopNames)
         {
             routeSegmentControl.insertSegmentWithTitle(s, atIndex: index, animated: true)
         }
         
-        if(routeSegmentControl.numberOfSegments > 1)
+        if(routeSegmentControl.numberOfSegments >= 1)
         {
             routeSegmentControl.selectedSegmentIndex = 0
         }
@@ -53,7 +55,8 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
             println("No routes found")
         }
         
-        busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex], direction: stop!.busParent.direction)
+        busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
+                                      direction: stop!.busParent.direction)
         
         // Do any additional setup after loading the view.
     }
@@ -108,6 +111,10 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         return cell
     }
 
+    @IBAction func changeDirectionTapped(sender: UIButton) {
+        
+        
+    }
     /*
     // MARK: - Navigation
 

@@ -108,13 +108,11 @@ class BusRoute: NSManagedObject, Printable {
         
         fetchRequest.sortDescriptors = [sort]
         
-        
         let predicate1 = NSPredicate(format: "stop_name == %@", stop)
         
         let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
         
         let predicate3 = NSPredicate(format: "busParent.name == %@", name)
-        
         
         let predicate4 = NSPredicate(format: "busParent.schedule == %ld", schedule)
         

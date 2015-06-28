@@ -35,9 +35,11 @@ buses.each do |bus|
 		"Harcourt Hill" => [51.7404539,-1.2914457], "Wheatley campus" => [51.7488942, -1.1265288], 
 		"Wheatley church" => [51.747191, -1.135268], "Castle Street" => [51.751495,-1.260925], 
 		"Speedwell Street" => [51.748428,-1.258112], "OXFORD High St Carfax" => [51.751985,-1.2580974],
-		"Frideswide Sq R9" => [51.7526129,-1.2680492], "Sandhills A40" => [51.7631259,-1.1808569],
-		"Brookes Uni stop B2" => [51.7558266,-1.2253118], "High St Turl St" => [51.7521907,-1.2563702], 
-		
+		"Frideswide Sq R9" => [51.7526129,-1.2680492], "Frideswide Square R9" => [51.7526129,-1.2680492], 
+		"Sandhills A40" => [51.7631259,-1.1808569],     "Jack Straws Lane" => [51.762788, -1.235677],
+		"Brookes Uni stop B2" => [51.7558266,-1.2253118], "High St Turl St" => [51.7521907,-1.2563702],
+		"Paul Kent Hall" => [51.741643, -1.204229], "John Radcliffe Hospital" => [51.764599, -1.222692],
+		"Slade Park Hall" => [51.743682, -1.200077]
 	}
 
 	sheets = xlsx.sheets.each_with_index do |sheet, ind|
@@ -86,8 +88,8 @@ buses.each do |bus|
 				stop_number = elem[1]
 				stop_name = xls.cell(elem[1],1).strip
 
-				longitude = 3.00
-				latitude = 2.00
+				longitude = rand(10)
+				latitude = rand(10)
 
 				if dict[stop_name]
 					latitude = dict[stop_name][0] 
