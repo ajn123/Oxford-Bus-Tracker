@@ -16,6 +16,11 @@ public class RoutesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         routes = BusRoute.allBusRoutes()
+        
+        /**
+        Sort the routes by number (U1 should come before U5)
+        Then sort them by suffix (busses that end in X should come before the night busses (N)
+        */
         self.routes.sort()
         {
             (a, b) -> Bool in
@@ -46,8 +51,10 @@ public class RoutesTableViewController: UITableViewController {
             {
                 return true
             }
-            
-            return a < b
+            else
+            {
+                return false
+            }
         }
 
     }
