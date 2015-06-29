@@ -65,13 +65,27 @@ class Stop: NSManagedObject {
         return getAllBusStops()!.withoutDuplicates { $0.stop_name } 
     }
     
-    class func allBusRoutesForStop(stop: Stop) -> [BusRoute]?
+    class func allBusRoutesForStop(stop: Stop, direction: Bool? = nil) -> [BusRoute]?
     {
         let fetchRequest = NSFetchRequest(entityName: "Stop")
         
         let predicate1 = NSPredicate(format: "stop_name == %@", stop.stop_name)
+
+        let predicate2 = NSPredicate(format: "busParent.schedule == %ld", NSDate.getWeekday()!)
         
-        fetchRequest.predicate = predicate1
+        
+        if let d: Bool = direction
+        {
+            let predicate3 = NSPredicate(format: "busParent.direction == %@", stop.busParent.direction)
+            
+            
+            fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1,predicate2, predicate3])
+        }
+        else
+        {
+            
+            fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1,predicate2])
+        }
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest,
@@ -92,6 +106,58 @@ class Stop: NSManagedObject {
             {
                 $0.name
             }.withoutDuplicates(){ $0 }
+    }
+    
+    struct Bus: Printable {
+       
+        var name = ""
+        var direction: Bool = true
+        var destination = ""
+        var vacation: Bool = true
+        
+        var description: String
+        {
+            return "name: \(name) direction: \(direction) \(destination) \(vacation) \n "
+        }
+        
+    }
+    
+    class func uniqueBusDirection(stop: Stop) -> Bool
+    {
+        let fetchRequest = NSFetchRequest(entityName: "Stop")
+        
+        let predicate1 = NSPredicate(format: "stop_name == %@", stop.stop_name)
+        
+        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1])
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest,
+            error: nil)
+            as? [Stop]
+        {
+            var busRoutes: [Bus] = fetchResults.map()
+            { return Bus(name: $0.busParent.name, direction: $0.busParent.direction, destination: $0.busParent.destination,
+                        vacation: $0.busParent.vacation)}
+            
+            println(busRoutes)
+            
+            for var i = 0; i < busRoutes.count; i++
+            {
+                for var j = 0; j < busRoutes.count; j++
+                {
+                    if(i != j &&
+                       busRoutes[i].name == busRoutes[j].name &&
+                       busRoutes[i].direction != busRoutes[j].direction)
+                    {
+                        return false
+                    }
+                }
+            }
+                
+            
+        }
+        
+        return true 
     }
     
     

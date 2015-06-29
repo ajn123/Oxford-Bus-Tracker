@@ -17,7 +17,6 @@ public class RoutesTableViewController: UITableViewController {
 
         routes = BusRoute.allBusRoutes()
         routes = StringManipulation.sortBusses(self.routes)
-
     }
 
     override public func didReceiveMemoryWarning() {
@@ -52,14 +51,12 @@ public class RoutesTableViewController: UITableViewController {
    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         let dVC = segue.destinationViewController as! UINavigationController
         var seg = dVC.topViewController as! ScheduleViewController
         
         let cell = sender as! UITableViewCell
-        let routeString = cell.textLabel!.text!
-        seg.locations = BusRoute.busRoutes(routeString)
-        seg.name = routeString
+        seg.name  = cell.textLabel!.text!
+        seg.locations = BusRoute.busRoutes(seg.name)
     }
     
     

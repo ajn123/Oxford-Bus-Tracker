@@ -148,6 +148,7 @@
                     <navigationItem key="navigationItem" title="Route Information" id="cQg-2G-cFu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="routeChangeButton" destination="GSy-4U-G3P" id="IjR-Ah-b9S"/>
                         <outlet property="routeName" destination="rzC-VX-IYL" id="QI5-Un-Yiv"/>
                         <outlet property="routeSegmentControl" destination="lf3-Mz-ech" id="cST-Cs-85v"/>
                         <outlet property="routeTable" destination="aUa-cK-jk8" id="OXl-5B-Q8t"/>
@@ -237,11 +238,13 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG7-Io-Sw3">
                                 <rect key="frame" x="16" y="72" width="30" height="30"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="9Kb-qY-c0F"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Ah2-xl-P1u"/>
                                     <constraint firstAttribute="height" constant="30" id="Kk4-j0-dxU"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="OTk-Yp-aWv"/>
                                     <constraint firstAttribute="width" constant="30" id="P6w-fJ-iML"/>
                                     <constraint firstAttribute="width" constant="30" id="lKZ-dL-hkb"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="n2M-dq-npd"/>
                                     <constraint firstAttribute="height" constant="30" id="v75-Gt-NKP"/>
                                 </constraints>
                                 <state key="normal" image="changeDirection.png"/>
@@ -397,6 +400,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="313" id="1Vy-qs-Q7w"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-16" id="2Dq-fo-F7M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="35G-Qt-AfN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="313" id="3xa-ZO-8KW"/>
                             <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="516" id="4ru-IL-n4c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="20" id="4zd-Y3-LdW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="21" id="5zr-bt-LSh"/>
@@ -412,6 +416,7 @@
                             <constraint firstItem="56K-fL-H5C" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="496" id="IT2-Wk-22i"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" constant="8" id="IZM-f3-YeT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HoU-9v-eoX" secondAttribute="trailing" constant="-16" id="Icm-l0-xAI"/>
+                            <constraint firstItem="JG7-Io-Sw3" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" id="ImX-GD-T1W"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="SEH-8j-C42" secondAttribute="topMargin" constant="20" id="KjN-bu-snh"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="8" id="KwW-Vd-0qA"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="bottom" secondItem="SEH-8j-C42" secondAttribute="bottomMargin" id="Rgs-Jv-aOX"/>
@@ -435,6 +440,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="JG7-Io-Sw3" secondAttribute="trailing" constant="313" id="k3s-Ch-3uu"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="m6Q-w8-RAH"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" id="mMM-Aq-ct9"/>
+                            <constraint firstItem="HoU-9v-eoX" firstAttribute="top" secondItem="JG7-Io-Sw3" secondAttribute="bottom" constant="8" id="mTs-v5-GRh"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="top" secondItem="d2o-9t-HYB" secondAttribute="bottom" id="ngv-LP-O23"/>
                             <constraint firstItem="HoU-9v-eoX" firstAttribute="leading" secondItem="SEH-8j-C42" secondAttribute="leadingMargin" constant="-23" id="p5I-tN-MH4"/>
                             <constraint firstItem="JG7-Io-Sw3" firstAttribute="trailing" secondItem="SEH-8j-C42" secondAttribute="trailingMargin" id="qI1-Vz-7xD"/>

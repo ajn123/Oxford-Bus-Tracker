@@ -22,7 +22,7 @@ class BusRoute: NSManagedObject, Printable {
     
     override var description: String
     {
-        return "\(name) \(destination) \(self.stops.count)"
+        return "\(name) destination: \(destination) stop_count: \(self.stops.count) direction: \(direction) vacation: \(vacation)"
     }
     
     class func createBusRoute(name: String,
@@ -76,10 +76,14 @@ class BusRoute: NSManagedObject, Printable {
         
         let predicate = NSPredicate(format: "busParent.name == %@", name)
         
-        let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
+       // let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
+        
+        //   let predicate3 = NSPredicate(format: "busParent.schedule == %ld", NSDate.getWeekday()!)
+        
+        //  let predicate3 = NSPredicate(format: "stop_name == %@", stop_name)
         
         fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
-                                                                [predicate, predicate2])
+                                                                [predicate])
     
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = CoreDataModel.context.executeFetchRequest(

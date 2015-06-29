@@ -14,11 +14,13 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var routeSegmentControl: UISegmentedControl!
     
+    @IBOutlet var routeChangeButton: UIButton!
     @IBOutlet var routeTable: UITableView!
     var stop: Stop? = nil
     var stops: [Stop] = []
     var busStops: [String] = []
     var stopNames: [String] = []
+    var routeDirection: Bool? = nil
 
     @IBOutlet var routeName: UILabel!
     
@@ -27,42 +29,20 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         
         routeTable.separatorStyle = UITableViewCellSeparatorStyle.None
         routeName.text = routeLabelName
-    
-        self.stopNames = Stop.uniqueBusNamesArray(stop!)
-        
-        println(stopNames.count)
-        
-        self.stops = (stop!.busParent.stops.allObjects as? [Stop])!
-        
-        self.stops.sort(){
-            first, sec -> Bool in
-            return first.stop_number.integerValue < sec.stop_number.integerValue
-        }
-        
-        routeSegmentControl.removeAllSegments()
-        
-        for (index, s) in enumerate(self.stopNames)
+        routeDirection = stop!.busParent.direction
+        if(Stop.uniqueBusDirection(stop!))
         {
-            routeSegmentControl.insertSegmentWithTitle(s, atIndex: index, animated: true)
+            routeChangeButton.removeFromSuperview()
         }
         
-        if(routeSegmentControl.numberOfSegments >= 1)
-        {
-            routeSegmentControl.selectedSegmentIndex = 0
-        }
-        else
-        {
-            println("No routes found")
-        }
         
-        busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-                                      direction: stop!.busParent.direction)
-        
+        self.setUpTable()
         // Do any additional setup after loading the view.
     }
 
     @IBAction func segmentChange(sender: UISegmentedControl) {
-        busStops = BusRoute.busRoutes(self.stopNames[sender.selectedSegmentIndex], direction: stop!.busParent.direction)
+        busStops = BusRoute.busRoutes(self.stopNames[sender.selectedSegmentIndex],
+                                      direction: self.routeDirection!)
         
         routeTable.reloadData()
     }
@@ -112,9 +92,49 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
     }
 
     @IBAction func changeDirectionTapped(sender: UIButton) {
+        self.routeDirection = !routeDirection!
         
+        self.setUpTable()
         
+        routeTable.reloadData()
     }
+    
+    
+    func setUpTable()
+    {
+        self.stopNames = Stop.uniqueBusNamesArray(stop!)
+        
+        self.stops = (stop!.busParent.stops.allObjects as? [Stop])!
+        
+        self.stops.sort()
+        {
+                first, sec -> Bool in
+                return first.stop_number.integerValue < sec.stop_number.integerValue
+        }
+        
+        routeSegmentControl.removeAllSegments()
+        
+        stopNames = StringManipulation.sortBusses(self.stopNames)
+        
+        for (index, s) in enumerate(self.stopNames)
+        {
+            routeSegmentControl.insertSegmentWithTitle(s, atIndex: index, animated: true)
+        }
+        
+        if(routeSegmentControl.numberOfSegments >= 1)
+        {
+            routeSegmentControl.selectedSegmentIndex = 0
+        }
+        else
+        {
+            println("No routes found")
+        }
+        
+        println(stop!.busParent.direction)
+        busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
+            direction: routeDirection!)
+    }
+    
     /*
     // MARK: - Navigation
 
