@@ -73,7 +73,6 @@ class Stop: NSManagedObject {
 
         let predicate2 = NSPredicate(format: "busParent.schedule == %ld", NSDate.getWeekday()!)
         
-        
         if let d: Bool = direction
         {
             let predicate3 = NSPredicate(format: "busParent.direction == %@", stop.busParent.direction)
