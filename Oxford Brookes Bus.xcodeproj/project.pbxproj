@@ -66,6 +66,7 @@
 		7FDADA901B0617D90008EC1D /* ArrowPathEnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */; };
 		7FDADA911B0617D90008EC1D /* ArrowPathMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8E1B0617D90008EC1D /* ArrowPathMiddle.png */; };
 		7FDD47C21AEE825200FE2235 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */; };
+		7FEAAE3B1B46B19900360678 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEAAE3A1B46B19900360678 /* iAd.framework */; };
 		7FEE5BC71AE794A0006118DB /* CustomRouteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,7 @@
 		7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathEnd.png; sourceTree = "<group>"; };
 		7FDADA8E1B0617D90008EC1D /* ArrowPathMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathMiddle.png; sourceTree = "<group>"; };
 		7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		7FEAAE3A1B46B19900360678 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRouteViewCell.swift; sourceTree = "<group>"; };
 		823A24DD60377FB62FCE37B0 /* Pods-Oxford Brookes BusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes BusTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes BusTests/Pods-Oxford Brookes BusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D7895C7E82171E30A4998B7 /* Pods_Oxford_Brookes_BusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oxford_Brookes_BusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FEAAE3B1B46B19900360678 /* iAd.framework in Frameworks */,
 				7F1230CB1B3D705B00895909 /* MapKit.framework in Frameworks */,
 				08CD494FD79C130577D24109 /* Pods_Oxford_Brookes_Bus.framework in Frameworks */,
 			);
@@ -471,6 +474,7 @@
 		DE4DEDD76F43C2445AE59581 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FEAAE3A1B46B19900360678 /* iAd.framework */,
 				7F1230CA1B3D705B00895909 /* MapKit.framework */,
 				8D7895C7E82171E30A4998B7 /* Pods_Oxford_Brookes_BusTests.framework */,
 				AB81898226276427AA18CC79 /* Pods_Oxford_Brookes_Bus.framework */,

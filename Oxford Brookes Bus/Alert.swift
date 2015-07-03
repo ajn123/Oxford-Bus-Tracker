@@ -13,7 +13,7 @@ class Alert {
     
     class func presentErrorSheet(message: String, view: UIViewController)
     {
-        var ActionSheet =  UIAlertController(title: message, message: "hellos", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        var ActionSheet =  UIAlertController(title: message, message: "hello", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         ActionSheet.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil))
         

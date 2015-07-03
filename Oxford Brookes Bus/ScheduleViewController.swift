@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import iAd
 
-class ScheduleViewController: UIViewController, UITableViewDelegate {
+class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerViewDelegate{
     
     var locations = [String]()
 
@@ -19,11 +20,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
     
     var name: String = ""
 
+    @IBOutlet var addBanner: ADBannerView!
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
     
         super.viewDidLoad()
+        self.canDisplayBannerAds = true
+        self.addBanner?.delegate = self
+        self.addBanner?.hidden = true
         // no separator between the tables
         table.separatorStyle = UITableViewCellSeparatorStyle.None
         
@@ -104,4 +109,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate {
         table.reloadData()
     }
     
+    
+  
+    
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.addBanner?.hidden = false
+    }
+    
+  
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+     //   banner.removeFromSuperview()
+    }
 }
