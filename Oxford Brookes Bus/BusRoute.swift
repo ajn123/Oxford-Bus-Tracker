@@ -66,6 +66,40 @@ class BusRoute: NSManagedObject, Printable {
         return []
     }
     
+    
+    class func whichDirection(busRoute: String, busStop: String) -> Bool
+    {
+        let fetchRequest = NSFetchRequest(entityName: "Stop")
+        
+        var sort = NSSortDescriptor(key: "stop_number", ascending: true) // sort by bus stop
+        
+        fetchRequest.sortDescriptors = [sort]
+        
+        let predicate = NSPredicate(format: "busParent.name == %@", busRoute)
+        
+        let predicate2 = NSPredicate(format: "stop_name == %@", busStop)
+        
+        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
+            [predicate, predicate2])
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(
+            fetchRequest,
+            error: nil) as? [Stop]
+        {
+            return fetchResults.first!.busParent.direction
+        }
+        else
+        {
+            NSException(name: "wrong direction", reason: "could not find a direction", userInfo: nil).raise()
+            return false
+        }
+        
+        
+        
+        
+    }
+    
     class func busRoutes(name: String, direction: Bool = true) -> [String]
     {
         let fetchRequest = NSFetchRequest(entityName: "Stop")
@@ -76,14 +110,14 @@ class BusRoute: NSManagedObject, Printable {
         
         let predicate = NSPredicate(format: "busParent.name == %@", name)
         
-       // let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
+        let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
         
         //   let predicate3 = NSPredicate(format: "busParent.schedule == %ld", NSDate.getWeekday()!)
         
         //  let predicate3 = NSPredicate(format: "stop_name == %@", stop_name)
         
         fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
-                                                                [predicate])
+                                                                [predicate, predicate2])
     
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = CoreDataModel.context.executeFetchRequest(

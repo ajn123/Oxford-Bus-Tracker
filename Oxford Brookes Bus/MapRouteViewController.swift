@@ -29,18 +29,30 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         
         routeTable.separatorStyle = UITableViewCellSeparatorStyle.None
         routeName.text = routeLabelName
-        routeDirection = stop!.busParent.direction
+        
         if(Stop.uniqueBusDirection(stop!))
         {
             routeChangeButton.removeFromSuperview()
+            
         }
         
-        
         self.setUpTable()
+        
+        self.routeDirection = BusRoute.whichDirection(self.stopNames[routeSegmentControl.selectedSegmentIndex],
+            busStop: routeLabelName)
+        
+        busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
+            direction: self.routeDirection!)
+        
+        
         // Do any additional setup after loading the view.
     }
 
     @IBAction func segmentChange(sender: UISegmentedControl) {
+        
+        self.routeDirection = BusRoute.whichDirection(self.stopNames[routeSegmentControl.selectedSegmentIndex],
+            busStop: routeLabelName)
+        
         busStops = BusRoute.busRoutes(self.stopNames[sender.selectedSegmentIndex],
                                       direction: self.routeDirection!)
         
@@ -78,23 +90,20 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         if(indexPath.row == self.tableView(tableView, numberOfRowsInSection: 0) - 1)
         {
             cell.imageView!.image = UIImage(named: "ArrowPathEnd.png")
-            
         }
         else
         {
             cell.imageView!.image = UIImage(named: "ArrowPathMiddle.png")
-            
         }
         
-        
-       
         return cell
     }
 
     @IBAction func changeDirectionTapped(sender: UIButton) {
         self.routeDirection = !routeDirection!
         
-        self.setUpTable()
+        busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
+            direction: self.routeDirection!)
         
         routeTable.reloadData()
     }
@@ -129,10 +138,6 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         {
             println("No routes found")
         }
-        
-        println(stop!.busParent.direction)
-        busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-            direction: routeDirection!)
     }
     
     /*

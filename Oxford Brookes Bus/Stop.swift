@@ -136,9 +136,8 @@ class Stop: NSManagedObject {
         {
             var busRoutes: [Bus] = fetchResults.map()
             { return Bus(name: $0.busParent.name, direction: $0.busParent.direction, destination: $0.busParent.destination,
-                        vacation: $0.busParent.vacation)}
-            
-            println(busRoutes)
+                         vacation: $0.busParent.vacation)
+            }
             
             for var i = 0; i < busRoutes.count; i++
             {

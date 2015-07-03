@@ -17,8 +17,16 @@ import Oxford_Brookes_Bus
 class NSDateTest: QuickSpec {
     override func spec() {
         
+        func stringToDate(str: String) -> NSDate
+        {
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "YYYY-MM-dd"
+            return dateFormatter.dateFromString(str)!
+        }
+        
         describe("NSDate")
         {
+            
             describe("minutes To Hours")
             {
                 it("is the right time")
@@ -43,11 +51,8 @@ class NSDateTest: QuickSpec {
             {
                 it("is summer")
                 {
-                    var dateString = "2015-06-25" // change to your date format
-                    var dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "YYYY-MM-dd"
-                    var someDate = dateFormatter.dateFromString(dateString)!
-                    
+                    var someDate = stringToDate("2015-06-25")
+
                     let calendar = NSCalendar.currentCalendar()
                     let components = calendar.components(NSCalendarUnit.CalendarUnitMonth
                         | NSCalendarUnit.CalendarUnitDay
@@ -59,10 +64,8 @@ class NSDateTest: QuickSpec {
                 
                 it("is before summer")
                 {
-                    var dateString = "2015-03-25" // change to your date format
-                    var dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "YYYY-MM-dd"
-                    var someDate = dateFormatter.dateFromString(dateString)!
+                    var someDate = stringToDate("2015-03-25") // change to your date format
+                    
                     
                     let calendar = NSCalendar.currentCalendar()
                     let components = calendar.components(NSCalendarUnit.CalendarUnitMonth
@@ -75,10 +78,8 @@ class NSDateTest: QuickSpec {
                 
                 it("is after summer")
                     {
-                        var dateString = "2015-12-25" // change to your date format
-                        var dateFormatter = NSDateFormatter()
-                        dateFormatter.dateFormat = "YYYY-MM-dd"
-                        var someDate = dateFormatter.dateFromString(dateString)!
+                        var someDate = stringToDate("2015-12-25") // change to your date format
+                        
                         
                         let calendar = NSCalendar.currentCalendar()
                         let components = calendar.components(NSCalendarUnit.CalendarUnitMonth

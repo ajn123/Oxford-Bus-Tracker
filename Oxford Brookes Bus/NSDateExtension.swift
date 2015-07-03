@@ -19,7 +19,7 @@ extension NSDate{
         return hour * 100 + minutes
     }
     
-    public enum BusDayPatterns: Int{
+    enum BusDayPatterns: Int{
         case Sunday = 1
         case Monday
         case Tuesday
@@ -27,9 +27,6 @@ extension NSDate{
         case Thursday
         case Friday
         case Saturday
-
-        case WendnesdayAndFriday
-        case FridayOnly
     }
     
     
@@ -76,19 +73,19 @@ extension NSDate{
         let todayDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
         let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: todayDate)
-        let day = myComponents!.weekday
-        var a = BusDayPatterns(rawValue: day)!
-        switch a
+        let day = BusDayPatterns(rawValue: myComponents!.weekday)!
+
+        switch day
         {
-        case .Monday, .Tuesday, .Wednesday, .Thursday, .Friday: // Monday - Friday
-            return 0
-        case .Saturday: // saturday
-            return 1
-        case .Sunday: // sunday
-            return 2
-        default: // out of week index
-            NSException(name: "Date Incorrect", reason: "Returned a value outside of 1 - 7", userInfo: nil).raise()
-            return nil
+            case .Monday, .Tuesday, .Wednesday, .Thursday, .Friday:
+                return 0
+            case .Saturday:
+                return 1
+            case .Sunday:
+                return 2
+            default: // out of week index
+                NSException(name: "Date Incorrect", reason: "Returned a value outside of 1 - 7", userInfo: nil).raise()
+                return nil
         }
     }
     
