@@ -10,20 +10,18 @@ import UIKit
 
 class MapRouteViewController: UIViewController, UITableViewDelegate {
     
-    var routeLabelName: String = ""
-    
+    @IBOutlet var routeName: UILabel!
     @IBOutlet var routeSegmentControl: UISegmentedControl!
-    
     @IBOutlet var routeChangeButton: UIButton!
     @IBOutlet var routeTable: UITableView!
+    
+    var routeLabelName: String = ""
     var stop: Stop? = nil
     var stops: [Stop] = []
     var busStops: [String] = []
     var stopNames: [String] = []
     var routeDirection: Bool? = nil
 
-    @IBOutlet var routeName: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,7 +76,8 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         
         if (stop!.stop_name == singleStop)
         {
-            self.routeTable.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+            self.routeTable.selectRowAtIndexPath(indexPath, animated: false,
+                                                 scrollPosition: UITableViewScrollPosition.None)
         }
         else
         {
@@ -87,13 +86,14 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         
         cell.textLabel!.text = singleStop
         
-        if(indexPath.row == self.tableView(tableView, numberOfRowsInSection: 0) - 1)
+        switch indexPath.row
         {
-            cell.imageView!.image = UIImage(named: "ArrowPathEnd.png")
-        }
-        else
-        {
-            cell.imageView!.image = UIImage(named: "ArrowPathMiddle.png")
+            case 0:
+                cell.imageView!.image = UIImage(named: "ArrowPathBegin.png")
+            case self.tableView(tableView, numberOfRowsInSection: 0) - 1:
+                cell.imageView!.image = UIImage(named: "ArrowPathEnd.png")
+            default:
+                cell.imageView!.image = UIImage(named: "ArrowPathMiddle.png")
         }
         
         return cell
@@ -103,7 +103,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         self.routeDirection = !routeDirection!
         
         busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-            direction: self.routeDirection!)
+                                      direction: self.routeDirection!)
         
         routeTable.reloadData()
     }
@@ -117,8 +117,8 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         
         self.stops.sort()
         {
-                first, sec -> Bool in
-                return first.stop_number.integerValue < sec.stop_number.integerValue
+            first, sec -> Bool in
+            return first.stop_number.integerValue < sec.stop_number.integerValue
         }
         
         routeSegmentControl.removeAllSegments()
