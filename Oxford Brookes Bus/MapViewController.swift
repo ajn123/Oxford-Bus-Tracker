@@ -80,7 +80,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return mkPinView
     }
 
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!)
+    func mapView(mapView: MKMapView!,
+                 annotationView view: MKAnnotationView!,
+                 calloutAccessoryControlTapped control: UIControl!)
     {
         performSegueWithIdentifier("annotationPress", sender: view)
     }

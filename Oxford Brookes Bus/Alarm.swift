@@ -13,20 +13,14 @@ import UIKit
 
 
 public class Alarm{
-    static var calendarDatabase = EKEventStore()
     
-    public class func eventStoreAccessReminders() {
+
+    public class func createReminder(reminderTitle: String, timeInterval: NSDate) {
+        var calendarDatabase = EKEventStore()
         
         calendarDatabase.requestAccessToEntityType(EKEntityTypeReminder,
-                                                   completion: nil)
-    }
-    
-    public class func createReminder(reminderTitle: String, timeInterval: NSDate) {
-        
-        var calendars = calendarDatabase.calendarsForEntityType(EKEntityTypeReminder)
-        
-        eventStoreAccessReminders()
-        
+            completion: nil)
+
         let reminder = EKReminder(eventStore: calendarDatabase)
         
         reminder.title = reminderTitle
@@ -35,7 +29,7 @@ public class Alarm{
         
         reminder.addAlarm(alarm)
         
-        reminder.calendar = calendarDatabase.defaultCalendarForNewReminders()
+      //  reminder.calendar = calendarDatabase.defaultCalendarForNewReminders()
         
         var error: NSError?
         
@@ -51,18 +45,18 @@ public class Alarm{
     
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
 
-        refreshAlert.addTextFieldWithConfigurationHandler()
-        { textField -> Void in
-            textField.text = "\(timeInterval)"
-            textField.keyboardType = UIKeyboardType.NumberPad
-        }
+//        refreshAlert.addTextFieldWithConfigurationHandler()
+//        { textField -> Void in
+//            textField.text = "\(timeInterval)"
+//            textField.keyboardType = UIKeyboardType.NumberPad
+//        }
     
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default )
         { action in
-            let strTime = refreshAlert.textFields![0] as! UITextField
-            if(strTime.text != "")
+            let strTime = "\(timeInterval)"
+            if(strTime != "")
             {
-                let time = strTime.text.toInt()!
+                let time = strTime.toInt()!
                 if(time < 300)
                 {
                     Alarm.createReminder("Catch the Bus",
