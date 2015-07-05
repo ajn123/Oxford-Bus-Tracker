@@ -49,7 +49,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
     @IBAction func segmentChange(sender: UISegmentedControl) {
         
         self.routeDirection = BusRoute.whichDirection(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-            busStop: routeLabelName)
+                                                      busStop: routeLabelName)
         
         busStops = BusRoute.busRoutes(self.stopNames[sender.selectedSegmentIndex],
                                       direction: self.routeDirection!)

@@ -13,16 +13,16 @@ extension UIView
 {
     var parentViewController: UIViewController?
     {
-            var parentResponder: UIResponder? = self
-            while(parentResponder != nil)
+        var parentResponder: UIResponder? = self
+        while(parentResponder != nil)
+        {
+            parentResponder = parentResponder!.nextResponder()
+            if parentResponder is UIViewController
             {
-                parentResponder = parentResponder!.nextResponder()
-                if parentResponder is UIViewController
-                {
-                    return parentResponder as? UIViewController
-                }
-                
+                return parentResponder as? UIViewController
             }
+            
+        }
         return nil
     }
 }

@@ -55,8 +55,6 @@ class Stop: NSManagedObject {
             return fetchResults
         }
         
-      
-        
         return nil
     }
     
@@ -76,7 +74,6 @@ class Stop: NSManagedObject {
         if let d: Bool = direction
         {
             let predicate3 = NSPredicate(format: "busParent.direction == %@", stop.busParent.direction)
-            
             
             fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1,predicate2, predicate3])
         }
@@ -151,8 +148,6 @@ class Stop: NSManagedObject {
                     }
                 }
             }
-                
-            
         }
         
         return true 

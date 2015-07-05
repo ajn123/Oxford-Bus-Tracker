@@ -13,18 +13,14 @@ import iAd
 class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerViewDelegate{
     
     var locations = [String]()
-
     var refresh = UIRefreshControl()
-    
     var direction: Bool = true
-    
     var name: String = ""
 
     @IBOutlet var addBanner: ADBannerView!
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
-    
         super.viewDidLoad()
         self.canDisplayBannerAds = true
         self.addBanner?.delegate = self
@@ -38,7 +34,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerVie
     
     func refreshing()
     {
-        table.reloadData()
+        table.reloadData() 
         refresh.endRefreshing()
     }
 
@@ -60,7 +56,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerVie
         
         cell.locationTitle.text = "\(stop)"
         
-        cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name, schedule: NSDate.getWeekday()! )
+        println(NSDate.getWeekday()!)
+        cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name, schedule: NSDate.getWeekday()!)
         
         switch indexPath.row {
             case 0:
@@ -69,7 +66,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerVie
                 cell.downImage.image = UIImage(named: "ArrowPathEnd.png")
             default:
                 cell.downImage.image = UIImage(named: "ArrowPathMiddle")
-            
         }
 
         return cell

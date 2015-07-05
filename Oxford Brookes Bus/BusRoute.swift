@@ -112,7 +112,7 @@ class BusRoute: NSManagedObject, Printable {
         
         let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
         
-        //   let predicate3 = NSPredicate(format: "busParent.schedule == %ld", NSDate.getWeekday()!)
+        //  let predicate3 = NSPredicate(format: "busParent.schedule == %ld", NSDate.getWeekday()!)
         
         //  let predicate3 = NSPredicate(format: "stop_name == %@", stop_name)
         
@@ -154,10 +154,10 @@ class BusRoute: NSManagedObject, Printable {
         
         let predicate4 = NSPredicate(format: "busParent.schedule == %ld", schedule)
         
-        let predicate5 = NSPredicate(format: "busParent.vacation == %@", NSDate().isSummer())
+       // let predicate5 = NSPredicate(format: "busParent.vacation == %@", NSDate().isSummer())
         
         fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
-                    [predicate1, predicate2, predicate3, predicate4, predicate5])
+                    [predicate1, predicate2, predicate3, predicate4])
 
         return fetchRequest
     }
@@ -175,7 +175,7 @@ class BusRoute: NSManagedObject, Printable {
         
         let currentPredicate = fetchRequest.predicate!
         let nextPredicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType,
-                subpredicates: [currentPredicate, predicate])
+                                                subpredicates: [currentPredicate, predicate])
         
         fetchRequest.predicate = nextPredicate
         

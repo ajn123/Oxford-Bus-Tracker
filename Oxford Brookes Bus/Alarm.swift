@@ -18,7 +18,7 @@ public class Alarm{
     public class func eventStoreAccessReminders() {
         
         calendarDatabase.requestAccessToEntityType(EKEntityTypeReminder,
-            completion: nil)
+                                                   completion: nil)
     }
     
     public class func createReminder(reminderTitle: String, timeInterval: NSDate) {
@@ -54,31 +54,30 @@ public class Alarm{
         refreshAlert.addTextFieldWithConfigurationHandler()
         { textField -> Void in
             textField.text = "\(timeInterval)"
-            textField.keyboardAppearance = UIKeyboardAppearance.Dark
             textField.keyboardType = UIKeyboardType.NumberPad
         }
     
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default)
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default )
         { action in
-        let strTime = refreshAlert.textFields![0] as! UITextField
-        if(strTime.text != "")
-        {
-            let time = strTime.text.toInt()!
-            if(time < 300)
+            let strTime = refreshAlert.textFields![0] as! UITextField
+            if(strTime.text != "")
             {
-                Alarm.createReminder("Catch the Bus",
-                    timeInterval: NSDate(timeIntervalSinceNow: Double(time * 60)))
+                let time = strTime.text.toInt()!
+                if(time < 300)
+                {
+                    Alarm.createReminder("Catch the Bus",
+                        timeInterval: NSDate(timeIntervalSinceNow: Double(time * 60)))
+                }
+                else
+                {
+                    Alert.presentErrorSheet("Select a time under 300 minutes",
+                                            view: view.parentViewController!)
+                }
             }
             else
             {
-                Alert.presentErrorSheet("Select a time under 300 minutes",
-                                        view: view.parentViewController!)
+                Alert.presentErrorSheet("Select a real time!", view: view.parentViewController!)
             }
-        }
-        else
-        {
-            Alert.presentErrorSheet("Select a real time!", view: view.parentViewController!)
-        }
         })
 
         return refreshAlert
