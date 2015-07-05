@@ -1,7 +1,6 @@
 require "nokogiri"
 require 'roo'
 
-
 puts "//
 //  CoreDataModel.swift
 //  Oxford Brookes Bus
@@ -76,7 +75,7 @@ buses.each do |bus|
 			direction = true
 			vacation = false
 
-			if sheet.include? "SUMMER" ||  ind > 5 
+			if ind > 5 || sheet.include?("SUMMER")
 				vacation = true
 			end
 
@@ -116,4 +115,5 @@ end
 # For file completion
 puts "	}
 }"
+
 

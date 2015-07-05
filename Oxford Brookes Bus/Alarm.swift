@@ -29,7 +29,7 @@ public class Alarm{
         
         reminder.addAlarm(alarm)
         
-      //  reminder.calendar = calendarDatabase.defaultCalendarForNewReminders()
+        reminder.calendar = calendarDatabase.defaultCalendarForNewReminders()
         
         var error: NSError?
         

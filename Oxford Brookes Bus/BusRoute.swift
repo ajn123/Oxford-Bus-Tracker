@@ -154,10 +154,10 @@ class BusRoute: NSManagedObject, Printable {
         
         let predicate4 = NSPredicate(format: "busParent.schedule == %ld", schedule)
         
-       // let predicate5 = NSPredicate(format: "busParent.vacation == %@", NSDate().isSummer())
+        let predicate5 = NSPredicate(format: "busParent.vacation == %@", NSDate().isSummer())
         
         fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
-                    [predicate1, predicate2, predicate3, predicate4])
+                    [predicate1, predicate2, predicate3, predicate4, predicate5])
 
         return fetchRequest
     }
