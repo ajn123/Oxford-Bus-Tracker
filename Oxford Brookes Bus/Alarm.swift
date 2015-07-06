@@ -17,7 +17,6 @@ public class Alarm{
     static var calendarDatabase = EKEventStore()
     
     public class func eventStoreAccessReminders() {
-        
         calendarDatabase.requestAccessToEntityType(EKEntityTypeReminder,
             completion: {(granted: Bool, error:NSError!)
                 -> Void in
