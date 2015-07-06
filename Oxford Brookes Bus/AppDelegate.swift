@@ -14,20 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
-          //CoreDataModel.massAssign()
-        
-        // Only allow bus times to be loaded on first launch of app
-          if((NSUserDefaults.standardUserDefaults().objectForKey("firstTime")) == nil)
-          {
-              CoreDataModel.massAssign()
-          }
-        
-          NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
+         CoreDataModel.massAssign()
 
- 
+        // Only allow bus times to be loaded on first launch of app
+        if((NSUserDefaults.standardUserDefaults().objectForKey("firstTime")) == nil)
+        {
+            CoreDataModel.massAssign()
+        }
+
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
+
         return true
     }
 

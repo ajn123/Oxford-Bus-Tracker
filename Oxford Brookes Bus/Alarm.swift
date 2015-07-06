@@ -13,14 +13,25 @@ import UIKit
 
 
 public class Alarm{
+        
+    static var calendarDatabase = EKEventStore()
     
-
-    public class func createReminder(reminderTitle: String, timeInterval: NSDate) {
-        var calendarDatabase = EKEventStore()
+    public class func eventStoreAccessReminders() {
         
         calendarDatabase.requestAccessToEntityType(EKEntityTypeReminder,
-            completion: nil)
-
+            completion: {(granted: Bool, error:NSError!)
+                -> Void in
+                if !granted {}
+                else{}
+        })
+    }
+    
+    public class func createReminder(reminderTitle: String, timeInterval: NSDate) {
+        
+        var calendars = calendarDatabase.calendarsForEntityType(EKEntityTypeReminder)
+        
+        eventStoreAccessReminders()
+        
         let reminder = EKReminder(eventStore: calendarDatabase)
         
         reminder.title = reminderTitle

@@ -31,16 +31,15 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         if(Stop.uniqueBusDirection(stop!))
         {
             routeChangeButton.removeFromSuperview()
-            
         }
         
         self.setUpTable()
         
         self.routeDirection = BusRoute.whichDirection(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-            busStop: routeLabelName)
+                                                      busStop: routeLabelName)
         
         busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-            direction: self.routeDirection!)
+                                      direction: self.routeDirection!)
         
         
         // Do any additional setup after loading the view.
@@ -101,10 +100,8 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
 
     @IBAction func changeDirectionTapped(sender: UIButton) {
         self.routeDirection = !routeDirection!
-        
         busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
                                       direction: self.routeDirection!)
-        
         routeTable.reloadData()
     }
     
@@ -112,15 +109,12 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
     func setUpTable()
     {
         self.stopNames = Stop.uniqueBusNamesArray(stop!)
-        
         self.stops = (stop!.busParent.stops.allObjects as? [Stop])!
-        
         self.stops.sort()
         {
             first, sec -> Bool in
             return first.stop_number.integerValue < sec.stop_number.integerValue
         }
-        
         routeSegmentControl.removeAllSegments()
         
         stopNames = StringManipulation.sortBusses(self.stopNames)
