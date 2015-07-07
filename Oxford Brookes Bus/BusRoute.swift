@@ -83,9 +83,8 @@ class BusRoute: NSManagedObject, Printable {
             [predicate, predicate2])
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(
-            fetchRequest,
-            error: nil) as? [Stop]
+        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest,
+                                                                        error: nil) as? [Stop]
         {
             return fetchResults.first!.busParent.direction
         }
@@ -102,23 +101,10 @@ class BusRoute: NSManagedObject, Printable {
     
     class func busRoutes(name: String, direction: Bool = true) -> [String]
     {
-        let fetchRequest = NSFetchRequest(entityName: "Stop")
- 
-        var sort = NSSortDescriptor(key: "stop_number", ascending: true) // sort by bus stop
-        
-        fetchRequest.sortDescriptors = [sort]
-        
-        let predicate = NSPredicate(format: "busParent.name == %@", name)
-        
-        let predicate2 = NSPredicate(format: "busParent.direction == %@", direction)
-        
-        //  let predicate3 = NSPredicate(format: "busParent.schedule == %ld", NSDate.getWeekday()!)
+        let fetchRequest = busDepartureSearchRequest(name, direction: direction)
         
         //  let predicate3 = NSPredicate(format: "stop_name == %@", stop_name)
-        
-        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
-                                                                [predicate, predicate2])
-    
+
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = CoreDataModel.context.executeFetchRequest(
                                                         fetchRequest,
@@ -130,6 +116,32 @@ class BusRoute: NSManagedObject, Printable {
         return []
     }
     
+    
+    
+    class func busDepartureSearchRequest(name: String,
+                                         direction: Bool = true) -> NSFetchRequest
+    {
+        let fetchRequest = NSFetchRequest(entityName: "Stop")
+        
+        var currentTime = NSDate.currentMilitaryTime
+        
+        var sort = NSSortDescriptor(key: "time", ascending: true) // sort by bus stop
+        
+        fetchRequest.sortDescriptors = [sort]
+        
+        let predicate = NSPredicate(format: "busParent.direction == %@", direction)
+        
+        let predicate2 = NSPredicate(format: "busParent.name == %@", name)
+        
+        let predicate3 = NSPredicate(format: "busParent.schedule == %ld", NSDate.getWeekday()!)
+        
+        let predicate4 = NSPredicate(format: "busParent.vacation == %@", NSDate().isSummer())
+        
+        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
+            [predicate, predicate2, predicate3, predicate4])
+        
+        return fetchRequest
+    }
 
 
     

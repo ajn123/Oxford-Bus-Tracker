@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
-
        
         return true
     }

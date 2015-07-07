@@ -71,16 +71,18 @@ class Stop: NSManagedObject {
 
         let predicate2 = NSPredicate(format: "busParent.schedule == %ld", NSDate.getWeekday()!)
         
+        let predicate3 = NSPredicate(format: "busParent.vacation == %@", NSDate().isSummer())
+        
         if let d: Bool = direction
         {
-            let predicate3 = NSPredicate(format: "busParent.direction == %@", stop.busParent.direction)
+            let predicate4 = NSPredicate(format: "busParent.direction == %@", stop.busParent.direction)
             
-            fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1,predicate2, predicate3])
+            fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1, predicate2, predicate3, predicate4])
         }
         else
         {
             
-            fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1,predicate2])
+            fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1, predicate2, predicate3])
         }
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
@@ -124,7 +126,7 @@ class Stop: NSManagedObject {
         
         let predicate1 = NSPredicate(format: "stop_name == %@", stop.stop_name)
         
-        fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1])
+        fetchRequest.predicate = predicate1
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest,
@@ -132,8 +134,11 @@ class Stop: NSManagedObject {
             as? [Stop]
         {
             var busRoutes: [Bus] = fetchResults.map()
-            { return Bus(name: $0.busParent.name, direction: $0.busParent.direction, destination: $0.busParent.destination,
-                         vacation: $0.busParent.vacation)
+            {
+                return Bus(name: $0.busParent.name,
+                           direction: $0.busParent.direction,
+                           destination: $0.busParent.destination,
+                           vacation: $0.busParent.vacation)
             }
             
             for var i = 0; i < busRoutes.count; i++

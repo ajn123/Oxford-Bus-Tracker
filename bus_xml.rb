@@ -40,9 +40,8 @@ buses.each do |bus|
 		"Paul Kent Hall" => [51.741643, -1.204229], "John Radcliffe Hospital" => [51.764599, -1.222692],
 		"Slade Park Hall" => [51.743682, -1.200077], "St Aldates" => [51.7511288,-1.2573163,],
 		"Corner House" => [51.743700, -1.202181], "Crescent Hall" => [51.737698, -1.207406], 
-		"Gipsy Lane stop B7" => [51.754856,-1.222536]
-
-
+		"Gipsy Lane stop B7" => [51.754856,-1.222536], "Cowley The Swan" => [51.749238, -1.242079],
+		"Cherwell Drive" => [51.770155, -1.235753], "Cowley Rd The Plain" => [51.749205, -1.242058],
 	}
 
 	# 51.760456, -1.210038 = Headington Shops Wheatley Campus
