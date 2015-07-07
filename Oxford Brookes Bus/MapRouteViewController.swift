@@ -35,13 +35,16 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         
         self.setUpTable()
         
-        self.routeDirection = BusRoute.whichDirection(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-                                                      busStop: routeLabelName)
-        
-        busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-                                      direction: self.routeDirection!)
-        
-        
+        if(routeSegmentControl.numberOfSegments > 0)
+        {
+            self.routeDirection = BusRoute.whichDirection(self.stopNames[routeSegmentControl.selectedSegmentIndex],
+                busStop: routeLabelName)
+            
+            busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
+                direction: self.routeDirection!)
+            
+            routeChangeButton.removeFromSuperview()
+        }
         // Do any additional setup after loading the view.
     }
 
