@@ -50,6 +50,7 @@
 		7F820D011B0E6F80002CAA53 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D001B0E6F80002CAA53 /* Alarm.swift */; };
 		7F820D051B15FF24002CAA53 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D041B15FF24002CAA53 /* UIViewExtension.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
+		7FB1FA7C1B4CB6950059FE2F /* LaunchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB1FA7B1B4CB6950059FE2F /* LaunchIcon.png */; };
 		7FB6DC681B1C9D3900B9F768 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB6DC671B1C9D3900B9F768 /* Alert.swift */; };
 		7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36101AE541640055D8CD /* AppDelegate.swift */; };
 		7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */; };
@@ -125,6 +126,7 @@
 		7F820D001B0E6F80002CAA53 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		7F820D041B15FF24002CAA53 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		7FB1FA7B1B4CB6950059FE2F /* LaunchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchIcon.png; sourceTree = "<group>"; };
 		7FB6DC671B1C9D3900B9F768 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		7FBE360B1AE541640055D8CD /* Oxford Brookes Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oxford Brookes Bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBE360F1AE541640055D8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		7F41D90C1AF82A8600694800 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
+				7FB1FA7B1B4CB6950059FE2F /* LaunchIcon.png */,
 				7FBE61CD1B27AF5100C03766 /* tableSwipeArrow.png */,
 				7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */,
 				7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */,
@@ -590,6 +593,7 @@
 				7F41D9081AF6F9E300694800 /* Treasure Map-50.png in Resources */,
 				7F41D9311AFD00A400694800 /* U5XMF1430.RTF in Resources */,
 				7FDADA8B1B0205180008EC1D /* OBUBusTrackerAppIcon80.png in Resources */,
+				7FB1FA7C1B4CB6950059FE2F /* LaunchIcon.png in Resources */,
 				7F41D9351AFD00A400694800 /* 0U5MF1435.xls in Resources */,
 				7F41D9321AFD00A400694800 /* 0U1MF1438.xls in Resources */,
 				7F41D92B1AFD00A400694800 /* 0U1SA1505.xls in Resources */,
