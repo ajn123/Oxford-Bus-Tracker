@@ -10,27 +10,74 @@ import UIKit
 import CoreData
 import iAd
 
-class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerViewDelegate{
+class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ADBannerViewDelegate{
     
     var locations = [String]()
     var refresh = UIRefreshControl()
     var direction: Bool = true
     var name: String = ""
+    
+    
+    lazy var table: UITableView = {
+        var tab = UITableView()
+        tab.registerNib(UINib(nibName: "CustomRouteViweCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        tab.delegate = self
+        tab.dataSource = self
+        tab.rowHeight = 146.0
+        
+        tab.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return tab
+    }()
+    
+    lazy var addBanner: ADBannerView = {
+        var ad = ADBannerView()
+        ad.setTranslatesAutoresizingMaskIntoConstraints(false)
+        ad.delegate = self
+        
+        return ad
+    }()
 
-    @IBOutlet var addBanner: ADBannerView!
-    @IBOutlet var table: UITableView!
+    
+    lazy var button: UIButton = {
+       var button = UIButton()
+        button.addTarget(self, action: "changeDirectionPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.backgroundColor = UIColor(patternImage: UIImage(named: "changeDirection.png")!)
+        button.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.canDisplayBannerAds = true
-        self.addBanner?.delegate = self
-        self.addBanner?.hidden = true
         // no separator between the tables
-        table.separatorStyle = UITableViewCellSeparatorStyle.None
         
+        
+        setUpConstraints()
+        
+    }
+    
+    func setUpConstraints()
+    {
+        self.view.addSubview(table)
+        self.view.addSubview(addBanner)
+        self.view.addSubview(button)
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         table.addSubview(refresh)
+        
+        self.edgesForExtendedLayout = UIRectEdge.Bottom & UIRectEdge.Top
+        var viewDicts = ["table": table, "addBanner": addBanner, "button": button]
+        
+        var Vertical_Layout_1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[button(45)]-[table][addBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
+        var Horizontal_Layout_1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[button(45)]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
+        var Horizontal_Layout_2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[table]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
+        var Horizontal_Layout_3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[addBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
+        
+        self.view.addConstraints(Vertical_Layout_1)
+        self.view.addConstraints(Horizontal_Layout_1)
+        self.view.addConstraints(Horizontal_Layout_2)
+        self.view.addConstraints(Horizontal_Layout_3)
     }
+    
     
     func refreshing()
     {
@@ -53,7 +100,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerVie
         var stop = locations[indexPath.row]
         
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomRouteViewCell
-        
+     
+        println("stop")
+       // cell.textLabel?.text = "yolo"
         cell.locationTitle.text = "\(stop)"
         
         cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name, schedule: NSDate.getWeekday()!)
@@ -67,7 +116,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerVie
                 cell.downImage.image = UIImage(named: "ArrowPathMiddle")
         }
 
-        return cell
+          return cell
     }
     
     
@@ -106,10 +155,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerVie
     
     
   
-    
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        self.addBanner?.hidden = false
-    }
+
     
   
     func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
