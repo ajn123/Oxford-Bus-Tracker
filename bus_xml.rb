@@ -1,6 +1,5 @@
 require "nokogiri"
 require 'roo'
-
 puts "//
 //  CoreDataModel.swift
 //  Oxford Brookes Bus
@@ -41,7 +40,7 @@ buses.each do |bus|
 		"Corner House" => [51.743700, -1.202181], "Crescent Hall" => [51.737698, -1.207406], 
 		"Gipsy Lane stop B7" => [51.754856, -1.222536], "Cowley The Swan" => [51.749238, -1.242079],
 		"Cherwell Drive" => [51.770155, -1.235753], "Cowley Rd The Plain" => [51.749205, -1.242058],
-		"Gipsy Lane Stop B6" => [51.754625, -1.2223642], "Headley Way for JR Hosp" => [51.7639481, -1.2250515]
+		"Gipsy Lane stop B6" => [51.754625, -1.2223642], "Headley Way for JR Hosp" => [51.7639481, -1.2250515],
 	}
 
 	# 51.760456, -1.210038 = Headington Shops Wheatley Campus
@@ -92,9 +91,11 @@ buses.each do |bus|
 				stop_number = elem[1]
 				stop_name = xls.cell(elem[1],1).strip
 
-				longitude = rand(10)
-				latitude = rand(10)
+			#	puts "@#{stop_name}@"
 
+				latitude = rand(10)
+				longitude = rand(10)
+				
 				if dict[stop_name]
 					latitude = dict[stop_name][0] 
 					longitude = dict[stop_name][1]

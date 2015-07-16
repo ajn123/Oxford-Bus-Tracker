@@ -30,7 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         var latDelta:CLLocationDegrees = 0.002
         
-        var lonDelta:CLLocationDegrees = 0.095
+        var lonDelta:CLLocationDegrees = 0.125
         
         var span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
         
@@ -95,9 +95,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         var long: CLLocationDegrees = a.coordinate.longitude
         
-        var latDelta: CLLocationDegrees = 0.00001
+        var latDelta: CLLocationDegrees = 0.0002
         
-        var longDelte: CLLocationDegrees = 0.00001
+        var longDelte: CLLocationDegrees = 0.0002
         
         var span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelte)
         

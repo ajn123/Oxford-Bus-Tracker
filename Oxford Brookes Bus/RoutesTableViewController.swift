@@ -10,6 +10,8 @@ import UIKit
 
 public class RoutesTableViewController: UITableViewController {
     
+    // TODO: kill this code
+    
     public var routes: [String] = []
 
     override public func viewDidLoad() {

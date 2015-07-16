@@ -9,7 +9,18 @@
 import UIKit
 import CoreData
 
+/**
+    Each bus route has a stop at a certain location long it's route.  Containing 
+    the following information:
 
+    -  stop name: The name of the stop
+    -  stop number: The number on the bus route (1 for first stop etc)
+    -  latitude:  Latitude coordinate of bus stop
+    -  longitude: Longitude coordinate of bus stop
+    -  time:  military time of bus arrival
+    -  bus parent:  the parent bus stop this stop belongs to.
+
+*/
 class Stop: NSManagedObject {
 
     @NSManaged var stop_name: String
@@ -58,11 +69,22 @@ class Stop: NSManagedObject {
         return nil
     }
     
+    /**
+    :returns: One copy of each Stop instance
+    */
     class func getDifferantStops() -> [Stop]?
     {
         return getAllBusStops()!.withoutDuplicates { $0.stop_name } 
     }
     
+    /**
+    
+    
+    :param: stop  the stop  of along a bus route.
+    :param: direction  of the bus route, up (true) down (false)
+
+    :returns: The bus route for that stop in the specific direction
+    */
     class func allBusRoutesForStop(stop: Stop, direction: Bool? = nil) -> [BusRoute]?
     {
         let fetchRequest = NSFetchRequest(entityName: "Stop")
@@ -158,7 +180,9 @@ class Stop: NSManagedObject {
         return true 
     }
     
-    
+    /**
+    :returns: The unique Bus route names for the stop.
+    **/
     class func allBusUniqueBusStopNames(stop: Stop) -> String
     {
         return uniqueBusNamesArray(stop).reduce("")

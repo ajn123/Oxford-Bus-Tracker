@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if(!(NSUserDefaults.standardUserDefaults().boolForKey("firstTime")))
         {
             CoreDataModel.massAssign()
+            CoreDataModel.context.save(nil)
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
             NSUserDefaults.standardUserDefaults().synchronize()
         }

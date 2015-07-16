@@ -25,6 +25,9 @@ public class Alarm{
         })
     }
     
+    /**
+    
+    */
     public class func createReminder(reminderTitle: String, timeInterval: NSDate) {
         
         var calendars = calendarDatabase.calendarsForEntityType(EKEntityTypeReminder)
@@ -50,11 +53,13 @@ public class Alarm{
     {
     
         var refreshAlert = UIAlertController(title: "Reminder",
-                                             message: "Set a reminder for the bus.",
+                                             message: "Remind me in \(timeInterval) minutes",
                                              preferredStyle: UIAlertControllerStyle.Alert)
     
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
 
+        
+        //  TODO: fix unrecognized text box
 //        refreshAlert.addTextFieldWithConfigurationHandler()
 //        { textField -> Void in
 //            textField.text = "\(timeInterval)"

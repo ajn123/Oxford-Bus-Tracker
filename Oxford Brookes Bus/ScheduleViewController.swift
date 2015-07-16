@@ -56,7 +56,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, ADBannerVie
         
         cell.locationTitle.text = "\(stop)"
         
-        println(NSDate.getWeekday()!)
         cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name, schedule: NSDate.getWeekday()!)
         
         switch indexPath.row {

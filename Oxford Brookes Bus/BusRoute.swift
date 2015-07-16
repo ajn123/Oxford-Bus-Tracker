@@ -9,6 +9,17 @@
 import UIKit
 import CoreData
 
+/**
+    A bus route holds a collection of stops that the bus visits.
+
+    -  name: name of the bus route.
+    -  destination:  last stop along the bus route
+    -  end time:  the time the bus reaches the last stop
+    -  start time: the time the bus reaches the first stop
+    -  schedule:  indicates what days this bus comes (Weekdays, weekends, etc)
+    -  direction:  bus routes can go one way or the opposite way
+    -  vacation:  indicates whether this bus route is only used during a vacation period
+*/
 class BusRoute: NSManagedObject, Printable {
 
     @NSManaged var name: String

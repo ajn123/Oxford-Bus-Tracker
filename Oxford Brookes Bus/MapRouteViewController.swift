@@ -133,7 +133,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
         }
         else
         {
-            println("No routes found")
+           // println("No routes found")
         }
     }
     
