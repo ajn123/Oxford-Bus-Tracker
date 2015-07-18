@@ -85,7 +85,7 @@
                                     <action selector="segmentChange:" destination="Dq4-47-eaF" eventType="valueChanged" id="Y6A-as-tHb"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aUa-cK-jk8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aUa-cK-jk8">
                                 <rect key="frame" x="0.0" y="166" width="375" height="402"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -122,9 +122,6 @@
                                     <action selector="changeDirectionTapped:" destination="Dq4-47-eaF" eventType="touchUpInside" id="ppy-iI-eX3"/>
                                 </connections>
                             </button>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="IqO-wc-aCC">
-                                <rect key="frame" x="0.0" y="568" width="359" height="50"/>
-                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -132,35 +129,24 @@
                             <constraint firstItem="lf3-Mz-ech" firstAttribute="top" secondItem="GSy-4U-G3P" secondAttribute="bottom" constant="14" id="25v-3a-smb"/>
                             <constraint firstItem="lf3-Mz-ech" firstAttribute="trailing" secondItem="NG9-jd-ZfU" secondAttribute="trailingMargin" id="3Tw-d2-x7u"/>
                             <constraint firstItem="rzC-VX-IYL" firstAttribute="leading" secondItem="NG9-jd-ZfU" secondAttribute="leadingMargin" constant="129" id="4Nd-Oi-hNh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IqO-wc-aCC" secondAttribute="trailing" id="Bbw-hi-hkw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rzC-VX-IYL" secondAttribute="trailing" constant="79" id="CPU-Gf-2WD"/>
                             <constraint firstItem="rzC-VX-IYL" firstAttribute="top" secondItem="5cO-e2-Rhz" secondAttribute="bottom" constant="73" id="GLp-ud-agl"/>
                             <constraint firstItem="aUa-cK-jk8" firstAttribute="top" secondItem="lf3-Mz-ech" secondAttribute="bottom" constant="8" id="MGv-5P-2Xc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rzC-VX-IYL" secondAttribute="trailing" constant="46" id="RyK-10-44z"/>
                             <constraint firstItem="eI5-gM-kXX" firstAttribute="top" secondItem="rzC-VX-IYL" secondAttribute="bottom" constant="460" id="S6i-Za-dyq"/>
                             <constraint firstItem="lf3-Mz-ech" firstAttribute="top" secondItem="rzC-VX-IYL" secondAttribute="bottom" constant="8" id="VPO-jw-a8E"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IqO-wc-aCC" secondAttribute="trailing" constant="39" id="dLo-4w-Koj"/>
                             <constraint firstItem="aUa-cK-jk8" firstAttribute="leading" secondItem="NG9-jd-ZfU" secondAttribute="leadingMargin" constant="-16" id="iWW-mW-FTA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IqO-wc-aCC" secondAttribute="trailing" constant="39" id="jYh-Tn-HX8"/>
                             <constraint firstItem="GSy-4U-G3P" firstAttribute="top" secondItem="5cO-e2-Rhz" secondAttribute="bottom" constant="18" id="jsB-AZ-gIJ"/>
-                            <constraint firstItem="IqO-wc-aCC" firstAttribute="top" secondItem="aUa-cK-jk8" secondAttribute="bottom" id="n3j-lG-zfO"/>
                             <constraint firstItem="rzC-VX-IYL" firstAttribute="leading" secondItem="GSy-4U-G3P" secondAttribute="trailing" constant="8" id="naD-a9-SrC"/>
-                            <constraint firstItem="IqO-wc-aCC" firstAttribute="bottom" secondItem="eI5-gM-kXX" secondAttribute="top" id="rdF-dF-4FJ"/>
                             <constraint firstItem="lf3-Mz-ech" firstAttribute="leading" secondItem="NG9-jd-ZfU" secondAttribute="leadingMargin" id="tTt-8s-Pvh"/>
                             <constraint firstItem="rzC-VX-IYL" firstAttribute="top" secondItem="5cO-e2-Rhz" secondAttribute="bottom" constant="8" id="uKI-VC-WqP"/>
                             <constraint firstItem="rzC-VX-IYL" firstAttribute="leading" secondItem="NG9-jd-ZfU" secondAttribute="leadingMargin" constant="45" id="uRZ-bX-7dc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IqO-wc-aCC" secondAttribute="trailing" constant="39" id="vp8-Zn-f8c"/>
-                            <constraint firstItem="IqO-wc-aCC" firstAttribute="leading" secondItem="aUa-cK-jk8" secondAttribute="leading" id="yzh-Qi-8yM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="4Nd-Oi-hNh"/>
                                 <exclude reference="CPU-Gf-2WD"/>
                                 <exclude reference="GLp-ud-agl"/>
-                                <exclude reference="Bbw-hi-hkw"/>
-                                <exclude reference="dLo-4w-Koj"/>
-                                <exclude reference="jYh-Tn-HX8"/>
-                                <exclude reference="vp8-Zn-f8c"/>
                                 <exclude reference="S6i-Za-dyq"/>
                             </mask>
                         </variation>

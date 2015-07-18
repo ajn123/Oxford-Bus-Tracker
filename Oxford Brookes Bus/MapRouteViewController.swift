@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import iAd
 
-class MapRouteViewController: UIViewController, UITableViewDelegate {
+class MapRouteViewController: UIViewController, UITableViewDelegate, ADBannerViewDelegate {
+    
+    
+    
     
     @IBOutlet var routeName: UILabel!
     @IBOutlet var routeSegmentControl: UISegmentedControl!
     @IBOutlet var routeChangeButton: UIButton!
     @IBOutlet var routeTable: UITableView!
+
+    lazy var adBanner: ADBannerView = {
+        var ad = ADBannerView()
+        ad.delegate = self
+        ad.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return ad
+    }()
     
     var routeLabelName: String = ""
     var stop: Stop? = nil
@@ -45,7 +56,20 @@ class MapRouteViewController: UIViewController, UITableViewDelegate {
             
             routeChangeButton.removeFromSuperview()
         }
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpConstraints()
+    {
+        self.edgesForExtendedLayout = UIRectEdge.Bottom & UIRectEdge.Top
+        self.view.addSubview(adBanner)
+        var viewDict = ["adBanner": adBanner]
+        var verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
+        var horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
+        
+        self.view.addConstraints(verticalConstraint)
+        self.view.addConstraints(horizontalConstraint)
     }
 
     @IBAction func segmentChange(sender: UISegmentedControl) {

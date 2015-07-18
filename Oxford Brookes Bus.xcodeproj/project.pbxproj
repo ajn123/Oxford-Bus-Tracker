@@ -46,6 +46,7 @@
 		7F43F9911B409ED900E25247 /* StringManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43F9901B409ED900E25247 /* StringManipulation.swift */; };
 		7F4A20521B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */; };
 		7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F580F021B0A869600D88783 /* NSDateTest.swift */; };
+		7F5A07B51B5AEEBC00D52B45 /* UIiAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */; };
 		7F820D011B0E6F80002CAA53 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D001B0E6F80002CAA53 /* Alarm.swift */; };
 		7F820D051B15FF24002CAA53 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D041B15FF24002CAA53 /* UIViewExtension.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
@@ -123,6 +124,7 @@
 		7F43F9901B409ED900E25247 /* StringManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringManipulation.swift; sourceTree = "<group>"; };
 		7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewControllerTest.swift; sourceTree = "<group>"; };
 		7F580F021B0A869600D88783 /* NSDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTest.swift; sourceTree = "<group>"; };
+		7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIiAdViewController.swift; sourceTree = "<group>"; };
 		7F820D001B0E6F80002CAA53 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		7F820D041B15FF24002CAA53 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */,
 				7F41D9091AF7893400694800 /* MapRouteViewController.swift */,
 				7FB6DC671B1C9D3900B9F768 /* Alert.swift */,
+				7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */,
 				7F1230CF1B3D813100895909 /* StopMKAnnotation.swift in Sources */,
 				7F41D8FC1AF6E4E000694800 /* RAMTransitionItemAnimation.swift in Sources */,
+				7F5A07B51B5AEEBC00D52B45 /* UIiAdViewController.swift in Sources */,
 				7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */,
 				7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */,
 				7F41D8FE1AF6E4E000694800 /* RAMItemAnimationProtocol.swift in Sources */,

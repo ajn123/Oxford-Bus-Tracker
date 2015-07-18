@@ -33,6 +33,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         var ad = ADBannerView()
         ad.setTranslatesAutoresizingMaskIntoConstraints(false)
         ad.delegate = self
+
         return ad
     }()
 
