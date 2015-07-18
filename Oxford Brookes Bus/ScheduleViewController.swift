@@ -24,6 +24,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         tab.delegate = self
         tab.dataSource = self
         tab.rowHeight = 146.0
+        tab.separatorStyle = UITableViewCellSeparatorStyle.None
         
         tab.setTranslatesAutoresizingMaskIntoConstraints(false)
         return tab
@@ -100,9 +101,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         var stop = locations[indexPath.row]
         
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomRouteViewCell
-     
-        println("stop")
-       // cell.textLabel?.text = "yolo"
+        
         cell.locationTitle.text = "\(stop)"
         
         cell.downTime.text = BusRoute.getRecentDepartures(stop, direction: direction, name: name, schedule: NSDate.getWeekday()!)
@@ -113,7 +112,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
             case self.tableView(tableView, numberOfRowsInSection: 0) - 1:
                 cell.downImage.image = UIImage(named: "ArrowPathEnd.png")
             default:
-                cell.downImage.image = UIImage(named: "ArrowPathMiddle")
+                cell.downImage.image = UIImage(named: "ArrowPathMiddle.png")
         }
 
           return cell
@@ -122,8 +121,28 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+
+        let tableVC = TimeViewController()
+        
+        var cell = tableView.cellForRowAtIndexPath(indexPath) as! CustomRouteViewCell
+        
+        // removes selection view so reminder tab is still shown
+        cell.selectedBackgroundView.removeFromSuperview()
+        //   cell.contentView.backgroundColor = UIColor(red: 66.0, green: 166.0, blue: 245, alpha: 1.0)
+        cell.slideImage.image = UIImage(named: "tableSwipeArrow.png")
+        
+        tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!,
+            direction: direction,
+            name: name,
+            schedule: NSDate.getWeekday()!)
+        tableVC.stop = cell.locationTitle.text!
+        tableVC.direction = direction
+        tableVC.name = name
+        
+        self.navigationController?.pushViewController(tableVC, animated: true)
         
     }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //TODO
@@ -139,14 +158,17 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         cell.slideImage.image = UIImage(named: "tableSwipeArrow.png")
         
         tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!,
-                                                                  direction: direction,
-                                                                  name: name,
-                                                                  schedule: NSDate.getWeekday()!)
+            direction: direction,
+            name: name,
+            schedule: NSDate.getWeekday()!)
         tableVC.stop = cell.locationTitle.text!
         tableVC.direction = direction
         tableVC.name = name
     }
     
+    
+    
+  
     @IBAction func changeDirectionPressed(sender: AnyObject) {
         direction = !direction
         locations = BusRoute.busRoutes(name, direction: direction)

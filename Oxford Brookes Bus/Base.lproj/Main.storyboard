@@ -207,7 +207,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJv-43-3SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137.5" y="1402.5"/>
+            <point key="canvasLocation" x="727.5" y="1430.5"/>
         </scene>
         <!--Map-->
         <scene sceneID="XEf-I3-qat">
@@ -261,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q01-X7-QqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2160.5" y="1389.5"/>
+            <point key="canvasLocation" x="1760.5" y="1397.5"/>
         </scene>
         <!--Times-->
         <scene sceneID="dUZ-Ls-zfp">
@@ -274,136 +274,14 @@
                     <view key="view" contentMode="scaleToFill" id="QRA-cX-hRu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4dW-Wr-RRz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="489" id="RLx-Mw-YPM"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="timeCell" rowHeight="62" id="Vcf-5r-ODk">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vcf-5r-ODk" id="TMX-ff-dUu">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="RLx-Mw-YPM"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outlet property="dataSource" destination="TqT-WR-H09" id="dwY-jH-QIU"/>
-                                    <outlet property="delegate" destination="TqT-WR-H09" id="eTQ-mV-eMi"/>
-                                </connections>
-                            </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qmJ-zF-BFk">
-                                <rect key="frame" x="8" y="582" width="135" height="29"/>
-                                <segments>
-                                    <segment title="all"/>
-                                    <segment title="available"/>
-                                </segments>
-                                <connections>
-                                    <action selector="availbilityChanged:" destination="TqT-WR-H09" eventType="valueChanged" id="szh-xf-ksm"/>
-                                </connections>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="apj-bx-Nmp">
-                                <rect key="frame" x="151" y="582" width="209" height="29"/>
-                                <segments>
-                                    <segment title="Weekday"/>
-                                    <segment title="Saturday"/>
-                                    <segment title="Sunday"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentChange:" destination="TqT-WR-H09" eventType="valueChanged" id="Tpx-nC-wXR"/>
-                                </connections>
-                            </segmentedControl>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="apj-bx-Nmp" firstAttribute="leading" secondItem="qmJ-zF-BFk" secondAttribute="trailing" constant="8" id="1Px-Wz-6gN"/>
-                            <constraint firstItem="3RJ-ye-nrk" firstAttribute="top" secondItem="apj-bx-Nmp" secondAttribute="bottom" constant="8" id="21U-Cn-nXb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="apj-bx-Nmp" secondAttribute="trailing" constant="67" id="4vg-ft-i5z"/>
-                            <constraint firstItem="4dW-Wr-RRz" firstAttribute="leading" secondItem="QRA-cX-hRu" secondAttribute="leadingMargin" constant="-16" id="80n-Qp-dcy"/>
-                            <constraint firstItem="apj-bx-Nmp" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="29" id="8u6-eX-oOB"/>
-                            <constraint firstItem="3RJ-ye-nrk" firstAttribute="top" secondItem="apj-bx-Nmp" secondAttribute="bottom" id="9HC-wm-xDJ"/>
-                            <constraint firstItem="qmJ-zF-BFk" firstAttribute="leading" secondItem="QRA-cX-hRu" secondAttribute="leadingMargin" constant="-8" id="BHV-wO-JZy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4dW-Wr-RRz" secondAttribute="trailing" constant="-16" id="Cdh-Ui-LKv"/>
-                            <constraint firstItem="4dW-Wr-RRz" firstAttribute="leading" secondItem="QRA-cX-hRu" secondAttribute="leadingMargin" constant="-16" id="E4C-hR-vq6"/>
-                            <constraint firstItem="apj-bx-Nmp" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="8" id="HCJ-lF-hit"/>
-                            <constraint firstItem="3RJ-ye-nrk" firstAttribute="top" secondItem="apj-bx-Nmp" secondAttribute="bottom" constant="65" id="ODO-NK-E2R"/>
-                            <constraint firstItem="apj-bx-Nmp" firstAttribute="leading" secondItem="qmJ-zF-BFk" secondAttribute="trailing" constant="8" id="Rce-mq-7fO"/>
-                            <constraint firstItem="apj-bx-Nmp" firstAttribute="leading" secondItem="QRA-cX-hRu" secondAttribute="leadingMargin" constant="67" id="SEC-vn-U57"/>
-                            <constraint firstAttribute="centerX" secondItem="4dW-Wr-RRz" secondAttribute="centerX" id="Tnd-VC-9KV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4dW-Wr-RRz" secondAttribute="trailing" constant="-16" id="YGt-8B-6z2"/>
-                            <constraint firstItem="qmJ-zF-BFk" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="8" id="a7q-Wa-ESP"/>
-                            <constraint firstItem="4dW-Wr-RRz" firstAttribute="top" secondItem="CXg-6x-1Cp" secondAttribute="bottom" constant="44" id="aOb-bQ-5c6"/>
-                            <constraint firstItem="4dW-Wr-RRz" firstAttribute="leading" secondItem="QRA-cX-hRu" secondAttribute="leadingMargin" constant="-16" id="b66-7I-o3X"/>
-                            <constraint firstItem="3RJ-ye-nrk" firstAttribute="top" secondItem="apj-bx-Nmp" secondAttribute="bottom" constant="8" id="bJT-ce-e5x"/>
-                            <constraint firstItem="apj-bx-Nmp" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="37" id="ckR-Ba-lcF"/>
-                            <constraint firstItem="apj-bx-Nmp" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="8" id="ddU-sC-uEF"/>
-                            <constraint firstItem="apj-bx-Nmp" firstAttribute="top" secondItem="4dW-Wr-RRz" secondAttribute="bottom" constant="21" id="ldU-aE-UE7"/>
-                            <constraint firstItem="4dW-Wr-RRz" firstAttribute="top" secondItem="CXg-6x-1Cp" secondAttribute="bottom" id="lde-HS-ifU"/>
-                            <constraint firstAttribute="centerX" secondItem="apj-bx-Nmp" secondAttribute="centerX" id="mIk-pa-FAY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="apj-bx-Nmp" secondAttribute="trailing" constant="-1" id="qpZ-s9-JCQ"/>
-                            <constraint firstItem="3RJ-ye-nrk" firstAttribute="top" secondItem="qmJ-zF-BFk" secondAttribute="bottom" constant="8" id="r93-Ox-7hZ"/>
-                            <constraint firstItem="4dW-Wr-RRz" firstAttribute="top" secondItem="QRA-cX-hRu" secondAttribute="topMargin" constant="64" id="sLI-z9-Hj1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4dW-Wr-RRz" secondAttribute="trailing" constant="-16" id="ynq-ym-ely"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="80n-Qp-dcy"/>
-                                <exclude reference="E4C-hR-vq6"/>
-                                <exclude reference="Tnd-VC-9KV"/>
-                                <exclude reference="YGt-8B-6z2"/>
-                                <exclude reference="aOb-bQ-5c6"/>
-                                <exclude reference="sLI-z9-Hj1"/>
-                                <exclude reference="ynq-ym-ely"/>
-                                <exclude reference="4vg-ft-i5z"/>
-                                <exclude reference="8u6-eX-oOB"/>
-                                <exclude reference="HCJ-lF-hit"/>
-                                <exclude reference="SEC-vn-U57"/>
-                                <exclude reference="ckR-Ba-lcF"/>
-                                <exclude reference="ldU-aE-UE7"/>
-                                <exclude reference="mIk-pa-FAY"/>
-                                <exclude reference="9HC-wm-xDJ"/>
-                                <exclude reference="ODO-NK-E2R"/>
-                                <exclude reference="bJT-ce-e5x"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Times" id="Dan-fj-vuv"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="availableTimes" destination="qmJ-zF-BFk" id="ZV5-m9-FRI"/>
-                        <outlet property="dayOfWeek" destination="apj-bx-Nmp" id="Xtx-9s-SEe"/>
-                        <outlet property="timeTable" destination="4dW-Wr-RRz" id="uYE-Vg-2Hq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRU-7C-eIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3089.5" y="1402.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2QJ-VZ-aNs">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iAU-O2-yiV" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JcZ-CG-arZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="TqT-WR-H09" kind="relationship" relationship="rootViewController" id="fNM-aq-CLs"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wu2-VE-Mcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2627.5" y="1397.5"/>
+            <point key="canvasLocation" x="2678.5" y="1331.5"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="9xU-ZA-lc2">
@@ -457,7 +335,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="624.5" y="1397.5"/>
+            <point key="canvasLocation" x="162.5" y="1459.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X4E-eu-UG7">
@@ -475,7 +353,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gE-53-BoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1683.5" y="1402.5"/>
+            <point key="canvasLocation" x="1225.5" y="1397.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0ze-CJ-e3o">

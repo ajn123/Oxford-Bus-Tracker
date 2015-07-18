@@ -9,11 +9,35 @@
 import UIKit
 import EventKit
 
-class TimeViewController: UIViewController, UITableViewDelegate {
+class TimeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var timeTable: UITableView!
-    @IBOutlet var dayOfWeek: UISegmentedControl!
-    @IBOutlet var availableTimes: UISegmentedControl!
+    lazy var timeTable: UITableView! = {
+       var t = UITableView()
+        t.delegate = self
+        t.dataSource = self
+        t.setTranslatesAutoresizingMaskIntoConstraints(false)
+        t.registerClass(UITableViewCell.self, forCellReuseIdentifier: "timeCell")
+        return t
+    }()
+    
+    lazy var dayOfWeek: UISegmentedControl! = {
+        var items = ["M-F", "Sat", "Sun"]
+        var seg = UISegmentedControl(items: items)
+        seg.setTranslatesAutoresizingMaskIntoConstraints(false)
+        seg.addTarget(self, action: "segmentChange:", forControlEvents: UIControlEvents.ValueChanged)
+        seg.selectedSegmentIndex = NSDate.getWeekday()!
+        return seg
+    }()
+    
+    lazy var availableTimes: UISegmentedControl! = {
+        var items = ["all", "available"]
+        var a = UISegmentedControl(items: items)
+        a.setTranslatesAutoresizingMaskIntoConstraints(false)
+        a.addTarget(self, action: "availbilityChanged:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        a.selectedSegmentIndex = 0
+        return a
+    }()
     
     
     var refresh = UIRefreshControl()
@@ -22,15 +46,36 @@ class TimeViewController: UIViewController, UITableViewDelegate {
     var direction: Bool = true
     var name: String = ""
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.whiteColor()
+        addConstraints()
+       
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
         timeTable.addSubview(refresh)
         
         dayOfWeek.selectedSegmentIndex = NSDate.getWeekday()!
+    }
+    
+    func addConstraints()
+    {
+        self.edgesForExtendedLayout = UIRectEdge.Top & UIRectEdge.Bottom
+        self.view.addSubview(timeTable)
+        self.view.addSubview(dayOfWeek)
+        self.view.addSubview(availableTimes)
+        var viewsDict = ["timeTable": timeTable, "dayOfWeek": dayOfWeek, "availableTimes": availableTimes]
+        
+        var verticalLayout = NSLayoutConstraint.constraintsWithVisualFormat("V:|[timeTable]-[dayOfWeek]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
+        var verticalLayout2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[timeTable]-[availableTimes]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
+        
+        var horizontalLayout = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[dayOfWeek(==availableTimes)]-[availableTimes(==dayOfWeek)]-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
+        var horizontalLayout2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[timeTable]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
+        
+        
+        self.view.addConstraints(verticalLayout)
+        self.view.addConstraints(verticalLayout2)
+        self.view.addConstraints(horizontalLayout)
+        self.view.addConstraints(horizontalLayout2)
     }
     
     func refreshing()
@@ -44,11 +89,11 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func backPressed(sender: AnyObject) {
+    func backPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
- 
-    @IBAction func availbilityChanged(sender: UISegmentedControl) {
+    
+    func availbilityChanged(sender: UISegmentedControl) {
         
         if(sender.selectedSegmentIndex == 0)
         {
@@ -57,12 +102,11 @@ class TimeViewController: UIViewController, UITableViewDelegate {
         else
         {
             times = BusRoute.getAvailableDepartures(stop, direction: direction, name: name, schedule: dayOfWeek.selectedSegmentIndex)
-            
         }
         timeTable.reloadData()
         
     }
-    @IBAction func segmentChange(sender: AnyObject) {
+    func segmentChange(sender: AnyObject) {
         times = BusRoute.getTimesFromStopRegardlessOfTime(stop, direction: direction, name: name, schedule: dayOfWeek.selectedSegmentIndex)
         
         timeTable.reloadData()
