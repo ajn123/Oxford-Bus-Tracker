@@ -25,7 +25,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         tab.dataSource = self
         tab.rowHeight = 146.0
         tab.separatorStyle = UITableViewCellSeparatorStyle.None
-        
         tab.setTranslatesAutoresizingMaskIntoConstraints(false)
         return tab
     }()
@@ -34,7 +33,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         var ad = ADBannerView()
         ad.setTranslatesAutoresizingMaskIntoConstraints(false)
         ad.delegate = self
-        
         return ad
     }()
 
@@ -51,8 +49,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         // no separator between the tables
-        
-        
         setUpConstraints()
         
     }
