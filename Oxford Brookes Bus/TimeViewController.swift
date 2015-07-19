@@ -55,6 +55,7 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
         timeTable.addSubview(refresh)
         
         dayOfWeek.selectedSegmentIndex = NSDate.getWeekday()!
+        
     }
     
     func addConstraints()

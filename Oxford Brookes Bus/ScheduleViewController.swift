@@ -47,8 +47,20 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         return button
     }()
     
+    
+    lazy var emptyTableLabel: UILabel = {
+        var label = UILabel()
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.textAlignment = NSTextAlignment.Center
+        label.numberOfLines = 4
+        label.text = "This bus is not currently running at this time, try another schedule."
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = name
         // no separator between the tables
         setUpConstraints()
         
@@ -56,14 +68,17 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     func setUpConstraints()
     {
+        refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        
         self.view.addSubview(table)
         self.view.addSubview(addBanner)
         self.view.addSubview(button)
-        refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
+        self.view.addSubview(emptyTableLabel)
         table.addSubview(refresh)
         
         self.edgesForExtendedLayout = UIRectEdge.Bottom & UIRectEdge.Top
-        var viewDicts = ["table": table, "addBanner": addBanner, "button": button]
+        var viewDicts = ["table": table, "addBanner": addBanner, "button": button, "superview": view, "label": emptyTableLabel]
         
         var Vertical_Layout_1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[button(45)]-[table][addBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
         var Horizontal_Layout_1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[button(45)]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
@@ -74,6 +89,30 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addConstraints(Horizontal_Layout_1)
         self.view.addConstraints(Horizontal_Layout_2)
         self.view.addConstraints(Horizontal_Layout_3)
+        
+        var centerConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewDicts)
+        var centerConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterY, metrics: nil, views: viewDicts)
+        
+        self.view.addConstraints(centerConstraint)
+        self.view.addConstraints(centerConstraint2)
+        
+        
+        showLabelOrTable()
+        
+    }
+    
+    func showLabelOrTable()
+    {
+        if(locations.count == 0)
+        {
+            table.hidden = true
+            emptyTableLabel.hidden = false
+        }
+        else
+        {
+            table.hidden = false
+            emptyTableLabel.hidden = true
+        }
     }
     
     
@@ -81,6 +120,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     {
         table.reloadData() 
         refresh.endRefreshing()
+        showLabelOrTable()
     }
 
     override func didReceiveMemoryWarning() {
@@ -170,6 +210,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         direction = !direction
         locations = BusRoute.busRoutes(name, direction: direction)
         table.reloadData()
+        
+        showLabelOrTable()
+        
     }
     
     

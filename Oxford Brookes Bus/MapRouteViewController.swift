@@ -54,6 +54,18 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
         return ad
     }()
     
+    
+    
+    lazy var emptyTableLabel: UILabel = {
+        var label = UILabel()
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.textAlignment = NSTextAlignment.Center
+        label.numberOfLines = 4
+        label.text = "This bus is not currently running at this time, try another schedule."
+        return label
+    }()
+    
     var routeLabelName: String = ""
     var stop: Stop? = nil
     var stops: [Stop] = []
@@ -77,14 +89,14 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
         if(routeSegmentControl.numberOfSegments > 0)
         {
             self.routeDirection = BusRoute.whichDirection(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-                busStop: routeLabelName)
+                                                          busStop: routeLabelName)
             
             busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
-                direction: self.routeDirection!)
+                                          direction: self.routeDirection!)
             
             routeChangeButton.removeFromSuperview()
         }
-              // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
         setUpConstraints()
     }
     
@@ -97,7 +109,9 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addSubview(routeChangeButton)
         self.view.addSubview(routeName)
         self.view.addSubview(routeSegmentControl)
-        var viewDict = ["adBanner": adBanner, "routeTable": routeTable, "routeChangeButton": routeChangeButton, "routeSegmentControl": routeSegmentControl, "routeName": routeName]
+        self.view.addSubview(emptyTableLabel)
+        var viewDict = ["adBanner": adBanner, "routeTable": routeTable, "routeChangeButton": routeChangeButton, "routeSegmentControl": routeSegmentControl, "routeName": routeName,
+            "superview": view, "label": emptyTableLabel]
         var verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[routeName]-[routeSegmentControl]-[routeTable][adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
         var verticalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[routeChangeButton(45)]-5-[routeSegmentControl]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
         var horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
@@ -111,6 +125,30 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addConstraints(horizontalConstraint2)
         self.view.addConstraints(horizontalConstraint3)
         self.view.addConstraints(horizontalConstraint4)
+        
+        var centerConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewDict)
+        var centerConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterY, metrics: nil, views: viewDict)
+        
+        self.view.addConstraints(centerConstraint)
+        self.view.addConstraints(centerConstraint2)
+        
+        
+        showLabelOrTable()
+        
+    }
+    
+    func showLabelOrTable()
+    {
+        if(busStops.count == 0)
+        {
+            routeTable.hidden = true
+            emptyTableLabel.hidden = false
+        }
+        else
+        {
+            routeTable.hidden = false
+            emptyTableLabel.hidden = true
+        }
     }
     
 
@@ -123,6 +161,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
                                       direction: self.routeDirection!)
         
         routeTable.reloadData()
+        showLabelOrTable()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -173,6 +212,8 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
         busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
                                       direction: self.routeDirection!)
         routeTable.reloadData()
+        
+        showLabelOrTable()
     }
     
     
