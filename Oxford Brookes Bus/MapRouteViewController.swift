@@ -9,15 +9,43 @@
 import UIKit
 import iAd
 
-class MapRouteViewController: UIViewController, UITableViewDelegate, ADBannerViewDelegate {
+class MapRouteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ADBannerViewDelegate {
     
     
     
     
-    @IBOutlet var routeName: UILabel!
-    @IBOutlet var routeSegmentControl: UISegmentedControl!
-    @IBOutlet var routeChangeButton: UIButton!
-    @IBOutlet var routeTable: UITableView!
+    lazy var routeName: UILabel! = {
+        var label = UILabel()
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return label
+    }()
+    
+    lazy var routeSegmentControl: UISegmentedControl! =
+    {
+        var segmentControl = UISegmentedControl()
+        segmentControl.setTranslatesAutoresizingMaskIntoConstraints(false)
+        segmentControl.addTarget(self, action: "segmentChange:", forControlEvents: UIControlEvents.ValueChanged)
+        return segmentControl
+    }()
+    
+    lazy var routeChangeButton: UIButton! =
+    {
+        var button = UIButton()
+        button.addTarget(self, action: "changeDirectionTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.setTranslatesAutoresizingMaskIntoConstraints(false)
+        button.backgroundColor = UIColor(patternImage: UIImage(named: "changeDirection.png")!)
+        return button
+    }()
+    
+    lazy var routeTable: UITableView! = {
+       var table = UITableView()
+        table.delegate = self
+        table.dataSource = self
+        table.setTranslatesAutoresizingMaskIntoConstraints(false)
+        table.registerClass(UITableViewCell.self , forCellReuseIdentifier: "routeCell")
+        return table
+    }()
+    
 
     lazy var adBanner: ADBannerView = {
         var ad = ADBannerView()
@@ -56,23 +84,37 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, ADBannerVie
             
             routeChangeButton.removeFromSuperview()
         }
-        
-        // Do any additional setup after loading the view.
+              // Do any additional setup after loading the view.
+        setUpConstraints()
     }
     
+  
     func setUpConstraints()
     {
         self.edgesForExtendedLayout = UIRectEdge.Bottom & UIRectEdge.Top
         self.view.addSubview(adBanner)
-        var viewDict = ["adBanner": adBanner]
-        var verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
+        self.view.addSubview(routeTable)
+        self.view.addSubview(routeChangeButton)
+        self.view.addSubview(routeName)
+        self.view.addSubview(routeSegmentControl)
+        var viewDict = ["adBanner": adBanner, "routeTable": routeTable, "routeChangeButton": routeChangeButton, "routeSegmentControl": routeSegmentControl, "routeName": routeName]
+        var verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[routeName]-[routeSegmentControl]-[routeTable][adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
+        var verticalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[routeChangeButton(45)]-5-[routeSegmentControl]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
         var horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
+        var horizontalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeChangeButton(45)]-5-[routeName]|", options: NSLayoutFormatOptions(0) , metrics: nil, views: viewDict)
+        var horizontalConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[routeTable]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
+        var horizontalConstraint4 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeSegmentControl]-5-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
         
         self.view.addConstraints(verticalConstraint)
+        self.view.addConstraints(verticalConstraint2)
         self.view.addConstraints(horizontalConstraint)
+        self.view.addConstraints(horizontalConstraint2)
+        self.view.addConstraints(horizontalConstraint3)
+        self.view.addConstraints(horizontalConstraint4)
     }
+    
 
-    @IBAction func segmentChange(sender: UISegmentedControl) {
+    func segmentChange(sender: UISegmentedControl) {
         
         self.routeDirection = BusRoute.whichDirection(self.stopNames[routeSegmentControl.selectedSegmentIndex],
                                                       busStop: routeLabelName)
@@ -96,13 +138,14 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, ADBannerVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell = tableView.dequeueReusableCellWithIdentifier("RouteCell") as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("routeCell") as! UITableViewCell
         
         var singleStop = self.busStops[indexPath.row]
         
         if (stop!.stop_name == singleStop)
         {
-            self.routeTable.selectRowAtIndexPath(indexPath, animated: false,
+            self.routeTable.selectRowAtIndexPath(indexPath,
+                                                 animated: false,
                                                  scrollPosition: UITableViewScrollPosition.None)
         }
         else
@@ -125,7 +168,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, ADBannerVie
         return cell
     }
 
-    @IBAction func changeDirectionTapped(sender: UIButton) {
+    func changeDirectionTapped(sender: UIButton) {
         self.routeDirection = !routeDirection!
         busStops = BusRoute.busRoutes(self.stopNames[routeSegmentControl.selectedSegmentIndex],
                                       direction: self.routeDirection!)
