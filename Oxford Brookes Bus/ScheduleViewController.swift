@@ -101,6 +101,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    
+    /**
+        Hides table if nothing is showing
+    */
     func showLabelOrTable()
     {
         if(locations.count == 0)

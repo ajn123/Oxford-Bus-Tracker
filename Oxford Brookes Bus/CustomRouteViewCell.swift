@@ -10,7 +10,6 @@ import UIKit
 import WobbleView
 
 
-
 class CustomRouteViewCell: UITableViewCell {
     
     @IBOutlet var downImage: UIImageView!
