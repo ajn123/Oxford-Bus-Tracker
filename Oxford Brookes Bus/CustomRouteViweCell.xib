@@ -114,11 +114,9 @@
             <connections>
                 <outlet property="downImage" destination="3Rr-jd-gZM" id="wH4-Uv-VnQ"/>
                 <outlet property="downTime" destination="DcT-l4-0Sx" id="djj-2c-QLm"/>
-                <outlet property="leadingSpaceConstraint" destination="cGf-wV-ag4" id="oAw-mR-oQB"/>
                 <outlet property="locationTitle" destination="2Hl-vv-IcX" id="IFE-kt-sI5"/>
                 <outlet property="slideImage" destination="Bhz-vO-Ytq" id="F9a-x3-BRP"/>
                 <outlet property="timerLabel" destination="MP8-qR-2Hh" id="A19-Bh-lXR"/>
-                <outlet property="trailingSpaceConstraint" destination="j9f-9E-pzT" id="ZHh-s4-rcJ"/>
             </connections>
         </tableViewCell>
     </objects>

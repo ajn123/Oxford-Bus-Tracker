@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Oxford Brookes Bus-WobbleView.xcscheme</key>
+		<key>Nimble.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -14,17 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Oxford Brookes BusTests-Nimble.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Oxford Brookes BusTests-Quick.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Oxford Brookes BusTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Quick.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>WobbleView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13CF10728C0B02EF73531FA3</key>
+		<key>249698EC6DC43560FFE1EF13213C75BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B725A504EAB01B4017EDCB46</key>
+		<key>A69D9D359C3CB4728A792F21AE693277</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CFB9DAC52E091F95DC53C10E</key>
+		<key>A6E9B3BEDFF56C2E127E49D0B4F60291</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1D1F12449796ABC9E2BE8D8</key>
+		<key>B970D5EDC47631DE76F6F8ADC056B3EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F57E2E8BF9039CB371BE9CC8</key>
+		<key>FE1477F64C29E26542F2E1C7F4D2949D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

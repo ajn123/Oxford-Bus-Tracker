@@ -1,5 +1,5 @@
 framework module WobbleView {
-  umbrella header "Pods-Oxford Brookes Bus-WobbleView-umbrella.h"
+  umbrella header "WobbleView-umbrella.h"
 
   export *
   module * { export * }

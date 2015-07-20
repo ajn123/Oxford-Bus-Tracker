@@ -61,9 +61,7 @@ public class RoutesTableViewController: UITableViewController {
         seg.locations = BusRoute.busRoutes(seg.name)
     }
     
-    
-    
-    
+        
     
     /*
     // Override to support conditional editing of the table view.
