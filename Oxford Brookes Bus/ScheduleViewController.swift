@@ -218,53 +218,40 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         showLabelOrTable()
         
     }
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
+
+    
     
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
-        var five: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "5")
-        {  (a, b) in
-                
-                var refreshAlert = Alarm.getReminderView(5, view: self.parentViewController!.view)
-                
-                self.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
-        }
-        five.backgroundColor = UIColor(red:0.29, green:0.91, blue:0.56, alpha:1.0)
+        var rowActions = [AnyObject]()
         
-        var ten: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "10")
-            {  (a, b) in
-                
-                var refreshAlert = Alarm.getReminderView(10, view: self.parentViewController!.view)
-                
-                self.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
-        }
-        ten.backgroundColor = UIColor(red:0.29, green:0.91, blue:0.85, alpha:1.0)
+        let colorDict: [Int:UIColor] = [
+            5:  UIColor(red:0.29, green:0.91, blue:0.56, alpha:1.0),
+            10: UIColor(red:0.29, green:0.91, blue:0.85, alpha:1.0),
+            15: UIColor(red:0.29, green:0.53, blue:0.91, alpha:1.0),
+            20: UIColor.blueColor()
+        ]
         
-        var twenty: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "20")
-            {  (a, b) in
-                
-                var refreshAlert = Alarm.getReminderView(20, view: self.parentViewController!.view)
-                
-                self.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
+        for elem in [5,10,15,20]
+        {
+            
+            var rowAction: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "\(elem)")
+                {  (a, b) in
+                    
+                    var refreshAlert = Alarm.getReminderView(elem, view: self.parentViewController!.view)
+                    
+                    self.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
+            }
+            rowAction.backgroundColor = colorDict[elem]
+            
+            rowActions.append(rowAction)
+
         }
-        
-        twenty.backgroundColor = UIColor.blueColor()
-        
-        var fifteen: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "15")
-            {  (a, b) in
-                
-                var refreshAlert = Alarm.getReminderView(15, view: self.parentViewController!.view)
-                
-                self.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
-        }
-        fifteen.backgroundColor = UIColor(red:0.29, green:0.53, blue:0.91, alpha:1.0)
-       
-        return [five, ten, fifteen, twenty]
+        return rowActions
     }
     
+    //  Need this for swiping feature
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
     }
