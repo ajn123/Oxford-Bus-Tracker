@@ -16,7 +16,7 @@ public class RoutesTableViewController: UITableViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
+        
         routes = BusRoute.allBusRoutes()
         routes = StringManipulation.sortBusses(self.routes)
     }

@@ -15,6 +15,7 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
        var t = UITableView()
         t.delegate = self
         t.dataSource = self
+        t.rowHeight = 55.0
         t.setTranslatesAutoresizingMaskIntoConstraints(false)
         t.registerClass(UITableViewCell.self, forCellReuseIdentifier: "timeCell")
         return t
@@ -24,6 +25,7 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
         var items = ["M-F", "Sat", "Sun"]
         var seg = UISegmentedControl(items: items)
         seg.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
         seg.addTarget(self, action: "segmentChange:", forControlEvents: UIControlEvents.ValueChanged)
         seg.selectedSegmentIndex = NSDate.getWeekday()!
         return seg
@@ -49,6 +51,7 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
+        self.title = stop 
         addConstraints()
        
         refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)

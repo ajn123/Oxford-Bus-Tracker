@@ -199,9 +199,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         cell.slideImage.image = UIImage(named: "tableSwipeArrow.png")
         
         tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!,
-            direction: direction,
-            name: name,
-            schedule: NSDate.getWeekday()!)
+                                                                  direction: direction,
+                                                                  name: name,
+                                                                  schedule: NSDate.getWeekday()!)
         tableVC.stop = cell.locationTitle.text!
         tableVC.direction = direction
         tableVC.name = name
@@ -214,9 +214,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         direction = !direction
         locations = BusRoute.busRoutes(name, direction: direction)
         table.reloadData()
-        
         showLabelOrTable()
-        
     }
 
     
@@ -237,7 +235,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         {
             
             var rowAction: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "\(elem)")
-                {  (a, b) in
+            {  (_, _) in
                     
                     var refreshAlert = Alarm.getReminderView(elem, view: self.parentViewController!.view)
                     
