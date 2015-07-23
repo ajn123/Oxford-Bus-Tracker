@@ -46,7 +46,7 @@
 		7F43F9911B409ED900E25247 /* StringManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43F9901B409ED900E25247 /* StringManipulation.swift */; };
 		7F4A20521B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */; };
 		7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F580F021B0A869600D88783 /* NSDateTest.swift */; };
-		7F58ACF21B60AA5400689EF4 /* LaunchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58ACF11B60AA5400689EF4 /* LaunchIcon.png */; };
+		7F58ACF41B60AFA100689EF4 /* LaunchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58ACF31B60AFA100689EF4 /* LaunchIcon.png */; };
 		7F5A07B51B5AEEBC00D52B45 /* UIiAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */; };
 		7F820D011B0E6F80002CAA53 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D001B0E6F80002CAA53 /* Alarm.swift */; };
 		7F820D051B15FF24002CAA53 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D041B15FF24002CAA53 /* UIViewExtension.swift */; };
@@ -124,7 +124,7 @@
 		7F43F9901B409ED900E25247 /* StringManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringManipulation.swift; sourceTree = "<group>"; };
 		7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewControllerTest.swift; sourceTree = "<group>"; };
 		7F580F021B0A869600D88783 /* NSDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTest.swift; sourceTree = "<group>"; };
-		7F58ACF11B60AA5400689EF4 /* LaunchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchIcon.png; sourceTree = "<group>"; };
+		7F58ACF31B60AFA100689EF4 /* LaunchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchIcon.png; sourceTree = "<group>"; };
 		7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIiAdViewController.swift; sourceTree = "<group>"; };
 		7F820D001B0E6F80002CAA53 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		7F820D041B15FF24002CAA53 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		7F41D90C1AF82A8600694800 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
-				7F58ACF11B60AA5400689EF4 /* LaunchIcon.png */,
+				7F58ACF31B60AFA100689EF4 /* LaunchIcon.png */,
 				7FBE61CD1B27AF5100C03766 /* tableSwipeArrow.png */,
 				7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */,
 				7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */,
@@ -589,7 +589,7 @@
 				7F41D92F1AFD00A400694800 /* 0U5SA1430.xls in Resources */,
 				7F41D9371AFD00A400694800 /* 0U5SU1435.xls in Resources */,
 				7F41D9301AFD00A400694800 /* 0U5SU1430.xls in Resources */,
-				7F58ACF21B60AA5400689EF4 /* LaunchIcon.png in Resources */,
+				7F58ACF41B60AFA100689EF4 /* LaunchIcon.png in Resources */,
 				7F41D92C1AFD00A400694800 /* 0U1SU1430.xls in Resources */,
 				7FDADA901B0617D90008EC1D /* ArrowPathEnd.png in Resources */,
 				7FDADA911B0617D90008EC1D /* ArrowPathMiddle.png in Resources */,
