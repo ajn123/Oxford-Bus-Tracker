@@ -107,6 +107,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "OBU Transit"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
