@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import iAd
 
-class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ADBannerViewDelegate{
+class ScheduleViewController: UIViewController, ADBannerViewDelegate{
   
   var locations = [String]()
   var refresh = UIRefreshControl()
@@ -33,7 +33,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     var ad = ADBannerView()
     ad.setTranslatesAutoresizingMaskIntoConstraints(false)
     ad.delegate = self
-    
     return ad
     }()
   
@@ -50,7 +49,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
   lazy var slideLabel: UILabel = {
     var l = UILabel()
     l.setTranslatesAutoresizingMaskIntoConstraints(false)
-    l.text = "Swipe to set reminders"
+    l.text = "Swipe left to set reminders"
     return l
   }()
   
@@ -67,8 +66,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = name
-    // no separator between the tables
     setUpConstraints()
+    
+    showLabelOrTable()
     
   }
   
@@ -104,10 +104,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     self.view.addConstraints(centerConstraint)
     self.view.addConstraints(centerConstraint2)
-    
-    
-    showLabelOrTable()
-    
   }
   
   
@@ -140,6 +136,45 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //TODO
+    let navVC = segue.destinationViewController as! UINavigationController
+    
+    let tableVC = navVC.topViewController as! TimeViewController
+    
+    var cell = sender as! CustomRouteViewCell
+    
+    // removes selection view so reminder tab is still shown
+    cell.selectedBackgroundView.removeFromSuperview()
+    //   cell.contentView.backgroundColor = UIColor(red: 66.0, green: 166.0, blue: 245, alpha: 1.0)
+    cell.slideImage.image = UIImage(named: "tableSwipeArrow.png")
+    
+    tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!,
+      direction: direction,
+      name: name,
+      schedule: NSDate.getWeekday()!)
+    tableVC.stop = cell.locationTitle.text!
+    tableVC.direction = direction
+    tableVC.name = name
+  }
+  
+  
+  func changeDirectionPressed(sender: AnyObject) {
+    direction = !direction
+    locations = BusRoute.busRoutes(name, direction: direction)
+    table.reloadData()
+    showLabelOrTable()
+  }
+  
+  func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+    //   banner.removeFromSuperview()
+  }
+}
+
+
+extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
@@ -193,41 +228,11 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
   }
   
-  
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //TODO
-    let navVC = segue.destinationViewController as! UINavigationController
+  //  Need this for swiping feature
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     
-    let tableVC = navVC.topViewController as! TimeViewController
-    
-    var cell = sender as! CustomRouteViewCell
-    
-    // removes selection view so reminder tab is still shown
-    cell.selectedBackgroundView.removeFromSuperview()
-    //   cell.contentView.backgroundColor = UIColor(red: 66.0, green: 166.0, blue: 245, alpha: 1.0)
-    cell.slideImage.image = UIImage(named: "tableSwipeArrow.png")
-    
-    tableVC.times = BusRoute.getTimesFromStopRegardlessOfTime(cell.locationTitle.text!,
-      direction: direction,
-      name: name,
-      schedule: NSDate.getWeekday()!)
-    tableVC.stop = cell.locationTitle.text!
-    tableVC.direction = direction
-    tableVC.name = name
   }
-  
-  
-  
-  
-  func changeDirectionPressed(sender: AnyObject) {
-    direction = !direction
-    locations = BusRoute.busRoutes(name, direction: direction)
-    table.reloadData()
-    showLabelOrTable()
-  }
-  
-  
-  
+
   
   func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
     
@@ -258,15 +263,5 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     return rowActions
   }
   
-  //  Need this for swiping feature
-  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    
-  }
-  
-  
-  
-  
-  func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-    //   banner.removeFromSuperview()
-  }
 }
+
