@@ -112,16 +112,18 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
   */
   func showLabelOrTable()
   {
-    if(locations.count == 0)
-    {
-      table.hidden = true
-      emptyTableLabel.hidden = false
-    }
-    else
-    {
-      table.hidden = false
-      emptyTableLabel.hidden = true
-    }
+//    if(locations.count == 0)
+//    {
+//      table.hidden = true
+//      emptyTableLabel.hidden = false
+//    }
+//    else
+//    {
+
+//    }
+    
+          table.hidden = false
+          emptyTableLabel.hidden = true
   }
   
   
@@ -162,7 +164,7 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
   
   
   func changeDirectionPressed(sender: AnyObject) {
-    direction = !direction
+    self.direction = !direction
     locations = BusRoute.busRoutes(name, direction: direction)
     table.reloadData()
     showLabelOrTable()

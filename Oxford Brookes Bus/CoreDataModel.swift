@@ -9,12 +9,12 @@
 import UIKit
 import CoreData
 
-class CoreDataModel
+public class CoreDataModel
 {
     static var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    static var context: NSManagedObjectContext = appDel.managedObjectContext!
+    public static var context: NSManagedObjectContext = appDel.managedObjectContext!
 
-    class func massAssign()
+    public class func massAssign()
     {
       var 
 		bus = BusRoute.createBusRoute("U1", destination: "Harcourt Hill", startTime: 605, endTime: 638, schedule: 0, direction: true, vacation: false )

@@ -21,7 +21,7 @@ import CoreData
     -  bus parent:  the parent bus stop this stop belongs to.
 
 */
-class Stop: NSManagedObject {
+public class Stop: NSManagedObject {
 
     @NSManaged var stop_name: String
     @NSManaged var stop_number: NSNumber
@@ -103,7 +103,6 @@ class Stop: NSManagedObject {
         }
         else
         {
-            
             fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1, predicate2, predicate3])
         }
         
