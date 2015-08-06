@@ -94,6 +94,49 @@
             </objects>
             <point key="canvasLocation" x="727.5" y="1430.5"/>
         </scene>
+        <!--Live Schedule-->
+        <scene sceneID="4iB-Pi-Ame">
+            <objects>
+                <navigationController id="AMF-Vb-dQs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Live Schedule" image="Calendar-50.png" id="tFy-RO-3Ew" customClass="RAMAnimatedTabBarItem" customModule="Oxford_Brookes_Bus" customModuleProvider="target">
+                        <connections>
+                            <outlet property="animation" destination="E96-hT-XzU" id="8Jq-4r-Rz5"/>
+                        </connections>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X75-SB-Jda">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="844-Nv-VuD" kind="relationship" relationship="rootViewController" id="8ZS-uD-hXG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bLM-PA-2jT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="E96-hT-XzU" customClass="RAMLeftRotationAnimation" customModule="Oxford_Brookes_Bus" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="997.5" y="-286.5"/>
+        </scene>
+        <!--Live Schedule View Controller-->
+        <scene sceneID="QRm-pL-5ey">
+            <objects>
+                <viewController id="844-Nv-VuD" customClass="LiveScheduleViewController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cPJ-b3-Afc"/>
+                        <viewControllerLayoutGuide type="bottom" id="YIR-Xf-rqo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i3R-dV-1Vf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uwb-gz-4kX"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jLt-rf-0Y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1480.5" y="-286.5"/>
+        </scene>
         <!--Map-->
         <scene sceneID="XEf-I3-qat">
             <objects>
@@ -166,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRU-7C-eIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2678.5" y="1331.5"/>
+            <point key="canvasLocation" x="2422.5" y="1413.5"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="9xU-ZA-lc2">
@@ -182,6 +225,7 @@
                     <connections>
                         <segue destination="13L-mO-M85" kind="relationship" relationship="viewControllers" id="PH9-en-I1x"/>
                         <segue destination="s0R-ee-F6h" kind="relationship" relationship="viewControllers" id="qD3-fT-Axh"/>
+                        <segue destination="AMF-Vb-dQs" kind="relationship" relationship="viewControllers" id="BXp-ou-cj8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dme-Ib-auP" userLabel="First Responder" sceneMemberID="firstResponder"/>

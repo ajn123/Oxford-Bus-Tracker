@@ -67,6 +67,7 @@
 		7FDADA901B0617D90008EC1D /* ArrowPathEnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */; };
 		7FDADA911B0617D90008EC1D /* ArrowPathMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8E1B0617D90008EC1D /* ArrowPathMiddle.png */; };
 		7FDD47C21AEE825200FE2235 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */; };
+		7FDD6BB81B73CDE80021AF83 /* LiveScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD6BB71B73CDE80021AF83 /* LiveScheduleViewController.swift */; };
 		7FEAAE3B1B46B19900360678 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEAAE3A1B46B19900360678 /* iAd.framework */; };
 		7FEE5BC71AE794A0006118DB /* CustomRouteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */; };
 		7FF624931B5786AD0094A64B /* CustomRouteViweCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF624921B5786AD0094A64B /* CustomRouteViweCell.xib */; };
@@ -149,6 +150,7 @@
 		7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathEnd.png; sourceTree = "<group>"; };
 		7FDADA8E1B0617D90008EC1D /* ArrowPathMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathMiddle.png; sourceTree = "<group>"; };
 		7FDD47C11AEE825200FE2235 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		7FDD6BB71B73CDE80021AF83 /* LiveScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScheduleViewController.swift; sourceTree = "<group>"; };
 		7FEAAE3A1B46B19900360678 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRouteViewCell.swift; sourceTree = "<group>"; };
 		7FF624921B5786AD0094A64B /* CustomRouteViweCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomRouteViweCell.xib; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				7F41D9091AF7893400694800 /* MapRouteViewController.swift */,
 				7FB6DC671B1C9D3900B9F768 /* Alert.swift */,
 				7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */,
+				7FDD6BB71B73CDE80021AF83 /* LiveScheduleViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				7F41D8F91AF6E4E000694800 /* RAMFrameItemAnimation.swift in Sources */,
 				7F41D8FA1AF6E4E000694800 /* RAMFumeAnimation.swift in Sources */,
 				7F3BBDBB1AF2A7BC0042C239 /* MapViewController.swift in Sources */,
+				7FDD6BB81B73CDE80021AF83 /* LiveScheduleViewController.swift in Sources */,
 				7F41D93B1B00252D00694800 /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
