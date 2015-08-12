@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "831F4DCBC74C33B79770F523"
+               BlueprintIdentifier = "91E755F15D082898D83E5493"
                BuildableName = "WobbleView.framework"
                BlueprintName = "WobbleView"
                ReferencedContainer = "container:Pods.xcodeproj">

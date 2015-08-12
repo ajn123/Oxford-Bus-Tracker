@@ -52,10 +52,12 @@ code_sign_if_enabled() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'Pods-Oxford Brookes BusTests/Kanna.framework'
   install_framework 'Pods-Oxford Brookes BusTests/Nimble.framework'
   install_framework 'Pods-Oxford Brookes BusTests/Quick.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'Pods-Oxford Brookes BusTests/Kanna.framework'
   install_framework 'Pods-Oxford Brookes BusTests/Nimble.framework'
   install_framework 'Pods-Oxford Brookes BusTests/Quick.framework'
 fi

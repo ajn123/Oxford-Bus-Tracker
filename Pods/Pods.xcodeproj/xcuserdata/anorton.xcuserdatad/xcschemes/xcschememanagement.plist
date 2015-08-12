@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Kanna.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Nimble.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>249698EC6DC43560FFE1EF13213C75BF</key>
+		<key>5693D3D2CCD390FDB9EF81BE2D0274F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8526BE30136DBE6CFF2AF373BC9168BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>963ABE0FE3E75019C37C61178EA51360</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,17 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A6E9B3BEDFF56C2E127E49D0B4F60291</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B970D5EDC47631DE76F6F8ADC056B3EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE1477F64C29E26542F2E1C7F4D2949D</key>
+		<key>F90A085EB9A8404EB01E45B4AAE80B38</key>
 		<dict>
 			<key>primary</key>
 			<true/>

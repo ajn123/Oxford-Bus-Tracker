@@ -69,7 +69,6 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
     setUpConstraints()
     
     showLabelOrTable()
-    
   }
   
   func setUpConstraints()

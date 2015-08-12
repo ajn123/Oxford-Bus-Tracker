@@ -10,12 +10,13 @@ import UIKit
 
 class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
   
-  lazy var busWebView: UIWebView = {
-    var webView = UIWebView()
-    webView.setTranslatesAutoresizingMaskIntoConstraints(false)
-    
-    
-    return webView
+  lazy var busTableView: UITableView = {
+    var table = UITableView()
+    table.setTranslatesAutoresizingMaskIntoConstraints(false)
+    table.delegate = self
+    table.dataSource = self
+    table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    return table
     }()
   
   lazy var stopSelection: UIPickerView = {
@@ -31,22 +32,22 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
   lazy var searchButton: UIButton = {
     var button = UIButton()
     button.setTitle("Search", forState: UIControlState.Normal)
+    button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Highlighted)
     button.addTarget(self, action: "searchTapped:", forControlEvents: UIControlEvents.TouchUpInside)
     button.setTranslatesAutoresizingMaskIntoConstraints(false)
     button.backgroundColor = UIColor.redColor()
     return button
   }()
   
-  var stops = [String]()
+  var stops = [StopNumber]()
+  var timeTable = [String]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Live Schedule"
-    stops = Stop.getDifferantStops()!.map { $0.stop_name }.sorted
-      { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
-    
+    stops = StopNumberManager.stopManager.stops
+  
     setUpView()
-    // Do any additional setup after loading the view.
   }
   
   
@@ -59,13 +60,13 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
   
   
   func setUpView() {
-    self.view.addSubview(busWebView)
+    self.view.addSubview(busTableView)
     self.view.addSubview(stopSelection)
     self.view.addSubview(searchButton)
     
     self.edgesForExtendedLayout = UIRectEdge.Top & UIRectEdge.Bottom
     
-    var viewDict = ["webView": busWebView, "pickerView": stopSelection, "button": searchButton]
+    var viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton]
     
     var vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[pickerView(100)][button][webView]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
 
@@ -80,11 +81,38 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     self.view.addConstraints(hConstraint1)
     self.view.addConstraints(hConstraint2)
     self.view.addConstraints(hConstraint3)
+    
+    stopSelection.selectRow(0, inComponent: 0, animated: true)
   }
   
   func searchTapped(selector: UIButton) {
-    var url = NSURLRequest(URL: NSURL(string: "http://www.oxontime.com/Naptan.aspx?txtSMSnumber=69325678&txtStopname=&txtRoad=&txtTownVillage=&txtPostCodeGZ=&txtServicenumber=&rdExactMatch=exact&hdnSearchType=searchbySMSnumber&hdnSearchValue=69325678&hdnMode=&hdnChkValue=&hdnMapURL=%2Fmap.aspx%3Fmaplayers%3Dnaptan")!)
-    busWebView.loadRequest(url)
+    
+    loadScheudle()
+  }
+  
+  
+  func loadScheudle() {
+    var act = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+    var frame = act.frame
+    
+    frame.origin.x = busTableView.frame.size.width / 2 - frame.size.width / 2
+    frame.origin.y = busTableView.frame.size.height / 2 - frame.size.height / 2
+    
+    act.frame = frame
+    busTableView.addSubview(act)
+    act.startAnimating()
+    
+    // TODO:  CHANGE ME
+    let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+    dispatch_async(dispatch_get_global_queue(priority, 0)) {
+      self.timeTable = OxonTimeAPI.sharedInstance.getSchedule(
+        
+        self.stops[self.stopSelection.selectedRowInComponent(0)].webName)
+      dispatch_async(dispatch_get_main_queue()) {
+        self.busTableView.reloadData()
+        act.stopAnimating()
+      }
+    }
   }
   
   /*
@@ -115,8 +143,26 @@ extension LiveScheduleViewController: UIPickerViewDataSource {
   // for the view versions, we cache any hidden and thus unused views and pass them back for reuse.
   // If you return back a different object, the old one will be released. the view will be centered in the row rect
   func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-    return stops[row]
+    return stops[row].name
   }
   
+  
+}
+
+
+
+extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return timeTable.count
+  }
+  
+  // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+  // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+    cell.textLabel?.text = timeTable[indexPath.row]
+    return cell
+  }
   
 }

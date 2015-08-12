@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		08CD494FD79C130577D24109 /* Pods_Oxford_Brookes_Bus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB81898226276427AA18CC79 /* Pods_Oxford_Brookes_Bus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E3B8100393516602FFA4A41 /* Pods_Oxford_Brookes_BusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7895C7E82171E30A4998B7 /* Pods_Oxford_Brookes_BusTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7F108CE81B79B475003E90DA /* OxonTimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CE71B79B475003E90DA /* OxonTimeAPI.swift */; };
+		7F108CEA1B79B6D0003E90DA /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CE91B79B6D0003E90DA /* HTTPClient.swift */; };
+		7F108CEC1B7B0437003E90DA /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CEB1B7B0437003E90DA /* HTMLParser.swift */; };
 		7F1230CB1B3D705B00895909 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1230CA1B3D705B00895909 /* MapKit.framework */; };
 		7F1230CF1B3D813100895909 /* StopMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1230CE1B3D813100895909 /* StopMKAnnotation.swift */; };
+		7F2287351B75C437006DA55D /* StopNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2287341B75C437006DA55D /* StopNumber.swift */; };
+		7F2287371B75C4EF006DA55D /* StopNumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2287361B75C4EF006DA55D /* StopNumberManager.swift */; };
 		7F306C2A1AF3A83200C9605D /* BusRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F306C291AF3A83200C9605D /* BusRoute.swift */; };
 		7F306C2E1AF3BA9F00C9605D /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F306C2D1AF3BA9F00C9605D /* Stop.swift */; };
 		7F3BBDBB1AF2A7BC0042C239 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */; };
@@ -88,8 +93,13 @@
 		3CA6AA377EE2B5AAC27AA84B /* Pods-Oxford Brookes Bus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes Bus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes Bus/Pods-Oxford Brookes Bus.release.xcconfig"; sourceTree = "<group>"; };
 		5D91B7B4CEDDF3429BCB831C /* Pods-Oxford Brookes BusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes BusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes BusTests/Pods-Oxford Brookes BusTests.release.xcconfig"; sourceTree = "<group>"; };
 		63C1B77D9F5DB3F18997A086 /* Pods-Oxford Brookes Bus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes Bus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes Bus/Pods-Oxford Brookes Bus.debug.xcconfig"; sourceTree = "<group>"; };
+		7F108CE71B79B475003E90DA /* OxonTimeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OxonTimeAPI.swift; sourceTree = "<group>"; };
+		7F108CE91B79B6D0003E90DA /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		7F108CEB1B7B0437003E90DA /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		7F1230CA1B3D705B00895909 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7F1230CE1B3D813100895909 /* StopMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopMKAnnotation.swift; sourceTree = "<group>"; };
+		7F2287341B75C437006DA55D /* StopNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopNumber.swift; sourceTree = "<group>"; };
+		7F2287361B75C4EF006DA55D /* StopNumberManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopNumberManager.swift; sourceTree = "<group>"; };
 		7F306C291AF3A83200C9605D /* BusRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRoute.swift; sourceTree = "<group>"; };
 		7F306C2D1AF3BA9F00C9605D /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		7F3BBDBA1AF2A7BC0042C239 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +192,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F108CE61B79B43B003E90DA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7F108CE71B79B475003E90DA /* OxonTimeAPI.swift */,
+				7F108CE91B79B6D0003E90DA /* HTTPClient.swift */,
+				7F108CEB1B7B0437003E90DA /* HTMLParser.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		7F41D8EA1AF6E4E000694800 /* RAMAnimatedTabBarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +271,8 @@
 				7F306C291AF3A83200C9605D /* BusRoute.swift */,
 				7F306C2D1AF3BA9F00C9605D /* Stop.swift */,
 				7F820D001B0E6F80002CAA53 /* Alarm.swift */,
+				7F2287341B75C437006DA55D /* StopNumber.swift */,
+				7F2287361B75C4EF006DA55D /* StopNumberManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -428,6 +450,7 @@
 		7FBE360D1AE541640055D8CD /* Oxford Brookes Bus */ = {
 			isa = PBXGroup;
 			children = (
+				7F108CE61B79B43B003E90DA /* API */,
 				7F41D9391B00161D00694800 /* Views */,
 				7F41D90E1AF82B6100694800 /* Controllers */,
 				7F41D90D1AF82AA300694800 /* Extensions */,
@@ -721,6 +744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F108CEC1B7B0437003E90DA /* HTMLParser.swift in Sources */,
 				7FEE5BC71AE794A0006118DB /* CustomRouteViewCell.swift in Sources */,
 				7F41D8F81AF6E4E000694800 /* RAMBounceAnimation.swift in Sources */,
 				7F3C122D1AF1771B001EC7E5 /* RoutesTableViewController.swift in Sources */,
@@ -731,6 +755,8 @@
 				7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */,
 				7F41D90A1AF7893400694800 /* MapRouteViewController.swift in Sources */,
 				7F41D8FB1AF6E4E000694800 /* RAMRotationAnimation.swift in Sources */,
+				7F108CEA1B79B6D0003E90DA /* HTTPClient.swift in Sources */,
+				7F2287351B75C437006DA55D /* StopNumber.swift in Sources */,
 				7FDD47C21AEE825200FE2235 /* CoreDataModel.swift in Sources */,
 				7F43F9911B409ED900E25247 /* StringManipulation.swift in Sources */,
 				7F306C2E1AF3BA9F00C9605D /* Stop.swift in Sources */,
@@ -741,9 +767,11 @@
 				7F5A07B51B5AEEBC00D52B45 /* UIiAdViewController.swift in Sources */,
 				7FBE36141AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld in Sources */,
 				7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */,
+				7F108CE81B79B475003E90DA /* OxonTimeAPI.swift in Sources */,
 				7F41D8FE1AF6E4E000694800 /* RAMItemAnimationProtocol.swift in Sources */,
 				7F306C2A1AF3A83200C9605D /* BusRoute.swift in Sources */,
 				7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */,
+				7F2287371B75C4EF006DA55D /* StopNumberManager.swift in Sources */,
 				7F41D8F91AF6E4E000694800 /* RAMFrameItemAnimation.swift in Sources */,
 				7F41D8FA1AF6E4E000694800 /* RAMFumeAnimation.swift in Sources */,
 				7F3BBDBB1AF2A7BC0042C239 /* MapViewController.swift in Sources */,
