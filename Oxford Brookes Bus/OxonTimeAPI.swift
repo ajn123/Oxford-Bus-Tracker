@@ -9,7 +9,7 @@
 import UIKit
 
 
-class OxonTimeAPI: NSObject {
+class OxonTimeAPI: NSObject, StopInformation {
   static let sharedInstance = OxonTimeAPI()
   private let httpClient = HTTPClient() 
   
@@ -17,8 +17,10 @@ class OxonTimeAPI: NSObject {
     super.init()
     
   }
-  
-  func getSchedule(busStopName: String) -> [String] {
-    return httpClient.getRequest(busStopName)
+
+  func getStopInfo(name: String) -> [StopInfo] {
+    return httpClient.getRequest(name) as! [StopInfo]
+    
   }
+
 }

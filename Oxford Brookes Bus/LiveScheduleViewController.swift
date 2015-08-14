@@ -40,7 +40,7 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
   }()
   
   var stops = [StopNumber]()
-  var timeTable = [String]()
+  var timeTable = [StopInfo]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -92,12 +92,17 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
   
   
   func loadScheudle() {
-    var act = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+    var act = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    act.backgroundColor = UIColor.blackColor()
+    act.layer.cornerRadius = 8.0
     var frame = act.frame
+    
+    frame.size.width = 100.0
+    frame.size.height = 100.0
     
     frame.origin.x = busTableView.frame.size.width / 2 - frame.size.width / 2
     frame.origin.y = busTableView.frame.size.height / 2 - frame.size.height / 2
-    
+   
     act.frame = frame
     busTableView.addSubview(act)
     act.startAnimating()
@@ -105,10 +110,15 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     // TODO:  CHANGE ME
     let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
     dispatch_async(dispatch_get_global_queue(priority, 0)) {
-      self.timeTable = OxonTimeAPI.sharedInstance.getSchedule(
-        
-        self.stops[self.stopSelection.selectedRowInComponent(0)].webName)
+      var stop = self.stops[self.stopSelection.selectedRowInComponent(0)].webName
+      self.timeTable = OxonTimeAPI.sharedInstance.getStopInfo(stop)
+      if(self.timeTable.count == 0)
+      {
+        var st = StopInfo(strings: [], stop: StopInfo.stopDescription.noStops)
+        self.timeTable.append(st)
+      }
       dispatch_async(dispatch_get_main_queue()) {
+      
         self.busTableView.reloadData()
         act.stopAnimating()
       }
@@ -145,13 +155,12 @@ extension LiveScheduleViewController: UIPickerViewDataSource {
   func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
     return stops[row].name
   }
-  
-  
 }
 
 
 
 extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource {
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return timeTable.count
   }
@@ -161,7 +170,8 @@ extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
-    cell.textLabel?.text = timeTable[indexPath.row]
+    var stop = timeTable[indexPath.row]
+    cell.textLabel?.text = stop.stopString
     return cell
   }
   

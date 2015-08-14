@@ -16,13 +16,14 @@ class StopNumberManager {
   static var stopManager = StopNumberManager()
   
   var stops = [StopNumber]()
+  
   init()
   {
-    var stop1 = StopNumber(name: "Wheatley Campus", SMS: 69342836)
-    var stop2 = StopNumber(name: "Brookes University stop B2", SMS: 69325678)
-    
-    stops = [stop1, stop2]
-    
+    stops.append( StopNumber(name: "Wheatley Campus", SMS: 69342836) )
+    stops.append( StopNumber(name: "Brookes University stop B2", SMS: 69325678) )
+    stops.append( StopNumber(name: "Brookes Univ B5", SMS: 69325679) )
+    stops.append( StopNumber(name: "Crescent Hall", SMS: 69324626) )
+
     sortStops()
   }
   
