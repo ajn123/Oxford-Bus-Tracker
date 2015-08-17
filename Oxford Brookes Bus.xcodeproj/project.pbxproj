@@ -13,6 +13,7 @@
 		7F108CEA1B79B6D0003E90DA /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CE91B79B6D0003E90DA /* HTTPClient.swift */; };
 		7F108CEC1B7B0437003E90DA /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CEB1B7B0437003E90DA /* HTMLParser.swift */; };
 		7F108CEE1B7D1CAB003E90DA /* StopInformationTuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CED1B7D1CAB003E90DA /* StopInformationTuple.swift */; };
+		7F108CF01B8180E0003E90DA /* ThreadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CEF1B8180E0003E90DA /* ThreadFactory.swift */; };
 		7F1230CB1B3D705B00895909 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1230CA1B3D705B00895909 /* MapKit.framework */; };
 		7F1230CF1B3D813100895909 /* StopMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1230CE1B3D813100895909 /* StopMKAnnotation.swift */; };
 		7F2287351B75C437006DA55D /* StopNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2287341B75C437006DA55D /* StopNumber.swift */; };
@@ -98,6 +99,7 @@
 		7F108CE91B79B6D0003E90DA /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		7F108CEB1B7B0437003E90DA /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		7F108CED1B7D1CAB003E90DA /* StopInformationTuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopInformationTuple.swift; sourceTree = "<group>"; };
+		7F108CEF1B8180E0003E90DA /* ThreadFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadFactory.swift; sourceTree = "<group>"; };
 		7F1230CA1B3D705B00895909 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7F1230CE1B3D813100895909 /* StopMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopMKAnnotation.swift; sourceTree = "<group>"; };
 		7F2287341B75C437006DA55D /* StopNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopNumber.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				7F108CE91B79B6D0003E90DA /* HTTPClient.swift */,
 				7F108CEB1B7B0437003E90DA /* HTMLParser.swift */,
 				7F108CED1B7D1CAB003E90DA /* StopInformationTuple.swift */,
+				7F108CEF1B8180E0003E90DA /* ThreadFactory.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 				7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */,
 				7F41D8FD1AF6E4E000694800 /* RAMAnimatedTabBarController.swift in Sources */,
 				7F820D051B15FF24002CAA53 /* UIViewExtension.swift in Sources */,
+				7F108CF01B8180E0003E90DA /* ThreadFactory.swift in Sources */,
 				7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */,
 				7F41D90A1AF7893400694800 /* MapRouteViewController.swift in Sources */,
 				7F41D8FB1AF6E4E000694800 /* RAMRotationAnimation.swift in Sources */,

@@ -77,7 +77,6 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     
     self.view.addConstraints(vConstraint1)
-  //  self.view.addConstraints(vConstraint2)
     self.view.addConstraints(hConstraint1)
     self.view.addConstraints(hConstraint2)
     self.view.addConstraints(hConstraint3)
@@ -86,7 +85,6 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
   }
   
   func searchTapped(selector: UIButton) {
-    
     loadScheudle()
   }
   
@@ -107,22 +105,25 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     busTableView.addSubview(act)
     act.startAnimating()
     
-    // TODO:  CHANGE ME
-    let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-    dispatch_async(dispatch_get_global_queue(priority, 0)) {
-      var stop = self.stops[self.stopSelection.selectedRowInComponent(0)].webName
-      self.timeTable = OxonTimeAPI.sharedInstance.getStopInfo(stop)
+    self.timeTable.removeAll(keepCapacity: false)
+    
+    ThreadFactory.startNewThread() {
+      var stops = self.stops[self.stopSelection.selectedRowInComponent(0)].getAllSMSNumbers()
+      for stop in stops {
+        self.timeTable += OxonTimeAPI.sharedInstance.getStopInfo(stop)
+      }
       if(self.timeTable.count == 0)
       {
         var st = StopInfo(strings: [], stop: StopInfo.stopDescription.noStops)
         self.timeTable.append(st)
       }
       dispatch_async(dispatch_get_main_queue()) {
-      
+        
         self.busTableView.reloadData()
         act.stopAnimating()
       }
     }
+    
   }
   
   /*
