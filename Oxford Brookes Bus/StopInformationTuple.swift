@@ -26,7 +26,7 @@ class StopInfo: NSObject {
   }
 
   var busName: String = ""
-  var desination: String = ""
+  var destination: String = ""
   var departureTime: String = ""
   var stopString: String = ""
   
@@ -35,9 +35,9 @@ class StopInfo: NSObject {
     {
       case .multiStops:
         busName = strings[0]
-        desination = strings[1]
+        destination = strings[1]
         departureTime = strings[2]
-        self.stopString = "Bus \(self.busName) in \(self.departureTime)"
+        self.stopString = "Bus \(self.busName) to \(self.destination) in \(self.departureTime)"
       case .noStops:
         self.stopString = "No stops available at this time."
     }
