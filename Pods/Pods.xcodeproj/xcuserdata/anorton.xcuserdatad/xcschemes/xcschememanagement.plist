@@ -9,22 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Nimble.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Oxford Brookes Bus.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-Oxford Brookes BusTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Quick.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,17 +27,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5693D3D2CCD390FDB9EF81BE2D0274F1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8526BE30136DBE6CFF2AF373BC9168BB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>963ABE0FE3E75019C37C61178EA51360</key>
+		<key>6A4886BC8B84AEDB5FA293BE7C178CC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +37,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B970D5EDC47631DE76F6F8ADC056B3EC</key>
+		<key>B8B5A9B7F910536DB3A7BC6670BEE6AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

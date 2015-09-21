@@ -54,14 +54,13 @@ public class Stop: NSManagedObject {
     {
         let fetchRequest = NSFetchRequest(entityName: "Stop")
         
-        var sort = NSSortDescriptor(key: "stop_number", ascending: true) // sort by bus stop
+        let sort = NSSortDescriptor(key: "stop_number", ascending: true) // sort by bus stop
         
         fetchRequest.sortDescriptors = [sort]
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(
-                                                        fetchRequest,
-                                                        error: nil)
+        if let fetchResults = (try? CoreDataModel.context.executeFetchRequest(
+                                                        fetchRequest))
                                                         as? [Stop] {
             return fetchResults
         }
@@ -70,7 +69,7 @@ public class Stop: NSManagedObject {
     }
     
     /**
-    :returns: One copy of each Stop instance
+    - returns: One copy of each Stop instance
     */
     class func getDifferantStops() -> [Stop]?
     {
@@ -80,10 +79,10 @@ public class Stop: NSManagedObject {
     /**
     
     
-    :param: stop  the stop  of along a bus route.
-    :param: direction  of the bus route, up (true) down (false)
+    - parameter stop:  the stop  of along a bus route.
+    - parameter direction:  of the bus route, up (true) down (false)
 
-    :returns: The bus route for that stop in the specific direction
+    - returns: The bus route for that stop in the specific direction
     */
     class func allBusRoutesForStop(stop: Stop, direction: Bool? = nil) -> [BusRoute]?
     {
@@ -97,20 +96,19 @@ public class Stop: NSManagedObject {
         
         if let d: Bool = direction
         {
-            let predicate4 = NSPredicate(format: "busParent.direction == %@", stop.busParent.direction)
-            
-            fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1, predicate2, predicate3, predicate4])
+          let predicate4 = NSPredicate(format: "busParent.direction == %@", stop.busParent.direction)
+          
+          fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3, predicate4])
         }
         else
         {
-            fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([predicate1, predicate2, predicate3])
+               fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
         }
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest,
-                                                                        error: nil)
+        if let fetchResults = (try? CoreDataModel.context.executeFetchRequest(fetchRequest))
                                                                         as? [Stop] {
-            var busRoutes = fetchResults.map(){ $0.busParent }
+            let busRoutes = fetchResults.map(){ $0.busParent }
             
             return busRoutes
         }
@@ -127,7 +125,7 @@ public class Stop: NSManagedObject {
             }.withoutDuplicates(){ $0 }
     }
     
-    struct Bus: Printable {
+    struct Bus: CustomStringConvertible {
        
         var name = ""
         var direction: Bool = true
@@ -150,8 +148,7 @@ public class Stop: NSManagedObject {
         fetchRequest.predicate = predicate1
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest,
-            error: nil)
+        if let fetchResults = (try? CoreDataModel.context.executeFetchRequest(fetchRequest))
             as? [Stop]
         {
             var busRoutes: [Bus] = fetchResults.map()
@@ -180,7 +177,7 @@ public class Stop: NSManagedObject {
     }
     
     /**
-    :returns: The unique Bus route names for the stop.
+    - returns: The unique Bus route names for the stop.
     **/
     class func allBusUniqueBusStopNames(stop: Stop) -> String
     {

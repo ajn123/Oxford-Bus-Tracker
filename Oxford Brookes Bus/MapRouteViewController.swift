@@ -16,14 +16,14 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
     
     lazy var routeName: UILabel! = {
         var label = UILabel()
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var routeSegmentControl: UISegmentedControl! =
     {
         var segmentControl = UISegmentedControl()
-        segmentControl.setTranslatesAutoresizingMaskIntoConstraints(false)
+        segmentControl.translatesAutoresizingMaskIntoConstraints = false
         segmentControl.addTarget(self, action: "segmentChange:", forControlEvents: UIControlEvents.ValueChanged)
         return segmentControl
     }()
@@ -32,7 +32,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
     {
         var button = UIButton()
         button.addTarget(self, action: "changeDirectionTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-        button.setTranslatesAutoresizingMaskIntoConstraints(false)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(patternImage: UIImage(named: "changeDirection.png")!)
         return button
     }()
@@ -41,7 +41,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
        var table = UITableView()
         table.delegate = self
         table.dataSource = self
-        table.setTranslatesAutoresizingMaskIntoConstraints(false)
+        table.translatesAutoresizingMaskIntoConstraints = false
         table.registerClass(UITableViewCell.self , forCellReuseIdentifier: "routeCell")
         return table
     }()
@@ -50,7 +50,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
     lazy var adBanner: ADBannerView = {
         var ad = ADBannerView()
         ad.delegate = self
-        ad.setTranslatesAutoresizingMaskIntoConstraints(false)
+        ad.translatesAutoresizingMaskIntoConstraints = false
         return ad
     }()
     
@@ -58,7 +58,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
     
     lazy var emptyTableLabel: UILabel = {
         var label = UILabel()
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
         label.textAlignment = NSTextAlignment.Center
         label.numberOfLines = 4
@@ -103,21 +103,21 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
   
     func setUpConstraints()
     {
-        self.edgesForExtendedLayout = UIRectEdge.Bottom & UIRectEdge.Top
+        self.edgesForExtendedLayout = UIRectEdge.Bottom.intersect(UIRectEdge.Top)
         self.view.addSubview(adBanner)
         self.view.addSubview(routeTable)
         self.view.addSubview(routeChangeButton)
         self.view.addSubview(routeName)
         self.view.addSubview(routeSegmentControl)
         self.view.addSubview(emptyTableLabel)
-        var viewDict = ["adBanner": adBanner, "routeTable": routeTable, "routeChangeButton": routeChangeButton, "routeSegmentControl": routeSegmentControl, "routeName": routeName,
+        let viewDict = ["adBanner": adBanner, "routeTable": routeTable, "routeChangeButton": routeChangeButton, "routeSegmentControl": routeSegmentControl, "routeName": routeName,
             "superview": view, "label": emptyTableLabel]
-        var verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[routeName]-[routeSegmentControl]-[routeTable][adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
-        var verticalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[routeChangeButton(45)]-5-[routeSegmentControl]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
-        var horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
-        var horizontalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeChangeButton(45)]-5-[routeName]|", options: NSLayoutFormatOptions(0) , metrics: nil, views: viewDict)
-        var horizontalConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[routeTable]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
-        var horizontalConstraint4 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeSegmentControl]-5-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
+        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[routeName]-[routeSegmentControl]-[routeTable][adBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+        let verticalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[routeChangeButton(45)]-5-[routeSegmentControl]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+        let horizontalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeChangeButton(45)]-5-[routeName]|", options: NSLayoutFormatOptions(rawValue: 0) , metrics: nil, views: viewDict)
+        let horizontalConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[routeTable]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+        let horizontalConstraint4 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeSegmentControl]-5-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
         
         self.view.addConstraints(verticalConstraint)
         self.view.addConstraints(verticalConstraint2)
@@ -126,8 +126,8 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addConstraints(horizontalConstraint3)
         self.view.addConstraints(horizontalConstraint4)
         
-        var centerConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewDict)
-        var centerConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterY, metrics: nil, views: viewDict)
+        let centerConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewDict)
+        let centerConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterY, metrics: nil, views: viewDict)
         
         self.view.addConstraints(centerConstraint)
         self.view.addConstraints(centerConstraint2)
@@ -177,9 +177,9 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell = tableView.dequeueReusableCellWithIdentifier("routeCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("routeCell", forIndexPath: indexPath) as UITableViewCell
         
-        var singleStop = self.busStops[indexPath.row]
+        let singleStop = self.busStops[indexPath.row]
         
         if (stop!.stop_name == singleStop)
         {
@@ -221,7 +221,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
     {
         self.stopNames = Stop.uniqueBusNamesArray(stop!)
         self.stops = (stop!.busParent.stops.allObjects as? [Stop])!
-        self.stops.sort()
+        self.stops.sortInPlace()
         {
             first, sec -> Bool in
             return first.stop_number.integerValue < sec.stop_number.integerValue
@@ -230,7 +230,7 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
         
         stopNames = StringManipulation.sortBusses(self.stopNames)
         
-        for (index, s) in enumerate(self.stopNames)
+        for (index, s) in self.stopNames.enumerate()
         {
             routeSegmentControl.insertSegmentWithTitle(s, atIndex: index, animated: true)
         }

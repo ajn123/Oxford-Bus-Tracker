@@ -25,13 +25,13 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
     tab.dataSource = self
     tab.rowHeight = 146.0
     tab.separatorStyle = UITableViewCellSeparatorStyle.None
-    tab.setTranslatesAutoresizingMaskIntoConstraints(false)
+    tab.translatesAutoresizingMaskIntoConstraints = false
     return tab
     }()
   
   lazy var addBanner: ADBannerView = {
     var ad = ADBannerView()
-    ad.setTranslatesAutoresizingMaskIntoConstraints(false)
+    ad.translatesAutoresizingMaskIntoConstraints = false
     ad.delegate = self
     return ad
     }()
@@ -41,21 +41,21 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
     var button = UIButton()
     button.addTarget(self, action: "changeDirectionPressed:", forControlEvents: UIControlEvents.TouchUpInside)
     button.backgroundColor = UIColor(patternImage: UIImage(named: "changeDirection.png")!)
-    button.setTranslatesAutoresizingMaskIntoConstraints(false)
+    button.translatesAutoresizingMaskIntoConstraints = false
     
     return button
     }()
   
   lazy var slideLabel: UILabel = {
     var l = UILabel()
-    l.setTranslatesAutoresizingMaskIntoConstraints(false)
+    l.translatesAutoresizingMaskIntoConstraints = false
     l.text = "Swipe left to set reminders"
     return l
   }()
   
   lazy var emptyTableLabel: UILabel = {
     var label = UILabel()
-    label.setTranslatesAutoresizingMaskIntoConstraints(false)
+    label.translatesAutoresizingMaskIntoConstraints = false
     label.lineBreakMode = NSLineBreakMode.ByWordWrapping
     label.textAlignment = NSTextAlignment.Center
     label.numberOfLines = 4
@@ -83,14 +83,14 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
     self.view.addSubview(slideLabel)
     table.addSubview(refresh)
     
-    self.edgesForExtendedLayout = UIRectEdge.Bottom & UIRectEdge.Top
-    var viewDicts = ["table": table, "addBanner": addBanner, "slideLabel": slideLabel, "button": button, "superview": view, "label": emptyTableLabel]
+    self.edgesForExtendedLayout = UIRectEdge.Bottom.intersect(UIRectEdge.Top)
+    let viewDicts = ["table": table, "addBanner": addBanner, "slideLabel": slideLabel, "button": button, "superview": view, "label": emptyTableLabel]
     
-    var Vertical_Layout_1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[button(45)]-[table][addBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
-    var Vertical_Layout_2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[slideLabel]-[table]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
-    var Horizontal_Layout_1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[button(45)]-[slideLabel]-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
-    var Horizontal_Layout_2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[table]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
-    var Horizontal_Layout_3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[addBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDicts)
+    let Vertical_Layout_1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[button(45)]-[table][addBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDicts)
+    let Vertical_Layout_2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[slideLabel]-[table]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDicts)
+    let Horizontal_Layout_1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[button(45)]-[slideLabel]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDicts)
+    let Horizontal_Layout_2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[table]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDicts)
+    let Horizontal_Layout_3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[addBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDicts)
     
     self.view.addConstraints(Vertical_Layout_1)
     self.view.addConstraints(Vertical_Layout_2)
@@ -98,8 +98,8 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
     self.view.addConstraints(Horizontal_Layout_2)
     self.view.addConstraints(Horizontal_Layout_3)
     
-    var centerConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewDicts)
-    var centerConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterY, metrics: nil, views: viewDicts)
+    let centerConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewDicts)
+    let centerConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterY, metrics: nil, views: viewDicts)
     
     self.view.addConstraints(centerConstraint)
     self.view.addConstraints(centerConstraint2)
@@ -145,10 +145,10 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
     
     let tableVC = navVC.topViewController as! TimeViewController
     
-    var cell = sender as! CustomRouteViewCell
+    let cell = sender as! CustomRouteViewCell
     
     // removes selection view so reminder tab is still shown
-    cell.selectedBackgroundView.removeFromSuperview()
+    cell.selectedBackgroundView!.removeFromSuperview()
     //   cell.contentView.backgroundColor = UIColor(red: 66.0, green: 166.0, blue: 245, alpha: 1.0)
     cell.slideImage.image = UIImage(named: "tableSwipeArrow.png")
     
@@ -184,9 +184,9 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
-    var stop = locations[indexPath.row]
+    let stop = locations[indexPath.row]
     
-    var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomRouteViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomRouteViewCell
     
     cell.locationTitle.text = "\(stop)"
     
@@ -210,10 +210,10 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     
     let tableVC = TimeViewController()
     
-    var cell = tableView.cellForRowAtIndexPath(indexPath) as! CustomRouteViewCell
+    let cell = tableView.cellForRowAtIndexPath(indexPath) as! CustomRouteViewCell
     
     // removes selection view so reminder tab is still shown
-    cell.selectedBackgroundView.removeFromSuperview()
+    cell.selectedBackgroundView!.removeFromSuperview()
     //   cell.contentView.backgroundColor = UIColor(red: 66.0, green: 166.0, blue: 245, alpha: 1.0)
     cell.slideImage.image = UIImage(named: "tableSwipeArrow.png")
     
@@ -235,7 +235,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
   }
 
   
-  func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+  func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
     
     var rowActions = [AnyObject]()
     
@@ -249,10 +249,10 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     for elem in [5,10,15,20]
     {
       
-      var rowAction: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "\(elem)")
+      let rowAction: UITableViewRowAction = UITableViewRowAction(style: .Normal, title: "\(elem)")
         {  (_, _) in
           
-          var refreshAlert = Alarm.getReminderView(elem, view: self.parentViewController!.view)
+          let refreshAlert = Alarm.getReminderView(elem, view: self.parentViewController!.view)
           
           self.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
       }
@@ -261,7 +261,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
       rowActions.append(rowAction)
       
     }
-    return rowActions
+    return rowActions as? [UITableViewRowAction]
   }
   
 }

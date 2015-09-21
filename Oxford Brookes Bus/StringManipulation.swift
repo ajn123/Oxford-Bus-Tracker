@@ -16,16 +16,16 @@ class  StringManipulation
      */
      class func sortBusses(strings: [String]) -> [String]
         {
-            return strings.sorted()
+            return strings.sort()
             {
                 (a, b) -> Bool in
-                var str =  a.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-                var abc = "".join(str)
-                var comp1 = abc.toInt()!
+                let str =  a.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+                let abc = str.joinWithSeparator("")
+                let comp1 = Int(abc)!
                 
-                var str2 =  b.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-                var abc2 = "".join(str2)
-                var comp2 = abc2.toInt()!
+                let str2 =  b.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+                let abc2 = str2.joinWithSeparator("")
+                let comp2 = Int(abc2)!
                 
                 if(comp1 < comp2)
                 {

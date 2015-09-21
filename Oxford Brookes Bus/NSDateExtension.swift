@@ -13,7 +13,7 @@ extension NSDate{
     public static var currentMilitaryTime: Int {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let components = calendar.components([.Hour, .Minute], fromDate: date)
         let hour = components.hour
         let minutes = components.minute
         return hour * 100 + minutes
@@ -35,14 +35,12 @@ extension NSDate{
     public func isSummer() -> Bool
     {
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitMonth
-                                             | .CalendarUnitDay
-                                             | .CalendarUnitYear, fromDate: self)
+        let components = calendar.components([.Month, .Day, .Year], fromDate: self)
         components.month = 5
         components.day = 25
         components.hour = 0
    
-        var startSummer: NSDate = calendar.dateFromComponents(components)!
+        let startSummer: NSDate = calendar.dateFromComponents(components)!
         //println(startSummer)
         if(self.compare(startSummer) == NSComparisonResult.OrderedAscending)
         {
@@ -52,7 +50,7 @@ extension NSDate{
         components.month = 9
         components.day = 11
         
-        var endSummer: NSDate = calendar.dateFromComponents(components)!
+        let endSummer: NSDate = calendar.dateFromComponents(components)!
         
         if(self.compare(endSummer) == NSComparisonResult.OrderedDescending)
         {
@@ -72,7 +70,7 @@ extension NSDate{
     {
         let todayDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
-        let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: todayDate)
+        let myComponents = myCalendar?.components(.NSWeekdayCalendarUnit, fromDate: todayDate)
         let day = BusDayPatterns(rawValue: myComponents!.weekday)!
 
         switch day
@@ -96,18 +94,18 @@ extension NSDate{
             NSException(name: "Incorrect Parameters", reason: "first parameter time1 should be bigger than parameter time2", userInfo: nil)
         }
         
-        var time1Hour = time1 / 100
-        var time2Hour = time2 / 100
+        let time1Hour = time1 / 100
+        let time2Hour = time2 / 100
         
-        var hourDifferance = time1Hour - time2Hour
+        let hourDifferance = time1Hour - time2Hour
         
         return time1 - time2 - (40 * hourDifferance)
     }
     
     public class func minutesToHours(minutes: Int) -> String
     {
-        var hours = minutes / 60
-        var minutes = minutes % 60
+        let hours = minutes / 60
+        let minutes = minutes % 60
         
         var hoursStr = ""
         var minutesStr = ""

@@ -17,8 +17,8 @@ public class Alarm{
     static var calendarDatabase = EKEventStore()
     
     public class func eventStoreAccessReminders() {
-        calendarDatabase.requestAccessToEntityType(EKEntityTypeReminder,
-            completion: {(granted: Bool, error:NSError!)
+        calendarDatabase.requestAccessToEntityType(EKEntityType.Reminder,
+            completion: {(granted: Bool, error:Optional<NSError>)
                 -> Void in
                 if !granted {}
                 else{}
@@ -30,7 +30,7 @@ public class Alarm{
     */
     public class func createReminder(reminderTitle: String, timeInterval: NSDate) {
         
-        var calendars = calendarDatabase.calendarsForEntityType(EKEntityTypeReminder)
+        var calendars = calendarDatabase.calendarsForEntityType(EKEntityType.Reminder)
         
         eventStoreAccessReminders()
         
@@ -46,13 +46,17 @@ public class Alarm{
         
         var error: NSError?
         
-        calendarDatabase.saveReminder(reminder, commit: true, error: &error)
+        do {
+            try calendarDatabase.saveReminder(reminder, commit: true)
+        } catch let error1 as NSError {
+            error = error1
+        }
     }
     
     public class func getReminderView(timeInterval: Int, view: UIView) -> UIAlertController
     {
     
-        var refreshAlert = UIAlertController(title: "Reminder",
+        let refreshAlert = UIAlertController(title: "Reminder",
                                              message: "Remind me in \(timeInterval) minutes",
                                              preferredStyle: UIAlertControllerStyle.Alert)
     
@@ -71,7 +75,7 @@ public class Alarm{
             let strTime = "\(timeInterval)"
             if(strTime != "")
             {
-                let time = strTime.toInt()!
+                let time = Int(strTime)!
                 if(time < 300)
                 {
                     Alarm.createReminder("Catch the Bus",

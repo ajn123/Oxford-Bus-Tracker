@@ -20,7 +20,7 @@ A bus route holds a collection of stops that the bus visits.
 -  direction:  bus routes can go one way or the opposite way
 -  vacation:  indicates whether this bus route is only used during a vacation period
 */
-public class BusRoute: NSManagedObject, Printable {
+public class BusRoute: NSManagedObject {
   
   @NSManaged var name: String
   @NSManaged var destination: String
@@ -62,14 +62,13 @@ public class BusRoute: NSManagedObject, Printable {
   {
     let fetchRequest = NSFetchRequest(entityName: "BusRoute")
     
-    var sort = NSSortDescriptor(key: "name", ascending: true) // sort by bus stop
+    let sort = NSSortDescriptor(key: "name", ascending: true) // sort by bus stop
     
     fetchRequest.sortDescriptors = [sort]
     
     // Execute the fetch request, and cast the results to an array of LogItem objects
-    if let fetchResults = CoreDataModel.context.executeFetchRequest(
-      fetchRequest,
-      error: nil) as? [BusRoute]
+    if let fetchResults = (try? CoreDataModel.context.executeFetchRequest(
+      fetchRequest)) as? [BusRoute]
     {
       return fetchResults.map({ $0.name }).removeDuplicates()
     }
@@ -82,7 +81,7 @@ public class BusRoute: NSManagedObject, Printable {
   {
     let fetchRequest = NSFetchRequest(entityName: "Stop")
     
-    var sort = NSSortDescriptor(key: "stop_number", ascending: true) // sort by bus stop
+    let sort = NSSortDescriptor(key: "stop_number", ascending: true) // sort by bus stop
     
     fetchRequest.sortDescriptors = [sort]
     
@@ -90,12 +89,11 @@ public class BusRoute: NSManagedObject, Printable {
     
     let predicate2 = NSPredicate(format: "stop_name == %@", busStop)
     
-    fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(
+    fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates:
       [predicate, predicate2])
     
     // Execute the fetch request, and cast the results to an array of LogItem objects
-    if let fetchResults = CoreDataModel.context.executeFetchRequest(fetchRequest,
-      error: nil) as? [Stop]
+    if let fetchResults = (try? CoreDataModel.context.executeFetchRequest(fetchRequest)) as? [Stop]
     {
       return fetchResults.first!.busParent.direction
     }
@@ -114,11 +112,10 @@ public class BusRoute: NSManagedObject, Printable {
     //  let predicate3 = NSPredicate(format: "stop_name == %@", stop_name)
     
     // Execute the fetch request, and cast the results to an array of LogItem objects
-    if let fetchResults = CoreDataModel.context.executeFetchRequest(
-      fetchRequest,
-      error: nil) as? [Stop]
+    if let fetchResults = (try? CoreDataModel.context.executeFetchRequest(
+      fetchRequest)) as? [Stop]
     {
-      var results = fetchResults.sorted() {
+      let results = fetchResults.sort() {
         (s1: Stop, s2: Stop) -> Bool in
         return s1.stop_number.integerValue < s2.stop_number.integerValue
       }
@@ -139,11 +136,11 @@ public class BusRoute: NSManagedObject, Printable {
   {
     let fetchRequest = NSFetchRequest(entityName: "Stop")
     
-    var sort = NSSortDescriptor(key: "time", ascending: true) // sort by bus stop
+    let sort = NSSortDescriptor(key: "time", ascending: true) // sort by bus stop
     
     fetchRequest.sortDescriptors = [sort, NSSortDescriptor(key: "stop_number", ascending: true)]
     
-    var predicates = [AnyObject]()
+    var predicates = [NSPredicate]()
     
     if let stopName = stop {
       let predicate1 = NSPredicate(format: "stop_name == %@", stopName)
@@ -159,7 +156,7 @@ public class BusRoute: NSManagedObject, Printable {
     
     predicates.append(NSPredicate(format: "busParent.vacation == %@", NSDate().isSummer()))
     
-    fetchRequest.predicate = NSCompoundPredicate.andPredicateWithSubpredicates(predicates)
+    fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
     
     return fetchRequest
   }
@@ -182,7 +179,7 @@ public class BusRoute: NSManagedObject, Printable {
       fetchRequest.predicate = nextPredicate
     
     // Execute the fetch request, and cast the results to an array of LogItem objects
-    return (CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop])!
+    return ((try? CoreDataModel.context.executeFetchRequest(fetchRequest)) as? [Stop])!
   }
   
   
@@ -197,7 +194,7 @@ public class BusRoute: NSManagedObject, Printable {
     
     let fetchResults = getDepartures(stop, direction: direction, name: name, schedule: schedule)
     
-    var stops = fetchResults
+    let stops = fetchResults
     
     for str in stops
     {
@@ -215,7 +212,7 @@ public class BusRoute: NSManagedObject, Printable {
     let fetchRequest = busDepartureSearchRequest(stop, direction: direction, name: name, schedule: schedule)
     
     // Execute the fetch request, and cast the results to an array of LogItem objects
-    return (CoreDataModel.context.executeFetchRequest(fetchRequest, error: nil) as? [Stop])!
+    return ((try? CoreDataModel.context.executeFetchRequest(fetchRequest)) as? [Stop])!
   }
   
   class func getTimesFromStopRegardlessOfTime(stop: String,
@@ -230,7 +227,7 @@ public class BusRoute: NSManagedObject, Printable {
       name: name,
       schedule: schedule)
     
-    var stops = fetchResults
+    let stops = fetchResults
     
     for st in stops
     {
@@ -249,7 +246,7 @@ public class BusRoute: NSManagedObject, Printable {
     
     let fetchResults = getDepartures(stop, direction: direction, name: name, schedule: schedule)
     
-    var stops = fetchResults
+    let stops = fetchResults
     
     for st in stops
     {
@@ -294,7 +291,7 @@ public class BusRoute: NSManagedObject, Printable {
       
       for stop in stops
       {
-        var time = stop.time.integerValue
+        let time = stop.time.integerValue
         let timeToGo = NSDate.militaryTimeDifferanceInMinutes(time, time2: currentTime)
         let formattedTime = formatter.stringFromNumber(time)!
         if (timeToGo <= 2)

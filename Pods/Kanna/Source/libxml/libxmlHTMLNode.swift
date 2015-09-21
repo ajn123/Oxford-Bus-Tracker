@@ -29,13 +29,13 @@ libxmlHTMLNode
 internal final class libxmlHTMLNode: XMLElement {
     var text: String? {
         if nodePtr != nil {
-            return String.fromCString(UnsafePointer(xmlNodeGetContent(nodePtr)))
+            return libxmlGetNodeContent(nodePtr)
         }
         return nil
     }
     
     var toHTML: String? {
-        var buf = xmlBufferCreate()
+        let buf = xmlBufferCreate()
         htmlNodeDump(buf, docPtr, nodePtr)
         let html = String.fromCString(UnsafePointer(buf.memory.content))
         xmlBufferFree(buf)
@@ -43,11 +43,12 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     var innerHTML: String? {
-        var html: String = ""
-        html += libxmlGetNodeText(nodePtr.memory.children)
-        html += self.xpath(".//*").first?.toHTML ?? ""
-        html += libxmlGetNodeText(xmlGetLastChild(nodePtr))
-        return html
+        if let html = self.toHTML {
+            let inner = html.stringByReplacingOccurrencesOfString("</.*>$", withString: "", options: .RegularExpressionSearch, range: nil)
+                            .stringByReplacingOccurrencesOfString("^<.*>", withString: "", options: .RegularExpressionSearch, range: nil)
+            return inner
+        }
+        return nil
     }
     
     var className: String? {
@@ -71,7 +72,7 @@ internal final class libxmlHTMLNode: XMLElement {
             let mem = attr.memory
             if let tagName = String.fromCString(UnsafePointer(mem.name)) {
                 if attributeName == tagName {
-                    return String.fromCString(UnsafePointer(xmlNodeGetContent(mem.children)))
+                    return libxmlGetNodeContent(mem.children)
                 }
             }
         }
@@ -111,17 +112,18 @@ internal final class libxmlHTMLNode: XMLElement {
         
         let nodeSet = result.memory.nodesetval
         if nodeSet == nil || nodeSet.memory.nodeNr == 0 || nodeSet.memory.nodeTab == nil {
+            xmlXPathFreeObject(result)
             return XMLNodeSet()
         }
         
         var nodes : [XMLElement] = []
         let size = Int(nodeSet.memory.nodeNr)
         for var i = 0; i < size; ++i {
-            let node = nodeSet.memory.nodeTab[i]
+            let node: xmlNodePtr = nodeSet.memory.nodeTab[i]
             let htmlNode = libxmlHTMLNode(docPtr: docPtr, node: node)
             nodes.append(htmlNode)
         }
-        
+        xmlXPathFreeObject(result)
         return XMLNodeSet(nodes: nodes)
     }
     
@@ -161,11 +163,12 @@ internal final class libxmlHTMLNode: XMLElement {
     }
 }
 
-private func libxmlGetNodeText(nodePtr: xmlNodePtr) -> String {
-    let type = nodePtr.memory.type
-    if type.value == XML_TEXT_NODE.value,
-        let text = String.fromCString(UnsafePointer(xmlNodeGetContent(nodePtr))) {
-            return text
+private func libxmlGetNodeContent(nodePtr: xmlNodePtr) -> String? {
+    let content = xmlNodeGetContent(nodePtr)
+    if let result  = String.fromCString(UnsafePointer(content)) {
+        content.dealloc(1)
+        return result
     }
-    return ""
+    content.dealloc(1)
+    return nil
 }

@@ -16,7 +16,7 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
         t.delegate = self
         t.dataSource = self
         t.rowHeight = 55.0
-        t.setTranslatesAutoresizingMaskIntoConstraints(false)
+        t.translatesAutoresizingMaskIntoConstraints = false
         t.registerClass(UITableViewCell.self, forCellReuseIdentifier: "timeCell")
         return t
     }()
@@ -24,7 +24,7 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
     lazy var dayOfWeek: UISegmentedControl! = {
         var items = ["M-F", "Sat", "Sun"]
         var seg = UISegmentedControl(items: items)
-        seg.setTranslatesAutoresizingMaskIntoConstraints(false)
+        seg.translatesAutoresizingMaskIntoConstraints = false
         
         seg.addTarget(self, action: "segmentChange:", forControlEvents: UIControlEvents.ValueChanged)
         seg.selectedSegmentIndex = NSDate.getWeekday()!
@@ -34,7 +34,7 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
     lazy var availableTimes: UISegmentedControl! = {
         var items = ["all", "available"]
         var a = UISegmentedControl(items: items)
-        a.setTranslatesAutoresizingMaskIntoConstraints(false)
+        a.translatesAutoresizingMaskIntoConstraints = false
         a.addTarget(self, action: "availbilityChanged:", forControlEvents: UIControlEvents.ValueChanged)
         
         a.selectedSegmentIndex = 0
@@ -63,17 +63,17 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func addConstraints()
     {
-        self.edgesForExtendedLayout = UIRectEdge.Top & UIRectEdge.Bottom
+        self.edgesForExtendedLayout = UIRectEdge.Top.intersect(UIRectEdge.Bottom)
         self.view.addSubview(timeTable)
         self.view.addSubview(dayOfWeek)
         self.view.addSubview(availableTimes)
-        var viewsDict = ["timeTable": timeTable, "dayOfWeek": dayOfWeek, "availableTimes": availableTimes]
+        let viewsDict = ["timeTable": timeTable, "dayOfWeek": dayOfWeek, "availableTimes": availableTimes]
         
-        var verticalLayout = NSLayoutConstraint.constraintsWithVisualFormat("V:|[timeTable]-[dayOfWeek]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
-        var verticalLayout2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[timeTable]-[availableTimes]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
+        let verticalLayout = NSLayoutConstraint.constraintsWithVisualFormat("V:|[timeTable]-[dayOfWeek]-10-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict)
+        let verticalLayout2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[timeTable]-[availableTimes]-10-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict)
         
-        var horizontalLayout = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[dayOfWeek(==availableTimes)]-[availableTimes(==dayOfWeek)]-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
-        var horizontalLayout2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[timeTable]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
+        let horizontalLayout = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[dayOfWeek(==availableTimes)]-[availableTimes(==dayOfWeek)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict)
+        let horizontalLayout2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[timeTable]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict)
         
         
         self.view.addConstraints(verticalLayout)
@@ -126,11 +126,11 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
     {
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "timeCell")
 
-        var militaryTime = NSDate.currentMilitaryTime
+        let militaryTime = NSDate.currentMilitaryTime
         
-        var time = NSDate.militaryTimeDifferanceInMinutes(times[indexPath.row].toInt()!, time2: militaryTime)
+        let time = NSDate.militaryTimeDifferanceInMinutes(Int(times[indexPath.row])!, time2: militaryTime)
        
-        if(militaryTime < times[indexPath.row].toInt())
+        if(militaryTime < Int(times[indexPath.row]))
         {
             // green
             cell.backgroundColor = UIColor(red: 0.00, green: 1.00, blue: 0.00, alpha: 1.00)
@@ -150,9 +150,9 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        var time = times[indexPath.row].toInt()!
+        let time = Int(times[indexPath.row])!
         
-        var currentTime = NSDate.currentMilitaryTime
+        let currentTime = NSDate.currentMilitaryTime
         
         var alert: UIAlertController = UIAlertController()
         
@@ -165,8 +165,8 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 if((currentTime + num) <= time)
                 {
-                    var timeInMinutes: NSTimeInterval = Double(5)
-                    var action = UIAlertAction(title: "\(num) minutes before departure", style: UIAlertActionStyle.Default,
+                    let timeInMinutes: NSTimeInterval = Double(5)
+                    let action = UIAlertAction(title: "\(num) minutes before departure", style: UIAlertActionStyle.Default,
                         handler: { action -> Void in
                             Alarm.createReminder("Catch \(self.name) Bus",
                                                  timeInterval: NSDate(timeIntervalSinceNow: timeInMinutes))
@@ -182,7 +182,7 @@ class TimeViewController: UIViewController, UITableViewDelegate, UITableViewData
             alert = UIAlertController(title: "Run for your life!", message: "You should have left already!", preferredStyle: UIAlertControllerStyle.ActionSheet)
         }
         
-        var cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
         
         alert.addAction(cancel)
         

@@ -40,23 +40,24 @@ public class RoutesTableViewController: UITableViewController {
     
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) 
         cell.textLabel?.text = routes[indexPath.row]
         return cell
     }
-    
-
-   
-   
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let dVC = segue.destinationViewController as! UINavigationController
-        var seg = dVC.topViewController as! ScheduleViewController
-        
-        let cell = sender as! UITableViewCell
-        seg.name = cell.textLabel!.text!
-        seg.locations = BusRoute.busRoutes(seg.name)
+  
+    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      let seg = ScheduleViewController()
+      
+      seg.name = routes[indexPath.row]
+      seg.locations = BusRoute.busRoutes(seg.name)
+      seg.view.backgroundColor = UIColor.whiteColor()
+      
+      self.navigationController?.pushViewController(seg, animated: true)
     }
+
+  
+  
+
     
         
     

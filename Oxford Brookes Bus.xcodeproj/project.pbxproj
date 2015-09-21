@@ -573,6 +573,8 @@
 		7FBE36031AE541640055D8CD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "AJ Norton";
 				TargetAttributes = {
@@ -967,7 +969,6 @@
 				INFOPLIST_FILE = "Oxford Brookes BusTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Oxford Brookes Bus.app/Oxford Brookes Bus";
 			};
 			name = Debug;
 		};
@@ -983,7 +984,7 @@
 				INFOPLIST_FILE = "Oxford Brookes BusTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Oxford Brookes Bus.app/Oxford Brookes Bus";
+				"TEST_HOST[sdk=*]" = "";
 			};
 			name = Release;
 		};

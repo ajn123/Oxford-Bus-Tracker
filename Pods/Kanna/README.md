@@ -14,12 +14,60 @@ Features:
 
 Installation:
 =================
-####Carthage
+
+### Swift2
+```
+$ sudo xcode-select -switch /Applications/Xcode-beta.app/Contents/Developer
+```
+
+#####Cocoapods
+Adding it to your `Podfile`:
+```
+use_frameworks!
+pod 'Kanna', '~> 1.0.0'
+```
+
+#####Carthage
 Adding it to your `Cartfile`:
 
 ```
-github "tid-kijyun/Kanna" >= 0.1.0
+github "tid-kijyun/Kanna" ~> 1.0.0
 ```
+
+#####Munually
+1. Add files to your project:  
+  [Kanna.swift](Source/Kanna.swift)  
+  [CSS.swift](Source/CSS.swift)  
+  [libxmlHTMLDocument.swift](Source/libxml/libxmlHTMLDocument.swift)  
+  [libxmlHTMLNode.swift](Source/libxml/libxmlHTMLNode.swift)  
+  [libxmlParserOption.swift](Source/libxml/libxmlParserOption.swift)  
+1. Add import libxml headers:  
+ Copy and paste these import statements to `[modulename]-Bridging-Header.h`.
+  ```[ANYNAME]-Bridging-Header.h
+  #import <libxml/HTMLtree.h>
+  #import <libxml/xpathInternals.h>
+  ```
+  (optional) In the project settings add "[modulename]-Bridging-Header.h" to the "Objective-C Bridging Header".
+
+1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
+1. Add libxml2.dylib to "Link Binary With Libraries"
+
+
+### Swift1.2（deprecated）
+#####Cocoapods
+Adding it to your `Podfile`:
+```
+use_frameworks!
+pod 'Kanna', '~> 0.1.5'
+```
+
+#####Carthage
+Adding it to your `Cartfile`:
+
+```
+github "tid-kijyun/Kanna" ~> 0.1.5
+```
+
 
 Synopsis:
 =================
@@ -103,23 +151,6 @@ for node in doc.xpath("//div") {
 }
 ```
 
-// Search for nodes by xpath
-```
-if let inputNodes = bodyNode?.xpath("//div") {
-    for node in inputNodes {
-        println(node.contents)
-    }
-}
-```
-
-// Search for nodes by css
-```
-if let inputNodes = bodyNode?.css("li:nth-child(2n)") {
-    for node in inputNodes {
-        println(node.contents)
-    }
-}
-```
 #### Search for nodes by CSS
 ```swift
 // Swift-HTML-Parser

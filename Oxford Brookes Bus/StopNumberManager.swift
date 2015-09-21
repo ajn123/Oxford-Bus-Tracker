@@ -34,13 +34,12 @@ class StopNumberManager {
     stops.append( StopNumber(name: "Harcourt Hill Campus", SMS: [69327243]) )
     stops.append( StopNumber(name: "St. Aldates", SMS: [69326476,69326478]) )
     
-    
     sortStops()
   }
   
   
   func sortStops() {
-    stops.sort()
+    stops.sortInPlace()
     {
       (s1: StopNumber, s2: StopNumber) -> Bool in
       return s1.name.localizedCaseInsensitiveCompare(s2.name) == NSComparisonResult.OrderedAscending

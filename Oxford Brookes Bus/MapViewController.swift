@@ -24,29 +24,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        var latitude:CLLocationDegrees = 51.751798
+        let latitude:CLLocationDegrees = 51.751798
         
-        var longitude:CLLocationDegrees =  -1.257544
+        let longitude:CLLocationDegrees =  -1.257544
         
-        var latDelta:CLLocationDegrees = 0.002
+        let latDelta:CLLocationDegrees = 0.002
         
-        var lonDelta:CLLocationDegrees = 0.125
+        let lonDelta:CLLocationDegrees = 0.125
         
-        var span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
         
-        var location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
         
-        var region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
         
         for stop in Stop.getDifferantStops()!
         {
-            var annotation: StopMKAnnotation = StopMKAnnotation(stop: stop)
+            let annotation: StopMKAnnotation = StopMKAnnotation(stop: stop)
             
-            var olatitude:CLLocationDegrees = stop.latitude.doubleValue
+            let olatitude:CLLocationDegrees = stop.latitude.doubleValue
         
-            var olongitude:CLLocationDegrees = stop.longitude.doubleValue
+            let olongitude:CLLocationDegrees = stop.longitude.doubleValue
         
-            var olocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(olatitude, olongitude)
+            let olocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(olatitude, olongitude)
         
             annotation.coordinate = olocation
         
@@ -64,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // U1 Heading Hill 51.755511, -1.226302
   
     // For MapKit provided annotations (eg. MKUserLocation) return nil to use the MapKit provided annotation view.
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView!
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView!
     {
         // Do NOT annotate your current location
         if(annotation is MKUserLocation)
@@ -72,62 +72,48 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return nil
         }
         
-        var mkPinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pinLocation")
+        let mkPinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pinLocation")
         mkPinView.canShowCallout = true
         
-        mkPinView.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
+        mkPinView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
         
         return mkPinView
     }
 
-    func mapView(mapView: MKMapView!,
-                 annotationView view: MKAnnotationView!,
-                 calloutAccessoryControlTapped control: UIControl!)
+    func mapView(mapView: MKMapView,
+                 annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl)
     {
-        performSegueWithIdentifier("annotationPress", sender: view)
+      let vc = MapRouteViewController()
+      
+      let annotation = view.annotation as! StopMKAnnotation
+      
+      vc.routeLabelName = annotation.stop.stop_name
+      
+      vc.stop = annotation.stop
+      
+      self.navigationController?.pushViewController(vc, animated: false)
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        var a = locations[0] as! CLLocation
+        let a = locations[0] 
         
-        var latitude:CLLocationDegrees = a.coordinate.latitude
+        let latitude:CLLocationDegrees = a.coordinate.latitude
         
-        var long: CLLocationDegrees = a.coordinate.longitude
+        let long: CLLocationDegrees = a.coordinate.longitude
         
-        var latDelta: CLLocationDegrees = 0.0002
+        let latDelta: CLLocationDegrees = 0.0002
         
-        var longDelte: CLLocationDegrees = 0.0002
+        let longDelte: CLLocationDegrees = 0.0002
         
-        var span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelte)
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelte)
         
-        var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: long)
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: long)
         
         var region = MKCoordinateRegion(center: location, span: span)
         
     //  self.map.setRegion(region, animated: true)
     
     }
-    
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "annotationPress"
-        {
-            var dvc = segue.destinationViewController as! UINavigationController
-            
-            var vc = dvc.topViewController as! MapRouteViewController
-            
-            var view = sender as! MKAnnotationView
-            
-            var annotation = view.annotation as! StopMKAnnotation
-  
-            vc.routeLabelName = annotation.stop.stop_name
-            
-            vc.stop = annotation.stop
-        }
-    }
-    
-    
-    
-    
 }

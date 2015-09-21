@@ -40,7 +40,7 @@ class TimeTableViewController: UITableViewController {
     {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "timeCell")
        
-        var militaryTime = NSDate.currentMilitaryTime
+        let militaryTime = NSDate.currentMilitaryTime
         
         if( militaryTime < times[indexPath.row])
         {

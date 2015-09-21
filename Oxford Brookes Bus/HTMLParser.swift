@@ -20,7 +20,7 @@ class HTMLParser {
     var stopInfo = [StopInfo]()
     
     if let doc = Kanna.HTML(html: data, encoding: NSUTF8StringEncoding) {
-      for (index, link) in enumerate(doc.css("tbody > tr > td:first-child, tbody > tr > td:nth-child(2), tbody > tr > td:nth-child(3)")) {
+      for (index, link) in doc.css("tbody > tr > td:first-child, tbody > tr > td:nth-child(2), tbody > tr > td:nth-child(3)").enumerate() {
         if (link.text! != "")
         {
           strings.append(link.text!)

@@ -13,13 +13,13 @@ class UIiAdViewController: UIViewController, ADBannerViewDelegate{
   
   lazy var addBanner: ADBannerView = {
     var ad = ADBannerView()
-    ad.setTranslatesAutoresizingMaskIntoConstraints(false)
+    ad.translatesAutoresizingMaskIntoConstraints = false
     ad.delegate = self
     return ad
   }()
   
   
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
   
@@ -36,11 +36,11 @@ class UIiAdViewController: UIViewController, ADBannerViewDelegate{
   
   func setUpAdConstraint()
   {
-    self.edgesForExtendedLayout = UIRectEdge.Bottom & UIRectEdge.Top
+    self.edgesForExtendedLayout = UIRectEdge.Bottom.intersect(UIRectEdge.Top)
     self.view.addSubview(addBanner)
-    var viewDict = ["adBanner": addBanner]
-    var verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
-    var horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
+    let viewDict = ["adBanner": addBanner]
+    let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[adBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     self.view.addConstraints(verticalConstraint)
     self.view.addConstraints(horizontalConstraint)

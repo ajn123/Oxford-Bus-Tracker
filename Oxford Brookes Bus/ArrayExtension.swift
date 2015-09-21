@@ -18,7 +18,7 @@ extension Array{
         {
             if let elem = element as? T
             {
-                if !contains(array, elem)
+                if !array.contains(elem)
                 {
                     array.append(elem)
                 }
@@ -27,8 +27,8 @@ extension Array{
         return array
     }
     
-    func withoutDuplicates<U : Hashable>(attribute : T -> U) -> [T] {
-        var result : [T] = []
+    func withoutDuplicates<U : Hashable>(attribute : Element -> U) -> [Element] {
+        var result : [Element] = []
         
         var seen : Set<U> = Set()
         for elem in self {

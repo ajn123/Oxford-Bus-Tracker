@@ -8,14 +8,15 @@
 
 import UIKit
 
-class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class LiveScheduleViewController: UIViewController {
   
   lazy var busTableView: UITableView = {
     var table = UITableView()
-    table.setTranslatesAutoresizingMaskIntoConstraints(false)
+    table.translatesAutoresizingMaskIntoConstraints = false
     table.delegate = self
     table.dataSource = self
     table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    table.pagingEnabled = true
     return table
     }()
   
@@ -23,7 +24,7 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     var pickerView = UIPickerView()
     pickerView.delegate = self
     pickerView.dataSource = self
-    pickerView.setTranslatesAutoresizingMaskIntoConstraints(false)
+    pickerView.translatesAutoresizingMaskIntoConstraints = false
     
     return pickerView
   }()
@@ -34,8 +35,9 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     button.setTitle("Search", forState: UIControlState.Normal)
     button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Highlighted)
     button.addTarget(self, action: "searchTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-    button.setTranslatesAutoresizingMaskIntoConstraints(false)
+    button.translatesAutoresizingMaskIntoConstraints = false
     button.backgroundColor = UIColor.redColor()
+    
     return button
   }()
   
@@ -60,26 +62,38 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
   
   
   func setUpView() {
+    
+    let headerView = UIView(frame: UIScreen.mainScreen().bounds)
+    headerView.backgroundColor = UIColor.greenColor()
+    headerView.addSubview(stopSelection)
+    headerView.addSubview(searchButton)
+    self.busTableView.tableHeaderView = headerView
+    
     self.view.addSubview(busTableView)
-    self.view.addSubview(stopSelection)
-    self.view.addSubview(searchButton)
     
-    self.edgesForExtendedLayout = UIRectEdge.Top & UIRectEdge.Bottom
+    let adjustForTabbarInsets = UIEdgeInsets(top: 0, left: 0, bottom: CGRectGetHeight(self.tabBarController!.tabBar.frame), right: 0)
+    self.busTableView.contentInset = adjustForTabbarInsets
+    self.busTableView.scrollIndicatorInsets = adjustForTabbarInsets
     
-    var viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton]
+   
+    self.edgesForExtendedLayout = UIRectEdge.Bottom
     
-    var vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[pickerView(100)][button][webView]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
-
+    let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton]
     
-    var hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
-    var hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
-    var hConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[button]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewDict)
+    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[button(100)][pickerView(250)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let vConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
+    let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let hConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[button]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
-    self.view.addConstraints(vConstraint1)
-    self.view.addConstraints(hConstraint1)
+    headerView.addConstraints(vConstraint1)
+    headerView.addConstraints(hConstraint1)
     self.view.addConstraints(hConstraint2)
-    self.view.addConstraints(hConstraint3)
+    self.view.addConstraints(vConstraint2)
+    headerView.addConstraints(hConstraint3)
+    
+    
     
     stopSelection.selectRow(0, inComponent: 0, animated: true)
   }
@@ -90,7 +104,7 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
   
   
   func loadScheudle() {
-    var act = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    let act = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     act.backgroundColor = UIColor.blackColor()
     act.layer.cornerRadius = 8.0
     var frame = act.frame
@@ -108,19 +122,20 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
     self.timeTable.removeAll(keepCapacity: false)
     
     ThreadFactory.startNewThread() {
-      var stops = self.stops[self.stopSelection.selectedRowInComponent(0)].getAllSMSNumbers()
+      let stops = self.stops[self.stopSelection.selectedRowInComponent(0)].getAllSMSNumbers()
       for stop in stops {
         self.timeTable += OxonTimeAPI.sharedInstance.getStopInfo(stop)
       }
       if(self.timeTable.count == 0)
       {
-        var st = StopInfo(strings: [], stop: StopInfo.stopDescription.noStops)
+        let st = StopInfo(strings: [], stop: StopInfo.stopDescription.noStops)
         self.timeTable.append(st)
       }
       dispatch_async(dispatch_get_main_queue()) {
-        
         self.busTableView.reloadData()
         act.stopAnimating()
+  
+        self.getTablePoint(NSIndexPath(forRow: 0, inSection: 0))
       }
     }
     
@@ -138,7 +153,7 @@ class LiveScheduleViewController: UIViewController, UIPickerViewDataSource, UIPi
   
 }
 
-extension LiveScheduleViewController: UIPickerViewDataSource {
+extension LiveScheduleViewController: UIPickerViewDataSource, UIPickerViewDelegate {
   
   // returns the number of 'columns' to display.
   func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -153,7 +168,7 @@ extension LiveScheduleViewController: UIPickerViewDataSource {
   // these methods return either a plain NSString, a NSAttributedString, or a view (e.g UILabel) to display the row for the component.
   // for the view versions, we cache any hidden and thus unused views and pass them back for reuse.
   // If you return back a different object, the old one will be released. the view will be centered in the row rect
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { 
     return stops[row].name
   }
 }
@@ -165,15 +180,29 @@ extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return timeTable.count
   }
-  
   // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
   // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
-    var stop = timeTable[indexPath.row]
+    let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+    let stop = timeTable[indexPath.row]
+    cell.textLabel?.numberOfLines = 1
+    cell.textLabel?.minimumScaleFactor = 8/(cell.textLabel?.font.pointSize)!
+    cell.textLabel?.adjustsFontSizeToFitWidth = true
+    
     cell.textLabel?.text = stop.stopString
     return cell
+  }
+  
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    getTablePoint(indexPath)
+  }
+  
+  func getTablePoint(index: NSIndexPath) {
+    let i = self.busTableView.rectForRowAtIndexPath(index)
+    
+    self.busTableView.setContentOffset(i.origin, animated: true)
   }
   
 }

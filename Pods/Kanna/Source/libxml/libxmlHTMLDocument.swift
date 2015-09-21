@@ -22,6 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+import Foundation
 
 /*
 libxmlHTMLDocument
@@ -61,16 +62,20 @@ internal final class libxmlHTMLDocument: HTMLDocument {
         if html.lengthOfBytesUsingEncoding(encoding) <= 0 {
             return nil
         }
-        var cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding)
-        var cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
+        let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding)
+        let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
         
         if let cur = html.cStringUsingEncoding(encoding) {
-            var url : String = ""
+            let url : String = ""
             docPtr = htmlReadDoc(UnsafePointer<xmlChar>(cur), url, String(cfencstr), CInt(option))
             rootNode  = libxmlHTMLNode(docPtr: docPtr)
         } else {
             return nil
         }
+    }
+    
+    deinit {
+        xmlFreeDoc(self.docPtr)
     }
 
     var title: String? { return at_xpath("//title")?.text }
@@ -148,11 +153,11 @@ internal final class libxmlXMLDocument: XMLDocument {
         if xml.lengthOfBytesUsingEncoding(encoding) <= 0 {
             return nil
         }
-        var cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding)
-        var cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
+        let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding)
+        let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
         
         if let cur = xml.cStringUsingEncoding(encoding) {
-            var url : String = ""
+            let url : String = ""
             docPtr = xmlReadDoc(UnsafePointer<xmlChar>(cur), url, String(cfencstr), CInt(option))
             rootNode  = libxmlHTMLNode(docPtr: docPtr)
         } else {
