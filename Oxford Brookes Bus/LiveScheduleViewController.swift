@@ -17,6 +17,7 @@ class LiveScheduleViewController: UIViewController {
     table.dataSource = self
     table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     table.pagingEnabled = true
+    table.showsHorizontalScrollIndicator = false
     return table
     }()
   
@@ -25,7 +26,6 @@ class LiveScheduleViewController: UIViewController {
     pickerView.delegate = self
     pickerView.dataSource = self
     pickerView.translatesAutoresizingMaskIntoConstraints = false
-    
     return pickerView
   }()
   
@@ -33,11 +33,11 @@ class LiveScheduleViewController: UIViewController {
   lazy var searchButton: UIButton = {
     var button = UIButton()
     button.setTitle("Search", forState: UIControlState.Normal)
+    button.titleLabel!.font = UIFont(name: "HelveticaNeue-Light", size: 26)
     button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Highlighted)
     button.addTarget(self, action: "searchTapped:", forControlEvents: UIControlEvents.TouchUpInside)
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.backgroundColor = UIColor.redColor()
-    
+    button.backgroundColor = UIColor.blackColor()
     return button
   }()
   
@@ -64,23 +64,28 @@ class LiveScheduleViewController: UIViewController {
   func setUpView() {
     
     let headerView = UIView(frame: UIScreen.mainScreen().bounds)
-    headerView.backgroundColor = UIColor.greenColor()
+    headerView.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height - self.tabBarController!.tabBar.frame.height)
+    
+    headerView.backgroundColor = UIColor.clearColor()
     headerView.addSubview(stopSelection)
     headerView.addSubview(searchButton)
     self.busTableView.tableHeaderView = headerView
     
     self.view.addSubview(busTableView)
+//    #2ecc71
+    headerView.backgroundColor = UIColor(red: 46 / 255, green: 204 / 255, blue: 113 / 255, alpha: 1)
     
-    let adjustForTabbarInsets = UIEdgeInsets(top: 0, left: 0, bottom: CGRectGetHeight(self.tabBarController!.tabBar.frame), right: 0)
+    let adjustForTabbarInsets =
+      UIEdgeInsets(top: 0, left: 0, bottom: CGRectGetHeight(self.tabBarController!.tabBar.frame), right: 0)
     self.busTableView.contentInset = adjustForTabbarInsets
     self.busTableView.scrollIndicatorInsets = adjustForTabbarInsets
     
-   
+    searchButton.layer.cornerRadius = 17.0
     self.edgesForExtendedLayout = UIRectEdge.Bottom
     
     let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton]
     
-    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[button(100)][pickerView(250)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[pickerView(300)][button(100)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let vConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
@@ -93,9 +98,7 @@ class LiveScheduleViewController: UIViewController {
     self.view.addConstraints(vConstraint2)
     headerView.addConstraints(hConstraint3)
     
-    
-    
-    stopSelection.selectRow(0, inComponent: 0, animated: true)
+    stopSelection.selectRow(stopSelection.numberOfRowsInComponent(0) / 2, inComponent: 0, animated: true)
   }
   
   func searchTapped(selector: UIButton) {
@@ -171,6 +174,8 @@ extension LiveScheduleViewController: UIPickerViewDataSource, UIPickerViewDelega
   func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { 
     return stops[row].name
   }
+  
+ 
 }
 
 
@@ -201,7 +206,6 @@ extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource
   
   func getTablePoint(index: NSIndexPath) {
     let i = self.busTableView.rectForRowAtIndexPath(index)
-    
     self.busTableView.setContentOffset(i.origin, animated: true)
   }
   
