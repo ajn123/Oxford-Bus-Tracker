@@ -19,7 +19,7 @@ class LiveScheduleViewController: UIViewController {
     table.pagingEnabled = true
     table.showsHorizontalScrollIndicator = false
     return table
-    }()
+  }()
   
   lazy var stopSelection: UIPickerView = {
     var pickerView = UIPickerView()
@@ -32,7 +32,7 @@ class LiveScheduleViewController: UIViewController {
   
   lazy var searchButton: UIButton = {
     var button = UIButton()
-    button.setTitle("Search", forState: UIControlState.Normal)
+    button.setTitle("Find Buses", forState: UIControlState.Normal)
     button.titleLabel!.font = UIFont(name: "HelveticaNeue-Light", size: 26)
     button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Highlighted)
     button.addTarget(self, action: "searchTapped:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -63,8 +63,15 @@ class LiveScheduleViewController: UIViewController {
   
   func setUpView() {
     
-    let headerView = UIView(frame: UIScreen.mainScreen().bounds)
-    headerView.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height - self.tabBarController!.tabBar.frame.height)
+    let searchIcon = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search,
+                                    target: self,
+                                    action: "searchClicked:")
+                                  
+    self.navigationItem.rightBarButtonItem = searchIcon
+    
+    
+    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width,
+      height: UIScreen.mainScreen().bounds.height - self.tabBarController!.tabBar.frame.height - (self.navigationController?.navigationBar.bounds.height)! - UIApplication.sharedApplication().statusBarFrame.size.height) )
     
     headerView.backgroundColor = UIColor.clearColor()
     headerView.addSubview(stopSelection)
@@ -72,7 +79,8 @@ class LiveScheduleViewController: UIViewController {
     self.busTableView.tableHeaderView = headerView
     
     self.view.addSubview(busTableView)
-//    #2ecc71
+    
+    //    #2ecc71
     headerView.backgroundColor = UIColor(red: 46 / 255, green: 204 / 255, blue: 113 / 255, alpha: 1)
     
     let adjustForTabbarInsets =
@@ -85,8 +93,12 @@ class LiveScheduleViewController: UIViewController {
     
     let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton]
     
-    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[pickerView(300)][button(100)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[pickerView(400)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    
     let vConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    
+    let vConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("V:[button(100)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    
     
     let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
@@ -94,6 +106,7 @@ class LiveScheduleViewController: UIViewController {
     
     headerView.addConstraints(vConstraint1)
     headerView.addConstraints(hConstraint1)
+    headerView.addConstraints(vConstraint3)
     self.view.addConstraints(hConstraint2)
     self.view.addConstraints(vConstraint2)
     headerView.addConstraints(hConstraint3)
@@ -103,6 +116,10 @@ class LiveScheduleViewController: UIViewController {
   
   func searchTapped(selector: UIButton) {
     loadScheudle()
+  }
+  
+  func searchClicked(sender: UIBarButtonItem) {
+    self.busTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
   }
   
   
@@ -137,7 +154,6 @@ class LiveScheduleViewController: UIViewController {
       dispatch_async(dispatch_get_main_queue()) {
         self.busTableView.reloadData()
         act.stopAnimating()
-  
         self.getTablePoint(NSIndexPath(forRow: 0, inSection: 0))
       }
     }
