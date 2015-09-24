@@ -15,12 +15,17 @@ class HTMLParser {
   
   init() {}
   
-  class func parseBusTable(data: NSData) -> [AnyObject] {
+  class func parseBusTable(data: NSData?) -> [AnyObject] {
+    guard let d = data else {
+      return [StopInfo(strings: [], stop: StopInfo.stopDescription.noStops)]
+    }
+    
     var strings = [String]()
     var stopInfo = [StopInfo]()
     
-    if let doc = Kanna.HTML(html: data, encoding: NSUTF8StringEncoding) {
-      for (index, link) in doc.css("tbody > tr > td:first-child, tbody > tr > td:nth-child(2), tbody > tr > td:nth-child(3)").enumerate() {
+    if let doc = Kanna.HTML(html: d, encoding: NSUTF8StringEncoding) {
+      for (_, link) in
+        doc.css("tbody > tr > td:first-child, tbody > tr > td:nth-child(2), tbody > tr > td:nth-child(3)").enumerate() {
         if (link.text! != "")
         {
           strings.append(link.text!)

@@ -18,11 +18,14 @@ class HTTPClient: NSObject {
   
   func getRequest(name: String) -> [AnyObject] {
     let url = NSURL(string: name)!
-  
-    let response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>= nil
-    let dataVal: NSData = try! NSURLConnection.sendSynchronousRequest(NSURLRequest(URL: url),
-                                                                 returningResponse: response)
-                                                              
+    var dataVal: NSData? = nil
+    do{
+      dataVal = try NSURLConnection.sendSynchronousRequest(NSURLRequest(URL: url),
+                                                                      returningResponse: nil)
+    }
+    catch {
+      dataVal = nil 
+    }
     return HTMLParser.parseBusTable(dataVal) as! [StopInfo]
   }
   

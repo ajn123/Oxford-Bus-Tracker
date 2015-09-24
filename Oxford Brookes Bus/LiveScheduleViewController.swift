@@ -71,7 +71,7 @@ class LiveScheduleViewController: UIViewController {
     
     
     let headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width,
-      height: UIScreen.mainScreen().bounds.height - self.tabBarController!.tabBar.frame.height - (self.navigationController?.navigationBar.bounds.height)! - UIApplication.sharedApplication().statusBarFrame.size.height) )
+        height: UIScreen.mainScreen().bounds.height - self.tabBarController!.tabBar.frame.height - (self.navigationController?.navigationBar.bounds.height)! - UIApplication.sharedApplication().statusBarFrame.size.height) )
     
     headerView.backgroundColor = UIColor.clearColor()
     headerView.addSubview(stopSelection)
@@ -121,7 +121,6 @@ class LiveScheduleViewController: UIViewController {
   func searchClicked(sender: UIBarButtonItem) {
     self.busTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
   }
-  
   
   func loadScheudle() {
     let act = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)

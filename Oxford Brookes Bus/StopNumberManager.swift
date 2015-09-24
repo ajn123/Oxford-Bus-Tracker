@@ -27,7 +27,8 @@ class StopNumberManager {
     stops.append( StopNumber(name: "Headington Hill Campus", SMS: [69346867]) )
     stops.append( StopNumber(name: "Castle Street", SMS: [69326548, 69326547, 69326526, 69326545, 69347482]) )
     stops.append( StopNumber(name: "Speedwell Street", SMS: [69345486, 69345627]) )
-    stops.append( StopNumber(name: "Headington Shops", SMS: [69342583, 69325689, 69325452, 69347624, 69347625, 69325692]) )
+    stops.append( StopNumber(name: "Headington Shops",
+      SMS: [69342583, 69325689, 69325452, 69347624, 69347625, 69325692]) )
     stops.append( StopNumber(name: "Slade Park", SMS: [69347876]) )
     stops.append( StopNumber(name: "Wheatley Church", SMS: [69342934, 69342828,69327374,69327543]) )
     stops.append( StopNumber(name: "Park End Street", SMS: [69328968]) )
