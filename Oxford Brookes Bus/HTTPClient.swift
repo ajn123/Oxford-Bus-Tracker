@@ -15,13 +15,12 @@ class HTTPClient: NSObject {
     super.init()
   }
   
-  
   func getRequest(name: String) -> [AnyObject] {
     let url = NSURL(string: name)!
     var dataVal: NSData? = nil
     do{
       dataVal = try NSURLConnection.sendSynchronousRequest(NSURLRequest(URL: url),
-                                                                      returningResponse: nil)
+                                                           returningResponse: nil)
     }
     catch {
       dataVal = nil 

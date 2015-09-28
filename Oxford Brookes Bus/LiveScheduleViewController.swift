@@ -97,12 +97,12 @@ class LiveScheduleViewController: UIViewController {
     
     let vConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
-    let vConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("V:[button(100)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let vConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("V:[button(100)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     
     let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-    let hConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[button]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let hConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[button(200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     headerView.addConstraints(vConstraint1)
     headerView.addConstraints(hConstraint1)

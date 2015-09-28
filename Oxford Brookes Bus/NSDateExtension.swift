@@ -82,7 +82,10 @@ extension NSDate{
             case .Sunday:
                 return 2
             default: // out of week index
-                NSException(name: "Date Incorrect", reason: "Returned a value outside of 1 - 7", userInfo: nil).raise()
+                NSException(name: "Date Incorrect",
+                            reason: "Returned a value outside of 1 - 7",
+                            userInfo: nil).raise()
+                
                 return nil
         }
     }
@@ -91,7 +94,9 @@ extension NSDate{
     {
         if time2 > time1
         {
-            NSException(name: "Incorrect Parameters", reason: "first parameter time1 should be bigger than parameter time2", userInfo: nil)
+            NSException(name: "Incorrect Parameters",
+                        reason: "first parameter time1 should be bigger than parameter time2",
+                        userInfo: nil)
         }
         
         let time1Hour = time1 / 100
@@ -125,7 +130,6 @@ extension NSDate{
             hoursStr = "\(hours) hours"
         }
             
-            
         if(minutes == 1)
         {
             minutesStr = "1 minute"
@@ -137,11 +141,5 @@ extension NSDate{
         
         return hoursStr + andStr + minutesStr
     }
-    
-    
-
-    
-    
-    
     
 }
