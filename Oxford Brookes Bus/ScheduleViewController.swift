@@ -75,7 +75,6 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
   {
     refresh.addTarget(self, action: Selector("refreshing"), forControlEvents: UIControlEvents.ValueChanged)
     
-    
     self.view.addSubview(table)
     self.view.addSubview(addBanner)
     self.view.addSubview(button)
@@ -107,20 +106,10 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
   
   
   /**
-  Hides table if nothing is showing
+    Hides table if nothing is showing
   */
   func showLabelOrTable()
   {
-//    if(locations.count == 0)
-//    {
-//      table.hidden = true
-//      emptyTableLabel.hidden = false
-//    }
-//    else
-//    {
-
-//    }
-    
           table.hidden = false
           emptyTableLabel.hidden = true
   }
@@ -239,7 +228,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     
     var rowActions = [AnyObject]()
     
-    let colorDict: [Int:UIColor] = [
+    let colorDict: [Int: UIColor] = [
       5:  UIColor(red:0.29, green:0.91, blue:0.56, alpha:1.0),
       10: UIColor(red:0.29, green:0.91, blue:0.85, alpha:1.0),
       15: UIColor(red:0.29, green:0.53, blue:0.91, alpha:1.0),
@@ -257,9 +246,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
           self.parentViewController?.presentViewController(refreshAlert, animated: true, completion: nil)
       }
       rowAction.backgroundColor = colorDict[elem]
-      
       rowActions.append(rowAction)
-      
     }
     return rowActions as? [UITableViewRowAction]
   }

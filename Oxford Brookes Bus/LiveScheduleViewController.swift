@@ -99,7 +99,6 @@ class LiveScheduleViewController: UIViewController {
     
     let vConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("V:[button(100)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
-    
     let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let hConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[button(200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
@@ -107,9 +106,10 @@ class LiveScheduleViewController: UIViewController {
     headerView.addConstraints(vConstraint1)
     headerView.addConstraints(hConstraint1)
     headerView.addConstraints(vConstraint3)
+    headerView.addConstraints(hConstraint3)
+    
     self.view.addConstraints(hConstraint2)
     self.view.addConstraints(vConstraint2)
-    headerView.addConstraints(hConstraint3)
     
     stopSelection.selectRow(stopSelection.numberOfRowsInComponent(0) / 2, inComponent: 0, animated: true)
   }
@@ -128,8 +128,10 @@ class LiveScheduleViewController: UIViewController {
     act.layer.cornerRadius = 8.0
     var frame = act.frame
     
-    frame.size.width = 100.0
-    frame.size.height = 100.0
+    let squareSize: CGFloat = 100.0
+    
+    frame.size.width = squareSize
+    frame.size.height = squareSize
     
     frame.origin.x = busTableView.frame.size.width / 2 - frame.size.width / 2
     frame.origin.y = busTableView.frame.size.height / 2 - frame.size.height / 2
@@ -154,21 +156,10 @@ class LiveScheduleViewController: UIViewController {
         self.busTableView.reloadData()
         act.stopAnimating()
         self.getTablePoint(NSIndexPath(forRow: 0, inSection: 0))
+        act.removeFromSuperview()
       }
     }
-    
   }
-  
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
-  
 }
 
 extension LiveScheduleViewController: UIPickerViewDataSource, UIPickerViewDelegate {

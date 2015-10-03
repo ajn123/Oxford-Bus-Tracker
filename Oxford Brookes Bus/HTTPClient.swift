@@ -16,7 +16,11 @@ class HTTPClient: NSObject {
   }
   
   func getRequest(name: String) -> [AnyObject] {
-    let url = NSURL(string: name)!
+    
+    guard let url = NSURL(string: name) else {
+      return HTMLParser.parseBusTable(nil) as! [StopInfo]
+    }
+    
     var dataVal: NSData? = nil
     do{
       dataVal = try NSURLConnection.sendSynchronousRequest(NSURLRequest(URL: url),
