@@ -18,7 +18,7 @@ class HTTPClient: NSObject {
   func getRequest(name: String) -> [AnyObject] {
     
     guard let url = NSURL(string: name) else {
-      return HTMLParser.parseBusTable(nil) as! [StopInfo]
+      return HTMLParser.parseBusTable(nil)
     }
     
     var dataVal: NSData? = nil
