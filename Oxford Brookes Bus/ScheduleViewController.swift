@@ -30,10 +30,10 @@ class ScheduleViewController: UIViewController, ADBannerViewDelegate{
     }()
   
   lazy var addBanner: ADBannerView = {
-    var ad = ADBannerView()
-    ad.translatesAutoresizingMaskIntoConstraints = false
-    ad.delegate = self
-    return ad
+      var ad = ADBannerView()
+      ad.translatesAutoresizingMaskIntoConstraints = false
+      ad.delegate = self
+      return ad
     }()
   
   

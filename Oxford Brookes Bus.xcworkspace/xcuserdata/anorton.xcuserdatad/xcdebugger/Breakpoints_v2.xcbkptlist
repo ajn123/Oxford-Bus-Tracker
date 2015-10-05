@@ -566,11 +566,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Oxford Brookes Bus/LiveScheduleViewController.swift"
-            timestampString = "460576107.23423"
+            timestampString = "465696369.111527"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
             landmarkName = "LiveScheduleViewController"
             landmarkType = "3">
          </BreakpointContent>

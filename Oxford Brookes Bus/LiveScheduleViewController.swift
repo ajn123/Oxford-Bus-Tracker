@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import iAd
 
-class LiveScheduleViewController: UIViewController {
+class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   
   lazy var busTableView: UITableView = {
     var table = UITableView()
@@ -41,6 +42,14 @@ class LiveScheduleViewController: UIViewController {
     return button
   }()
   
+  
+  lazy var iAd: ADBannerView = {
+    var ad = ADBannerView()
+    ad.translatesAutoresizingMaskIntoConstraints = false
+    ad.delegate = self
+    return ad
+  }()
+  
   var stops = [StopNumber]()
   var timeTable = [StopInfo]()
   
@@ -52,6 +61,14 @@ class LiveScheduleViewController: UIViewController {
     setUpView()
   }
   
+  
+  var screenHeight: CGFloat {
+    return UIScreen.mainScreen().bounds.height -
+      self.tabBarController!.tabBar.frame.height -
+      (self.navigationController?.navigationBar.bounds.height)! -
+      UIApplication.sharedApplication().statusBarFrame.size.height -
+      iAd.frame.height
+  }
   
   
   override func didReceiveMemoryWarning() {
@@ -69,13 +86,13 @@ class LiveScheduleViewController: UIViewController {
                                   
     self.navigationItem.rightBarButtonItem = searchIcon
     
-    
-    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width,
-        height: UIScreen.mainScreen().bounds.height - self.tabBarController!.tabBar.frame.height - (self.navigationController?.navigationBar.bounds.height)! - UIApplication.sharedApplication().statusBarFrame.size.height) )
+    let headerView =
+      UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: self.screenHeight))
     
     headerView.backgroundColor = UIColor.clearColor()
     headerView.addSubview(stopSelection)
     headerView.addSubview(searchButton)
+    view.addSubview(iAd)
     self.busTableView.tableHeaderView = headerView
     
     self.view.addSubview(busTableView)
@@ -91,17 +108,20 @@ class LiveScheduleViewController: UIViewController {
     searchButton.layer.cornerRadius = 17.0
     self.edgesForExtendedLayout = UIRectEdge.Bottom
     
-    let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton]
+    let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton, "iAd": iAd]
     
-    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[pickerView(400)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pickerView]-100-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
-    let vConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let vConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[iAd][webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let vConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("V:[button(100)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-    let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options:
+      NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let hConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[button(200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let hConstraint4 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[iAd]|", options:
+      NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     headerView.addConstraints(vConstraint1)
     headerView.addConstraints(hConstraint1)
@@ -110,6 +130,7 @@ class LiveScheduleViewController: UIViewController {
     
     self.view.addConstraints(hConstraint2)
     self.view.addConstraints(vConstraint2)
+    self.view.addConstraints(hConstraint4)
     
     stopSelection.selectRow(stopSelection.numberOfRowsInComponent(0) / 2, inComponent: 0, animated: true)
   }
@@ -126,18 +147,18 @@ class LiveScheduleViewController: UIViewController {
     let act = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     act.backgroundColor = UIColor.blackColor()
     act.layer.cornerRadius = 8.0
-    var frame = act.frame
     
+    var frame = act.frame
     let squareSize: CGFloat = 100.0
     
     frame.size.width = squareSize
     frame.size.height = squareSize
     
-    frame.origin.x = busTableView.frame.size.width / 2 - frame.size.width / 2
-    frame.origin.y = busTableView.frame.size.height / 2 - frame.size.height / 2
+    frame.origin.x = view.frame.size.width / 2 - frame.size.width / 2
+    frame.origin.y = view.frame.size.height / 2 - frame.size.height / 2
    
     act.frame = frame
-    busTableView.addSubview(act)
+    view.addSubview(act)
     act.startAnimating()
     
     self.timeTable.removeAll(keepCapacity: false)
