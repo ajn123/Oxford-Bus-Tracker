@@ -22,7 +22,7 @@ class HTTPClient: NSObject {
     }
     
     var dataVal: NSData? = nil
-    do{
+    do {
       dataVal = try NSURLConnection.sendSynchronousRequest(NSURLRequest(URL: url),
                                                            returningResponse: nil)
     }

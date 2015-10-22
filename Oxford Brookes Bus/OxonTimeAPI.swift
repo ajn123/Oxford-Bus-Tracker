@@ -20,7 +20,6 @@ class OxonTimeAPI: NSObject, StopInformation {
 
   func getStopInfo(name: String) -> [StopInfo] {
     return httpClient.getRequest(name) as! [StopInfo]
-    
   }
 
 }

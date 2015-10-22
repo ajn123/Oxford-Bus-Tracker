@@ -81,10 +81,13 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   func setUpView() {
     
     let searchIcon = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search,
-                                    target: self,
-                                    action: "searchClicked:")
+                                     target: self,
+                                     action: "searchClicked:")
+    
+    let listIcon = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: "listClicked:")
                                   
     self.navigationItem.rightBarButtonItem = searchIcon
+    self.navigationItem.leftBarButtonItem = listIcon
     
     let headerView =
       UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: self.screenHeight))
@@ -97,8 +100,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     
     self.view.addSubview(busTableView)
     
-    //    #2ecc71
-    headerView.backgroundColor = UIColor(red: 46 / 255, green: 204 / 255, blue: 113 / 255, alpha: 1)
+    headerView.backgroundColor = UIColor(red: 52 / 255, green: 152 / 255, blue: 219 / 255, alpha: 1)
     
     let adjustForTabbarInsets =
       UIEdgeInsets(top: 0, left: 0, bottom: CGRectGetHeight(self.tabBarController!.tabBar.frame), right: 0)
@@ -110,33 +112,34 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     
     let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton, "iAd": iAd]
     
-    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pickerView]-100-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pickerView][button(60)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let vConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[iAd][webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-    
-    let vConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("V:[button(100)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options:
       NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-    let hConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[button(200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let hConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[button]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let hConstraint4 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[iAd]|", options:
       NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-    
-    headerView.addConstraints(vConstraint1)
-    headerView.addConstraints(hConstraint1)
-    headerView.addConstraints(vConstraint3)
-    headerView.addConstraints(hConstraint3)
     
     self.view.addConstraints(hConstraint2)
     self.view.addConstraints(vConstraint2)
     self.view.addConstraints(hConstraint4)
+    
+    headerView.addConstraints(vConstraint1)
+    headerView.addConstraints(hConstraint1)
+    headerView.addConstraints(hConstraint3)
     
     stopSelection.selectRow(stopSelection.numberOfRowsInComponent(0) / 2, inComponent: 0, animated: true)
   }
   
   func searchTapped(selector: UIButton) {
     loadScheudle()
+  }
+  
+  func listClicked(sender: UIBarButtonItem) {
+    print("list clicked")
   }
   
   func searchClicked(sender: UIBarButtonItem) {
@@ -201,8 +204,6 @@ extension LiveScheduleViewController: UIPickerViewDataSource, UIPickerViewDelega
   func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { 
     return stops[row].name
   }
-  
- 
 }
 
 
@@ -221,8 +222,8 @@ extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource
     cell.textLabel?.numberOfLines = 1
     cell.textLabel?.minimumScaleFactor = 8/(cell.textLabel?.font.pointSize)!
     cell.textLabel?.adjustsFontSizeToFitWidth = true
-    
     cell.textLabel?.text = stop.stopString
+    
     return cell
   }
   
@@ -234,6 +235,11 @@ extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource
   func getTablePoint(index: NSIndexPath) {
     let i = self.busTableView.rectForRowAtIndexPath(index)
     self.busTableView.setContentOffset(i.origin, animated: true)
+  }
+  
+  
+  func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+  //  banner.removeFromSuperview()
   }
   
 }

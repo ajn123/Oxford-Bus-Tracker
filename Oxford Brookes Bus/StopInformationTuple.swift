@@ -8,14 +8,9 @@
 
 import Foundation
 
-
-
-
 protocol StopInformation {
-  
   func getStopInfo(name: String) -> [StopInfo]
 }
-
 
 
 class StopInfo: NSObject {
@@ -25,10 +20,11 @@ class StopInfo: NSObject {
     case multiStops
   }
 
-  var busName: String = ""
-  var destination: String = ""
-  var departureTime: String = ""
-  var stopString: String = ""
+  var busName = ""
+  var destination = ""
+  var departureTime = ""
+  var stopString = ""
+  var time = 0
   
   init(strings: [String], stop: stopDescription = .multiStops) {
     switch(stop)
