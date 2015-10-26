@@ -12,5 +12,4 @@ import XCTest
 import Oxford_Brookes_Bus
 
 
-class NSDateTest {
- }
+class NSDateTest { }

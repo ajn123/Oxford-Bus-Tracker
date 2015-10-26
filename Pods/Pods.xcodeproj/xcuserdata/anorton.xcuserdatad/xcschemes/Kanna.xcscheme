@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD3B2E96E1A685899658A652"
+               BlueprintIdentifier = "E553E3F7B526B4F4368EB1A7"
                BuildableName = "Kanna.framework"
                BlueprintName = "Kanna"
                ReferencedContainer = "container:Pods.xcodeproj">

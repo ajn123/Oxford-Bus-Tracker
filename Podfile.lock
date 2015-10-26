@@ -1,13 +1,14 @@
 PODS:
-  - Kanna (1.0.0)
+  - Kanna (1.0.2)
   - WobbleView (1.0.2)
 
 DEPENDENCIES:
   - Kanna
+  - Kanna (~> 1.0.0)
   - WobbleView
 
 SPEC CHECKSUMS:
-  Kanna: 92799095ecb17b85ac2444bb5c8ce6394a137adb
+  Kanna: 059afb193a9f8ea34f46cb55a8b11bf4257efad8
   WobbleView: 6f9666e89b53277a797c6d4d6e8f4e14d8251c27
 
 COCOAPODS: 0.38.0

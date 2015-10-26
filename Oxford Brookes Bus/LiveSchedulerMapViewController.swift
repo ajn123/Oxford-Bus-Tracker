@@ -8,9 +8,10 @@
 
 import UIKit
 import MapKit
+import iAd
 
 
-class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegate {
+class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegate, ADBannerViewDelegate {
   
   lazy var map: MKMapView! = {
     var m = MKMapView()
@@ -25,23 +26,46 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
     return locMan
   }()
   
+  lazy var iAd: ADBannerView = {
+    var ad = ADBannerView()
+    ad.delegate = self
+    ad.translatesAutoresizingMaskIntoConstraints = false 
+    return ad
+  }()
+  
   
   override func viewDidLoad() {
     loadMap()
     self.title = "Live Map"
     
-    self.view.addSubview(map)
+    self.edgesForExtendedLayout = UIRectEdge.Bottom
     
-    let viewDict = ["map": map]
+    self.view.addSubview(map)
+    self.view.addSubview(iAd)
+    let viewDict = ["map": map, "iAd": iAd]
     
     let vConstraint1 =
-      NSLayoutConstraint.constraintsWithVisualFormat("V:|[map]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+      NSLayoutConstraint.constraintsWithVisualFormat("V:|[iAd][map]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let hConstraint1 =
       NSLayoutConstraint.constraintsWithVisualFormat("H:|[map]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
+    let hConstraint2 =
+    NSLayoutConstraint.constraintsWithVisualFormat("H:|[iAd]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    
+    
     self.view.addConstraints(vConstraint1)
     self.view.addConstraints(hConstraint1)
+    self.view.addConstraints(hConstraint2)
+    
+    let listIcon = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "listClicked:")
+    
+    self.navigationItem.rightBarButtonItem = listIcon
+    
+  }
+  
+  func listClicked(selector: UIBarButtonItem) {
+    self.navigationController?.pushViewController(LiveScheduleViewController(), animated: true)
   }
   
   func loadMap() {
@@ -78,9 +102,7 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
       
       map.addAnnotation(annotation)
     }
-    
     map.setRegion(region, animated: true)
-    
   }
 
 }

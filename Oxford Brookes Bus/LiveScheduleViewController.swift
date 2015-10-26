@@ -111,9 +111,11 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     
     let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton, "iAd": iAd]
     
-    let vConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pickerView][button(60)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let vConstraint1 =
+      NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pickerView][button(60)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
-    let vConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[iAd][webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let vConstraint2 =
+      NSLayoutConstraint.constraintsWithVisualFormat("V:|[iAd][webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options:

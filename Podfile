@@ -4,7 +4,7 @@
 target 'Oxford Brookes Bus' do
 use_frameworks!
 pod 'WobbleView'
-pod 'Kanna'
+pod 'Kanna', '~> 1.0.0'
 
 end
 
