@@ -46,4 +46,14 @@ class StopNumberManager {
       return s1.name.localizedCaseInsensitiveCompare(s2.name) == NSComparisonResult.OrderedAscending
     }
   }
+  
+  func findStop(name: String) -> StopNumber? {
+    for stop in stops {
+      if(stop.name == name) {
+        return stop
+      }
+    }
+    return nil 
+  }
+  
 }

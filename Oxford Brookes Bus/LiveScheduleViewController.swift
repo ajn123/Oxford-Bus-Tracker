@@ -30,7 +30,6 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     return pickerView
   }()
   
-  
   lazy var searchButton: UIButton = {
     var button = UIButton()
     button.setTitle("Find Buses", forState: UIControlState.Normal)
@@ -42,7 +41,6 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     return button
   }()
   
-  
   lazy var iAd: ADBannerView = {
     var ad = ADBannerView()
     ad.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +51,8 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   var stops = [StopNumber]()
   var timeTable = [StopInfo]()
   
+  var selectedStopNumber: StopNumber?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Live Schedule"
@@ -60,7 +60,6 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   
     setUpView()
   }
-  
   
   var screenHeight: CGFloat {
     return UIScreen.mainScreen().bounds.height -
@@ -77,25 +76,25 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   }
   
   
+  convenience init(stopNumber: String) {
+    self.init()
+    selectedStopNumber = StopNumberManager.stopManager.findStop(stopNumber)!
+  }
   
   func setUpView() {
-    
-    let searchIcon = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search,
+    let searchIcon = UIBarButtonItem(barButtonSystemItem: .Search,
                                      target: self,
                                      action: "searchClicked:")
     
-    let listIcon = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: "listClicked:")
-                                  
     self.navigationItem.rightBarButtonItem = searchIcon
-    self.navigationItem.leftBarButtonItem = listIcon
-    
+
     let headerView =
       UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: self.screenHeight))
     
     headerView.backgroundColor = UIColor.clearColor()
     headerView.addSubview(stopSelection)
     headerView.addSubview(searchButton)
-    view.addSubview(iAd)
+    self.view.addSubview(iAd)
     self.busTableView.tableHeaderView = headerView
     
     self.view.addSubview(busTableView)
@@ -132,10 +131,14 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     headerView.addConstraints(hConstraint3)
     
     stopSelection.selectRow(stopSelection.numberOfRowsInComponent(0) / 2, inComponent: 0, animated: true)
+    
+    if (selectedStopNumber != nil) {
+      loadScheudle(selectedStopNumber!)
+    }
   }
   
   func searchTapped(selector: UIButton) {
-    loadScheudle()
+    loadScheudle(self.stops[self.stopSelection.selectedRowInComponent(0)])
   }
   
   func listClicked(sender: UIBarButtonItem) {
@@ -146,7 +149,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     self.busTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
   }
   
-  func loadScheudle() {
+  func loadScheudle(stopNumber: StopNumber) {
     let act = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     act.backgroundColor = UIColor.blackColor()
     act.layer.cornerRadius = 8.0
@@ -167,7 +170,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     self.timeTable.removeAll(keepCapacity: false)
     
     ThreadFactory.startNewThread() {
-      let stops = self.stops[self.stopSelection.selectedRowInComponent(0)].getAllSMSNumbers()
+      let stops = stopNumber.getAllSMSNumbers()
       for stop in stops {
         self.timeTable += OxonTimeAPI.sharedInstance.getStopInfo(stop)
       }

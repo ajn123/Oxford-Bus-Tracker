@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="997.5" y="-286.5"/>
         </scene>
-        <!--Live Schedule View Controller-->
+        <!--Live Scheduler Map View Controller-->
         <scene sceneID="QRm-pL-5ey">
             <objects>
-                <viewController id="844-Nv-VuD" customClass="LiveScheduleViewController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="844-Nv-VuD" customClass="LiveSchedulerMapViewController" customModule="Oxford_Brookes_Bus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cPJ-b3-Afc"/>
                         <viewControllerLayoutGuide type="bottom" id="YIR-Xf-rqo"/>
