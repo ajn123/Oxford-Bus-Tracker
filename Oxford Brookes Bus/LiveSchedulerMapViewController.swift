@@ -69,6 +69,7 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
   }
   
   func loadMap() {
+    map.showsUserLocation = true
     locationManager.requestAlwaysAuthorization()
     locationManager.startUpdatingLocation()
     
@@ -132,4 +133,8 @@ extension LiveSchedulerMapViewController: MKMapViewDelegate {
     return mkPinView
   }
 
+  
+  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    
+  }
 }

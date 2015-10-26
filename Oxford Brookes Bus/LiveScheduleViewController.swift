@@ -55,7 +55,6 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "Live Schedule"
     stops = StopNumberManager.stopManager.stops
   
     setUpView()
@@ -79,6 +78,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   convenience init(stopNumber: String) {
     self.init()
     selectedStopNumber = StopNumberManager.stopManager.findStop(stopNumber)!
+    self.title = stopNumber
   }
   
   func setUpView() {
@@ -185,6 +185,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
         self.busTableView.reloadData()
         act.stopAnimating()
         self.getTablePoint(NSIndexPath(forRow: 0, inSection: 0))
+        self.title = stopNumber.name
         act.removeFromSuperview()
       }
     }
