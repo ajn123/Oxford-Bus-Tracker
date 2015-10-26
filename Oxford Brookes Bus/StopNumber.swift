@@ -12,14 +12,19 @@ class StopNumber: NSObject {
   
   var name: String
   var SMSNumber: [Int]
+  var latitude: Double = 0.0
+  var longitude: Double = 0.0
+  
   var webName: String {
-return "http://www.oxontime.com/Naptan.aspx?t=departure&sa=\(self.SMSNumber)&dc=&ac=96&vc=&x=0&y=0&format=xhtml"
+    return "http://www.oxontime.com/Naptan.aspx?t=departure&sa=\(self.SMSNumber)&dc=&ac=96&vc=&x=0&y=0&format=xhtml"
   }
   
-  init(name: String, SMS: [Int])
+  init(name: String, SMS: [Int], latitude: Double = 0.0, longitude: Double = 0.0)
   {
     self.name = name
     self.SMSNumber = SMS
+    self.latitude = latitude
+    self.longitude = longitude
   }
   
   func getAllSMSNumbers() -> [String] {

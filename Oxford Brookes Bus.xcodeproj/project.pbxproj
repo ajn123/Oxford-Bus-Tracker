@@ -55,6 +55,8 @@
 		7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F580F021B0A869600D88783 /* NSDateTest.swift */; };
 		7F58ACF41B60AFA100689EF4 /* LaunchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58ACF31B60AFA100689EF4 /* LaunchIcon.png */; };
 		7F5A07B51B5AEEBC00D52B45 /* UIiAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */; };
+		7F78F67C1BDDE7D300A5B31C /* LiveSchedulerMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78F67B1BDDE7D300A5B31C /* LiveSchedulerMapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		7F78F67E1BDDEA8100A5B31C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78F67D1BDDEA8100A5B31C /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
 		7F820D011B0E6F80002CAA53 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D001B0E6F80002CAA53 /* Alarm.swift */; };
 		7F820D051B15FF24002CAA53 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D041B15FF24002CAA53 /* UIViewExtension.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
@@ -141,6 +143,8 @@
 		7F580F021B0A869600D88783 /* NSDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTest.swift; sourceTree = "<group>"; };
 		7F58ACF31B60AFA100689EF4 /* LaunchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchIcon.png; sourceTree = "<group>"; };
 		7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIiAdViewController.swift; sourceTree = "<group>"; };
+		7F78F67B1BDDE7D300A5B31C /* LiveSchedulerMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveSchedulerMapViewController.swift; sourceTree = "<group>"; };
+		7F78F67D1BDDEA8100A5B31C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F820D001B0E6F80002CAA53 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		7F820D041B15FF24002CAA53 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 				7FB6DC671B1C9D3900B9F768 /* Alert.swift */,
 				7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */,
 				7FDD6BB71B73CDE80021AF83 /* LiveScheduleViewController.swift */,
+				7F78F67B1BDDE7D300A5B31C /* LiveSchedulerMapViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				7FBE361C1AE541640055D8CD /* LaunchScreen.xib */,
 				7FBE36121AE541640055D8CD /* Oxford_Brookes_Bus.xcdatamodeld */,
 				7FBE360E1AE541640055D8CD /* Supporting Files */,
+				7F78F67D1BDDEA8100A5B31C /* Constants.swift */,
 			);
 			path = "Oxford Brookes Bus";
 			sourceTree = "<group>";
@@ -779,6 +785,7 @@
 				7FBE36361AE5421D0055D8CD /* TimeTableViewController.swift in Sources */,
 				7F108CE81B79B475003E90DA /* OxonTimeAPI.swift in Sources */,
 				7F41D8FE1AF6E4E000694800 /* RAMItemAnimationProtocol.swift in Sources */,
+				7F78F67C1BDDE7D300A5B31C /* LiveSchedulerMapViewController.swift in Sources */,
 				7F306C2A1AF3A83200C9605D /* BusRoute.swift in Sources */,
 				7FBE36111AE541640055D8CD /* AppDelegate.swift in Sources */,
 				7F2287371B75C4EF006DA55D /* StopNumberManager.swift in Sources */,
@@ -786,6 +793,7 @@
 				7F41D8FA1AF6E4E000694800 /* RAMFumeAnimation.swift in Sources */,
 				7F3BBDBB1AF2A7BC0042C239 /* MapViewController.swift in Sources */,
 				7FDD6BB81B73CDE80021AF83 /* LiveScheduleViewController.swift in Sources */,
+				7F78F67E1BDDEA8100A5B31C /* Constants.swift in Sources */,
 				7F41D93B1B00252D00694800 /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

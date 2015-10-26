@@ -139,7 +139,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   }
   
   func listClicked(sender: UIBarButtonItem) {
-    print("list clicked")
+    self.navigationController?.pushViewController(LiveSchedulerMapViewController(), animated: true)
   }
   
   func searchClicked(sender: UIBarButtonItem) {

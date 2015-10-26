@@ -24,13 +24,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        let latitude:CLLocationDegrees = 51.751798
+        let latitude:CLLocationDegrees = Constants.OxfordMap.latitude
         
-        let longitude:CLLocationDegrees =  -1.257544
+        let longitude:CLLocationDegrees =  Constants.OxfordMap.longitude
         
-        let latDelta:CLLocationDegrees = 0.002
+        let latDelta:CLLocationDegrees = Constants.OxfordMap.latDelta
         
-        let lonDelta:CLLocationDegrees = 0.125
+        let lonDelta:CLLocationDegrees = Constants.OxfordMap.lonDelta
         
         let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
         
@@ -64,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // U1 Heading Hill 51.755511, -1.226302
   
     // For MapKit provided annotations (eg. MKUserLocation) return nil to use the MapKit provided annotation view.
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView!
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
     {
         // Do NOT annotate your current location
         if(annotation is MKUserLocation)
