@@ -15,6 +15,6 @@ struct Constants {
     static let latitude: Double = 51.751798
     static let longitude: Double =  -1.257544
     static let latDelta: Double = 0.002
-    static let lonDelta: Double = 0.125
+    static let lonDelta: Double = 0.400
   }
 }

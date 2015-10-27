@@ -55,8 +55,8 @@
 		7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F580F021B0A869600D88783 /* NSDateTest.swift */; };
 		7F58ACF41B60AFA100689EF4 /* LaunchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58ACF31B60AFA100689EF4 /* LaunchIcon.png */; };
 		7F5A07B51B5AEEBC00D52B45 /* UIiAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */; };
-		7F78F67C1BDDE7D300A5B31C /* LiveSchedulerMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78F67B1BDDE7D300A5B31C /* LiveSchedulerMapViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		7F78F67E1BDDEA8100A5B31C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78F67D1BDDEA8100A5B31C /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
+		7F78F67C1BDDE7D300A5B31C /* LiveSchedulerMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78F67B1BDDE7D300A5B31C /* LiveSchedulerMapViewController.swift */; };
+		7F78F67E1BDDEA8100A5B31C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78F67D1BDDEA8100A5B31C /* Constants.swift */; };
 		7F820D011B0E6F80002CAA53 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D001B0E6F80002CAA53 /* Alarm.swift */; };
 		7F820D051B15FF24002CAA53 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F820D041B15FF24002CAA53 /* UIViewExtension.swift */; };
 		7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC30B1AE81625005D0495 /* ScheduleViewController.swift */; };
@@ -71,6 +71,7 @@
 		7FBE36381AE6799C0055D8CD /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36371AE6799C0055D8CD /* TimeViewController.swift */; };
 		7FBE363A1AE6885C0055D8CD /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */; };
 		7FBE61CE1B27AF5100C03766 /* tableSwipeArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE61CD1B27AF5100C03766 /* tableSwipeArrow.png */; };
+		7FC71A811BDF0CFD001249BB /* Armchair.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC71A761BDF0C1E001249BB /* Armchair.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7FDADA8B1B0205180008EC1D /* OBUBusTrackerAppIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8A1B0205180008EC1D /* OBUBusTrackerAppIcon80.png */; };
 		7FDADA8F1B0617D90008EC1D /* ArrowPathBegin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */; };
 		7FDADA901B0617D90008EC1D /* ArrowPathEnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */; };
@@ -91,7 +92,63 @@
 			remoteGlobalIDString = 7FBE360A1AE541640055D8CD;
 			remoteInfo = "Oxford Brookes Bus";
 		};
+		7FC71A751BDF0C1E001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A6D1BDF0C1E001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6D8B8B519C7274F001AD043;
+			remoteInfo = Armchair;
+		};
+		7FC71A771BDF0C1E001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A6D1BDF0C1E001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6D8B8F919C756A4001AD043;
+			remoteInfo = ArmchairMac;
+		};
+		7FC71A791BDF0C1E001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A6D1BDF0C1E001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6A0AF6519C9CFF400C3A7DC;
+			remoteInfo = ArmchairLocalizable;
+		};
+		7FC71A7B1BDF0C1E001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A6D1BDF0C1E001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6F6159419C9FFDA00C0B51C;
+			remoteInfo = ArmchairLocalizableMac;
+		};
+		7FC71A7D1BDF0C1E001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A6D1BDF0C1E001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6D8B92819C880A9001AD043;
+			remoteInfo = ArmchairTests;
+		};
+		7FC71A7F1BDF0C26001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A6D1BDF0C1E001249BB /* Armchair.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Armchair;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7FC71A561BDF09C1001249BB /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7FC71A811BDF0CFD001249BB /* Armchair.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3CA6AA377EE2B5AAC27AA84B /* Pods-Oxford Brookes Bus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oxford Brookes Bus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oxford Brookes Bus/Pods-Oxford Brookes Bus.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +220,7 @@
 		7FBE36371AE6799C0055D8CD /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		7FBE36391AE6885C0055D8CD /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		7FBE61CD1B27AF5100C03766 /* tableSwipeArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableSwipeArrow.png; sourceTree = "<group>"; };
+		7FC71A6D1BDF0C1E001249BB /* Armchair.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Armchair.xcodeproj; path = Armchair/Armchair.xcodeproj; sourceTree = "<group>"; };
 		7FDADA8A1B0205180008EC1D /* OBUBusTrackerAppIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon80.png; sourceTree = "<group>"; };
 		7FDADA8C1B0617D90008EC1D /* ArrowPathBegin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathBegin.png; sourceTree = "<group>"; };
 		7FDADA8D1B0617D90008EC1D /* ArrowPathEnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPathEnd.png; sourceTree = "<group>"; };
@@ -440,6 +498,7 @@
 		7FBE36021AE541640055D8CD = {
 			isa = PBXGroup;
 			children = (
+				7FC71A6D1BDF0C1E001249BB /* Armchair.xcodeproj */,
 				7F41D9111AFD00A400694800 /* Brookes  */,
 				7FBE360D1AE541640055D8CD /* Oxford Brookes Bus */,
 				7FBE36261AE541640055D8CD /* Oxford Brookes BusTests */,
@@ -507,6 +566,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7FC71A6E1BDF0C1E001249BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FC71A761BDF0C1E001249BB /* Armchair.framework */,
+				7FC71A781BDF0C1E001249BB /* Armchair.framework */,
+				7FC71A7A1BDF0C1E001249BB /* Armchair.bundle */,
+				7FC71A7C1BDF0C1E001249BB /* Armchair.bundle */,
+				7FC71A7E1BDF0C1E001249BB /* ArmchairTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C85A29D3B252F51B4949B97D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,10 +613,12 @@
 				7FBE36091AE541640055D8CD /* Resources */,
 				F0607EA1EAEFA490A1B1AEBA /* Embed Pods Frameworks */,
 				C02544E1ED391B27B7B32EA0 /* Copy Pods Resources */,
+				7FC71A561BDF09C1001249BB /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7FC71A801BDF0C26001249BB /* PBXTargetDependency */,
 			);
 			name = "Oxford Brookes Bus";
 			productName = "Oxford Brookes Bus";
@@ -605,6 +678,12 @@
 			mainGroup = 7FBE36021AE541640055D8CD;
 			productRefGroup = 7FBE360C1AE541640055D8CD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7FC71A6E1BDF0C1E001249BB /* Products */;
+					ProjectRef = 7FC71A6D1BDF0C1E001249BB /* Armchair.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7FBE360A1AE541640055D8CD /* Oxford Brookes Bus */,
@@ -612,6 +691,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7FC71A761BDF0C1E001249BB /* Armchair.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Armchair.framework;
+			remoteRef = 7FC71A751BDF0C1E001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7FC71A781BDF0C1E001249BB /* Armchair.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Armchair.framework;
+			remoteRef = 7FC71A771BDF0C1E001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7FC71A7A1BDF0C1E001249BB /* Armchair.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Armchair.bundle;
+			remoteRef = 7FC71A791BDF0C1E001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7FC71A7C1BDF0C1E001249BB /* Armchair.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Armchair.bundle;
+			remoteRef = 7FC71A7B1BDF0C1E001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7FC71A7E1BDF0C1E001249BB /* ArmchairTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ArmchairTests.xctest;
+			remoteRef = 7FC71A7D1BDF0C1E001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7FBE36091AE541640055D8CD /* Resources */ = {
@@ -815,6 +932,11 @@
 			isa = PBXTargetDependency;
 			target = 7FBE360A1AE541640055D8CD /* Oxford Brookes Bus */;
 			targetProxy = 7FBE36241AE541640055D8CD /* PBXContainerItemProxy */;
+		};
+		7FC71A801BDF0C26001249BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Armchair;
+			targetProxy = 7FC71A7F1BDF0C26001249BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

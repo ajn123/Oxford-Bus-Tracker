@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C0B7950632460547C273B5076E676418ECF9BFA1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6094D9F4198D56F78EB1B455EC894F8A44DC0039" : 0,
+    "C0B7950632460547C273B5076E676418ECF9BFA1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "858FDFA1-C691-4C81-AD3D-73780600C03B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6094D9F4198D56F78EB1B455EC894F8A44DC0039" : "Oxford%20Brookes%20Bus\/Armchair\/",
+    "C0B7950632460547C273B5076E676418ECF9BFA1" : "Oxford%20Brookes%20Bus"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Oxford Brookes Bus",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Oxford Brookes Bus.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/UrbanApps\/Armchair.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6094D9F4198D56F78EB1B455EC894F8A44DC0039"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ajn123\/Oxford-Bus-Tracker.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C0B7950632460547C273B5076E676418ECF9BFA1"
+    }
+  ]
+}

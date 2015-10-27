@@ -69,6 +69,41 @@
 			remoteGlobalIDString = A69D9D359C3CB4728A792F21AE693277;
 			remoteInfo = WobbleView;
 		};
+		7FC71A631BDF0BD2001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A5B1BDF0BD2001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6D8B8B519C7274F001AD043;
+			remoteInfo = Armchair;
+		};
+		7FC71A651BDF0BD2001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A5B1BDF0BD2001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6D8B8F919C756A4001AD043;
+			remoteInfo = ArmchairMac;
+		};
+		7FC71A671BDF0BD2001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A5B1BDF0BD2001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6A0AF6519C9CFF400C3A7DC;
+			remoteInfo = ArmchairLocalizable;
+		};
+		7FC71A691BDF0BD2001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A5B1BDF0BD2001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6F6159419C9FFDA00C0B51C;
+			remoteInfo = ArmchairLocalizableMac;
+		};
+		7FC71A6B1BDF0BD2001249BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FC71A5B1BDF0BD2001249BB /* Armchair.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E6D8B92819C880A9001AD043;
+			remoteInfo = ArmchairTests;
+		};
 		C04EEBDF20AF2AD0B578989282E1FDF0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -119,6 +154,7 @@
 		7B652BFEFF85829AEFE090E75CC351DC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D7914E6DDEBF2F11156CDC2C971C6F8 /* xmlerror.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = xmlerror.h; path = Library/libxml/xmlerror.h; sourceTree = "<group>"; };
 		7FB7CAF4D216E3B78F5DEE92ACA3F468 /* xlink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = xlink.h; path = Library/libxml/xlink.h; sourceTree = "<group>"; };
+		7FC71A5B1BDF0BD2001249BB /* Armchair.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Armchair.xcodeproj; path = ../Armchair/Armchair.xcodeproj; sourceTree = "<group>"; };
 		819DE1CE7A4671C0BDFC27620DA677E3 /* Pods-Oxford Brookes BusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Oxford Brookes BusTests.release.xcconfig"; sourceTree = "<group>"; };
 		822BB0B46AAB1BBA5DBB3F373A4E8C7F /* xmlmemory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = xmlmemory.h; path = Library/libxml/xmlmemory.h; sourceTree = "<group>"; };
 		85A95CBB89C751F5E2EFDEFB681F9361 /* Kanna.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Kanna.modulemap; sourceTree = "<group>"; };
@@ -291,12 +327,25 @@
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
+				7FC71A5B1BDF0BD2001249BB /* Armchair.xcodeproj */,
 				C88113A79685B4EFEE7BAD12896829F7 /* Podfile */,
 				5E1F3384B1B39575144FEBFCF3210CCC /* Frameworks */,
 				2F414954F87ED957BE121A1660094A49 /* Pods */,
 				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
 				D871C749CBB672E76A502DD5E90F9842 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		7FC71A5C1BDF0BD2001249BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FC71A641BDF0BD2001249BB /* Armchair.framework */,
+				7FC71A661BDF0BD2001249BB /* Armchair.framework */,
+				7FC71A681BDF0BD2001249BB /* Armchair.bundle */,
+				7FC71A6A1BDF0BD2001249BB /* Armchair.bundle */,
+				7FC71A6C1BDF0BD2001249BB /* ArmchairTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A75C55A8A0806D5412FC1FED69EA0214 /* Support Files */ = {
@@ -515,6 +564,12 @@
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7FC71A5C1BDF0BD2001249BB /* Products */;
+					ProjectRef = 7FC71A5B1BDF0BD2001249BB /* Armchair.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7EA566778749031D09DD1AB5B087C28E /* Kanna */,
@@ -524,6 +579,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7FC71A641BDF0BD2001249BB /* Armchair.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Armchair.framework;
+			remoteRef = 7FC71A631BDF0BD2001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7FC71A661BDF0BD2001249BB /* Armchair.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Armchair.framework;
+			remoteRef = 7FC71A651BDF0BD2001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7FC71A681BDF0BD2001249BB /* Armchair.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Armchair.bundle;
+			remoteRef = 7FC71A671BDF0BD2001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7FC71A6A1BDF0BD2001249BB /* Armchair.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Armchair.bundle;
+			remoteRef = 7FC71A691BDF0BD2001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7FC71A6C1BDF0BD2001249BB /* ArmchairTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ArmchairTests.xctest;
+			remoteRef = 7FC71A6B1BDF0BD2001249BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58051745C47CE71FCB80A9B4295FF28B /* Sources */ = {

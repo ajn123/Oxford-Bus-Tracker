@@ -36,7 +36,6 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
   
   override func viewDidLoad() {
     loadMap()
-    self.title = "Live Map"
     
     self.edgesForExtendedLayout = UIRectEdge.Bottom
     
@@ -51,8 +50,7 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
       NSLayoutConstraint.constraintsWithVisualFormat("H:|[map]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let hConstraint2 =
-    NSLayoutConstraint.constraintsWithVisualFormat("H:|[iAd]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-    
+      NSLayoutConstraint.constraintsWithVisualFormat("H:|[iAd]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     self.view.addConstraints(vConstraint1)
     self.view.addConstraints(hConstraint1)

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Armchair/Armchair.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Oxford Brookes Bus.xcodeproj">
    </FileRef>
    <FileRef

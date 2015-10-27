@@ -8,11 +8,22 @@
 
 import UIKit
 import CoreData
+import Armchair
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+  
+  override class func initialize() {
+    setUpArmchair()
+  }
+  
+  class func setUpArmchair() {
+    Armchair.appID("1017577580")
+    Armchair.daysUntilPrompt(5)
+    Armchair.daysBeforeReminding(2)
+  }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
@@ -24,8 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CoreDataModel.massAssign()
             do {
                 try CoreDataModel.context.save()
-            } catch _ {
-            }
+            } catch _ { }
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
             NSUserDefaults.standardUserDefaults().synchronize()
         }

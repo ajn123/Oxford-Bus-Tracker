@@ -157,7 +157,7 @@ class RAMAnimatedTabBarController: UITabBarController {
         let itemsCount : Int = tabBar.items!.count as Int - 1
 
         for index in 0...itemsCount {
-            var viewContainer = createViewContainer()
+            let viewContainer = createViewContainer()
             containersDict.setValue(viewContainer, forKey: "container\(index)")
         }
 
