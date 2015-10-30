@@ -30,7 +30,7 @@ public class Alarm{
     */
     public class func createReminder(reminderTitle: String, timeInterval: NSDate) {
         
-        var calendars = calendarDatabase.calendarsForEntityType(EKEntityType.Reminder)
+        _ = calendarDatabase.calendarsForEntityType(EKEntityType.Reminder)
         
         eventStoreAccessReminders()
         

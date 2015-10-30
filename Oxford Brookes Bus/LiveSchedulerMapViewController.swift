@@ -60,6 +60,13 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
     
     self.navigationItem.rightBarButtonItem = listIcon
     
+    if(!(NSUserDefaults.standardUserDefaults().boolForKey("onBoarding")))
+    {
+      let onBoardView = OnBoardingView(frame: UIScreen.mainScreen().bounds)
+      self.view.addSubview(onBoardView)
+      NSUserDefaults.standardUserDefaults().setBool(true, forKey: "onBoarding")
+    }
+    
   }
   
   func listClicked(selector: UIBarButtonItem) {
@@ -68,7 +75,7 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
   
   func loadMap() {
     map.showsUserLocation = true
-    locationManager.requestAlwaysAuthorization()
+    locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
     
     let latitude: CLLocationDegrees = Constants.OxfordMap.latitude
@@ -89,7 +96,7 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
     {
       let annotation = MKPointAnnotation()
       
-      let olatitude:CLLocationDegrees = stop.latitude
+      let olatitude: CLLocationDegrees = stop.latitude
       
       let olongitude: CLLocationDegrees = stop.longitude
       
@@ -103,7 +110,6 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
     }
     map.setRegion(region, animated: true)
   }
-
 }
 
 extension LiveSchedulerMapViewController: MKMapViewDelegate {
@@ -131,8 +137,4 @@ extension LiveSchedulerMapViewController: MKMapViewDelegate {
     return mkPinView
   }
 
-  
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    
-  }
 }

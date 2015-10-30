@@ -51,6 +51,7 @@
 		7F41D93D1B00F30C00694800 /* OBUBusTrackerAppIcon180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F41D93C1B00F30C00694800 /* OBUBusTrackerAppIcon180.png */; };
 		7F41D93F1B00F3B800694800 /* OBUBusTrackerAppIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F41D93E1B00F3B800694800 /* OBUBusTrackerAppIcon120.png */; };
 		7F43F9911B409ED900E25247 /* StringManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43F9901B409ED900E25247 /* StringManipulation.swift */; };
+		7F44CA901BE32EA8009DEDE2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F44CA8F1BE32EA8009DEDE2 /* OnboardingView.swift */; };
 		7F4A20521B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */; };
 		7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F580F021B0A869600D88783 /* NSDateTest.swift */; };
 		7F58ACF41B60AFA100689EF4 /* LaunchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58ACF31B60AFA100689EF4 /* LaunchIcon.png */; };
@@ -196,6 +197,7 @@
 		7F41D93C1B00F30C00694800 /* OBUBusTrackerAppIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon180.png; sourceTree = "<group>"; };
 		7F41D93E1B00F3B800694800 /* OBUBusTrackerAppIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OBUBusTrackerAppIcon120.png; sourceTree = "<group>"; };
 		7F43F9901B409ED900E25247 /* StringManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringManipulation.swift; sourceTree = "<group>"; };
+		7F44CA8F1BE32EA8009DEDE2 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewControllerTest.swift; sourceTree = "<group>"; };
 		7F580F021B0A869600D88783 /* NSDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTest.swift; sourceTree = "<group>"; };
 		7F58ACF31B60AFA100689EF4 /* LaunchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchIcon.png; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 			children = (
 				7FEE5BC61AE794A0006118DB /* CustomRouteViewCell.swift */,
 				7F1230CE1B3D813100895909 /* StopMKAnnotation.swift */,
+				7F44CA8F1BE32EA8009DEDE2 /* OnboardingView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				7F108CF01B8180E0003E90DA /* ThreadFactory.swift in Sources */,
 				7F9AC30C1AE81625005D0495 /* ScheduleViewController.swift in Sources */,
 				7F41D90A1AF7893400694800 /* MapRouteViewController.swift in Sources */,
+				7F44CA901BE32EA8009DEDE2 /* OnboardingView.swift in Sources */,
 				7F41D8FB1AF6E4E000694800 /* RAMRotationAnimation.swift in Sources */,
 				7F108CEA1B79B6D0003E90DA /* HTTPClient.swift in Sources */,
 				7F2287351B75C437006DA55D /* StopNumber.swift in Sources */,
