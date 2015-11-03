@@ -63,9 +63,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   var screenHeight: CGFloat {
     return UIScreen.mainScreen().bounds.height -
       self.tabBarController!.tabBar.frame.height -
-      (self.navigationController?.navigationBar.bounds.height)! -
-      UIApplication.sharedApplication().statusBarFrame.size.height -
-      iAd.frame.height
+      (self.navigationController?.navigationBar.bounds.height)!
   }
   
   
@@ -87,6 +85,8 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
                                      action: "searchClicked:")
     
     self.navigationItem.rightBarButtonItem = searchIcon
+    
+    
 
     let headerView =
       UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: self.screenHeight))
@@ -107,7 +107,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     self.busTableView.scrollIndicatorInsets = adjustForTabbarInsets
     
     searchButton.layer.cornerRadius = 17.0
-    self.edgesForExtendedLayout = UIRectEdge.Bottom
+    self.edgesForExtendedLayout = UIRectEdge.Top
     
     let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton, "iAd": iAd]
     
@@ -115,7 +115,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
       NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pickerView][button(60)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let vConstraint2 =
-      NSLayoutConstraint.constraintsWithVisualFormat("V:|[iAd][webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+      NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView][iAd]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options:

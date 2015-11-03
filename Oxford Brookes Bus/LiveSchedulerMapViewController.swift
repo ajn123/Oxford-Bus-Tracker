@@ -37,14 +37,14 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
   override func viewDidLoad() {
     loadMap()
     
-    self.edgesForExtendedLayout = UIRectEdge.Bottom
+    self.edgesForExtendedLayout = UIRectEdge.Top
     
     self.view.addSubview(map)
     self.view.addSubview(iAd)
     let viewDict = ["map": map, "iAd": iAd]
     
     let vConstraint1 =
-      NSLayoutConstraint.constraintsWithVisualFormat("V:|[iAd][map]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+      NSLayoutConstraint.constraintsWithVisualFormat("V:|[map][iAd]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
     
     let hConstraint1 =
       NSLayoutConstraint.constraintsWithVisualFormat("H:|[map]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
