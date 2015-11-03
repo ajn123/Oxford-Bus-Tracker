@@ -33,6 +33,11 @@ class StopInfo: NSObject {
         busName = strings[0]
         destination = strings[1]
         departureTime = strings[2]
+        
+        if let timeString = Int(self.departureTime.componentsSeparatedByString(" ")[0]) {
+          time = Int(timeString)
+        }
+        
         self.stopString = "Bus \(self.busName) to \(self.destination) in \(self.departureTime)"
       case .noStops:
         self.stopString = "No stops available at this time."

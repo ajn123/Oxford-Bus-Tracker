@@ -33,7 +33,6 @@ public class RoutesTableViewController: UITableViewController {
     }
 
     public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return routes.count
     }
 

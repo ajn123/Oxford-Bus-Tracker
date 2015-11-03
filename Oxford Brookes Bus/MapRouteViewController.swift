@@ -110,8 +110,10 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addSubview(routeName)
         self.view.addSubview(routeSegmentControl)
         self.view.addSubview(emptyTableLabel)
-        let viewDict = ["adBanner": adBanner, "routeTable": routeTable, "routeChangeButton": routeChangeButton, "routeSegmentControl": routeSegmentControl, "routeName": routeName,
-            "superview": view, "label": emptyTableLabel]
+        let viewDict = ["adBanner": adBanner, "routeTable": routeTable, "routeChangeButton": routeChangeButton,
+                        "routeSegmentControl": routeSegmentControl,
+                        "routeName": routeName,
+                        "superview": view, "label": emptyTableLabel]
         let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[routeName]-[routeSegmentControl]-[routeTable][adBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
         let verticalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[routeChangeButton(45)]-5-[routeSegmentControl]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
         let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)

@@ -63,7 +63,9 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
   var screenHeight: CGFloat {
     return UIScreen.mainScreen().bounds.height -
       self.tabBarController!.tabBar.frame.height -
-      (self.navigationController?.navigationBar.bounds.height)!
+      (self.navigationController?.navigationBar.bounds.height)! -
+      UIApplication.sharedApplication().statusBarFrame.size.height -
+      iAd.frame.height
   }
   
   
@@ -86,8 +88,6 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     
     self.navigationItem.rightBarButtonItem = searchIcon
     
-    
-
     let headerView =
       UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: self.screenHeight))
     
@@ -107,7 +107,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     self.busTableView.scrollIndicatorInsets = adjustForTabbarInsets
     
     searchButton.layer.cornerRadius = 17.0
-    self.edgesForExtendedLayout = UIRectEdge.Top
+    self.edgesForExtendedLayout = UIRectEdge.Top.intersect(.Bottom)
     
     let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton, "iAd": iAd]
     
@@ -181,6 +181,9 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
         let st = StopInfo(strings: [], stop: StopInfo.stopDescription.noStops)
         self.timeTable.append(st)
       }
+      else {
+        self.sortStops()
+      }
       dispatch_async(dispatch_get_main_queue()) {
         self.busTableView.reloadData()
         act.stopAnimating()
@@ -190,6 +193,14 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
       }
     }
   }
+  
+  func sortStops() {
+    self.timeTable.sortInPlace() {
+      (stopOne: StopInfo, stopTwo: StopInfo) -> Bool in
+      stopOne.time <= stopTwo.time
+    }
+  }
+  
 }
 
 extension LiveScheduleViewController: UIPickerViewDataSource, UIPickerViewDelegate {
