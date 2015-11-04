@@ -68,12 +68,10 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
       iAd.frame.height
   }
   
-  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
   
   convenience init(stopNumber: String) {
     self.init()
@@ -246,7 +244,26 @@ extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource
   
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    getTablePoint(indexPath)
+    
+    var alert: UIAlertController! = UIAlertController()
+    
+    alert = UIAlertController(title: "Reminder", message: "Set a time", preferredStyle: UIAlertControllerStyle.ActionSheet)
+    
+    for num in [5.0,10.0,15.0]
+    {
+        let timeInSeconds = num * 60.0
+        let action = UIAlertAction(title: "In \(num) minutes", style: UIAlertActionStyle.Default,
+          handler: { action -> Void in
+            Alarm.createReminder("Catch The Bus", timeInterval: NSDate(timeIntervalSinceNow: timeInSeconds))
+        })
+        alert.addAction(action)
+    }
+    
+    let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+    
+    alert.addAction(cancel)
+    
+    self.presentViewController(alert, animated: true, completion: nil)
   }
   
   func getTablePoint(index: NSIndexPath) {
