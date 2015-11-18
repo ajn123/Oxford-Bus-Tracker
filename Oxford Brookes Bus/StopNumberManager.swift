@@ -23,7 +23,7 @@ class StopNumberManager {
     stops.append( StopNumber(name: "Brookes Univ B5", SMS: [69325679], latitude: 51.755474, longitude: -1.226263))
     stops.append( StopNumber(name: "Crescent Hall", SMS: [69324626], latitude: 51.737698,longitude: -1.207406))
     stops.append( StopNumber(name: "Gipsy Lane Campus", SMS: [69325646, 69325676], latitude: 51.75434, longitude: -1.22384))
-//  stops.append( StopNumber(name: "Headington Hill Campus", SMS: [69346867]) )
+        //  stops.append( StopNumber(name: "Headington Hill Campus", SMS: [69346867]) )
     stops.append( StopNumber(name: "Castle Street", SMS: [69326548, 69326547, 69326526, 69326545, 69347482], latitude: 51.751495,longitude: -1.260925))
     stops.append( StopNumber(name: "Speedwell Street", SMS: [69345486, 69345627],latitude: 51.748428,longitude:  -1.258112))
     stops.append( StopNumber(name: "Headington Shops",

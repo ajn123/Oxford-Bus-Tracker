@@ -9,7 +9,7 @@
 import UIKit
 import iAd
 
-class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
+class LiveScheduleViewController: UIViewController {
   
   lazy var busTableView: UITableView = {
     var table = UITableView()
@@ -77,6 +77,7 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     self.init()
     selectedStopNumber = StopNumberManager.stopManager.findStop(stopNumber)!
     self.title = stopNumber
+    
   }
   
   func setUpView() {
@@ -101,26 +102,51 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     
     let adjustForTabbarInsets =
       UIEdgeInsets(top: 0, left: 0, bottom: CGRectGetHeight(self.tabBarController!.tabBar.frame), right: 0)
+    
     self.busTableView.contentInset = adjustForTabbarInsets
     self.busTableView.scrollIndicatorInsets = adjustForTabbarInsets
     
     searchButton.layer.cornerRadius = 17.0
     self.edgesForExtendedLayout = UIRectEdge.Top.intersect(.Bottom)
     
-    let viewDict = ["webView": busTableView, "pickerView": stopSelection, "button": searchButton, "iAd": iAd]
+    let viewDict = ["webView": busTableView, "pickerView": stopSelection,
+                    "button": searchButton, "iAd": iAd]
     
     let vConstraint1 =
-      NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pickerView][button(60)]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+      NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pickerView][button(60)]-|",
+                                                     options: NSLayoutFormatOptions(rawValue: 0),
+                                                     metrics: nil,
+                                                     views: viewDict)
     
     let vConstraint2 =
-      NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView][iAd]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+      NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView][iAd]|",
+                                                     options: NSLayoutFormatOptions(rawValue: 0),
+                                                     metrics: nil,
+                                                     views: viewDict)
     
-    let hConstraint1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-    let hConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options:
-      NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-    let hConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[button]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-    let hConstraint4 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[iAd]|", options:
-      NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+    let hConstraint1 =
+      NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|",
+                                                     options: NSLayoutFormatOptions(rawValue: 0),
+                                                     metrics: nil,
+                                                     views: viewDict)
+    
+    let hConstraint2 =
+      NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|",
+                                                     options: NSLayoutFormatOptions(rawValue: 0),
+                                                     metrics: nil,
+                                                     views: viewDict)
+    
+    let hConstraint3 =
+      NSLayoutConstraint.constraintsWithVisualFormat("H:|[button]|",
+                                                     options: NSLayoutFormatOptions(rawValue: 0),
+                                                     metrics: nil,
+                                                     views: viewDict)
+    
+    let hConstraint4 =
+      NSLayoutConstraint.constraintsWithVisualFormat("H:|[iAd]|",
+                                                     options: NSLayoutFormatOptions(rawValue: 0),
+                                                     metrics: nil,
+                                                     views: viewDict)
     
     self.view.addConstraints(hConstraint2)
     self.view.addConstraints(vConstraint2)
@@ -134,6 +160,19 @@ class LiveScheduleViewController: UIViewController, ADBannerViewDelegate {
     
     if (selectedStopNumber != nil) {
       loadScheudle(selectedStopNumber!)
+    }
+    
+    if let tit = self.title {
+      self.findSelection(tit)
+    }
+  }
+  
+  func findSelection(stopName: String) {
+    for (index, st) in stops.enumerate() {
+      if(st.name == stopName) {
+        self.stopSelection.selectRow(index, inComponent: 0, animated: true)
+        return
+      }
     }
   }
   
@@ -272,8 +311,14 @@ extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource
   }
   
   
+}
+
+extension LiveScheduleViewController: ADBannerViewDelegate {
+  
   func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-  //  banner.removeFromSuperview()
+    banner.hidden = true
   }
   
 }
+
+

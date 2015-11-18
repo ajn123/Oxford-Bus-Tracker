@@ -68,7 +68,7 @@ class RAMAnimatedTabBarController: UITabBarController {
 
     func createCustomIcons(containers : NSDictionary) {
 
-        if let items = tabBar.items {
+        if let _ = tabBar.items {
             let itemsCount = tabBar.items!.count as Int - 1
             var index = 0
             for item in self.tabBar.items as! [RAMAnimatedTabBarItem] {

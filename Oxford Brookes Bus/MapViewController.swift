@@ -111,7 +111,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: long)
         
-        var region = MKCoordinateRegion(center: location, span: span)
+        _ = MKCoordinateRegion(center: location, span: span)
         
     //  self.map.setRegion(region, animated: true)
     

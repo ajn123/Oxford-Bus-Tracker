@@ -11,7 +11,7 @@ import MapKit
 import iAd
 
 
-class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegate, ADBannerViewDelegate {
+class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegate {
   
   lazy var map: MKMapView! = {
     var m = MKMapView()
@@ -118,8 +118,8 @@ extension LiveSchedulerMapViewController: MKMapViewDelegate {
     annotationView view: MKAnnotationView,
     calloutAccessoryControlTapped control: UIControl)
   {
-    self.navigationController!.pushViewController(
-      LiveScheduleViewController(stopNumber: ((view.annotation?.title)!)!), animated: true)
+    let vc = LiveScheduleViewController(stopNumber: ((view.annotation?.title)!)!)
+    self.navigationController!.pushViewController(vc, animated: true)
   }
   
   func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
@@ -136,5 +136,22 @@ extension LiveSchedulerMapViewController: MKMapViewDelegate {
     
     return mkPinView
   }
+  
+  
 
 }
+
+
+extension LiveSchedulerMapViewController: ADBannerViewDelegate {
+  
+  func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+    banner.hidden = true
+  }
+  
+}
+
+
+
+
+
+
