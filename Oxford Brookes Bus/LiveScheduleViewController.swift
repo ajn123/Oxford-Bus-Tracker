@@ -286,7 +286,9 @@ extension LiveScheduleViewController: UITableViewDelegate, UITableViewDataSource
     
     var alert: UIAlertController! = UIAlertController()
     
-    alert = UIAlertController(title: "Reminder", message: "Set a time", preferredStyle: UIAlertControllerStyle.ActionSheet)
+    alert = UIAlertController(title: "Reminder",
+                              message: "Set a time",
+                              preferredStyle: UIAlertControllerStyle.ActionSheet)
     
     for num in [5.0,10.0,15.0]
     {

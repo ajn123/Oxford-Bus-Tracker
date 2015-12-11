@@ -9,16 +9,16 @@
 import UIKit
 
 
-class OxonTimeAPI: NSObject, StopInformation {
-  static let sharedInstance = OxonTimeAPI()
-  private let httpClient = HTTPClient() 
+public class OxonTimeAPI: NSObject, StopInformation {
+  public static let sharedInstance = OxonTimeAPI()
+  public let httpClient = HTTPClient()
   
   override init() {
     super.init()
     
   }
 
-  func getStopInfo(name: String) -> [StopInfo] {
+   public func getStopInfo(name: String) -> [StopInfo] {
     let stops = httpClient.getRequest(name) as! [StopInfo]
     return stops
   }

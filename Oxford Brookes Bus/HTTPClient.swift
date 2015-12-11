@@ -9,13 +9,13 @@
 import UIKit
 import Foundation
 
-class HTTPClient: NSObject {
+public class HTTPClient: NSObject {
   
   override init() {
     super.init()
   }
   
-  func getRequest(name: String) -> [AnyObject] {
+  public func getRequest(name: String) -> [AnyObject] {
     
     guard let url = NSURL(string: name) else {
       return HTMLParser.parseBusTable(nil)

@@ -53,6 +53,10 @@
 		7F43F9911B409ED900E25247 /* StringManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43F9901B409ED900E25247 /* StringManipulation.swift */; };
 		7F44CA901BE32EA8009DEDE2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F44CA8F1BE32EA8009DEDE2 /* OnboardingView.swift */; };
 		7F4A20521B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A20511B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift */; };
+		7F5317FC1C1A5BD800BFEBBC /* OxonTimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CE71B79B475003E90DA /* OxonTimeAPI.swift */; };
+		7F5317FD1C1A5C4F00BFEBBC /* StopInformationTuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CED1B7D1CAB003E90DA /* StopInformationTuple.swift */; };
+		7F5317FE1C1A5D7100BFEBBC /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CE91B79B6D0003E90DA /* HTTPClient.swift */; };
+		7F5317FF1C1A5F5100BFEBBC /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F108CEB1B7B0437003E90DA /* HTMLParser.swift */; };
 		7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F580F021B0A869600D88783 /* NSDateTest.swift */; };
 		7F58ACF41B60AFA100689EF4 /* LaunchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F58ACF31B60AFA100689EF4 /* LaunchIcon.png */; };
 		7F5A07B51B5AEEBC00D52B45 /* UIiAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A07B41B5AEEBB00D52B45 /* UIiAdViewController.swift */; };
@@ -924,8 +928,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F580F031B0A869600D88783 /* NSDateTest.swift in Sources */,
+				7F5317FC1C1A5BD800BFEBBC /* OxonTimeAPI.swift in Sources */,
+				7F5317FE1C1A5D7100BFEBBC /* HTTPClient.swift in Sources */,
 				7FBE362A1AE541640055D8CD /* Oxford_Brookes_BusTests.swift in Sources */,
+				7F5317FF1C1A5F5100BFEBBC /* HTMLParser.swift in Sources */,
 				7F4A20521B0CA3CA004AA6AA /* RoutesTableViewControllerTest.swift in Sources */,
+				7F5317FD1C1A5C4F00BFEBBC /* StopInformationTuple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,7 @@ protocol StopInformation {
 }
 
 
-class StopInfo: NSObject {
+public class StopInfo: NSObject {
   
   enum stopDescription {
     case noStops

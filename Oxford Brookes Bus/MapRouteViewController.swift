@@ -11,9 +11,6 @@ import iAd
 
 class MapRouteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ADBannerViewDelegate {
     
-    
-    
-    
     lazy var routeName: UILabel! = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -114,12 +111,32 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
                         "routeSegmentControl": routeSegmentControl,
                         "routeName": routeName,
                         "superview": view, "label": emptyTableLabel]
-        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[routeName]-[routeSegmentControl]-[routeTable][adBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-        let verticalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[routeChangeButton(45)]-5-[routeSegmentControl]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-        let horizontalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeChangeButton(45)]-5-[routeName]|", options: NSLayoutFormatOptions(rawValue: 0) , metrics: nil, views: viewDict)
-        let horizontalConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[routeTable]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-        let horizontalConstraint4 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeSegmentControl]-5-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+      
+        let verticalConstraint =
+          NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[routeName]-[routeSegmentControl]-[routeTable][adBanner]|",
+                                                         options: NSLayoutFormatOptions(rawValue: 0),
+                                                         metrics: nil,
+                                                         views: viewDict)
+        let verticalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[routeChangeButton(45)]-5-[routeSegmentControl]",
+                                                                                 options: NSLayoutFormatOptions(rawValue: 0),
+                                                                                 metrics: nil,
+                                                                                 views: viewDict)
+        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[adBanner]|",
+                                                                                  options: NSLayoutFormatOptions(rawValue: 0),
+                                                                                  metrics: nil,
+                                                                                  views: viewDict)
+        let horizontalConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeChangeButton(45)]-5-[routeName]|",
+                                                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                                                   metrics: nil,
+                                                                                   views: viewDict)
+        let horizontalConstraint3 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[routeTable]|",
+                                                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                                                   metrics: nil,
+                                                                                   views: viewDict)
+        let horizontalConstraint4 = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[routeSegmentControl]-5-|",
+                                                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                                                   metrics: nil,
+                                                                                   views: viewDict)
         
         self.view.addConstraints(verticalConstraint)
         self.view.addConstraints(verticalConstraint2)
@@ -128,8 +145,14 @@ class MapRouteViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addConstraints(horizontalConstraint3)
         self.view.addConstraints(horizontalConstraint4)
         
-        let centerConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: nil, views: viewDict)
-        let centerConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:[superview]-(<=1)-[label(150)]", options: NSLayoutFormatOptions.AlignAllCenterY, metrics: nil, views: viewDict)
+        let centerConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[superview]-(<=1)-[label(150)]",
+                                                                              options: NSLayoutFormatOptions.AlignAllCenterX,
+                                                                              metrics: nil,
+                                                                              views: viewDict)
+        let centerConstraint2 = NSLayoutConstraint.constraintsWithVisualFormat("H:[superview]-(<=1)-[label(150)]",
+                                                                               options: NSLayoutFormatOptions.AlignAllCenterY,
+                                                                               metrics: nil,
+                                                                               views: viewDict)
         
         self.view.addConstraints(centerConstraint)
         self.view.addConstraints(centerConstraint2)

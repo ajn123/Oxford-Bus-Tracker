@@ -44,19 +44,30 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
     let viewDict = ["map": map, "iAd": iAd]
     
     let vConstraint1 =
-      NSLayoutConstraint.constraintsWithVisualFormat("V:|[map][iAd]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+      NSLayoutConstraint.constraintsWithVisualFormat("V:|[map][iAd]|",
+                                                     options: NSLayoutFormatOptions(rawValue: 0),
+                                                     metrics: nil,
+                                                     views: viewDict)
     
     let hConstraint1 =
-      NSLayoutConstraint.constraintsWithVisualFormat("H:|[map]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+      NSLayoutConstraint.constraintsWithVisualFormat("H:|[map]|",
+                                                     options: NSLayoutFormatOptions(rawValue: 0),
+                                                     metrics: nil,
+                                                     views: viewDict)
     
     let hConstraint2 =
-      NSLayoutConstraint.constraintsWithVisualFormat("H:|[iAd]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+      NSLayoutConstraint.constraintsWithVisualFormat("H:|[iAd]|",
+                                                     options: NSLayoutFormatOptions(rawValue: 0),
+                                                     metrics: nil,
+                                                     views: viewDict)
     
     self.view.addConstraints(vConstraint1)
     self.view.addConstraints(hConstraint1)
     self.view.addConstraints(hConstraint2)
     
-    let listIcon = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "listClicked:")
+    let listIcon = UIBarButtonItem(barButtonSystemItem: .Search,
+                                   target: self,
+                                   action: "listClicked:")
     
     self.navigationItem.rightBarButtonItem = listIcon
     
@@ -70,7 +81,8 @@ class LiveSchedulerMapViewController: UIViewController, CLLocationManagerDelegat
   }
   
   func listClicked(selector: UIBarButtonItem) {
-    self.navigationController?.pushViewController(LiveScheduleViewController(), animated: true)
+    let vc = LiveScheduleViewController()
+    self.navigationController?.pushViewController(vc, animated: true)
   }
   
   func loadMap() {

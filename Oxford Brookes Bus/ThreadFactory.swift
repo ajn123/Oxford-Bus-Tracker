@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ThreadFactory {
+public class ThreadFactory {
   
   class func startNewThread(block: dispatch_block_t) {
     let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT

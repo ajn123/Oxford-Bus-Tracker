@@ -7,15 +7,15 @@
 //
 
 import Foundation
-import Kanna
+import Kanna 
 import UIKit
 
 
-class HTMLParser {
+public class HTMLParser {
   
   init() {}
   
-  class func parseBusTable(data: NSData?) -> [AnyObject] {
+  public class func parseBusTable(data: NSData?) -> [AnyObject] {
     guard let d = data else {
       return [StopInfo(strings: [], stop: StopInfo.stopDescription.noStops)]
     }
