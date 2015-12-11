@@ -15,7 +15,7 @@ import CoreData
 
 class Oxford_Brookes_BusTests: XCTestCase {
   
-  var instance = OxonTimeAPI.sharedInstance
+  let instance = OxonTimeAPI.sharedInstance
 
   override func setUp() {
     super.setUp()
